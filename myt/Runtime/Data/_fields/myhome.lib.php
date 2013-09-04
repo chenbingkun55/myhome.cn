@@ -1,0 +1,1 @@
+<?php	return array ( 0 => 'T_id', 1 => 'T_date', 2 => 'T_title', 3 => 'T_content', 4 => 'T_level', 5 => 'C_date', '_autoinc' => true, '_pk' => 'T_id', '_type' => array ( 'T_id' => 'int(4)', 'T_date' => 'char(12)', 'T_title' => 'char(100)', 'T_content' => 'text', 'T_level' => 'tinyint(1) unsigned', 'C_date' => 'char(12)', ), );?>

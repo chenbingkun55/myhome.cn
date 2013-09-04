@@ -1,0 +1,1 @@
+<?php	return array ( 0 => 'L_id', 1 => 'U_id', 2 => 'L_name', 3 => 'L_note', 4 => 'C_date', '_autoinc' => true, '_pk' => 'L_id', '_type' => array ( 'L_id' => 'int(4) unsigned', 'U_id' => 'int(4)', 'L_name' => 'char(25)', 'L_note' => 'varchar(120)', 'C_date' => 'char(12)', ), );?>

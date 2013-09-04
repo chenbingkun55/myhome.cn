@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE> {$title} </TITLE>
+<script type="text/javascript" src="/public/js/all.js"></script>
+<script type="text/javascript" src="/public/js/jquery-2.0.2.min.js"></script>
+<script>
+	var txt1="<option value='5'>测试</option>";
+	$(document).ready(function(){
+		$('.menu1').change(function(){
+			if ($(this).find('option:selected').val() == '')
+			{
+				$('.menu2').empty();
+				$('.menu2').append(txt1);
+				$('.menu3').empty();
+				$('.menu3').append(txt1);
+			} else {
+				$('.menu2').append(txt1);
+			}
+		});
+	});
+
+
+</script>
+
+<style type="text/css">
+<!--
+
+	#main_frame{ position: relative; width:1007px; clear:both;}
+	#up_frame{ position: relative;height:124px; clear:both;}
+	#down_frame{ position: relative; height:100%; clear:both;}
+
+	#tool_bar{ position: relative; height:24px;width:100%;float:left;background-color:#FF9900;}
+	#info_bar{ position: relative; height:24px;float:right;}
+	.menu_bar{ position: relative; z-index:100;  float:left;background-color: #FF9900; border: 1 solid #000000;overflow:hidden;}
+	#progress_bar{ position: relative; z-index:10;height:100px;width:100%;clear:both;background-color:#FFCC66;}
+	#left_bar{ position: relative; width:100px;height:80%;float:left;background-color:#3399FF;}
+	#main_box{ position: relative; width:907px;height:80%;float:right;}
+	#title_bar{ position: relative; z-index:10;width:100%;height:20px;background-color:#669900;}
+	#conten_box{ position: relative; width:100%px;height:80%;}
+	
+
+	body{font:12px Simsun;margin:0px; background-image:url(/images/bg.png);}
+--!>
+</style>
+
+</HEAD>
+<BODY>
+	<DIV id="main_frame">
+		<DIV id="up_frame">
+			<DIV id="tool_bar">
+				<DIV  id="menu1" class="menu_bar" style="width:{$l_max_width}px; height: {$l_hieght}px;" onmouseover=this.style.height="{$l_max_hieght}"; onmouseout=this.style.height="{$l_hieght}px";>
+					<DIV id="l_all" name="all"  onClick=chenge_contenbox() onmouseover=switch_color(this) onmouseout=switch_color(this)  style="height:{$p_hieght}px;cursor:default;font-family: Tahoma; font-size: 12px;   
+		font-weight: bold;"><label for='all' >所有</label><IMG src="/public/img/down.png" style="float:right;"></IMG></DIV>
+					<volist name="locations" id="lo">
+						<DIV  name="lo{$lo.L_id}" onClick=chenge_contenbox() onmouseover=switch_color(this) onmouseout=switch_color(this)  style="height:{$l_hieght}px;cursor:default;font-family: Tahoma; font-size: 12px;   
+    font-weight: bold" ><label  for='{$lo.L_id}' >{$lo.L_name}</label></DIV>
+					</volist>
+				</DIV>
+				<DIV style="float:left;"></DIV>
+				<DIV  id="menu2"  class="menu_bar" style="width: {$p_max_width}; height: {$p_hieght}px;" onmouseover=this.style.height="{$p_max_hieght}"; onmouseout=this.style.height="{$p_hieght}px";>
+					<DIV name="all" onClick=aaa(this) onmouseover=switch_color(this) onmouseout=switch_color(this)  style="height:{$p_hieght}px;cursor:default;font-family: Tahoma; font-size: 12px;   
+		font-weight: bold" ><label for='all' >所有</label><IMG src="/public/img/down.png" style="float:right;"></IMG></DIV>
+					<volist name="projects" id="pro">
+						<DIV name="pro{$pro.P_id}" onClick=chenge_hs() onmouseover=switch_color(this) onmouseout=switch_color(this)  style="height:{$p_hieght}px;cursor:default;font-family: Tahoma; font-size: 12px;   
+    font-weight: bold" ><label for='{$lo.P_id}' >{$pro.P_name}</label></DIV>
+					</volist>
+				</DIV>
+				<DIV style="float:left;">&nbsp;</DIV>
+				<DIV  id="menu3" class="menu_bar" style="width:{$r_max_width}; height: {$r_hieght}px;" onmouseover=this.style.height="{$r_max_hieght}"; onmouseout=this.style.height="{$r_hieght}px";>
+					<DIV name="all" onClick=chenge_title() onmouseover=switch_color(this) onmouseout=switch_color(this)  style="height:{$p_hieght}px;cursor:default;font-family: Tahoma; font-size: 12px;   
+		font-weight: bold" ><label for='all' >所有</label><IMG src="/public/img/down.png" style="float:right;"></IMG></DIV>
+					<volist name="resources" id="re">
+						<DIV name="re{$re.R_id}" onClick=chenge_title() onmouseover=switch_color(this) onmouseout=switch_color(this)  style="height:{$r_hieght}px;cursor:default;font-family: Tahoma; font-size: 12px;   
+    font-weight: bold" ><label for='{$re.R_id}' >{$re.R_name}</label></DIV>
+					</volist>
+				</DIV>
+
+				<b>{$title}</b>
+				<DIV id="info_bar">使用者: <a href="#">{$username}</a>&nbsp;<a href="#">设置</a>&nbsp;当前时间: {$tdate}</DIV>
+			</DIV>
+			<DIV id="progress_bar">
+				进度栏
+			</DIV>
+		</DIV>
+		<DIV id="down_frame">
+			<DIV id="left_bar">
+				左边栏<br>
+				<a href="http://localhost">重要</a>
+			</DIV>
+			<DIV id="main_box">
+				<DIV id="title_bar">
+					<a href="http://localhost">标题栏</a>
+				</DIV>
+				<DIV id="conten_box">
+					<volist name="data" id="vo">
+						{$vo.id} -- {$vo.data}<br/>
+					</volist>
+				</DIV>
+			</DIV>
+		</DIV>
+	</DIV>
