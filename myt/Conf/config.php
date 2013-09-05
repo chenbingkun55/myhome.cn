@@ -11,7 +11,10 @@ return array(
 
 	'DEFAULT_CHARSET'=> 'utf-8',  // 设置编码.
 	'DEFAULT_TIMEZONE'=>'Asia/ShangHai', // 设置默认时区为上海
-	'APP_DEBUG'=>true, // false-关闭调试模式,会自动开启部署模式.
+	//'APP_DEBUG'=>true, // false-关闭调试模式,会自动开启部署模式.
+    'DEBUG_MODE'=>true,
+    'WEB_LOG_RECORD'=>true,
+    'SHOW_ERROR_MSG'=>true,
 /* SHOW_PAGE_TRACE 己包含.
 	 'SHOW_RUN_TIME'    => false, // true-运行时间显示
 	'SHOW_ADV_TIME'    => true, // 显示详细的运行时间
@@ -22,7 +25,7 @@ return array(
 	'SHOW_FUN_TIMES'   => true, // 显示函数调用次数
 */
 
-	'SHOW_PAGE_TRACE' =>true, // 显示页面Trace信息
+	//'SHOW_PAGE_TRACE' =>true, // 显示页面Trace信息
 
 );
 ?>

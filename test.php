@@ -1,7 +1,5 @@
 <?PHP
+echo date("Y")."-".date("m",strtotime("+1 month"))."-".date("d");
 
-echo time()+5400;
 
-1378278000
-1378301703
 ?>

@@ -14,10 +14,23 @@ class TaskAction extends Action {
         $this->display();
     }
 
+    public function delete_task( $tid ){
+        $task_lib = D('lib');
+        $task_list = $task_lib->delete($tid);
+        if ($task_list > 0 ){
+            echo "数据删除成功";
+            header('Location:/myt');
+        } else{
+            echo "<a href=\"/myt\"><< 返回</a><br><br>";
+            echo "数据删除失败";
+        }
+
+    }
+
     public function update_task( ){
             $task_lib = D('lib');
 
-            if($task_lib->create()){
+            if( $task_lib->create()){
                 /* //input type=datetime-local 返回的时间格式: 2013-09-12T06:06
                 list($task_date,$task_time) = split("T",$task_lib->T_date);
                 */
@@ -29,15 +42,16 @@ class TaskAction extends Action {
 
                 // echo 出 T_date 时间的值.
                 //echo "失败".$task_lib->T_date;
-
-                $res = $task_lib->save();
+                    $res = $task_lib->save();
                 if($res){
                     echo "成功";
                     header('Location:/myt');
                 }else{
+                    echo "<a href=\"/myt\"><< 返回</a><br><br>";
                     echo "失败";
                 }
             }else{
+                echo "<a href=\"/myt\"><< 返回</a><br><br>";
                 echo "失败";
             }
         }
@@ -64,9 +78,11 @@ class TaskAction extends Action {
                 echo "成功";
                 header('Location:/myt');
             }else{
+                echo "<a href=\"/myt\"><< 返回</a><br><br>";
                 echo "失败";
             }
         }else{
+            echo "<a href=\"/myt\"><< 返回</a><br><br>";
             echo "失败";
         }
     }

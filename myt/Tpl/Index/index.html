@@ -15,15 +15,16 @@
 
 <style type="text/css">
 	body{background-color:#003300;margin: 5px 10px 5px 10px;}
-	header,nav,article{padding: 0px;}
-	header{}
+	header,nav,artic
+	header{}le{padding: 0px;}
 		#status_bar{position: relative;background-color:#000000;text-align:center;color:#FFFFFF;}
 		#tools_bar{position: relative;background-color:000000;}
 	nav{}
 		#today_task{background-color:#6699FF;}
 		#grade_task{background-color:#FFFF99;}
 		#delay_task{background-color:#FF6699;}
-		.day_box{float:left;background-color:#FFFFFF;margin: 5px}
+		.day_box{float:left;background-color:#FFFFFF;margin: 5px;overflow:hidden;white-space:nowrap;}
+        .day_box_min{text-align:center;float:left;margin: 2px;overflow:hidden;font-size: 11px;line-height:11px;width: 28px;}
 		.forward_point{float:left;background-color:#000000;color:#FFFFFF;margin: 5px;}
 		.after_point{float:right;background-color:#000000;color:#FFFFFF;margin: 5px;}
 		.cal_title_forward_point{float:left;background-color:#000000;color:#FFFFFF;margin: 5px}
@@ -32,6 +33,16 @@
 	article{}
 		#cal_tools{position: relative;background-color:#000000;color:#FFFFFF;text-align:center}
 		#calendar{position: relative;background-color:#009966;}
+
+    A:link {
+        color: black; text-decoration: none
+    }
+    A:visited {
+        color: red; text-decoration: none
+    }
+    A:hover {
+        color: green; text-decoration: none
+    }
 </style>
 </HEAD>
 
@@ -42,37 +53,29 @@
 </header>
 <nav>
 	<div id="today_task" title="当天事务">
-		<div class="forward_point"><<</div>
             <volist name="task_list_cur" id="d">
                 <a href="/myt/index.php/Task/edit_task/tid/{$d.tid}/">{$d.box}</a>
             </volist>
-		<div class="after_point">>></div>
 	</div>
 	<div id="grade_task" title="重要事务">
-		<div class="forward_point"><<</div>
-		<div id="today_task_1" class="day_box" style="background-color:#6600FF;">测试一天</div>
-		<div id="today_task_2" class="day_box" style="background-color:#FFFF00;">测试二天</div>
-		<div id="today_task_2" class="day_box" style="background-color:#FF0000;">测试二天</div>
-		<div id="today_task_2" class="day_box" style="background-color:#00CC00;">测试二天</div>
-		<div class="after_point">>></div>
+        <volist name="task_list_attention" id="d">
+            <a href="/myt/index.php/Task/edit_task/tid/{$d.tid}/">{$d.box}</a>
+        </volist>
 	</div>
 	<div id="delay_task" title="延期事务">
-		<div class="forward_point"><<</div>
-		<div id="today_task_1" class="day_box" style="background-color:#6600FF;">测试一天</div>
-		<div id="today_task_2" class="day_box" style="background-color:#FFFF00;">测试二天</div>
-		<div id="today_task_2" class="day_box" style="background-color:#FF0000;">测试二天</div>
-		<div id="today_task_2" class="day_box" style="background-color:#00CC00;">测试二天</div>
-		<div class="after_point">>></div>
+        <volist name="task_list_delay" id="d">
+            <a href="/myt/index.php/Task/edit_task/tid/{$d.tid}/">{$d.box}</a>
+        </volist>
 	</div>
 </nav>
 <article>
 	<div id="cal_tools">
-        <B>{$cur_date}</B><BR>
-		&nbsp;星期一&nbsp;星期二&nbsp;星期三&nbsp;星期四&nbsp;星期五&nbsp;星期六&nbsp;星期日
+        <B><a href="/myt/index.php?date={$last_month}"><font color="white">上个月</font></a>&nbsp;<a href="/myt/index.php"><font color="white">{$cur_date}</font></a>&nbsp;<a href="/myt/index.php?date={$next_month}"><font color="white">上个月</font></a></B><BR>
+		<div style="word-spacing: 120px;">星期一 星期二 星期三 星期四 星期五 星期六 星期日</div>
 	</div>
 	<div id="calendar">
         <volist name="cal_date" id="d">
-            <a href="/myt/index.php/Task/create_task/date/{$d.day}/">{$d.box}</a>
+            <a href="/myt/index.php/Task/create_task/date/{$d.day}/" val="{$d.day}">{$d.box}</a>
         </volist>
 	</div>
 </article>
