@@ -4,12 +4,12 @@
     <list default="true" id="83820e51-d90c-4ea5-a94c-02e3b3ecfdfd" name="Default" comment="" />
     <ignored path="myhome.cn.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/index.html" changelist="83820e51-d90c-4ea5-a94c-02e3b3ecfdfd" time="1378455731563" ignored="false" />
+    <file path="/index.html" changelist="83820e51-d90c-4ea5-a94c-02e3b3ecfdfd" time="1378463933882" ignored="false" />
     <file path="/IndexAction.class.php" changelist="83820e51-d90c-4ea5-a94c-02e3b3ecfdfd" time="1378370606984" ignored="false" />
-    <file path="/LibAction.class.php" changelist="83820e51-d90c-4ea5-a94c-02e3b3ecfdfd" time="1378446701902" ignored="false" />
+    <file path="/LibAction.class.php" changelist="83820e51-d90c-4ea5-a94c-02e3b3ecfdfd" time="1378463735694" ignored="false" />
     <file path="/TaskAction.class.php" changelist="83820e51-d90c-4ea5-a94c-02e3b3ecfdfd" time="1378436716229" ignored="false" />
     <file path="/edit_task.html" changelist="83820e51-d90c-4ea5-a94c-02e3b3ecfdfd" time="1378445468968" ignored="false" />
-    <file path="/create_task.html" changelist="83820e51-d90c-4ea5-a94c-02e3b3ecfdfd" time="1378446291511" ignored="false" />
+    <file path="/create_task.html" changelist="83820e51-d90c-4ea5-a94c-02e3b3ecfdfd" time="1378464620067" ignored="false" />
     <file path="/test.php" changelist="83820e51-d90c-4ea5-a94c-02e3b3ecfdfd" time="1378370518958" ignored="false" />
     <file path="$PROJECT_DIR$/../bzb.igg.com/bzb-handset/widgets/com_device_edit/base_class.php" changelist="83820e51-d90c-4ea5-a94c-02e3b3ecfdfd" time="1378274697341" ignored="false" />
     <file path="/base_class.php" changelist="83820e51-d90c-4ea5-a94c-02e3b3ecfdfd" time="1378274694716" ignored="false" />
@@ -21,7 +21,8 @@
     <file path="/PublicAction.class.php" changelist="83820e51-d90c-4ea5-a94c-02e3b3ecfdfd" time="1378443301724" ignored="false" />
     <file path="/config.php" changelist="83820e51-d90c-4ea5-a94c-02e3b3ecfdfd" time="1378351449264" ignored="false" />
     <file path="$PROJECT_DIR$/myt/Runtime/~runtime.php" changelist="83820e51-d90c-4ea5-a94c-02e3b3ecfdfd" time="1378353107283" ignored="false" />
-    <file path="/all.js" changelist="83820e51-d90c-4ea5-a94c-02e3b3ecfdfd" time="1378455881686" ignored="false" />
+    <file path="/all.js" changelist="83820e51-d90c-4ea5-a94c-02e3b3ecfdfd" time="1378461655029" ignored="false" />
+    <file path="/default.css" changelist="83820e51-d90c-4ea5-a94c-02e3b3ecfdfd" time="1378464977152" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,19 +42,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/myt/Tpl/Index/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="24" selection-start="1404" selection-end="1419" vertical-scroll-proportion="-1.7924528">
+            <state line="22" column="20" selection-start="939" selection-end="939" vertical-scroll-proportion="0.04491726">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="all.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="all.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/js/all.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="0" selection-start="1407" selection-end="1407" vertical-scroll-proportion="0.2164009">
+            <state line="10" column="42" selection-start="383" selection-end="383" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -62,7 +63,7 @@
       <file leaf-file-name="IndexAction.class.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/myt/Lib/Action/IndexAction.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="33" selection-start="1093" selection-end="1103" vertical-scroll-proportion="-14.75">
+            <state line="22" column="63" selection-start="880" selection-end="899" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -71,7 +72,7 @@
       <file leaf-file-name="TaskAction.class.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/myt/Lib/Action/TaskAction.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="86" column="9" selection-start="3334" selection-end="3334" vertical-scroll-proportion="-14.603773">
+            <state line="11" column="38" selection-start="391" selection-end="391" vertical-scroll-proportion="0.0">
               <folding>
                 <marker date="1378439153314" expanded="true" signature="802:840" placeholder="..." />
                 <marker date="1378439153314" expanded="true" signature="1854:1892" placeholder="..." />
@@ -86,11 +87,8 @@
       <file leaf-file-name="edit_task.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/myt/Tpl/Task/edit_task.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="36" selection-start="1278" selection-end="1278" vertical-scroll-proportion="-12.392858">
-              <folding>
-                <element signature="n#style#0;n#span#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#INPUT#1;n#FORM#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
+            <state line="14" column="0" selection-start="545" selection-end="937" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -98,7 +96,7 @@
       <file leaf-file-name="test.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="2" selection-start="76" selection-end="76" vertical-scroll-proportion="-2.7142856">
+            <state line="4" column="2" selection-start="76" selection-end="76" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -107,21 +105,12 @@
       <file leaf-file-name="LibAction.class.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/myt/Lib/Action/LibAction.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="248" column="46" selection-start="11134" selection-end="11149" vertical-scroll-proportion="-4.283019">
+            <state line="160" column="39" selection-start="7352" selection-end="7352" vertical-scroll-proportion="0.0">
               <folding>
-                <marker date="1378450176349" expanded="true" signature="5652:5669" placeholder="..." />
-                <marker date="1378450176349" expanded="true" signature="7502:7519" placeholder="..." />
-                <marker date="1378450176349" expanded="true" signature="9458:9475" placeholder="..." />
+                <marker date="1378463738082" expanded="true" signature="5652:5669" placeholder="..." />
+                <marker date="1378463738082" expanded="true" signature="7560:7577" placeholder="..." />
+                <marker date="1378463738082" expanded="true" signature="9554:9571" placeholder="..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="config.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/myt/Conf/config.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="42" selection-start="785" selection-end="785" vertical-scroll-proportion="-15.428572">
-              <folding />
             </state>
           </provider>
         </entry>
@@ -129,7 +118,7 @@
       <file leaf-file-name="PublicAction.class.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/myt/Lib/Action/PublicAction.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="24" selection-start="432" selection-end="432" vertical-scroll-proportion="-10.857142">
+            <state line="16" column="24" selection-start="432" selection-end="432" vertical-scroll-proportion="0.0">
               <folding>
                 <marker date="1378443381181" expanded="true" signature="196:387" placeholder="..." />
               </folding>
@@ -137,15 +126,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="create_task.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/myt/Tpl/Task/create_task.html">
+      <file leaf-file-name="simple.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/kindeditor-4.1.7/themes/simple/simple.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="61" selection-start="875" selection-end="899" vertical-scroll-proportion="-8.321428">
-              <folding>
-                <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#textarea#0;n#FORM#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#INPUT#1;n#FORM#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="default.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/kindeditor-4.1.7/themes/default/default.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="496" column="34" selection-start="8614" selection-end="8614" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -160,7 +154,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/myt/Runtime/Cache/d9694f4b38f97ece85dfe5424cc555a3.php" />
         <option value="$PROJECT_DIR$/myt/Runtime/Cache/fbf76f8c6421ba264e91ddb7af4fc089.php" />
         <option value="$PROJECT_DIR$/myt/Runtime/Data/_fields/myhome.lib.php" />
         <option value="$PROJECT_DIR$/myt/Runtime/Cache/0a4d3d80848affbb2155d4809f8511c0.php" />
@@ -168,14 +161,15 @@
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/myt/Conf/config.php" />
         <option value="$PROJECT_DIR$/test.php" />
-        <option value="$PROJECT_DIR$/myt/Lib/Action/IndexAction.class.php" />
         <option value="$PROJECT_DIR$/myt/Lib/Action/TaskAction.class.php" />
         <option value="$PROJECT_DIR$/myt/Lib/Action/PublicAction.class.php" />
-        <option value="$PROJECT_DIR$/myt/Tpl/Task/create_task.html" />
-        <option value="$PROJECT_DIR$/myt/Tpl/Task/edit_task.html" />
+        <option value="$PROJECT_DIR$/myt/Lib/Action/IndexAction.class.php" />
         <option value="$PROJECT_DIR$/myt/Lib/Action/LibAction.class.php" />
-        <option value="$PROJECT_DIR$/myt/Tpl/Index/index.html" />
+        <option value="$PROJECT_DIR$/myt/Tpl/Task/edit_task.html" />
+        <option value="$PROJECT_DIR$/myt/Tpl/Task/create_task.html" />
+        <option value="$PROJECT_DIR$/public/kindeditor-4.1.7/themes/default/default.css" />
         <option value="$PROJECT_DIR$/public/js/all.js" />
+        <option value="$PROJECT_DIR$/myt/Tpl/Index/index.html" />
       </list>
     </option>
   </component>
@@ -186,9 +180,9 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1583" />
-    <option name="y" value="106" />
-    <option name="width" value="1584" />
+    <option name="x" value="-1431" />
+    <option name="y" value="138" />
+    <option name="width" value="1328" />
     <option name="height" value="673" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -249,6 +243,158 @@
               <option name="myItemId" value="public" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kindeditor-4.1.7" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myhome.cn" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myhome.cn" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kindeditor-4.1.7" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="themes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="simple" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myhome.cn" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myhome.cn" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kindeditor-4.1.7" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="themes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="qq" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myhome.cn" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myhome.cn" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kindeditor-4.1.7" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="themes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="default" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myhome.cn" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myhome.cn" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kindeditor-4.1.7" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="themes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="common" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myhome.cn" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myhome.cn" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kindeditor-4.1.7" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plugins" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myhome.cn" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myhome.cn" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kindeditor-4.1.7" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lang" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -265,6 +411,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myhome.cn" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myhome.cn" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -347,14 +507,14 @@
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="recentsLimit" value="5" />
     <property name="options.lastSelected" value="project.propDebugger" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../bzb.igg.com" />
+    <property name="recentsLimit" value="5" />
     <property name="restartRequiresConfirmation" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../bzb.igg.com" />
     <property name="FullScreen" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -404,14 +564,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1583" y="106" width="1584" height="673" extended-state="0" />
-    <editor active="true" />
+    <frame x="-1431" y="138" width="1328" height="673" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22667542" sideWeight="0.82778865" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27725118" sideWeight="0.82778865" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -485,26 +645,10 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="2" />
+      <option name="time" value="3" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/myt/Tpl/Task/create_task.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="38" selection-start="272" selection-end="272" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#textarea#0;n#FORM#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#INPUT#1;n#FORM#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myw/Lib/Action/复件 AjaxAction.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="48" selection-start="551" selection-end="551" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/myt/Runtime/Data/_fields/myhome.lib.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="162" selection-start="161" selection-end="161" vertical-scroll-proportion="-0.0" />
@@ -522,58 +666,33 @@
     </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/_superglobals.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="107" column="0" selection-start="3336" selection-end="3336" vertical-scroll-proportion="0.39904988">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myt/Lib/Action/IndexAction.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="33" selection-start="1093" selection-end="1103" vertical-scroll-proportion="-14.75">
-          <folding />
-        </state>
+        <state line="107" column="0" selection-start="3336" selection-end="3336" vertical-scroll-proportion="0.39904988" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/myt/Conf/config.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="42" selection-start="785" selection-end="785" vertical-scroll-proportion="-15.428572">
-          <folding />
-        </state>
+        <state line="23" column="42" selection-start="785" selection-end="785" vertical-scroll-proportion="-15.428572" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/myt/Lib/Action/PublicAction.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="24" selection-start="432" selection-end="432" vertical-scroll-proportion="-10.857142">
+        <state line="16" column="24" selection-start="432" selection-end="432" vertical-scroll-proportion="0.0">
           <folding>
             <marker date="1378443381181" expanded="true" signature="196:387" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myt/Tpl/Task/create_task.html">
+    <entry file="file://$PROJECT_DIR$/test.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="61" selection-start="875" selection-end="899" vertical-scroll-proportion="-8.321428">
-          <folding>
-            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#textarea#0;n#FORM#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#INPUT#1;n#FORM#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myt/Tpl/Task/edit_task.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="36" selection-start="1278" selection-end="1278" vertical-scroll-proportion="-12.392858">
-          <folding>
-            <element signature="n#style#0;n#span#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#INPUT#1;n#FORM#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        <state line="4" column="2" selection-start="76" selection-end="76" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/myt/Lib/Action/TaskAction.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="86" column="9" selection-start="3334" selection-end="3334" vertical-scroll-proportion="-14.603773">
+        <state line="11" column="38" selection-start="391" selection-end="391" vertical-scroll-proportion="0.0">
           <folding>
             <marker date="1378439153314" expanded="true" signature="802:840" placeholder="..." />
             <marker date="1378439153314" expanded="true" signature="1854:1892" placeholder="..." />
@@ -584,34 +703,60 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test.php">
+    <entry file="file://$PROJECT_DIR$/myt/Lib/Action/IndexAction.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="2" selection-start="76" selection-end="76" vertical-scroll-proportion="-2.7142856">
+        <state line="22" column="63" selection-start="880" selection-end="899" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/myt/Lib/Action/LibAction.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="248" column="46" selection-start="11134" selection-end="11149" vertical-scroll-proportion="-4.283019">
+        <state line="160" column="39" selection-start="7352" selection-end="7352" vertical-scroll-proportion="0.0">
           <folding>
-            <marker date="1378450176349" expanded="true" signature="5652:5669" placeholder="..." />
-            <marker date="1378450176349" expanded="true" signature="7502:7519" placeholder="..." />
-            <marker date="1378450176349" expanded="true" signature="9458:9475" placeholder="..." />
+            <marker date="1378463738082" expanded="true" signature="5652:5669" placeholder="..." />
+            <marker date="1378463738082" expanded="true" signature="7560:7577" placeholder="..." />
+            <marker date="1378463738082" expanded="true" signature="9554:9571" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myt/Tpl/Index/index.html">
+    <entry file="file://$PROJECT_DIR$/myt/Tpl/Task/create_task.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="24" selection-start="1404" selection-end="1419" vertical-scroll-proportion="-1.7924528">
+        <state line="20" column="7" selection-start="951" selection-end="951" vertical-scroll-proportion="0.18851252" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/kindeditor-4.1.7/themes/simple/simple.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myt/Tpl/Task/edit_task.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="0" selection-start="545" selection-end="937" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/kindeditor-4.1.7/themes/default/default.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="496" column="34" selection-start="8614" selection-end="8614" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/js/all.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="0" selection-start="1407" selection-end="1407" vertical-scroll-proportion="0.2164009">
+        <state line="10" column="42" selection-start="383" selection-end="383" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myt/Tpl/Index/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="20" selection-start="939" selection-end="939" vertical-scroll-proportion="0.04491726">
           <folding />
         </state>
       </provider>

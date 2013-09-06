@@ -487,6 +487,7 @@
 }
 .ke-edit-iframe,
 .ke-edit-textarea {
+    background-color: #FFFFCC;
 	border: 0;
 	margin: 0;
 	padding: 0;

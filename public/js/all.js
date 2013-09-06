@@ -24,7 +24,8 @@ $(document).ready(function(){
 	$(".day_box").css("height",day_box_height).css("width",day_box_width);
 	$(".title_box").css("width",day_box_width);
 
-    $(".day_box_min").hover(function( e ){
+    $(".day_box_min").mouseover(function( ){
+        $(".task_level_div").hide();
         //alert( $(this).parent().parent().attr('date'));
         $.get("/myt/index.php/Lib/show_level_task/date/"+$(this).parent().parent().attr('date')+"/level/"+$(this).attr('val')+"/", function(data,status){
             $(".task_level_div").html( data )
@@ -42,10 +43,31 @@ $(document).ready(function(){
         $(".task_level_div").css("left",pointLeft);
 
         //alert(pointLeft+"-"+pointTop);
-        $(".task_level_div").fadeIn();
-        },function(){
-           $(".task_level_div").fadeOut();
+        $(".task_level_div").show();
         });
+
+    $(".task_level_div").mouseover(function(){
+        $(".task_level_div").fadeTo(1,1);
+        $(".task_level_div").stop();
+    });
+
+    $(".task_level_div").mouseout(function(){
+           $(".task_level_div").fadeOut(2000);
+        });
+
+    $(".task_level_line").click(function( ){
+        var reVlaue = $(this).attr("tid");
+        // alert(reVlaue);
+        if( "undefined" == typeof reVlaue ){
+            var val = $(this).attr("date");
+            var active = 'create_task/date/'+val+'/';
+        }else{
+            var val = $(this).attr("tid");
+            var active = 'edit_task/tid/'+val+'/';
+        }
+        TaskWindow = window.open("/myt/index.php/Task/"+active,val,"width=730,height=510,menubar=no,toolbar=no,location=no,scrollbars=no,status=no,modal=yes");
+        TaskWindow.focus();
+    });
 
     $(".day_box").click(function( ){
         var reVlaue = $(this).attr("tid");
@@ -69,4 +91,17 @@ $(document).ready(function(){
         });
     });
 
+    /* 这个函数 不知道怎么地死活不能生效.
+    $(".task_level_line").live("click",function(){
+        var reVlaue = $(this).attr("tid");
+        TaskWindow = window.open("/myt/index.php/Task/edit_task/tid/"+ reVlaue+"/","width=730,height=510,menubar=no,toolbar=no,location=no,scrollbars=no,status=no,modal=yes");
+        TaskWindow.focus();
+    });
+    */
 });
+
+function TaskEdit( tid ){
+    TaskWindow = window.open("/myt/index.php/Task/edit_task/tid/"+tid+"/",tid,"width=730,height=510,menubar=no,toolbar=no,location=no,scrollbars=no,status=no,modal=yes");
+    TaskWindow.focus();
+}
+

@@ -138,6 +138,7 @@ class LibAction extends Action {
         $task_list = $task_lib->where("T_date < '".$today_start."'" )->order('T_date')->select();
 
         for($i=0;$i< count($task_list);$i++){
+            if( $task_list[$i]['T_level'] > 4 ) continue;
             switch( $task_list[$i]['T_date'] ){
                 case $task_list[$i]['T_date'] < ( $today_start - 432000 ) :
                     $bg_color = "#FF0000";
@@ -178,7 +179,7 @@ class LibAction extends Action {
         $today_start = mktime(0,0,0,$month,$day,$year);
         //echo $year,$month,$day."TESET".$today_start." ".$today_end;
 
-        $task_list = $task_lib->order('T_date')->select();
+        $task_list = $task_lib->where("T_date < '".$today_start."'")->order('T_date')->select();
 
         for($i=0;$i< count($task_list);$i++){
             if( $task_list[$i]['T_level'] > 4 ) {
@@ -246,7 +247,7 @@ class LibAction extends Action {
                     $bg_color = "#FF0000";
                     $title = "非常重要";
             }
-            echo "<div class=\"task_level_line\" tid=\"".$task_list[$i]['T_id']."\" style=\"background-color:".$bg_color."\">".($i+1).". ".$task_list[$i]['T_title']."</div>" ;
+            echo "<div class=\"task_level_line\" onClick=\"TaskEdit(".$task_list[$i]['T_id'].");\" style=\"background-color:".$bg_color."\"><span>".($i+1).". ".$task_list[$i]['T_title']."</span></div>" ;
         }
     }
 }
