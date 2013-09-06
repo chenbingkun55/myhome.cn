@@ -18,21 +18,21 @@ class LibAction extends Action {
 
         for($i=$cal_start - 2 ;$i>= 0;$i-- ){
             $day_i = ( $cal_L_day - $i) < 10 ? '0'.( $cal_L_day - $i) : ( $cal_L_day - $i);
-            $cal_data = array_merge($cal_data,array( $cal_index =>array( "day"=>$year."-".$month_L."-".($day_i),"box"=>"<div class=\"day_box\" style=\"background-color:#C0C0C0;\">".$month_L."月".$day_i."号<BR>".$this->show_task($year."-".$month_L."-".($day_i))."</div>")));
+            $cal_data = array_merge($cal_data,array( $cal_index =>array( "day"=>$year."-".$month_L."-".($day_i),"box"=>"<div class=\"day_box_date\" style=\"background-color:#996666;\">".$month_L."月".$day_i."号<BR>".$this->show_task($year."-".$month_L."-".($day_i))."</div>")));
             $cal_index++;
             $cal_max_mnu--;
         }
 
             for($i=1;$i<= $cal_M_day;$i++){
                 $day_i = $i < 10 ? '0'.$i : $i;
-                $cal_data = array_merge($cal_data,array( $cal_index =>array( "day"=>$year."-".($month)."-".($day_i),"box"=>"<div class=\"day_box\">".$month."月".$day_i."号<BR>".$this->show_task($year."-".($month)."-".($day_i))."</div>")));
+                $cal_data = array_merge($cal_data,array( $cal_index =>array( "day"=>$year."-".$month."-".($day_i),"box"=>"<div class=\"day_box_date\" style=\"background-color:#FFFF99;\">".$month."月".$day_i."号<BR>".$this->show_task($year."-".($month)."-".($day_i))."</div>")));
                 $cal_index++;
                 $cal_max_mnu--;
         }
 
         for($i=1;$i<= $cal_max_mnu;$i++){
             $day_i = $i < 10 ? '0'.$i : $i;
-            $cal_data = array_merge($cal_data,array( $cal_index =>array( "day"=>$year."-".$month_R."-".($day_i),"box"=>"<div class=\"day_box\" style=\"background-color:#C0C0C0;\">".$month_R."月".$day_i."号<BR>".$this->show_task($year."-".$month_R."-".($day_i))."</div>")));
+            $cal_data = array_merge($cal_data,array( $cal_index =>array( "day"=>$year."-".$month_R."-".($day_i),"box"=>"<div class=\"day_box_date\" style=\"background-color:#99CCFF;\">".$month_R."月".$day_i."号<BR>".$this->show_task($year."-".$month_R."-".($day_i))."</div>")));
             $cal_index++;
         }
 
@@ -114,11 +114,11 @@ class LibAction extends Action {
                         break;
                     default :
                         $bg_color = "#CCFFCC";
-                        $title = "将来任务";
+                        $title = "今天未完成任务";
                 }
 
                 // 当天任务 按重要与否 标注星星.
-                $list_array = array_merge($list_array,array( $i =>array( "tid"=>$task_list[$i]['T_id'],"box"=>"<div class=\"day_box\" title=".$title." style=\"background-color:".$bg_color.";\">".date("H:i",$task_list[$i]['T_date'])." ".$public_action->show_level($task_list[$i]['T_level'])."<BR>".$task_list[$i]['T_title']."</div>")));
+                $list_array = array_merge($list_array,array( $i =>array( "tid"=>$task_list[$i]['T_id'],"box"=>"<div  class=\"day_box_date\" title=".$title." style=\"background-color:".$bg_color.";\">".date("H:i",$task_list[$i]['T_date'])." ".$public_action->show_level($task_list[$i]['T_level'])."</div><div>".$task_list[$i]['T_title']."</div>")));
             }
         return $list_array;
     }
@@ -161,7 +161,7 @@ class LibAction extends Action {
             }
 
             // 当天任务 按重要与否 标注星星.
-            $list_array = array_merge($list_array,array( $i =>array( "tid"=>$task_list[$i]['T_id'],"box"=>"<div class=\"day_box\" title=".$title." style=\"background-color:".$bg_color.";\">".date("m-d",$task_list[$i]['T_date'])." ".date("H:i",$task_list[$i]['T_date'])." ".$public_action->show_level($task_list[$i]['T_level'])."<BR>".$task_list[$i]['T_title']."</div>")));
+            $list_array = array_merge($list_array,array( $i =>array( "tid"=>$task_list[$i]['T_id'],"box"=>"<div class=\"day_box_date\" title=".$title." style=\"background-color:".$bg_color.";\">".date("m-d",$task_list[$i]['T_date'])." ".date("H:i",$task_list[$i]['T_date'])." ".$public_action->show_level($task_list[$i]['T_level'])."</div><div>".$task_list[$i]['T_title']."</div>")));
         }
 
         return $list_array;
@@ -205,13 +205,48 @@ class LibAction extends Action {
                 }
 
                 // 当天任务 按重要与否 标注星星.
-                $list_array = array_merge($list_array,array( $i =>array( "tid"=>$task_list[$i]['T_id'],"box"=>"<div class=\"day_box\" title=".$title." style=\"background-color:".$bg_color.";\">".date("m-d",$task_list[$i]['T_date'])." ".date("H:i",$task_list[$i]['T_date'])." ".$public_action->show_level($task_list[$i]['T_level'])."<BR>".$task_list[$i]['T_title']."</div>")));
+                $list_array = array_merge($list_array,array( $i =>array( "tid"=>$task_list[$i]['T_id'],"box"=>"<div  class=\"day_box_date\" title=".$title." style=\"background-color:".$bg_color.";\">".date("m-d",$task_list[$i]['T_date'])." ".date("H:i",$task_list[$i]['T_date'])." ".$public_action->show_level($task_list[$i]['T_level'])."</div><div>".$task_list[$i]['T_title']."</div>")));
             }
         }
         return $list_array;
     }
 
     public function show_level_task( $date ,$level ){
-        echo "<div class=\"day_box\">".$date,$level."</div>" ;
+        $task_lib = D('lib');
+        $list_array = array();
+
+
+        list( $year,$month,$day )= split("-",$date);
+
+        $today_start = mktime(0,0,0,$month,$day,$year);
+        $today_end = mktime(23,59,59,$month,$day,$year);
+        //echo $year,$month,$day."TESET".$today_start." ".$today_end;
+
+        $task_list = $task_lib->where("T_date between '". $today_start."' and '".$today_end."' and T_level = '".$level."'" )->order('T_date')->select();
+
+        for($i=0;$i< count($task_list);$i++){
+            switch( $task_list[$i]['T_level'] ){
+                case $task_list[$i]['T_level'] < 2 :
+                    $bg_color = "#00CC00";
+                    $title = "一般";
+                    break;
+                case $task_list[$i]['T_level'] < 3 :
+                    $bg_color = "#9966CC";
+                    $title = "重要";
+                    break;
+                case $task_list[$i]['T_level'] < 4 :
+                    $bg_color = "#FF9900";
+                    $title = "重要紧急";
+                    break;
+                case $task_list[$i]['T_level'] < 5 :
+                    $bg_color = "#FF3300";
+                    $title = "重要不紧急";
+                    break;
+                default :
+                    $bg_color = "#FF0000";
+                    $title = "非常重要";
+            }
+            echo "<div class=\"task_level_line\" tid=\"".$task_list[$i]['T_id']."\" style=\"background-color:".$bg_color."\">".($i+1).". ".$task_list[$i]['T_title']."</div>" ;
+        }
     }
 }

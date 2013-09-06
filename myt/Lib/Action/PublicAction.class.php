@@ -6,7 +6,7 @@ class PublicAction extends Action {
             $level_tag .= "*";
             $level--;
         }
-        return $level_tag;
+       return $level_tag;
     }
 
     public function split_date( $unixtime ){

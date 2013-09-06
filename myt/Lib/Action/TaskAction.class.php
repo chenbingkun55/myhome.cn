@@ -19,9 +19,9 @@ class TaskAction extends Action {
         $task_list = $task_lib->delete($tid);
         if ($task_list > 0 ){
             echo "数据删除成功";
-            header('Location:/myt');
+            echo "<script>self.opener.location.reload();window.close();</script>";
         } else{
-            echo "<a href=\"/myt\"><< 返回</a><br><br>";
+            echo "<span class=\"task_win_close\" style=\"float: right;background-color: #CC0000\">关闭</span><br><br>";
             echo "数据删除失败";
         }
 
@@ -45,13 +45,13 @@ class TaskAction extends Action {
                     $res = $task_lib->save();
                 if($res){
                     echo "成功";
-                    header('Location:/myt');
+                    echo "<script>self.opener.location.reload();window.close();</script>";
                 }else{
-                    echo "<a href=\"/myt\"><< 返回</a><br><br>";
+                    echo "<span class=\"task_win_close\" style=\"float: right;background-color: #CC0000\">关闭</span><br><br>";
                     echo "失败";
                 }
             }else{
-                echo "<a href=\"/myt\"><< 返回</a><br><br>";
+                echo "<span class=\"task_win_close\" style=\"float: right;background-color: #CC0000\">关闭</span><br><br>";
                 echo "失败";
             }
         }
@@ -76,13 +76,13 @@ class TaskAction extends Action {
             $res = $task_lib->add();
             if($res){
                 echo "成功";
-                header('Location:/myt');
+                echo "<script>self.opener.location.reload();window.close();</script>";
             }else{
-                echo "<a href=\"/myt\"><< 返回</a><br><br>";
+                echo "<span class=\"task_win_close\" style=\"float: right;background-color: #CC0000\">关闭</span><br><br>";
                 echo "失败";
             }
         }else{
-            echo "<a href=\"/myt\"><< 返回</a><br><br>";
+            echo "<span class=\"task_win_close\" style=\"float: right;background-color: #CC0000\">关闭</span><br><br>";
             echo "失败";
         }
     }

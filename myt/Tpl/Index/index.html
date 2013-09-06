@@ -14,35 +14,25 @@
 </script>
 
 <style type="text/css">
-	body{background-color:#003300;margin: 5px 10px 5px 10px;}
-	header,nav,artic
-	header{}le{padding: 0px;}
+	body{background-color:#003300;margin: 5px 10px 5px 10px;font-family: 微软雅黑;}
+    header,nav,article{padding: 0px;}
+	header{}
 		#status_bar{position: relative;background-color:#000000;text-align:center;color:#FFFFFF;}
-		#tools_bar{position: relative;background-color:000000;}
+		#tools_bar{position: relative;background-color:#000000;}
 	nav{}
 		#today_task{background-color:#6699FF;}
 		#grade_task{background-color:#FFFF99;}
 		#delay_task{background-color:#FF6699;}
-		.day_box{float:left;background-color:#FFFFFF;margin: 5px;overflow:hidden;white-space:nowrap;}
-        .day_box_min{text-align:center;float:left;margin: 2px;overflow:hidden;font-size: 11px;line-height:11px;width: 28px;}
-		.forward_point{float:left;background-color:#000000;color:#FFFFFF;margin: 5px;}
-		.after_point{float:right;background-color:#000000;color:#FFFFFF;margin: 5px;}
-		.cal_title_forward_point{float:left;background-color:#000000;color:#FFFFFF;margin: 5px}
-		.cal_forward_point{float:left;background-color:#000000;color:#FFFFFF;margin: 5px}
-		.cal_after_point{float:right;background-color:#000000;color:#FFFFFF;margin: 5px}
+		.day_box{float:left;background-color:#FFFFCC;margin: 5px;overflow:hidden;white-space:nowrap;box-shadow: 5px 5px 5px #888888;}
+        .day_box_date{font-family: Jokerman;font-size: 12px;}
+        .day_box_min{position: relative;text-align:center;float:left;margin: 10px 2px 5px 2px;overflow:hidden;font-size: 11px;line-height:11px;width: 28px;}
+        .task_level_line{position: relative;width: 200px;height: 20px;}
 	article{}
-		#cal_tools{position: relative;background-color:#000000;color:#FFFFFF;text-align:center}
-		#calendar{position: relative;background-color:#009966;}
-
-    A:link {
-        color: black; text-decoration: none
-    }
-    A:visited {
-        color: red; text-decoration: none
-    }
-    A:hover {
-        color: green; text-decoration: none
-    }
+		.cal_tools{position: relative;background-color:#000000;color:#FFFFFF;text-align:center;font-size: 12px;}
+        .cal_tools A:link{margin: 0px 10px 0px 10px;color: #FFFFFF; text-decoration: none;border:2px solid;border-radius:25px;-moz-border-radius:25px; /* Old Firefox */word-spacing: 50px; }
+        .cal_tools_week{ margin: 0px 60px 0px 60px;float:left;word-spacing: 130px;}
+		#calendar{position: relative;background-color:#336600;}
+        .task_level_div{position: absolute;background-color:#6600FF;display: none;z-index: 1000}
 </style>
 </HEAD>
 
@@ -52,30 +42,33 @@
 	<div id="tools_bar">工具栏</div>
 </header>
 <nav>
+    <div class="task_level_div">
+        测试.
+    </div>
 	<div id="today_task" title="当天事务">
             <volist name="task_list_cur" id="d">
-                <a href="/myt/index.php/Task/edit_task/tid/{$d.tid}/">{$d.box}</a>
+                <div tid="{$d.tid}" class="day_box">{$d.box}</div>
             </volist>
 	</div>
 	<div id="grade_task" title="重要事务">
         <volist name="task_list_attention" id="d">
-            <a href="/myt/index.php/Task/edit_task/tid/{$d.tid}/">{$d.box}</a>
+            <div tid="{$d.tid}" class="day_box">{$d.box}</div>
         </volist>
 	</div>
 	<div id="delay_task" title="延期事务">
         <volist name="task_list_delay" id="d">
-            <a href="/myt/index.php/Task/edit_task/tid/{$d.tid}/">{$d.box}</a>
+            <div tid="{$d.tid}" class="day_box">{$d.box}</div>
         </volist>
 	</div>
 </nav>
 <article>
-	<div id="cal_tools">
-        <B><a href="/myt/index.php?date={$last_month}"><font color="white">上个月</font></a>&nbsp;<a href="/myt/index.php"><font color="white">{$cur_date}</font></a>&nbsp;<a href="/myt/index.php?date={$next_month}"><font color="white">上个月</font></a></B><BR>
-		<div style="word-spacing: 120px;">星期一 星期二 星期三 星期四 星期五 星期六 星期日</div>
+	<div id="cal_tools" class="cal_tools">
+        <a href="/myt/index.php?date={$last_month}">上个月</a><a href="/myt/index.php">{$cur_date}</a><a href="/myt/index.php?date={$next_month}">上个月</a><BR>
+		<div class="cal_tools_week">星期一 星期二 星期三 星期四 星期五 星期六 星期日</div>
 	</div>
 	<div id="calendar">
         <volist name="cal_date" id="d">
-            <a href="/myt/index.php/Task/create_task/date/{$d.day}/" val="{$d.day}">{$d.box}</a>
+            <div date="{$d.day}" class="day_box">{$d.box}</div>
         </volist>
 	</div>
 </article>
