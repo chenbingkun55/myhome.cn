@@ -26,7 +26,7 @@ CREATE TABLE `task_lib` (
   `T_level` tinyint(1) unsigned NOT NULL COMMENT '1-绿色,2-蓝色,3-黄色,4-橙色,5-红色',
   `C_date` char(12) DEFAULT NULL,
   PRIMARY KEY (`T_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1472180243 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of task_lib
