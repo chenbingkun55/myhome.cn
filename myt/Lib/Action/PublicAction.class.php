@@ -1,12 +1,12 @@
 <?php
 // 本类由系统自动生成，仅供测试用途
 class PublicAction extends Action {
-    public function show_level( $level ){
+    public function show_level_tag( $level ){
         while ( $level > 0 ){
-            $level_tag .= "*";
+            $level_tag .= "★";
             $level--;
         }
-       return $level_tag;
+       return "<font color=\"#336600\">".$level_tag."</font>";
     }
 
     public function split_date( $unixtime ){

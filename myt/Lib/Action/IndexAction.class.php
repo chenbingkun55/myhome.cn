@@ -14,10 +14,22 @@ class IndexAction extends Action {
         */
 
         // date("Y-n-j") ,不带 前导零日期.
-        $cur_date = is_null($_GET['date']) ? date("Y-m-d") : $_GET['date'];
-        $last_month = date("Y")."-".date("m",strtotime("-1 month"))."-".date("d");
-        $next_month = date("Y")."-".date("m",strtotime("+1 month"))."-".date("d");
-        $cal_date = $lib_action->show_cal($cur_date);
+        $get_date = is_null($_GET['date']) ? date("Y-m-d") : $_GET['date'];
+		$cur_date = date("Y-m-d");
+        $last_month['1'] = date("Y-m-d",strtotime("-1 month"));
+		$last_month['2'] = date("Y-m-d",strtotime("-2 month"));
+		$last_month['3'] = date("Y-m-d",strtotime("-3 month"));
+        $last_month['4'] = date("Y-m-d",strtotime("-4 month"));
+		$last_month['5'] = date("Y-m-d",strtotime("-5 month"));
+		$last_month['6'] = date("Y-m-d",strtotime("-6 month"));
+		$next_month['1'] = date("Y-m-d",strtotime("+1 month"));
+		$next_month['2'] = date("Y-m-d",strtotime("+2 month"));
+		$next_month['3'] = date("Y-m-d",strtotime("+3 month"));
+		$next_month['4'] = date("Y-m-d",strtotime("+4 month"));
+		$next_month['5'] = date("Y-m-d",strtotime("+5 month"));
+		$next_month['6'] = date("Y-m-d",strtotime("+6 month"));
+
+        $cal_date = $lib_action->show_task_cal($get_date);
         $task_list_cur = $lib_action->show_task_today( );
         $task_list_delay = $lib_action->show_task_delay( );
         $task_list_attention = $lib_action->show_task_attention( );

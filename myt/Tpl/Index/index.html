@@ -4,44 +4,64 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf8" />
 <TITLE> {$title} </TITLE>
 <script type="text/javascript" src="/public/js/jquery-2.0.2.min.js"></script>
+<!-- 使用 cufon 自定义网站字体 在线转换工具: http://cufon.shoqolate.com/generate/
+<script type="text/javascript" src="/public/js/cufon-yui.js"></script>
+<script type="text/javascript" src="/public/js/Bascula_400.font.js"></script>
+<script type="text/javascript">
+    Cufon.replace('.day_box_date2');
+</script>
+End -->
 <script type="text/javascript" src="/public/js/all.js"></script>
 <script charset="utf-8" src="/public/kindeditor-4.1.7/kindeditor.js"></script>
 <script charset="utf-8" src="/public/kindeditor-4.1.7/lang/zh_CN.js"></script>
 <script>
+	// 设定 每一分钟刷新一次主页。
+	setTimeout("document.location.reload()",150000);//每60秒钟刷新一次 
+
    KindEditor.ready(function(K) {
        window.editor = K.create('#editor_id');
    });
 </script>
-
+	<!-- 
+		禁止 Body 里的文本被选中.
+		-moz-user-select:none;-webkit-user-select:none;user-select:none;  
+	--> 
 <style type="text/css">
-	body{background-color:#003300;margin: 5px 10px 5px 10px;font-family: 微软雅黑;}
+	body{background-color:#003300;font-size: 12px;font-family: 微软雅黑;text-align:center; -moz-user-select:none;-webkit-user-select:none;user-select:none; }
+	span{cursor:pointer;}
+    .div_body{margin: auto;}
     header,nav,article{padding: 0px;}
-	header{}
-		#status_bar{position: relative;background-color:#000000;text-align:center;color:#FFFFFF;}
-		#tools_bar{position: relative;background-color:#000000;}
+	header{background-color:#000000;}
+		#status_bar{position: relative;text-align:center;color:#FFFFFF;font-size: 20px;}
+		#tools_bar{position: relative;color:#FFFFFF;margin: 0px;padding: 0px;}
+		.tools_bar_menu{position: relative;float:left;background-color:#6699FF;margin: 0px 10px 0px 10px;}
 	nav{}
-		#today_task{background-color:#6699FF;}
-		#grade_task{background-color:#FFFF99;}
-		#delay_task{background-color:#FF6699;}
-		.day_box{float:left;background-color:#FFFFCC;margin: 5px;overflow:hidden;white-space:nowrap;box-shadow: 5px 5px 5px #888888;z-index: 1000;}
-        .day_box_date{font-family: Jokerman;font-size: 12px;}
-        .day_box_min{position: relative;text-align:center;float:left;margin: 5px 2px 5px 2px;overflow:hidden;font-size: 11px;line-height:12px;width: 28px;z-index: 1000;}
-        .task_level_line{position: relative;width: 160px;height: 20px;}
+		#today_task{background-color:#6699FF;margin: 0px 5px 0px 5px;overflow:hidden;}
+		#grade_task{background-color:#FFFF99;margin: 0px 5px 0px 5px;overflow:hidden;}
+		#delay_task{background-color:#FF6699;margin: 0px 5px 0px 5px;overflow:hidden;}
+		.task_text{position: absolute;z-index: 0;}
+		.day_box{float:left;background-color:#FFFFCC;margin: 5px;overflow:hidden;white-space:nowrap;box-shadow: 5px 5px 5px #888888;z-index: 1000;cursor:pointer;}
+        .day_box_date{font-family: "Franklin Gothic Demi";}
+        .day_box_min{position: relative;float:left;margin: 7px 2px 5px 2px;overflow:hidden;font-size: 16px;line-height:11px;width: 18px;height: 18px;z-index: 1000;padding: 2px;font-weight:900;color: #FFFFFF;cursor:pointer;}
+        .task_level_line{position: relative;font-size: 14px;width: 240px;height: 20px;overflow:hidden;white-space:nowrap;}
 	article{}
-		.cal_tools{position: relative;background-color:#000000;color:#FFFFFF;text-align:center;font-size: 12px;margin: 0px 0px 0px 0px;}
-        .cal_tools A:link{margin: 0px 10px 0px 10px;color: #FFFFFF; text-decoration: none;border:2px solid;border-radius:25px;-moz-border-radius:25px; /* Old Firefox */word-spacing: 50px; }
-        .cal_tools_week{ margin: 0px 60px 0px 60px;float:left;font-size: 11px;}
-		#calendar{position: relative;background-color:#336600;}
-        .task_level_div{position: absolute;display: none;font-size: 12px;z-index: 1000;}
+		.cal_tools{position: relative;padding: 2px 0px 0px 0px;background-color:#000000;color:#FFFFFF;text-align:center;}
+		.cal_tools_month{margin: 0px 10px 0px 10px; }
+        .cal_tools_week{ margin: 5px 0px 0px 0px;}
+		.cal_tools_week_day{ font-weight:900;float:left;}
+		#calendar{position: relative;background-color:#336600;padding: 0px 5px 0px 5px;}
+        .task_level_div{position: absolute;display: none;font-size: 12px;z-index: 1000;text-align:left;}
 </style>
 </HEAD>
 
 <BODY>
+<div class="div_body">
 <header>
-	<div id="status_bar"><B>任务管理器</B></div>
-	<div id="tools_bar">工具栏</div>
-</header>
-<nav>
+	<div id="status_bar"><B>任务管理器</B><font size="1" >&nbsp;[Beta]</font></div>
+	<div id="tools_bar">
+		<div class="tools_bar_menu"><span>工具栏</span></div>
+	</div>
+
 	<div id="today_task" title="当天事务">
             <volist name="task_list_cur" id="d">
                 <div tid="{$d.tid}" class="day_box">{$d.box}</div>
@@ -57,20 +77,44 @@
             <div tid="{$d.tid}" class="day_box">{$d.box}</div>
         </volist>
 	</div>
+	</header>
+<nav>
+	<div id="cal_tools" class="cal_tools">
+        <span class="cal_tools_month" date="{$last_month['6']}" style="background-color:#996666;">往后6个月</span>
+		<span  class="cal_tools_month"  date="{$last_month['5']}" style="background-color:#996666;">往后5个月</span>
+		<span  class="cal_tools_month"  date="{$last_month['4']}" style="background-color:#996666;">往后4个月</span>
+        <span class="cal_tools_month" date="{$last_month['3']}" style="background-color:#996666;">往后3个月</span>
+		<span  class="cal_tools_month"  date="{$last_month['2']}" style="background-color:#996666;">往后2个月</span>
+		<span  class="cal_tools_month"  date="{$last_month['1']}" style="background-color:#996666;">往后1个月</span>
+		<span  class="cal_tools_month" date="{$cur_date}" style="background-color:#66CC00;">&nbsp;{$cur_date}&nbsp;</span>
+		<span  class="cal_tools_month" date="{$next_month['1']}" style="background-color:#99CCFF;">往前1个月</span>
+		<span  class="cal_tools_month" date="{$next_month['2']}" style="background-color:#99CCFF;">往前2个月</span>
+		<span  class="cal_tools_month" date="{$next_month['3']}" style="background-color:#99CCFF;">往前3个月</span>
+		<span  class="cal_tools_month" date="{$next_month['4']}" style="background-color:#99CCFF;">往前4个月</span>
+		<span  class="cal_tools_month" date="{$next_month['5']}" style="background-color:#99CCFF;">往前5个月</span>
+		<span  class="cal_tools_month" date="{$next_month['6']}" style="background-color:#99CCFF;">往前6个月</span>
+		<div class="cal_tools_week">
+			<div class="cal_tools_week_day">星期一</div>
+			<div class="cal_tools_week_day">星期二</div>
+			<div class="cal_tools_week_day">星期三</div>
+			<div class="cal_tools_week_day">星期四</div>
+			<div class="cal_tools_week_day">星期五</div>
+			<div class="cal_tools_week_day">星期六</div>
+			<div class="cal_tools_week_day">星期日</div>
+		</div> 
+	</div>
 </nav>
 <article>
-	<div id="cal_tools" class="cal_tools">
-        <a href="/myt/index.php?date={$last_month}">上个月</a><a href="/myt/index.php">{$cur_date}</a><a href="/myt/index.php?date={$next_month}">下个月</a>
-		<div class="cal_tools_week">星期一 星期二 星期三 星期四 星期五 星期六 星期日</div>
-	</div>
+
 	<div id="calendar">
         <volist name="cal_date" id="d">
-            <div date="{$d.day}" class="day_box">{$d.box}</div>
+            <div date="{$d.day}" class="day_box"  <if condition="$d.day eq $cur_date">style="background-color: #000000;"</if>>{$d.box}</div>
         </volist>
 	</div>
     <div class="task_level_div">
     </div>
 
 </article>
+</div>
 </BODY>
 </HTML>
