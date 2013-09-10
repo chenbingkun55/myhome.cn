@@ -256,7 +256,7 @@ class LibAction extends Action {
                     $bg_color = "#FF0000";
                     $title = "非常重要";
             }
-            echo "<div class=\"task_level_line\" onClick=\"TaskEdit(".$task_list[$i]['T_id'].");\" style=\"color: #FFFFFF; background-color:".$bg_color.";padding: 0px 10px 0px 10px ;\"><span>".$this->show_task_status( $task_list[$i]['T_id'] )." <span style=\"background-color: #000000;\">".date("H:i",$task_list[$i]['T_date'])."</span> ".$task_list[$i]['T_title']."</span></div>" ;
+            echo "<div class=\"task_level_line\" onClick=\"TaskEdit(".$task_list[$i]['T_id'].");\" style=\"color: #FFFFFF; background-color:".$bg_color.";padding: 0px 10px 0px 10px ;\"><span>".($i+1).". ".$this->show_task_status( $task_list[$i]['T_id'] )." <span style=\"background-color: #000000;\">".date("H:i",$task_list[$i]['T_date'])."</span> ".$task_list[$i]['T_title']."</span></div>" ;
         }
     }
 
