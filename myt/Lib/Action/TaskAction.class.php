@@ -91,7 +91,7 @@ class TaskAction extends Action {
 		if( $res  ){
 			echo "设为模板成功";
 		} else {
-			echo "设为模板失败";	
+			echo "己经是模板或设为模板失败";	
 		}
 	}
 

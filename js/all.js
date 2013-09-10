@@ -91,6 +91,9 @@ $(document).ready(function(){
 	// 原因: 当鼠标经过或离开子元素的时候，浏览器认为这样也触发了mouseover和mouseout事件
 	// 解决: jquery的mouseenter和mouseleave方法已经修复了这个问题，可以直接用来替代mouseover和mouseout
 	// 解决: jQuery 中同时用两个选择器来工作.
+    $(".task_level_div,.day_box_min").bind("mouseleave",function(){
+           $(".task_level_div").clearQueue().fadeOut(1000);
+        });
 
     $(".task_level_line").click(function( ){
         var reVlaue = $(this).attr("tid");
@@ -236,74 +239,8 @@ $(document).ready(function(){
 	});
 
 	$(".day_box_date").click(function(){
-        $(".task_day_div").html("").css("opacity","1").stop();
-        //alert( $(this).parent().attr('tid'));
-        // 获取元素 位置,offset.left 和 offset.top
-        var offset = $(this).offset();
-        var task_day_width = "";
-        var pointTop ="";
-        var pointLeft = "";
-
-        // alert($(".div_body").width());
-        var reVlaue = $(this).parent().attr('date');
-        if( "undefined" == typeof reVlaue ){
-            var val = $(this).parent().attr('tid');
-            var active = 'show_task_content/tid/'+val+'/';
-            var task_title = "任务内容 ID="+$(this).parent().attr('tid');
-            pointTop = offset.top  + $(this).height() ;
-            pointLeft = ( $(".div_body").width() - 800 ) ;
-
-            task_day_width = 800 ;
-        }else{
-            var val = $(this).parent().attr("date");
-            var active = 'show_task_day/date/'+val+'/';
-            var task_title = "今日任务 "+$(this).parent().attr('date');
-            if( offset.top + 200 > $(".div_body").height() ){
-                pointTop = offset.top - 200 ;
-            }else{
-                pointTop = offset.top - 20 ;
-            }
-
-            if( ( offset.left + 240 + day_box_width ) > $(".div_body").width() ){
-                pointLeft = offset.left - 240 - 20 ;
-            }else{
-                pointLeft = offset.left + day_box_width ;
-            }
-
-            task_day_width = 240 ;
-        }
-
-        $.get("/myt/index.php/Lib/"+active+"/", function(data,status){
-            var task_day_title = "<div class=\"task_day_line\"style=\"position: relative;width: "+task_day_width+"px;height: 20px;background-color: #000000;color: #FFFFFF; padding: 0px 10px 0px 10px ;font-weight: bold;\">"+task_title+"</div>"+data;
-            $(".task_day_div").html( task_day_title );
-        });
-
-
-        /*
-        if ( offset.left > ( $(document).width()-160) )
-        {
-            var pointLeft = offset.left - 238 - witdh_diff;
-        } else {
-            var pointLeft = offset.left;
-        } */
-
-        //alert($(".task_level_line").height());
-        $(".task_day_div").css("top",pointTop);
-        $(".task_day_div").css("left",pointLeft);
-
-        //alert(pointLeft+"-"+pointTop);
-        $(".task_day_div").toggle();
-	});
-
-    $(".task_day_div").bind("mouseenter",function(){
-        $(".task_day_div").css("opacity","1");
-        $(".task_day_div").stop();
-    });
-
-    $(".task_level_div,.day_box_min,.task_day_div,.day_box_date").bind("mouseleave",function(){
-        $(".task_level_div").clearQueue().fadeOut(500);
-        $(".task_day_div").clearQueue().fadeOut(500);
-    });
+		alert('这里添加一个整天的任务列表');
+	})
 });
 
 function TaskEdit( tid ){

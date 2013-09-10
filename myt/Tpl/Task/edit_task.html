@@ -46,8 +46,9 @@
 		<div class="task_tools_title"  level="{$task_list['T_level']}">任务 {$task_id}: {$task_list['T_title']}</div>
         <div class="task_win_close" onClick="window.close()"><span>关闭</span></div>
         <div class="task_remove" tid="{$task_id}" style="margin: 5px;float: right;background-color: #CC0000;"><span>删除</span></div>
-		<div class="task_win_submit" ><span>更新任务</span></div>
 		<div class="task_set_templet" ><span>设为模板</span></div>
+		<div class="task_win_submit" ><span>更新任务</span></div>
+
 		<div class="task_process_box">
 			<span class="task_process_step" style="background-color: #7FFFD4;" sta="1"><span class="task_process_point" <if condition="$task_list['T_status'] eq 1">style="display: inline;"</if>>▶</span>准备</span>
 			<span class="task_process_step" style="background-color: #66CC00;" sta="2"><span class="task_process_point" <if condition="$task_list['T_status'] eq 2">style="display: inline;"</if>>▶</span>运行</span>

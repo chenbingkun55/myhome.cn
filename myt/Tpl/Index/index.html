@@ -41,9 +41,12 @@ End -->
 		#delay_task{background-color:#FF6699;margin: 0px 5px 0px 5px;overflow:hidden;}
 		.task_text{position: absolute;z-index: 0;}
 		.day_box{float:left;background-color:#FFFFCC;margin: 5px;overflow:hidden;white-space:nowrap;box-shadow: 5px 5px 5px #888888;z-index: 1000;cursor:pointer;}
+		.day_box_conten{margin: 0px;}
         .day_box_date{font-family: "Franklin Gothic Demi";}
         .day_box_min{position: relative;float:left;margin: 7px 2px 5px 2px;overflow:hidden;font-size: 16px;line-height:11px;width: 18px;height: 18px;z-index: 1000;padding: 2px;font-weight:900;color: #FFFFFF;cursor:pointer;}
         .task_level_line{position: relative;font-size: 14px;width: 240px;height: 20px;overflow:hidden;white-space:nowrap;}
+        .task_content{position: relative;width: 820px; height: 300px;font-size: 14px;background-color:#FFFFCC;overflow:auto;}
+        .task_day_line{margin: 0px; }
 	article{}
 		.cal_tools{position: relative;padding: 2px 0px 0px 0px;background-color:#000000;color:#FFFFFF;text-align:center;}
 		.cal_tools_month{margin: 0px 10px 0px 10px; }
@@ -51,6 +54,7 @@ End -->
 		.cal_tools_week_day{ font-weight:900;float:left;}
 		#calendar{position: relative;background-color:#336600;padding: 0px 5px 0px 5px;}
         .task_level_div{position: absolute;display: none;font-size: 12px;z-index: 1000;text-align:left;}
+        .task_day_div{position: absolute;display: none;font-size: 12px;z-index: 1000;text-align:left;}
 </style>
 </HEAD>
 
@@ -112,6 +116,8 @@ End -->
         </volist>
 	</div>
     <div class="task_level_div">
+    </div>
+    <div class="task_day_div">
     </div>
 
 </article>
