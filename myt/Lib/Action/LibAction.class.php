@@ -256,7 +256,7 @@ class LibAction extends Action {
                     $bg_color = "#FF0000";
                     $title = "非常重要";
             }
-            echo "<div class=\"task_level_line\" onClick=\"TaskEdit(".$task_list[$i]['T_id'].");\" style=\"color: #FFFFFF; background-color:".$bg_color.";padding: 0px 10px 0px 10px ;\"><span>".($i+1).". ".$this->show_task_status( $task_list[$i]['T_id'] )." <span style=\"background-color: #000000;\">".date("H:i",$task_list[$i]['T_date'])."</span> ".$task_list[$i]['T_title']."</span></div>" ;
+            echo "<div class=\"task_level_line\"  tid=\"".$task_list[$i]['T_id']."\" style=\"color: #FFFFFF; background-color:".$bg_color.";padding: 0px 10px 0px 10px ;\"><span>".$this->show_task_status( $task_list[$i]['T_id'] )." <span style=\"background-color: #000000;\">".date("H:i",$task_list[$i]['T_date'])."</span> ".$task_list[$i]['T_title']."</span></div>" ;
         }
     }
 
@@ -335,9 +335,16 @@ class LibAction extends Action {
 	}
     public function show_task_content( $tid ){
         $task_lib = D('lib');
+        $lib_action = new LibAction();
 
-        $re = $task_lib->where("T_id = $tid")->getField('T_content');
-        echo "<div class=\"task_content\">".$re."</div>";
+        $task_list = $task_lib->where("T_id = $tid")->getField('T_content');
+
+        $task_status = strip_tags($lib_action->show_task_status( $tid ));
+
+        $this->assign('task_id',$tid);
+        $this->assign('task_list',$task_list);
+        $this->assign('task_status',$task_status);
+        $this->display();
     }
 
 	public function show_task_templet( ){

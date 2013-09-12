@@ -49,7 +49,100 @@ $(document).ready(function(){
     $(".cal_tools_week").css("word-spacing",day_box_width - 36  );
 	$(".day_box_conten").css({"width":$(".day_box").width(),"height":$(".day_box").height() - 20 })
 
-	// 鼠标经过 Div task_level_div 这版算比较完美了.
+
+//  三个 自动滚动 栏开始.
+    function auto_today_task(){
+        var today_box_width = day_box_width + 10;
+        // alert(box_width);
+        $("#today_task").css("left","-"+today_box_width+"px");
+        $("#today_task").css("width",(today_box_width * 50)+'px');
+        var moveTodayFactor = parseInt($("#today_task").css("left")) - today_box_width ;
+        $('#today_task').animate(
+            {'left':moveTodayFactor},'slow','linear',function(){
+               $("#today_task .day_box:last").after($("#today_task .day_box:first"));
+               $('#today_task').css({'left' : "-"+today_box_width+"px"});
+            });
+    };
+
+    // 当 $(".today_task_total").text()  值大于 8 时，说明 day_box 超过 窗口宽度，需要运行自动滚动功能。
+    if( ( $(".today_task_total").text() * day_box_width ) > $(".div_body").width() ){
+        move_today_task = setInterval(auto_today_task,5000);
+        $(".today_task_total").css({"left": ($("#today_task_outer").offset().left),"top": ($("#today_task_outer").offset().top + 30)});
+    } else {
+        $("#today_task").css("left","0px");
+    }
+
+    function auto_grade_task(){
+        var grade_box_width = day_box_width + 10;
+        // alert(box_width);
+        $("#grade_task").css("left","-"+grade_box_width+"px");
+        $("#grade_task").css("width",(grade_box_width * 50)+'px');
+        var moveGradeFactor = parseInt($("#grade_task").css("left")) - grade_box_width ;
+        $('#grade_task').animate(
+            {'left':moveGradeFactor},'slow','linear',function(){
+                $("#grade_task .day_box:last").after($("#grade_task .day_box:first"));
+                $('#grade_task').css({'left' : "-"+grade_box_width+"px"});
+            });
+    };
+
+    // 当 $(".today_task_total").text()  值大于 8 时，说明 day_box 超过 窗口宽度，需要运行自动滚动功能。
+    if( ( $(".grade_task_total").text()  * day_box_width )  > $(".div_body").width() ){
+        move_grade_task = setInterval(auto_grade_task,18000);
+        $(".grade_task_total").css({"left": ($("#grade_task_outer").offset().left),"top": ($("#grade_task_outer").offset().top + 30)});
+    } else {
+        $("#grade_task").css("left","0px");
+    }
+
+    function auto_delay_task(){
+        var delay_box_width = day_box_width + 10;
+        // alert(box_width);
+        $("#delay_task").css("left","-"+delay_box_width+"px");
+        $("#delay_task").css("width",(delay_box_width * 50)+'px');
+        var moveDelayFactor = parseInt($("#delay_task").css("left")) - delay_box_width ;
+        $('#delay_task').animate(
+            {'left':moveDelayFactor},'slow','linear',function(){
+                $("#delay_task .day_box:last").after($("#delay_task .day_box:first"));
+                $('#delay_task').css({'left' : "-"+delay_box_width+"px"});
+            });
+    };
+
+    // 当 $(".today_task_total").text()  值大于 8 时，说明 day_box 超过 窗口宽度，需要运行自动滚动功能。
+    // alert($(".delay_task_total").text());
+    if( ( $(".delay_task_total").text() * day_box_width  ) > $(".dv_body").width() ){
+        move_delay_task = setInterval(auto_delay_task,40000);
+        $(".delay_task_total").css({"left": ($("#delay_task_outer").offset().left),"top": ($("#delay_task_outer").offset().top + 30)});
+    } else {
+        $("#delay_task").css("left","0px");
+    }
+
+
+    $("#today_task").hover(function(){
+        $(this).stop();
+        clearInterval(move_today_task);
+    },function(){
+        $(this).stop();
+        move_today_task = setInterval(auto_today_task,5000);
+    });
+
+    $("#grade_task").hover(function(){
+        $(this).stop();
+        clearInterval(move_grade_task);
+    },function(){
+        $(this).stop();
+        move_grade_task = setInterval(auto_grade_task,18000);
+    });
+
+    $("#delay_task").hover(function(){
+        $(this).stop();
+        clearInterval(move_delay_task);
+    },function(){
+        $(this).stop();
+        move_delay_task = setInterval(auto_delay_task,40000);
+    });
+
+//  三个 自动滚动 栏结束.
+
+    // 鼠标经过 Div task_level_div 这版算比较完美了.
     $(".day_box_min").bind("mouseenter",function(){
 		$(".task_level_div").html("").css("opacity","0.8").stop();
         //alert( $(this).parent().parent().attr('date')+" level:"+$(this).attr('val'));
@@ -57,6 +150,13 @@ $(document).ready(function(){
         $.get("/myt/index.php/Lib/show_task_level/date/"+$(this).parent().parent().attr('date')+"/level/"+level+"/", function(data,status){
             var task_leve_title = "<div style=\"position: relative;width: 240px;height: 20px;background-color: #000000;color: #FFFFFF; padding: 0px 10px 0px 10px ;font-weight: bold;\">任务列表 "+ShowLevel(level)+"</div>"+data;
 			$(".task_level_div").html( task_leve_title );
+
+            $(".task_level_line").click(function(){
+                var tid = $(this).attr("tid");
+                // alert( tid );
+                TaskWindow = window.open("/myt/index.php/Task/edit_task/tid/"+tid+"/",tid,"width=820,height=620,menubar=no,toolbar=no,location=no,scrollbars=no,status=no,modal=yes");
+                TaskWindow.focus();
+            });
         });
 
         // 获取元素 位置,offset.left 和 offset.top
@@ -274,7 +374,7 @@ $(document).ready(function(){
         }
 
         $.get("/myt/index.php/Lib/"+active+"/", function(data,status){
-            var task_day_title = "<div class=\"task_day_line\"style=\"position: relative;width: "+task_day_width+"px;height: 20px;background-color: #000000;color: #FFFFFF; padding: 0px 10px 0px 10px ;font-weight: bold;\">"+task_title+"</div>"+data;
+            var task_day_title = "<div class=\"task_day_line\" style=\"position: relative;width: "+task_day_width+"px;height: 20px;background-color: #000000;color: #FFFFFF; padding: 0px 10px 0px 10px ;font-weight: bold;\">"+task_title+"</div>"+data;
             $(".task_day_div").html( task_day_title );
         });
 
@@ -304,12 +404,19 @@ $(document).ready(function(){
         $(".task_level_div").clearQueue().fadeOut(500);
         $(".task_day_div").clearQueue().fadeOut(500);
     });
-});
 
-function TaskEdit( tid ){
-    TaskWindow = window.open("/myt/index.php/Task/edit_task/tid/"+tid+"/",tid,"width=820,height=620,menubar=no,toolbar=no,location=no,scrollbars=no,status=no,modal=yes");
-    TaskWindow.focus();
-}
+    $('select[name="predict_minute"]').change(function(){
+        //alert('test');
+        var val = $('select[name="predict_minute"]').val();
+        if ( val == 0 ){
+            $(".predict_end_time_div").show();
+        } else {
+            $(".predict_end_time_div").hide();
+            $('.predict_end_time_div input[name="T_d_end"]').val("");
+            $('.predict_end_time_div input[name="T_t_end"]').val("");
+        }
+    });
+});
 
 function ShowLevel( level ){
 	 var level_tag = '';

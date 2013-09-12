@@ -1,7 +1,10 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <HTML xmlns="http://www.w3.org/1999/xhtml">
 <HEAD>
-<meta http-equiv="Content-Type" content="text/html; charset=utf8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- 没有数据被缓存  -->
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache" />
 <TITLE> {$title} </TITLE>
 <script type="text/javascript" src="/public/js/jquery-2.0.2.min.js"></script>
 <!-- 使用 cufon 自定义网站字体 在线转换工具: http://cufon.shoqolate.com/generate/
@@ -27,7 +30,7 @@ End -->
 		-moz-user-select:none;-webkit-user-select:none;user-select:none;  
 	--> 
 <style type="text/css">
-	body{background-color:#003300;font-size: 12px;font-family: 微软雅黑;text-align:center; -moz-user-select:none;-webkit-user-select:none;user-select:none; }
+	body{background-color:#003300;font-size: 12px;font-family: DroidSansFallback;text-align:center; -moz-user-select:none;-webkit-user-select:none;user-select:none; }
 	span{cursor:pointer;}
     .div_body{margin: auto;}
     header,nav,article{padding: 0px;}
@@ -36,9 +39,21 @@ End -->
 		#tools_bar{position: relative;color:#FFFFFF;margin: 0px;padding: 0px;}
 		.tools_bar_menu{position: relative;float:left;background-color:#6699FF;margin: 0px 10px 0px 10px;}
 	nav{}
-		#today_task{background-color:#6699FF;margin: 0px 5px 0px 5px;overflow:hidden;}
-		#grade_task{background-color:#FFFF99;margin: 0px 5px 0px 5px;overflow:hidden;}
-		#delay_task{background-color:#FF6699;margin: 0px 5px 0px 5px;overflow:hidden;}
+        #today_task_outer{ overflow: hidden; background-color:#6699FF;margin: 0px 5px 0px 5px;overflow:hidden;}
+        #today_task_inner{position:relative; list-style-type:none; margin: 0px; padding: 0px;  padding-bottom:0px;float:left; overflow: hidden;}
+        #today_task{position:relative; float: left;padding: 0px ;margin: 0px;overflow: hidden;}
+        .today_task_total{position: absolute;width: 20px; height: 20px; z-index: 10001;background-color:#000000;color:#FFFFFF;}
+
+        #grade_task_outer{ overflow: hidden; background-color:#6699FF;margin: 0px 5px 0px 5px;overflow:hidden;}
+        #grade_task_inner{position:relative; list-style-type:none; margin: 0px; padding: 0px;  padding-bottom:0px;float:left; overflow: hidden;}
+        #grade_task{position:relative; float: left;padding: 0px ;margin: 0px;overflow: hidden;}
+        .grade_task_total{position: absolute;width: 20px; height: 20px;z-index: 10001;background-color:#000000;color:#FFFFFF;}
+
+        #delay_task_outer{ overflow: hidden; background-color:#6699FF;margin: 0px 5px 0px 5px;overflow:hidden;}
+        #delay_task_inner{position:relative; list-style-type:none; margin: 0px; padding: 0px;  padding-bottom:0px;float:left; overflow: hidden;}
+        #delay_task{position:relative; float: left;padding: 0px ;margin: 0px;overflow: hidden;}
+        .delay_task_total{position: absolute;width: 20px; height: 20px;z-index: 10001;background-color:#000000;color:#FFFFFF;}
+
 		.task_text{position: absolute;z-index: 0;}
 		.day_box{float:left;background-color:#FFFFCC;margin: 5px;overflow:hidden;white-space:nowrap;box-shadow: 5px 5px 5px #888888;z-index: 1000;cursor:pointer;}
 		.day_box_conten{margin: 0px;}
@@ -61,26 +76,43 @@ End -->
 <BODY>
 <div class="div_body">
 <header>
-	<div id="status_bar"><B>任务管理器</B><font size="1" >&nbsp;[Beta]</font></div>
+	<div id="status_bar"><B>{$title}</B><font size="1" >&nbsp;[Beta]</font></div>
 	<div id="tools_bar">
 		<div class="tools_bar_menu"><span>工具栏</span></div>
 	</div>
 
-	<div id="today_task" title="当天事务">
-            <volist name="task_list_cur" id="d">
-                <div tid="{$d.tid}" class="day_box">{$d.box}</div>
-            </volist>
-	</div>
-	<div id="grade_task" title="重要事务">
-        <volist name="task_list_attention" id="d">
-            <div tid="{$d.tid}" class="day_box">{$d.box}</div>
-        </volist>
-	</div>
-	<div id="delay_task" title="延期事务">
-        <volist name="task_list_delay" id="d">
-            <div tid="{$d.tid}" class="day_box">{$d.box}</div>
-        </volist>
-	</div>
+    <div id="today_task_outer">
+        <div id="today_task_inner">
+            <div id="today_task" title="当天事务">
+                <volist i ="0" name="task_list_cur" id="d">
+                    <div tid="{$d.tid}" class="day_box">{$d.box}</div>
+                </volist>
+            </div>
+        </div>
+        <div class="today_task_total"  >{$i}</div>
+    </div>
+
+    <div id="grade_task_outer">
+        <div id="grade_task_inner">
+            <div id="grade_task" title="重要事务">
+                <volist i ="0" name="task_list_attention" id="d">
+                    <div tid="{$d.tid}" class="day_box">{$d.box}</div>
+                </volist>
+            </div>
+        </div>
+        <div class="grade_task_total"  >{$i}</div>
+    </div>
+
+    <div id="delay_task_outer">
+        <div id="delay_task_inner">
+            <div id="delay_task" title="延期事务">
+                <volist i ="0" name="task_list_delay" id="d">
+                    <div tid="{$d.tid}" class="day_box">{$d.box}</div>
+                </volist>
+            </div>
+        </div>
+        <div class="delay_task_total">{$i}</div>
+    </div>
 	</header>
 <nav>
 	<div id="cal_tools" class="cal_tools">

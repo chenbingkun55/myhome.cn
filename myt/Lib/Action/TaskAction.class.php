@@ -102,8 +102,8 @@ class TaskAction extends Action {
             /* //input type=datetime-local 返回的时间格式: 2013-09-12T06:06
             list($task_date,$task_time) = split("T",$task_lib->T_date);
             */
-            list( $year,$month,$day )= split("-",$_REQUEST['T_d']);
-            list( $hour,$minute )= split(":",$_REQUEST['T_t']);
+            list( $year,$month,$day )= split("-",$_REQUEST['T_d_start']);
+            list( $hour,$minute )= split(":",$_REQUEST['T_t_start']);
             $task_lib->T_date = mktime( $hour, $minute, 0, $month ,$day ,$year);
 
             //echo $_REQUEST['T_time'], $task_lib->T_time."TEST<BR>";
@@ -111,6 +111,26 @@ class TaskAction extends Action {
             $task_lib->C_date = time();
             // echo 出 T_date 时间的值.
             //echo "失败".$task_lib->T_date;
+
+            $process_arr = array(
+                "predict_start_time" => "",      // 预计 开始时间.
+                "predict_end_time" => "",        // 预计 结束时间.
+                "run_total_time" => "",          // 运行总时间.
+                "run_start_time" => "",          // 运行开始时间
+                "run_end_time" => "",            // 运行结束时间
+                "pause_total_time" => "",       // 暂停总时间
+                "pause_start_time" => "",       // 暂停开始时间
+                "pause_end_time" => "",         // 暂停结速时间
+                "wait_total_time" => "",        // 等待总时间
+                "wait_start_time" => "",        // 等待开始时间
+                "wait_end_time" => "",          // 等待结速时间
+                "stop_total_time" => "",        // 停止总时间
+                "stop_start_time" => "",        // 停止开始时间
+                "stop_end_time" => "",          // 停止结速时间
+                "done_time" => "",              // 完成时间
+                "forgo_time" => "",             // 放弃时间
+
+            );
 
             $res = $task_lib->add();
             if($res){
@@ -126,5 +146,27 @@ class TaskAction extends Action {
             header("Location:/myt/index.php/Task/create_task/date/".date("Y-m-d",mktime( $hour, $minute, 0, $month ,$day ,$year))."/");
 			echo "失败2";
         }
+    }
+
+
+    public function update_task_process( $tid ){
+        $task_lib = D('lib');
+
+
+        $process_arr1 = json_encode( $process_arr);
+        echo $process_arr1."<BR>";
+        $process_arr2 =  json_decode($process_arr1, true);
+        print_r($process_arr2);
+        echo "<BR>". $process_arr2['run']['start_time']."<BR>";
+
+
+        // echo "tid: ".$_REQUEST['tid'].",status: ".$_REQUEST['status'];
+        $res = $task_lib->where("T_id = '500000027'")->setField('T_process', $process_arr1);
+        if( $res ){
+            echo "成功";
+        }else{
+            echo "失败";
+        }
+
     }
 }

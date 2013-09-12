@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>[▶{$task_status} ID={$task_id}]&nbsp;{$task_list['T_title']}</title>
+
+    <style type="text/css">
+        body{background-color:#003300;margin: 5px 10px 5px 10px;font-family: 微软雅黑;font-size: 14px;width:800px;height: 600px;}
+        span{cursor:pointer;}
+        header,nav,article{padding: 0px;}
+        .task_center{position: relative;background-color:#336600;-moz-user-select:none;-webkit-user-select:none;user-select:none;  }
+        .task_tools_bar{text-align:center; height:50px;position: relative;background-color:#000000;color:#FFFFFF; margin: 10px 0px 10px 0px;}
+        .task_tools_title{font-weight:900;overflow:hidden;}
+        .task_process_box{position: absolute;margin: 0px 0px 0px 220px ;width: 360px;}
+        .task_process_step{margin: 2px 10px 2px 5px ;float: left;font-size: 12px;color: #FFFFFF;}
+        .task_process_point{margin: 2px;background-color: #000000;color: #FFFFFF;display: none;}
+        .task_process_progress_box{position: absolute;background-color:#FFFFCC;margin: 18px 0px 0px 220px ;width: 350px;height: 5px;}
+        .task_process_progress_status{margin: 1px ;background-color: #6600FF;height: 3px;width: 50%;}
+        .task_process_progress_time{background-color: #FFFFCC;color: #3300FF;display: none;}
+    </style>
+</head>
+<body>
+<div class="task_center">
+
+    <div class="task_tools_bar">
+        <div class="task_tools_title"  level="{$task_list['T_level']}">任务 {$task_id}: {$task_list['T_title']}</div>
+
+        <div class="task_process_box">
+            <span class="task_process_step" style="background-color: #7FFFD4;" sta="1"><span class="task_process_point" <if condition="$task_list['T_status'] eq 1">style="display: inline;"</if>>▶</span>准备</span>
+            <span class="task_process_step" style="background-color: #66CC00;" sta="2"><span class="task_process_point" <if condition="$task_list['T_status'] eq 2">style="display: inline;"</if>>▶</span>运行</span>
+            <span class="task_process_step" style="background-color: #CC33FF;" sta="3"><span class="task_process_point" <if condition="$task_list['T_status'] eq 3">style="display: inline;"</if>>▶</span>暂停</span>
+            <span class="task_process_step" style="background-color: #CCFF00;" sta="4"><span class="task_process_point" <if condition="$task_list['T_status'] eq 4">style="display: inline;"</if>>▶</span>等待</span>
+            <span class="task_process_step" style="background-color: #CC3300;" sta="5"><span class="task_process_point" <if condition="$task_list['T_status'] eq 5">style="display: inline;"</if>>▶</span>停止</span>
+            <span class="task_process_step" style="background-color: #330000;" sta="6"><span class="task_process_point" <if condition="$task_list['T_status'] eq 6">style="display: inline;"</if>>▶</span>完成</span>
+            <span class="task_process_step" style="background-color: #696969;" sta="7"><span class="task_process_point" <if condition="$task_list['T_status'] eq 7">style="display: inline;"</if>>▶</span>放弃</span>
+        </div>
+        <div class="task_process_progress_box">
+            <div class="task_process_progress_status"></div>
+            <div class="task_process_progress_time"></div>
+        </div>
+    </div>
+        任务标题：<INPUT type="text" name="T_title" size="50" value="{$task_list['T_title']}" disabled="true"><br/>
+        任务级别：<select name="T_level" disabled="true">
+        <if condition="$task_list['T_level'] eq 1">
+            <option value="1" selected="selected">一般</option>
+            <else/>
+            <option value="1">一般</option>
+        </if>
+        <if condition="$task_list['T_level'] eq 2">
+            <option value="2" selected="selected">重要</option>
+            <else/>
+            <option value="2">重要</option>
+        </if>
+        <if condition="$task_list['T_level'] eq 3">
+            <option value="3" selected="selected">重要紧急</option>
+            <else/>
+            <option value="3">重要紧急</option>
+        </if>
+        <if condition="$task_list['T_level'] eq 4">
+            <option value="4" selected="selected">重要不紧急</option>
+            <else/>
+            <option value="4">重要不紧急</option>
+        </if>
+        <if condition="$task_list['T_level'] eq 5">
+            <option value="5" selected="selected">非常重要</option>
+            <else/>
+            <option value="5">非常重要</option>
+        </if>
+    </select><BR/>
+        日期: <input type="date" name="T_d" value="{$task_list['T_date']|date="Y-m-d",###}"disabled="true" />
+        时间: <input type="time" name="T_t" value="{$task_list['T_date']|date="H:i",###}" disabled="true"><br/>
+        <textarea id="editor_id" name="T_content" style="width:790px;height:400px;" disabled="true">{$task_list['T_content']}</textarea><BR/>
+        <input type="hidden" name="T_id" value="{$task_id}" disabled="true"/>
+    </FORM>
+</div>
+</body>
+</html>
