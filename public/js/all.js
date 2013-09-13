@@ -335,26 +335,31 @@ $(document).ready(function(){
 		}
 	});
 
+	$(".task_box_date").click(function(){
+		$(".task_day_div").html("").css("opacity","1").stop();
+       var val = $(this).parent().attr('tid');
+       var active = 'show_task_content/tid/'+val+'/';     
+
+		
+        $.get("/myt/index.php/Lib/"+active+"/", function(data,status){
+            $(".task_day_div").html( data );
+        });
+
+		$(".task_day_div").css("top","235px");
+		$(".task_day_div").css("left",($(document).width() - 800)/2 +"px");
+
+        $(".task_day_div").toggle();
+	});
+
 	$(".day_box_date").click(function(){
         $(".task_day_div").html("").css("opacity","1").stop();
         //alert( $(this).parent().attr('tid'));
         // 获取元素 位置,offset.left 和 offset.top
         var offset = $(this).offset();
-        var task_day_width = "";
+        var task_day_width = 240;
         var pointTop ="";
         var pointLeft = "";
 
-        // alert($(".div_body").width());
-        var reVlaue = $(this).parent().attr('date');
-        if( "undefined" == typeof reVlaue ){
-            var val = $(this).parent().attr('tid');
-            var active = 'show_task_content/tid/'+val+'/';
-            var task_title = "任务内容 ID="+$(this).parent().attr('tid');
-            pointTop = offset.top  + $(this).height() ;
-            pointLeft = ( $(".div_body").width() - 800 ) ;
-
-            task_day_width = 800 ;
-        }else{
             var val = $(this).parent().attr("date");
             var active = 'show_task_day/date/'+val+'/';
             var task_title = "今日任务 "+$(this).parent().attr('date');
@@ -370,22 +375,10 @@ $(document).ready(function(){
                 pointLeft = offset.left + day_box_width ;
             }
 
-            task_day_width = 240 ;
-        }
-
-        $.get("/myt/index.php/Lib/"+active+"/", function(data,status){
-            var task_day_title = "<div class=\"task_day_line\" style=\"position: relative;width: "+task_day_width+"px;height: 20px;background-color: #000000;color: #FFFFFF; padding: 0px 10px 0px 10px ;font-weight: bold;\">"+task_title+"</div>"+data;
-            $(".task_day_div").html( task_day_title );
-        });
-
-
-        /*
-        if ( offset.left > ( $(document).width()-160) )
-        {
-            var pointLeft = offset.left - 238 - witdh_diff;
-        } else {
-            var pointLeft = offset.left;
-        } */
+			$.get("/myt/index.php/Lib/"+active+"/", function(data,status){
+				var task_day_title = "<div class=\"task_day_line\" style=\"position: relative;width: "+task_day_width+"px;height: 20px;background-color: #000000;color: #FFFFFF; padding: 0px 10px 0px 10px ;font-weight: bold;\">"+task_title+"</div>"+data;
+				$(".task_day_div").html( task_day_title );
+			});
 
         //alert($(".task_level_line").height());
         $(".task_day_div").css("top",pointTop);
@@ -395,14 +388,15 @@ $(document).ready(function(){
         $(".task_day_div").toggle();
 	});
 
+
     $(".task_day_div").bind("mouseenter",function(){
         $(".task_day_div").css("opacity","1");
         $(".task_day_div").stop();
     });
 
-    $(".task_level_div,.day_box_min,.task_day_div,.day_box_date").bind("mouseleave",function(){
+    $(".task_level_div,.day_box_min,.task_day_div,.day_box_date,.task_box_date").bind("mouseleave",function(){
         $(".task_level_div").clearQueue().fadeOut(500);
-        $(".task_day_div").clearQueue().fadeOut(500);
+        $(".task_day_div").clearQueue().fadeOut(1500);
     });
 
     $('select[name="predict_minute"]').change(function(){

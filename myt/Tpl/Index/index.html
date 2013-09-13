@@ -42,25 +42,24 @@ End -->
         #today_task_outer{ overflow: hidden; background-color:#6699FF;margin: 0px 5px 0px 5px;overflow:hidden;}
         #today_task_inner{position:relative; list-style-type:none; margin: 0px; padding: 0px;  padding-bottom:0px;float:left; overflow: hidden;}
         #today_task{position:relative; float: left;padding: 0px ;margin: 0px;overflow: hidden;}
-        .today_task_total{position: absolute;width: 20px; height: 20px; z-index: 10001;background-color:#000000;color:#FFFFFF;}
+        .today_task_total{position: absolute;width: 20px; height: 20px; z-index: 1001;background-color:#000000;color:#FFFFFF;}
 
-        #grade_task_outer{ overflow: hidden; background-color:#6699FF;margin: 0px 5px 0px 5px;overflow:hidden;}
+        #grade_task_outer{ overflow: hidden; background-color:#FFFF99;margin: 0px 5px 0px 5px;overflow:hidden;}
         #grade_task_inner{position:relative; list-style-type:none; margin: 0px; padding: 0px;  padding-bottom:0px;float:left; overflow: hidden;}
         #grade_task{position:relative; float: left;padding: 0px ;margin: 0px;overflow: hidden;}
-        .grade_task_total{position: absolute;width: 20px; height: 20px;z-index: 10001;background-color:#000000;color:#FFFFFF;}
+        .grade_task_total{position: absolute;width: 20px; height: 20px;z-index: 1001;background-color:#000000;color:#FFFFFF;}
 
-        #delay_task_outer{ overflow: hidden; background-color:#6699FF;margin: 0px 5px 0px 5px;overflow:hidden;}
+        #delay_task_outer{ overflow: hidden; background-color:#FF6699;margin: 0px 5px 0px 5px;overflow:hidden;}
         #delay_task_inner{position:relative; list-style-type:none; margin: 0px; padding: 0px;  padding-bottom:0px;float:left; overflow: hidden;}
         #delay_task{position:relative; float: left;padding: 0px ;margin: 0px;overflow: hidden;}
-        .delay_task_total{position: absolute;width: 20px; height: 20px;z-index: 10001;background-color:#000000;color:#FFFFFF;}
+        .delay_task_total{position: absolute;width: 20px; height: 20px;z-index: 1001;background-color:#000000;color:#FFFFFF;}
 
 		.task_text{position: absolute;z-index: 0;}
 		.day_box{float:left;background-color:#FFFFCC;margin: 5px;overflow:hidden;white-space:nowrap;box-shadow: 5px 5px 5px #888888;z-index: 1000;cursor:pointer;}
-		.day_box_conten{margin: 0px;}
+		.day_box_conten{background-color:#FFFFCC;}
         .day_box_date{font-family: "Franklin Gothic Demi";}
         .day_box_min{position: relative;float:left;margin: 7px 2px 5px 2px;overflow:hidden;font-size: 16px;line-height:11px;width: 18px;height: 18px;z-index: 1000;padding: 2px;font-weight:900;color: #FFFFFF;cursor:pointer;}
         .task_level_line{position: relative;font-size: 14px;width: 240px;height: 20px;overflow:hidden;white-space:nowrap;}
-        .task_content{position: relative;padding: 10px;width: 800px; height: 300px;font-size: 14px;background-color:#FFFFCC;overflow:auto;}
         .task_day_line{margin: 0px; }
 	article{}
 		.cal_tools{position: relative;padding: 2px 0px 0px 0px;background-color:#000000;color:#FFFFFF;text-align:center;}
@@ -69,7 +68,20 @@ End -->
 		.cal_tools_week_day{ font-weight:900;float:left;}
 		#calendar{position: relative;background-color:#336600;padding: 0px 5px 0px 5px;}
         .task_level_div{position: absolute;display: none;font-size: 12px;z-index: 1000;text-align:left;}
-        .task_day_div{position: absolute;display: none;font-size: 12px;z-index: 1000;text-align:left;}
+        .task_day_div{position: absolute;width: 800px; background-color:#003300;width: auto;font-size: 12px;z-index: 1003;text-align:left;}
+
+		<!--   show_task_content.html CSS   -->   
+		.show_div_body{position: relative;background-color: #EBEBE4;margin: 10px;padding: 10px;width: auto;font-size: 12px;z-index: 1000;text-align:left;}
+		.task_center{position: relative;width: auto;background-color:#336600; -moz-user-select:none;-webkit-user-select:none;user-select:none; }
+	    .task_content{position: relative;margin: 10px;width: 700px; height: 180px;font-size: 14px;background-color:#FFFFCC;overflow:auto;}
+        .task_tools_bar{text-align:center; height:80px;position: relative;background-color:#000000;color:#FFFFFF; margin: 10px;}
+        .task_tools_title{font-size: 24px;height: 50px;font-weight:900;overflow:hidden;}
+        .task_process_box{position: absolute;margin: 0px 0px 0px 220px ;width: 360px;}
+        .task_process_step{margin: 2px 10px 2px 5px ;float: left;font-size: 12px;color: #FFFFFF;}
+        .task_process_point{margin: 2px;background-color: #000000;color: #FFFFFF;display: none;}
+        .task_process_progress_box{position: absolute;background-color:#FFFFCC;margin: 18px 0px 0px 220px ;width: 350px;height: 5px;}
+        .task_process_progress_status{margin: 1px ;background-color: #6600FF;height: 3px;width: 50%;}
+        .task_process_progress_time{background-color: #FFFFCC;color: #3300FF;display: none;}
 </style>
 </HEAD>
 
@@ -144,14 +156,13 @@ End -->
 
 	<div id="calendar">
         <volist name="cal_date" id="d">
-            <div date="{$d.day}" class="day_box"  <if condition="$d.day eq $cur_date">style="background-color: #000000;"</if>>{$d.box}</div>
+            <div date="{$d.day}" class="day_box">{$d.box}</div>
         </volist>
 	</div>
     <div class="task_level_div">
     </div>
-    <div class="task_day_div">
-    </div>
-
+	<div class="task_day_div">
+	</div>
 </article>
 </div>
 </BODY>

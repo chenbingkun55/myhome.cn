@@ -1,29 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>[▶{$task_status} ID={$task_id}]&nbsp;{$task_list['T_title']}</title>
-
-    <style type="text/css">
-        body{background-color:#003300;margin: 5px 10px 5px 10px;font-family: 微软雅黑;font-size: 14px;width:800px;height: 600px;}
-        span{cursor:pointer;}
-        header,nav,article{padding: 0px;}
-        .task_center{position: relative;background-color:#336600;-moz-user-select:none;-webkit-user-select:none;user-select:none;  }
-        .task_tools_bar{text-align:center; height:50px;position: relative;background-color:#000000;color:#FFFFFF; margin: 10px 0px 10px 0px;}
-        .task_tools_title{font-weight:900;overflow:hidden;}
-        .task_process_box{position: absolute;margin: 0px 0px 0px 220px ;width: 360px;}
-        .task_process_step{margin: 2px 10px 2px 5px ;float: left;font-size: 12px;color: #FFFFFF;}
-        .task_process_point{margin: 2px;background-color: #000000;color: #FFFFFF;display: none;}
-        .task_process_progress_box{position: absolute;background-color:#FFFFCC;margin: 18px 0px 0px 220px ;width: 350px;height: 5px;}
-        .task_process_progress_status{margin: 1px ;background-color: #6600FF;height: 3px;width: 50%;}
-        .task_process_progress_time{background-color: #FFFFCC;color: #3300FF;display: none;}
-    </style>
-</head>
-<body>
-<div class="task_center">
-
+<div class="show_div_body">
+<div class="task_center" >
     <div class="task_tools_bar">
-        <div class="task_tools_title"  level="{$task_list['T_level']}">任务 {$task_id}: {$task_list['T_title']}</div>
-
+        <div class="task_tools_title"  level="{$task_list['T_level']}">{$task_level_tag} 任务 {$task_id}: {$task_list['T_title']}</div>
         <div class="task_process_box">
             <span class="task_process_step" style="background-color: #7FFFD4;" sta="1"><span class="task_process_point" <if condition="$task_list['T_status'] eq 1">style="display: inline;"</if>>▶</span>准备</span>
             <span class="task_process_step" style="background-color: #66CC00;" sta="2"><span class="task_process_point" <if condition="$task_list['T_status'] eq 2">style="display: inline;"</if>>▶</span>运行</span>
@@ -68,9 +46,8 @@
     </select><BR/>
         日期: <input type="date" name="T_d" value="{$task_list['T_date']|date="Y-m-d",###}"disabled="true" />
         时间: <input type="time" name="T_t" value="{$task_list['T_date']|date="H:i",###}" disabled="true"><br/>
-        <textarea id="editor_id" name="T_content" style="width:790px;height:400px;" disabled="true">{$task_list['T_content']}</textarea><BR/>
+			<div class="task_content" style="background-color: #EBEBE4;">{$task_list['T_content']}</div>
+		<input type="hidden" name="T_id" value="{$task_id}"/>
         <input type="hidden" name="T_id" value="{$task_id}" disabled="true"/>
-    </FORM>
 </div>
-</body>
-</html>
+</div>

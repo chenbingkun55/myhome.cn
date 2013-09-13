@@ -19,21 +19,24 @@ class LibAction extends Action {
 
         for($i=$cal_start - 2 ;$i>= 0;$i-- ){
             $day_i = ( $cal_L_day - $i) < 10 ? '0'.( $cal_L_day - $i) : ( $cal_L_day - $i);
-            $cal_data = array_merge($cal_data,array( $cal_index =>array( "day"=>$year."-".$month_L."-".($day_i),"box"=>"<div class=\"day_box_date\" style=\"background-color:#996666;\">".$view_year.$month_L."月".$day_i."日</div><div  class=\"day_box_conten\">".$this->show_task($year."-".$month_L."-".($day_i))."</div>")));
+            $show_bg_color = ( $year."-".$month_L."-".($day_i) ) == date("Y-m-d") ? "style=\"background-color: #000000;\"" : "" ;
+            $cal_data = array_merge($cal_data,array( $cal_index =>array( "day"=>$year."-".$month_L."-".($day_i),"box"=>"<div class=\"day_box_date\" style=\"background-color:#996666;\">".$view_year.$month_L."月".$day_i."日</div><div  class=\"day_box_conten\" ".$show_bg_color." >".$this->show_task($year."-".$month_L."-".($day_i))."</div>")));
             $cal_index++;
             $cal_max_mnu--;
         }
 
             for($i=1;$i<= $cal_M_day;$i++){
                 $day_i = $i < 10 ? '0'.$i : $i;
-                $cal_data = array_merge($cal_data,array( $cal_index =>array( "day"=>$year."-".$month."-".($day_i),"box"=>"<div class=\"day_box_date\" style=\"background-color:#FFFF99;\">".$view_year.$month."月".$day_i."日</div><div  class=\"day_box_conten\">".$this->show_task($year."-".($month)."-".($day_i))."</div>")));
+                $show_bg_color = ( $year."-".$month."-".($day_i) ) == date("Y-m-d") ? "style=\"background-color: #000000;\"" : "" ;
+                $cal_data = array_merge($cal_data,array( $cal_index =>array( "day"=>$year."-".$month."-".($day_i),"box"=>"<div class=\"day_box_date\" style=\"background-color:#FFFF99;\">".$view_year.$month."月".$day_i."日</div><div  class=\"day_box_conten\" ".$show_bg_color." >".$this->show_task($year."-".($month)."-".($day_i))."</div>")));
                 $cal_index++;
                 $cal_max_mnu--;
         }
 
         for($i=1;$i<= $cal_max_mnu;$i++){
             $day_i = $i < 10 ? '0'.$i : $i;
-            $cal_data = array_merge($cal_data,array( $cal_index =>array( "day"=>$year."-".$month_R."-".($day_i),"box"=>"<div class=\"day_box_date\" style=\"background-color:#99CCFF;\">".$view_year.$month_R."月".$day_i."日</div><div  class=\"day_box_conten\">".$this->show_task($year."-".$month_R."-".($day_i))."</div>")));
+            $show_bg_color = ( $year."-".$month_R."-".($day_i) ) == date("Y-m-d") ? "style=\"background-color: #000000;\"" : "" ;
+            $cal_data = array_merge($cal_data,array( $cal_index =>array( "day"=>$year."-".$month_R."-".($day_i),"box"=>"<div class=\"day_box_date\" style=\"background-color:#99CCFF;\">".$view_year.$month_R."月".$day_i."日</div><div  class=\"day_box_conten\" ".$show_bg_color." >".$this->show_task($year."-".$month_R."-".($day_i))."</div>")));
             $cal_index++;
         }
 
@@ -121,7 +124,7 @@ class LibAction extends Action {
                 }
 
                 // 当天任务 按重要与否 标注星星.
-                $list_array = array_merge($list_array,array( $i =>array( "tid"=>$task_list[$i]['T_id'],"box"=>"<div  class=\"day_box_date\" title=".$title." style=\"background-color:".$bg_color.";\">".date("H:i",$task_list[$i]['T_date'])." ".$public_action->show_level_tag($task_list[$i]['T_level'])."</div><div class=\"day_box_conten\">".$task_list[$i]['T_title']."<br>".$this->show_task_status( $task_list[$i]['T_id'] )."</div>")));
+                $list_array = array_merge($list_array,array( $i =>array( "tid"=>$task_list[$i]['T_id'],"box"=>"<div  class=\"task_box_date\" title=".$title." style=\"background-color:".$bg_color.";\">".date("H:i",$task_list[$i]['T_date'])." ".$public_action->show_level_tag($task_list[$i]['T_level'])."</div><div class=\"day_box_conten\">".$task_list[$i]['T_title']."<br>".$this->show_task_status( $task_list[$i]['T_id'] )."</div>")));
             }
         return $list_array;
     }
@@ -165,7 +168,7 @@ class LibAction extends Action {
             }
 
             // 当天任务 按重要与否 标注星星.
-            $list_array = array_merge($list_array,array( $i =>array( "tid"=>$task_list[$i]['T_id'],"box"=>"<div class=\"day_box_date\" title=".$title." style=\"background-color:".$bg_color.";\">".date("m-d",$task_list[$i]['T_date'])." ".date("H:i",$task_list[$i]['T_date'])." ".$public_action->show_level_tag($task_list[$i]['T_level'])."</div><div class=\"day_box_conten\">".$task_list[$i]['T_title']."<br>".$this->show_task_status( $task_list[$i]['T_id'] )."</div>")));
+            $list_array = array_merge($list_array,array( $i =>array( "tid"=>$task_list[$i]['T_id'],"box"=>"<div class=\"task_box_date\" title=".$title." style=\"background-color:".$bg_color.";\">".date("m-d",$task_list[$i]['T_date'])." ".date("H:i",$task_list[$i]['T_date'])." ".$public_action->show_level_tag($task_list[$i]['T_level'])."</div><div class=\"day_box_conten\">".$task_list[$i]['T_title']."<br>".$this->show_task_status( $task_list[$i]['T_id'] )."</div>")));
         }
 
         return $list_array;
@@ -215,7 +218,7 @@ class LibAction extends Action {
                 }
 
                 // 当天任务 按重要与否 标注星星.
-                $list_array = array_merge($list_array,array( $i =>array( "tid"=>$task_list[$i]['T_id'],"box"=>"<div  class=\"day_box_date\" title=".$title." style=\"background-color:".$bg_color.";\">".date("m-d",$task_list[$i]['T_date'])." ".date("H:i",$task_list[$i]['T_date'])." ".$public_action->show_level_tag($task_list[$i]['T_level'])."</div><div class=\"day_box_conten\">".$task_list[$i]['T_title']."<br>".$this->show_task_status( $task_list[$i]['T_id'] )."</div>")));
+                $list_array = array_merge($list_array,array( $i =>array( "tid"=>$task_list[$i]['T_id'],"box"=>"<div  class=\"task_box_date\" title=".$title." style=\"background-color:".$bg_color.";\">".date("m-d",$task_list[$i]['T_date'])." ".date("H:i",$task_list[$i]['T_date'])." ".$public_action->show_level_tag($task_list[$i]['T_level'])."</div><div class=\"day_box_conten\">".$task_list[$i]['T_title']."<br>".$this->show_task_status( $task_list[$i]['T_id'] )."</div>")));
             }
         }
         return $list_array;
@@ -306,7 +309,7 @@ class LibAction extends Action {
 	public function show_task_status( $tid ){
         $task_lib = D('lib');
 
-        $re = $task_lib->where("T_id = $tid")->getField('T_status');
+        $re = $task_lib->where("T_id = " .$tid)->getField('T_status');
 		// echo $re."TEST tid: ".$tid."<br>";
 		switch( $re ){
 			case ( $re == 7) :
@@ -335,13 +338,15 @@ class LibAction extends Action {
 	}
     public function show_task_content( $tid ){
         $task_lib = D('lib');
-        $lib_action = new LibAction();
+        $public_action = new PublicAction();
 
-        $task_list = $task_lib->where("T_id = $tid")->getField('T_content');
+        $task_list = $task_lib->find($tid);
 
-        $task_status = strip_tags($lib_action->show_task_status( $tid ));
+        $task_status = strip_tags($this->show_task_status( $tid ));
 
+		// print_r( $task_list );
         $this->assign('task_id',$tid);
+        $this->assign('task_level_tag', $public_action->show_level_tag( $task_list['T_level'] ));
         $this->assign('task_list',$task_list);
         $this->assign('task_status',$task_status);
         $this->display();
