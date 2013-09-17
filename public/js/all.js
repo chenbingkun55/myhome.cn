@@ -270,8 +270,12 @@ $(document).ready(function(){
 		document.title = document.title.replace(/(▶准备|▶运行|▶暂停|▶等待|▶停止|▶完成|▶放弃)/,$(this).text());
 
 		$.get("/myt/index.php/Task/update_task_status/tid/"+get_tid+"/status/"+$(this).attr("sta")+"/",function(data){
-			msg= data;
-			self.opener.location.reload();
+			if ( data == "成功"){
+                self.opener.location.reload();
+            } else {
+                alert( data );
+                location.reload();
+            }
 		});
 	});
 
@@ -399,9 +403,9 @@ $(document).ready(function(){
         $(".task_day_div").clearQueue().fadeOut(1500);
     });
 
-    $('select[name="predict_minute"]').change(function(){
+    $('select[name="T_exp_time"]').change(function(){
         //alert('test');
-        var val = $('select[name="predict_minute"]').val();
+        var val = $('select[name="T_exp_time"]').val();
         if ( val == 0 ){
             $(".predict_end_time_div").show();
         } else {

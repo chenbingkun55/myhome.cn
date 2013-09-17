@@ -105,21 +105,21 @@
             预计开始
             日期: <input type="date" name="T_d_start" value="{$date}"/>
             时间: <input type="time" name="T_t_start" value="{$time}">
-            预计用时: <select name="predict_minute">
+            预计用时: <select name="T_exp_time">
                 <option value="0" selected="selected">0</option>
-                <option value="5">5分</option>
-                <option value="15">10分</option>
-                <option value="30">30分</option>
-                <option value="45">45分</option>
-                <option value="60">60分</option>
-                <option value="90">90分</option>
-                <option value="120">120分</option>
+                <option value="300">5分</option>
+                <option value="600">10分</option>
+                <option value="1800">30分</option>
+                <option value="2700">45分</option>
+                <option value="3600">60分</option>
+                <option value="5400">90分</option>
+                <option value="7200">120分</option>
             </select>
         </div>
         <div class="predict_end_time_div">
             预计结束
-            日期: <input type="date" name="T_d_end" value=""/>
-            时间: <input type="time" name="T_t_end" value="">
+            日期: <input type="date" name="T_expd_end" value="{$date}"/>
+            时间: <input type="time" name="T_expt_end" value="">
         </div>
         <textarea id="editor_id" name="T_content" style="width:790px;height:400px;">{$templet_arr['T_content']}</textarea>
 

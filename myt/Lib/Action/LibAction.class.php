@@ -343,11 +343,20 @@ class LibAction extends Action {
         $task_list = $task_lib->find($tid);
 
         $task_status = strip_tags($this->show_task_status( $tid ));
+        $process_arr =  json_decode($task_list['T_process'], true);
+
+        $use_time = $process_arr['run_total_time'] ;
+        $over_time = ($task_list['T_exp_time'] - $process_arr['run_total_time']) ;
+        $exp_time = $task_list['T_exp_time'] ;
+
 
 		// print_r( $task_list );
         $this->assign('task_id',$tid);
         $this->assign('task_level_tag', $public_action->show_level_tag( $task_list['T_level'] ));
         $this->assign('task_list',$task_list);
+        $this->assign('use_time',$use_time);
+        $this->assign('over_time',$over_time);
+        $this->assign('exp_time',$exp_time);
         $this->assign('task_status',$task_status);
         $this->display();
     }
