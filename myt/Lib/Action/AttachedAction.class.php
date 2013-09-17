@@ -2,7 +2,7 @@
 require_once 'JSON.php';
 
 class AttachedAction extends Action {
-    public function upload( ){
+    public function upload(  ){
 		$php_path = dirname(__FILE__) . '/';
 		$php_url = dirname($_SERVER['PHP_SELF']) . '/';
 
@@ -104,7 +104,7 @@ class AttachedAction extends Action {
 					mkdir($save_path);
 				}
 			}
-			$ymd = date("Ymd");
+			$ymd = $_REQUEST['date'];
 			$save_path .= $ymd . "/";
 			$save_url .= $ymd . "/";
 			if (!file_exists($save_path)) {

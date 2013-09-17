@@ -27,5 +27,7 @@ return array(
 
 	//'SHOW_PAGE_TRACE' =>true, // 显示页面Trace信息
 
+	//'TMPL_L_DELIM' => '<{',
+	//'TMPL_R_DELIM' => '}>',
 );
 ?>
