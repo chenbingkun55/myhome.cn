@@ -1,3 +1,10 @@
+/* 自定义 确认完成  图标 */
+.ke-icon-FinishTab {
+	background-position: 0px -320px;
+	width: 16px;
+	height: 16px;
+}
+
 /* common */
 .ke-inline-block {
 	display: -moz-inline-stack;

@@ -7,9 +7,26 @@
     <script charset="utf-8" src="/public/kindeditor-4.1.7/kindeditor.js"></script>
     <script charset="utf-8" src="/public/kindeditor-4.1.7/lang/zh_CN.js"></script>
     <script>
+		var options = {
+				uploadJson : '/myt/index.php/Attached/upload/',
+				fileManagerJson : '/myt/index.php/Attached/manager/',
+				allowFileManager : false,
+				items : [
+								'source', '|', 'undo', 'redo', '|', 'preview', 'print', 'template', 'code', 'cut', 'copy', 'paste',
+								'plainpaste', 'wordpaste', '|', 'justifyleft', 'justifycenter', 'justifyright',
+								'justifyfull', 'insertorderedlist', 'insertunorderedlist', 'indent', 'outdent', 'subscript',
+								'superscript', 'clearhtml', 'quickformat', 'selectall', '|', 'fullscreen', '/',
+								'formatblock', 'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold',
+								'italic', 'underline', 'strikethrough', 'lineheight', 'removeformat', '|', 'image', 'multiimage',
+								'flash', 'media', 'insertfile', 'table', 'hr', 'emoticons', 'map', 'pagebreak',
+								'anchor', 'link', 'unlink', 'FinishTab','|', 'about'
+					]
+
+		};
+
         KindEditor.ready(function(K) {
-            window.editor = K.create('#editor_id');
-        });
+			window.editor = K.create('#editor_id',options );	
+       });
     </script>
     <style type="text/css">
         body{background-color: #003300; margin: 5px 10px 5px 10px;font-family: 微软雅黑;font-size: 14px;width:800px;height: 600px;}
@@ -33,6 +50,7 @@
 		<div class="task_tools_title">创建新任务 : {$date}</div>
         <div class="task_tools_box">
             <span class="task_win_close" onClick="window.close()">关闭</span>
+			<span class="task_win_close" id = "date" >时间</span>
             <span class="task_templet">模板▼</span>
             <span class="task_win_submit" >创建任务</span>
             <span class="task_create_week" >一整周</span>

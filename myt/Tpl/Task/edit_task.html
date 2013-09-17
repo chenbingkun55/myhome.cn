@@ -7,20 +7,28 @@
     <script charset="utf-8" src="/public/kindeditor-4.1.7/kindeditor.js"></script>
     <script charset="utf-8" src="/public/kindeditor-4.1.7/lang/zh_CN.js"></script>
     <script>
-        KindEditor.ready(function(K) {
-            window.editor = K.create('#editor_id');
-        });
+		var options = {
+				uploadJson : '/myt/index.php/Attached/upload/',
+				fileManagerJson : '/myt/index.php/Attached/manager/',
+				allowFileManager : false,
+				items : [
+								'source', '|', 'undo', 'redo', '|', 'preview', 'print', 'template', 'code', 'cut', 'copy', 'paste',
+								'plainpaste', 'wordpaste', '|', 'justifyleft', 'justifycenter', 'justifyright',
+								'justifyfull', 'insertorderedlist', 'insertunorderedlist', 'indent', 'outdent', 'subscript',
+								'superscript', 'clearhtml', 'quickformat', 'selectall', '|', 'fullscreen', '/',
+								'formatblock', 'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold',
+								'italic', 'underline', 'strikethrough', 'lineheight', 'removeformat', '|', 'image', 'multiimage',
+								'flash', 'media', 'insertfile', 'table', 'hr', 'emoticons', 'map', 'pagebreak',
+								'anchor', 'link', 'unlink', 'FinishTab','|', 'about'
+					]
 
-	/*  修改任务内容后，自动刷新，比较烦，关了。
-	$(document).ready(function(){
-		$("input,select,textarea,body").change(function(){
-			editor.sync();
-			$("form").submit();
-			self.opener.location.reload();
-		});
-	});
-	*/
+		};
+
+        KindEditor.ready(function(K) {
+			window.editor = K.create('#editor_id',options );	
+       });
     </script>
+
     <style type="text/css">
         body{background-color:#003300;margin: 5px 10px 5px 10px;font-family: 微软雅黑;font-size: 14px;width:800px;height: 600px;}
 		span{cursor:pointer;}
