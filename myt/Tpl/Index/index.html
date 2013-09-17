@@ -20,27 +20,6 @@ End -->
 <script>
 	// 设定 每一分钟刷新一次主页。
 	setTimeout("document.location.reload()",150000);//每60秒钟刷新一次 
-
-		var options = {
-				uploadJson : '/myt/index.php/Attached/upload/',
-				fileManagerJson : '/myt/index.php/Attached/manager/',
-				allowFileManager : false,
-				items : [
-								'source', '|', 'undo', 'redo', '|', 'preview', 'print', 'template', 'code', 'cut', 'copy', 'paste',
-								'plainpaste', 'wordpaste', '|', 'justifyleft', 'justifycenter', 'justifyright',
-								'justifyfull', 'insertorderedlist', 'insertunorderedlist', 'indent', 'outdent', 'subscript',
-								'superscript', 'clearhtml', 'quickformat', 'selectall', '|', 'fullscreen', '/',
-								'formatblock', 'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold',
-								'italic', 'underline', 'strikethrough', 'lineheight', 'removeformat', '|', 'image', 'multiimage',
-								'flash', 'media', 'insertfile', 'table', 'hr', 'emoticons', 'map', 'pagebreak',
-								'anchor', 'link', 'unlink', 'FinishTab','|', 'about'
-					]
-
-		};
-
-        KindEditor.ready(function(K) {
-			window.editor = K.create('#editor_id',options );	
-       });
 </script>
 	<!-- 
 		禁止 Body 里的文本被选中.

@@ -18,7 +18,7 @@ class AttachedAction extends Action {
 			'file' => array('doc', 'docx', 'xls', 'xlsx', 'ppt', 'htm', 'html', 'txt', 'zip', 'rar', 'gz', 'bz2'),
 		);
 		//最大文件大小
-		$max_size = 1000000;
+		$max_size = 50000000;
 
 		$save_path = realpath($save_path) . '/';
 

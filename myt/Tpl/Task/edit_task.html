@@ -8,7 +8,7 @@
     <script charset="utf-8" src="/public/kindeditor-4.1.7/lang/zh_CN.js"></script>
     <script>
 		var options = {
-				uploadJson : '/myt/index.php/Attached/upload/',
+				uploadJson : '/myt/index.php/Attached/upload/date/{$task_list['T_date']|date="Y-m-d",###}',
 				fileManagerJson : '/myt/index.php/Attached/manager/',
 				allowFileManager : false,
 				items : [
