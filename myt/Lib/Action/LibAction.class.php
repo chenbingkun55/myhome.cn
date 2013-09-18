@@ -367,7 +367,19 @@ class LibAction extends Action {
         $task_list = $task_lib->where("T_templet = 1")->select();
 		
 		for($i=0;$i< count($task_list);$i++){
-			echo "<div class=\"task_templet_line\"  onClick=\"CreateTemplet( ".$task_list[$i]['T_id']." );\"  style=\"text-align:left;width: 300px; height: 20px ;padding: 2px;\"><span>模板".($i+1)." ".$task_list[$i]['T_title']."</span></div>" ;
+			echo "<div class=\"task_templet_line\"  onClick=\"CreateTemplet( ".$task_list[$i]['T_id']." );\"  style=\"text-align:left;width: 300px; height: 20px ;padding: 2px;\"><span>No ".($i+1).".  ".$task_list[$i]['T_title']."</span></div>" ;
 		}
+	}
+
+	public function show_task_process( $tid ){
+        $task_lib = D('lib');
+
+        $process_list = $task_lib->where('T_id = '.$tid )->getField('T_process');
+		$process_arr =  json_decode($process_list, true);
+		$process_arr['start_time'] = ($process_arr['start_time'] == 0) ? ""  : date("Y-m-d H:i",$process_arr['start_time']);
+		$process_arr['done_time'] = ($process_arr['done_time'] == 0) ? ""  : date("Y-m-d H:i",$process_arr['done_time']);
+		$process_arr['forgo_time'] = ($process_arr['forgo_time'] == 0) ? ""  : date("Y-m-d H:i",$process_arr['forgo_time']);
+
+		print_r( json_encode($process_arr) );
 	}
 }

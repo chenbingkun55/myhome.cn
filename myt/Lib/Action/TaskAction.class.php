@@ -176,6 +176,7 @@ class TaskAction extends Action {
                 "stop_total_time" => 0,        // 停止总时间
                 "stop_start_time" => 0,        // 停止开始时间
                 "stop_end_time" => 0,          // 停止结速时间
+				"start_time" => 0,              // 开始时间
                 "done_time" => 0,              // 完成时间
                 "forgo_time" => 0,            // 放弃时间
             );
@@ -198,6 +199,12 @@ class TaskAction extends Action {
         }
     }
 
+    public function auto_update_task_process( $tid ){
+        $task_lib = D('lib');
+        $task_list = $task_lib->find($tid);
+
+		$this->update_task_process($tid,0,$task_list['T_status']);
+	}
 
     public function update_task_process( $tid ,$before_status,$status ){
         $task_lib = D('lib');
@@ -206,9 +213,33 @@ class TaskAction extends Action {
         $process_arr =  json_decode($task_list['T_process'], true);
 
         switch( $before_status.$status ){
-            case "12":
+			case "01" :
+			case "06" :
+			case "07" :
+                break;
+			case "02":
+				$process_arr['run_end_time'] = time();
+                $process_arr['run_total_time'] += ( $process_arr['run_end_time'] - $process_arr['run_start_time']  )  ;
+				$process_arr['run_start_time'] = time();
+                break;
+			case "03":
+				$process_arr['pause_end_time'] = time();
+                $process_arr['pause_total_time'] += ( $process_arr['pause_end_time'] - $process_arr['pause_start_time']  )  ;
+				$process_arr['pause_start_time'] = time();
+                break;
+			case "04":
+				$process_arr['wait_end_time'] = time();
+                $process_arr['wait_total_time'] += ( $process_arr['wait_end_time'] - $process_arr['wait_start_time']  )  ;
+				$process_arr['wait_start_time'] = time();
+                break;
+			case "05":
+				$process_arr['stop_end_time'] = time();
+                $process_arr['stop_total_time'] += ( $process_arr['stop_end_time'] - $process_arr['stop_start_time']  )  ;
+				$process_arr['stop_start_time'] = time();
+                break;
+			case "12":
                 // 状态: 运行
-                $process_arr['run_start_time'] = time();
+                $process_arr['run_start_time'] = $process_arr['start_time'] = time();
                 break;
             case "23":
                 // 状态: 暂停
@@ -323,7 +354,12 @@ class TaskAction extends Action {
                 $process_arr['forgo_time'] = time();
                 break;
             case "61":
+				$process_arr['exp_total_time'] = $task_list['T_exp_time'];
+                $process_arr['dexp_start_time'] = $task_list['T_date'];
+                $process_arr['exp_end_time'] = ( $task_list['T_date'] + $task_list['T_exp_time'] ) ;
                 $process_arr['done_time'] = "";
+				$process_arr['start_time'] = "";
+				$process_arr['forgo_time'] = "";
                 $process_arr['run_total_time'] = "";
                 $process_arr['run_start_time'] = "";
                 $process_arr['run_end_time'] = "";
@@ -338,7 +374,12 @@ class TaskAction extends Action {
                 $process_arr['stop_end_time'] = "";
                 break;
             case "71":
+				$process_arr['exp_total_time'] = $task_list['T_exp_time'];
+                $process_arr['dexp_start_time'] = $task_list['T_date'];
+                $process_arr['exp_end_time'] = ( $task_list['T_date'] + $task_list['T_exp_time'] ) ;
                 $process_arr['forgo_time'] = "";
+				$process_arr['start_time'] = "";
+				$process_arr['done_time'] = "";
                 $process_arr['run_total_time'] = "";
                 $process_arr['run_start_time'] = "";
                 $process_arr['run_end_time'] = "";
@@ -353,12 +394,18 @@ class TaskAction extends Action {
                 $process_arr['stop_end_time'] = "";
                 break;
             default :
-                // 状态: 准备
+                // 状态运行严格按上面的定义执行，如果没有定义过的，运行状态将不可用。
                 $process_arr = array();
         }
-        $res = $task_lib->where('T_id='.$tid)->setField('T_process', json_encode( $process_arr));
-        if ( ! $res ){
-            echo "失败";
-        }
+		
+		if( isset( $process_arr ) ){
+			$res = $task_lib->where('T_id='.$tid)->setField('T_process', json_encode( $process_arr));
+
+			if ( ! $res ){
+				echo "失败";
+			}
+		} else {
+			echo "失败";
+		}
     }
 }

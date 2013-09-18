@@ -292,16 +292,54 @@ $(document).ready(function(){
 			self.opener.location.reload();
 		});
 	}); 
+		
+	function  process_relay(){
+		var url = window.location.href;
+		var paras = url.split("/");  // 分拆数组。
+		paras.reverse(); // 反转数组，使 tid 排列第一个。
+		// alert(paras['1']);
+		var get_tid =  paras['1'];
+		
+		$.get("/myt/index.php/Task/auto_update_task_process/tid/"+get_tid+"/",function(data){ 
+		
+		}); 
+
+		$.get("/myt/index.php/Lib/show_task_process/tid/"+get_tid+"/",function(data){
+			//alert(data);
+			var process_arr = $.parseJSON(data);
+			var to_ini =  (process_arr['run_total_time'] / process_arr['exp_total_time'] );
+			$(".task_process_progress_status").css("width",Math.floor(to_ini * 100)+"%");
+		});
+	}
+
+	$(".task_process_progress_box").ready( process_relay());
 
 	$(".task_process_progress_box").bind("mouseenter",function(){
-		$(".task_process_progress_time").css("opacity","0.8").stop();
-		// 这里获取任务各阶段用时情况。
-		var progress_status="<div style=\"position: relative;height: 20px;background-color: #000000;color: #FFFFFF; padding: 0px 10px 0px 10px ;font-weight: bold;text-align:left; \">己完成[20%] 总预计：60分钟 还剩：20分钟</div>";
-		progress_status  +="<div style=\"position: relative;height: 20px;padding: 0px 10px 0px 10px ;text-align:left; \">运行：20分钟</div>";
-		progress_status  +="<div style=\"position: relative;height: 20px;padding: 0px 10px 0px 10px ;text-align:left; \">等待：20分钟</div>";
-		progress_status  +="<div style=\"position: relative;height: 20px;padding: 0px 10px 0px 10px ;text-align:left; \">暂停：20分钟</div>";
-		$(".task_process_progress_time").html( progress_status ).clearQueue().fadeIn(1000);
-		//alert('运行：20分钟');
+		$(".task_process_progress_time").css("opacity","1").stop();
+		var url = window.location.href;
+		var paras = url.split("/");  // 分拆数组。
+		paras.reverse(); // 反转数组，使 tid 排列第一个。
+		// alert(paras['1']);
+		var get_tid =  paras['1'];
+		
+		$.get("/myt/index.php/Lib/show_task_process/tid/"+get_tid+"/",function(data){
+			//alert(data);
+			var process_arr = $.parseJSON(data);
+			var to_ini =  (process_arr['run_total_time'] / process_arr['exp_total_time'] );
+
+			// 这里获取任务各阶段用时情况。
+			var progress_status="<div style=\"position: relative;height: 20px;background-color: #000000;color: #FFFFFF; padding: 0px 10px 0px 10px ;font-weight: bold;text-align:left; \"> 总预计："+process_arr['exp_total_time']+"秒 己占用["+Math.floor(to_ini * 100)+"%] 还剩："+(process_arr['exp_total_time'] - process_arr['run_total_time'] )+" 秒</div>";
+			progress_status  +="<div style=\"position: relative;height: 20px;padding: 0px 10px 0px 10px ;text-align:left; \">己运行："+process_arr['run_total_time']+" 秒</div>";
+			progress_status  +="<div style=\"position: relative;height: 20px;padding: 0px 10px 0px 10px ;text-align:left; \">己暂停："+process_arr['pause_total_time']+" 秒</div>";
+			progress_status  +="<div style=\"position: relative;height: 20px;padding: 0px 10px 0px 10px ;text-align:left; \">己等待："+process_arr['wait_total_time']+" 秒</div>";
+			progress_status  +="<div style=\"position: relative;height: 20px;padding: 0px 10px 0px 10px ;text-align:left; \">己停止："+process_arr['stop_total_time']+" 秒</div>";
+			progress_status  +="<div style=\"position: relative;height: 20px;padding: 0px 10px 0px 10px ;text-align:left; \">开始时间："+process_arr['start_time']+"</div>";
+			progress_status  +="<div style=\"position: relative;height: 20px;padding: 0px 10px 0px 10px ;text-align:left; \">完成时间："+process_arr['done_time']+"</div>";
+			progress_status  +="<div style=\"position: relative;height: 20px;padding: 0px 10px 0px 10px ;text-align:left; \">放弃时间："+process_arr['forgo_time']+"</div>";
+			$(".task_process_progress_time").html( progress_status ).clearQueue().fadeIn(1000);
+			$(".task_process_progress_status").css("width",Math.floor(to_ini * 100)+"%");
+			//alert('运行：20分钟');
+		});
 	});
 
     $(".task_process_progress_time").bind("mouseenter",function(){
