@@ -345,9 +345,9 @@ class LibAction extends Action {
         $task_status = strip_tags($this->show_task_status( $tid ));
         $process_arr =  json_decode($task_list['T_process'], true);
 
-        $use_time = $process_arr['run_total_time'] ;
-        $over_time = ($task_list['T_exp_time'] - $process_arr['run_total_time']) ;
-        $exp_time = $task_list['T_exp_time'] ;
+        $use_time = round($process_arr['run_total_time'] / 60 );
+        $over_time = round(($task_list['T_exp_time'] - $process_arr['run_total_time']) / 60) ;
+        $exp_time = round($task_list['T_exp_time'] /60) ;
 
 
 		// print_r( $task_list );
@@ -376,6 +376,7 @@ class LibAction extends Action {
 
         $process_list = $task_lib->where('T_id = '.$tid )->getField('T_process');
 		$process_arr =  json_decode($process_list, true);
+        $process_arr['exp_start_time'] = ($process_arr['exp_start_time'] == 0) ? ""  : date("Y-m-d H:i",$process_arr['exp_start_time']);
 		$process_arr['start_time'] = ($process_arr['start_time'] == 0) ? ""  : date("Y-m-d H:i",$process_arr['start_time']);
 		$process_arr['done_time'] = ($process_arr['done_time'] == 0) ? ""  : date("Y-m-d H:i",$process_arr['done_time']);
 		$process_arr['forgo_time'] = ($process_arr['forgo_time'] == 0) ? ""  : date("Y-m-d H:i",$process_arr['forgo_time']);

@@ -375,7 +375,7 @@ class TaskAction extends Action {
                 break;
             case "71":
 				$process_arr['exp_total_time'] = $task_list['T_exp_time'];
-                $process_arr['dexp_start_time'] = $task_list['T_date'];
+                $process_arr['exp_start_time'] = $task_list['T_date'];
                 $process_arr['exp_end_time'] = ( $task_list['T_date'] + $task_list['T_exp_time'] ) ;
                 $process_arr['forgo_time'] = "";
 				$process_arr['start_time'] = "";

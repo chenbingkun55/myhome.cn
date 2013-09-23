@@ -46,8 +46,8 @@
     </select><BR/>
         日期: <input type="date" name="T_d" value="{$task_list['T_date']|date="Y-m-d",###}"disabled="true" />
         时间: <input type="time" name="T_t" value="{$task_list['T_date']|date="H:i",###}" disabled="true">
-        &nbsp;<label class="task_process_exp_time">总数: {$exp_time}秒  己用: {$use_time}秒  剩余: {$over_time}秒 <label><br/>
-        <div class="task_content" style="background-color: #EBEBE4;">{$task_list['T_content']}</div>
+        &nbsp;<label class="task_process_exp_time">总数: {$exp_time}分  己用: {$use_time}分  剩余: {$over_time}分 </label><br/>
+        <div class="task_content" >{$task_list['T_content']}</div>
 		<input type="hidden" name="T_id" value="{$task_id}"/>
         <input type="hidden" name="T_id" value="{$task_id}" disabled="true"/>
 </div>

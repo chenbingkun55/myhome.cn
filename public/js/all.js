@@ -328,12 +328,13 @@ $(document).ready(function(){
 			var to_ini =  (process_arr['run_total_time'] / process_arr['exp_total_time'] );
 
 			// 这里获取任务各阶段用时情况。
-			var progress_status="<div style=\"position: relative;height: 20px;background-color: #000000;color: #FFFFFF; padding: 0px 10px 0px 10px ;font-weight: bold;text-align:left; \"> 总预计："+process_arr['exp_total_time']+"秒 己占用["+Math.floor(to_ini * 100)+"%] 还剩："+(process_arr['exp_total_time'] - process_arr['run_total_time'] )+" 秒</div>";
-			progress_status  +="<div style=\"position: relative;height: 20px;padding: 0px 10px 0px 10px ;text-align:left; \">己运行："+process_arr['run_total_time']+" 秒</div>";
-			progress_status  +="<div style=\"position: relative;height: 20px;padding: 0px 10px 0px 10px ;text-align:left; \">己暂停："+process_arr['pause_total_time']+" 秒</div>";
-			progress_status  +="<div style=\"position: relative;height: 20px;padding: 0px 10px 0px 10px ;text-align:left; \">己等待："+process_arr['wait_total_time']+" 秒</div>";
-			progress_status  +="<div style=\"position: relative;height: 20px;padding: 0px 10px 0px 10px ;text-align:left; \">己停止："+process_arr['stop_total_time']+" 秒</div>";
-			progress_status  +="<div style=\"position: relative;height: 20px;padding: 0px 10px 0px 10px ;text-align:left; \">开始时间："+process_arr['start_time']+"</div>";
+			var progress_status="<div style=\"position: relative;height: 20px;background-color: #000000;color: #FFFFFF; padding: 0px 10px 0px 10px ;font-weight: bold;text-align:left; \"> 总预计："+Math.round( process_arr['exp_total_time'] / 60 )+"分 还剩："+Math.round(((process_arr['exp_total_time'] - process_arr['run_total_time'] ) / 60 ))+" 分 己占用["+Math.round(to_ini * 100)+"%]</div>";
+			progress_status  +="<div style=\"position: relative;height: 20px;padding: 0px 10px 0px 10px ;text-align:left; \">己运行："+Math.round(( process_arr['run_total_time'] / 60 ))+" 分</div>";
+			progress_status  +="<div style=\"position: relative;height: 20px;padding: 0px 10px 0px 10px ;text-align:left; \">己暂停："+Math.round( process_arr['pause_total_time'] / 60 )+" 分</div>";
+			progress_status  +="<div style=\"position: relative;height: 20px;padding: 0px 10px 0px 10px ;text-align:left; \">己等待："+Math.round(process_arr['wait_total_time'] / 60 )+" 分</div>";
+			progress_status  +="<div style=\"position: relative;height: 20px;padding: 0px 10px 0px 10px ;text-align:left; \">己停止："+Math.round( process_arr['stop_total_time'] / 60 )+" 分</div>";
+			progress_status  +="<div style=\"position: relative;height: 20px;padding: 0px 10px 0px 10px ;text-align:left; \">预计开始时间："+process_arr['exp_start_time']+"</div>";
+            progress_status  +="<div style=\"position: relative;height: 20px;padding: 0px 10px 0px 10px ;text-align:left; \">开始时间："+process_arr['start_time']+"</div>";
 			progress_status  +="<div style=\"position: relative;height: 20px;padding: 0px 10px 0px 10px ;text-align:left; \">完成时间："+process_arr['done_time']+"</div>";
 			progress_status  +="<div style=\"position: relative;height: 20px;padding: 0px 10px 0px 10px ;text-align:left; \">放弃时间："+process_arr['forgo_time']+"</div>";
 			$(".task_process_progress_time").html( progress_status ).clearQueue().fadeIn(1000);
