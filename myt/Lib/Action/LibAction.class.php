@@ -101,20 +101,21 @@ class LibAction extends Action {
             $task_list = $task_lib->where("T_date between '". $today_start."' and '".$today_end."'" )->order('T_date')->select();
             for($i=0;$i< count($task_list);$i++){
 				if( $task_list[$i]['T_level'] > 4 || $task_list[$i]['T_status'] > 5 ) continue;
+                $total_time = time() + $task_list[$i]['T_exp_time'] ;
                 switch( $task_list[$i]['T_date'] ){
-                    case $task_list[$i]['T_date'] < time()-14400 :
+                    case $task_list[$i]['T_date'] < $total_time-14400 :
                         $bg_color = "#FF0000";
                         $title = "任务己过去4小时";
                         break;
-                    case $task_list[$i]['T_date'] < time()-7200 :
+                    case $task_list[$i]['T_date'] < $total_time-7200 :
                         $bg_color = "#FFFF00";
                         $title = "任务己过去2小时";
                         break;
-                    case $task_list[$i]['T_date'] < time()-1800 :
+                    case $task_list[$i]['T_date'] < $total_time-1800 :
                         $bg_color = "#9966CC";
                         $title = "任务己过去30分钟";
                         break;
-                    case $task_list[$i]['T_date'] < time() :
+                    case $task_list[$i]['T_date'] < $total_time :
                         $bg_color = "#00CC00";
                         $title = "当前要做任务";
                         break;
@@ -339,6 +340,7 @@ class LibAction extends Action {
     public function show_task_content( $tid ){
         $task_lib = D('lib');
         $public_action = new PublicAction();
+        $task_action = new TaskAction();
 
         $task_list = $task_lib->find($tid);
 
@@ -348,6 +350,9 @@ class LibAction extends Action {
         $use_time = round($process_arr['run_total_time'] / 60 );
         $over_time = round(($task_list['T_exp_time'] - $process_arr['run_total_time']) / 60) ;
         $exp_time = round($task_list['T_exp_time'] /60) ;
+        $use_percent = round(( $process_arr['run_total_time'] / $process_arr['exp_total_time'] ) * 100) ;
+
+        $task_action->auto_update_task_process( $tid );
 
 
 		// print_r( $task_list );
@@ -358,6 +363,7 @@ class LibAction extends Action {
         $this->assign('over_time',$over_time);
         $this->assign('exp_time',$exp_time);
         $this->assign('task_status',$task_status);
+        $this->assign('use_percent',$use_percent);
         $this->display();
     }
 

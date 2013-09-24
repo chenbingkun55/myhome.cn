@@ -12,10 +12,10 @@
             <span class="task_process_step" style="background-color: #696969;" sta="7"><span class="task_process_point" <if condition="$task_list['T_status'] eq 7">style="display: inline;"</if>>▶</span>放弃</span>
         </div>
         <div class="task_process_progress_box">
-            <div class="task_process_progress_status"></div>
+            <div class="task_process_progress_status" style="width: {$use_percent}%;"></div>
             <div class="task_process_progress_time"></div>
         </div>
-    </div>
+    </div>{$use_percent}%
         任务标题：<INPUT type="text" name="T_title" size="50" value="{$task_list['T_title']}" disabled="true"><br/>
         任务级别：<select name="T_level" disabled="true">
         <if condition="$task_list['T_level'] eq 1">

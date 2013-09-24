@@ -33,7 +33,8 @@ End -->
 	header{background-color:#000000;}
 		#status_bar{position: relative;text-align:center;color:#FFFFFF;font-size: 20px;}
 		#tools_bar{position: relative;color:#FFFFFF;margin: 0px;padding: 0px;}
-		.tools_bar_menu{position: relative;float:left;background-color:#6699FF;margin: 0px 10px 0px 10px;}
+		.tools_bar_menu{position: relative;float:left;background-color:#6699FF;margin: 0px 5px 0px 5px;}
+		.tools_bar_time{position: relative;float:right;background-color:#6666FF;margin: 5px 5px 0px 5px; width: 160px; height: 52px;overflow: hidden;}
 	nav{}
         #today_task_outer{ overflow: hidden; background-color:#6699FF;margin: 0px 5px 0px 5px;overflow:hidden;}
         #today_task_inner{position:relative; list-style-type:none; margin: 0px; padding: 0px;  padding-bottom:0px;float:left; overflow: hidden;}
@@ -85,9 +86,13 @@ End -->
 <BODY>
 <div class="div_body">
 <header>
-	<div id="status_bar"><B>{$title}</B><font size="1" >&nbsp;[Beta]</font></div>
+	<div id="status_bar"><B>{$title}</B><font size="1" >&nbsp;[Beta]</font>
+		<div class="tools_bar_time"><script charset="Shift_JIS" src="http://chabudai.sakura.ne.jp/blogparts/honehoneclock/honehone_clock_tr.js"></script> </div>
+	</div>
 	<div id="tools_bar">
 		<div class="tools_bar_menu"><span>工具栏</span></div>
+        <div class="tools_bar_menu"><span>管理周期任务</span></div>
+		 
 	</div>
 
     <div id="today_task_outer">
