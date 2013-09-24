@@ -2,6 +2,7 @@
 // 本类由系统自动生成，仅供测试用途
 class PublicAction extends Action {
     public function show_level_tag( $level ){
+		$level_tag = "";
         while ( $level > 0 ){
             $level_tag .= "★";
             $level--;
