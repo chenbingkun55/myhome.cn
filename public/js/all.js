@@ -453,6 +453,61 @@ $(document).ready(function(){
             $('.predict_end_time_div input[name="T_t_end"]').val("");
         }
     });
+
+    /*  实时列出与输入搜索条件相符的任务
+    $('.tools_bar_search').keydown(function(){
+        alert('search');
+    });
+
+    */
+    $('#tools_bar_search_button').click(function(){
+        search_data = $('input[name="task_search"]').val();
+        if( !search_data && typeof(search_data) != "undefined" ){
+            alert('搜索内容不能为空!');
+        } else {
+            TaskWindow = window.open("/myt/index.php/Lib/task_search/search_data/"+search_data,search_data,"width=820,height=620,menubar=no,toolbar=no,location=no,scrollbars=no,status=no,modal=yes");
+        }
+    });
+
+    $('.task_search_data_line').click(function (){
+        var tid = $(this).attr('tid');
+        //alert( $(this).attr('tid'));
+        TaskWindow = window.open("/myt/index.php/Task/edit_task/tid/"+tid+"/",tid,"width=820,height=620,menubar=no,toolbar=no,location=no,scrollbars=no,status=no,modal=yes");
+        TaskWindow.focus();
+    });
+
+    $("#ago_page,#after_page").click(function(){
+        var total_page = $("#total_page").attr('page');
+        var ago_page = $("#ago_page").attr('page');
+        var click_this = $(this).attr('page');
+        var after_page = $("#after_page").attr('page');
+        var url = window.location.href;
+        var page_num = 0;
+
+        if ( total_page != 0 && typeof(total_page) != "undefined" && click_this > 0 ){
+                if( click_this == after_page && total_page > after_page){
+                    $("#ago_page").attr('page',( parseInt(ago_page) + 1 ) );
+                    $("#after_page").attr('page',( parseInt(after_page) + 1 ) );
+                    page_num = after_page;
+                    $("#cur_page").text( parseInt(page_num) + 1 );
+                } else if ( click_this == ago_page && ago_page > 0 ){
+                    $("#ago_page").attr('page',( parseInt(ago_page) - 1 ) );
+                    $("#after_page").attr('page',( parseInt(after_page) - 1 ) );
+                    page_num = ( parseInt(ago_page) - 1 );
+                    $("#cur_page").text( ( parseInt(after_page) - 1 ) );
+                } else {
+                    alert('往后没有页可以翻!');
+                    page_num = ( parseInt(after_page) - 1 );
+                }
+
+                $.get(url+'/page/'+page_num, function(data,status){
+                    $(".task_search_data_content").html(data);
+                    //alert(page_num);
+                });
+        } else {
+            alert('往前没有页可以翻!');
+        }
+    });
 });
 
 function ShowLevel( level ){

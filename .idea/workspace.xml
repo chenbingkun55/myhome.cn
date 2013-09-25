@@ -4,11 +4,11 @@
     <list default="true" id="83820e51-d90c-4ea5-a94c-02e3b3ecfdfd" name="Default" comment="" />
     <ignored path="myhome.cn.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/index.html" changelist="83820e51-d90c-4ea5-a94c-02e3b3ecfdfd" time="1379914608660" ignored="false" />
+    <file path="/index.html" changelist="83820e51-d90c-4ea5-a94c-02e3b3ecfdfd" time="1380077517688" ignored="false" />
     <file path="/IndexAction.class.php" changelist="83820e51-d90c-4ea5-a94c-02e3b3ecfdfd" time="1378802388729" ignored="false" />
-    <file path="/LibAction.class.php" changelist="83820e51-d90c-4ea5-a94c-02e3b3ecfdfd" time="1379916453280" ignored="false" />
+    <file path="/LibAction.class.php" changelist="83820e51-d90c-4ea5-a94c-02e3b3ecfdfd" time="1380105568113" ignored="false" />
     <file path="/TaskAction.class.php" changelist="83820e51-d90c-4ea5-a94c-02e3b3ecfdfd" time="1379413353118" ignored="false" />
-    <file path="/edit_task.html" changelist="83820e51-d90c-4ea5-a94c-02e3b3ecfdfd" time="1378798490162" ignored="false" />
+    <file path="/edit_task.html" changelist="83820e51-d90c-4ea5-a94c-02e3b3ecfdfd" time="1380072757566" ignored="false" />
     <file path="/create_task.html" changelist="83820e51-d90c-4ea5-a94c-02e3b3ecfdfd" time="1379393861990" ignored="false" />
     <file path="/test.php" changelist="83820e51-d90c-4ea5-a94c-02e3b3ecfdfd" time="1379412134600" ignored="false" />
     <file path="$PROJECT_DIR$/../bzb.igg.com/bzb-handset/widgets/com_device_edit/base_class.php" changelist="83820e51-d90c-4ea5-a94c-02e3b3ecfdfd" time="1378274697341" ignored="false" />
@@ -20,10 +20,11 @@
     <file path="/a.dummy" changelist="83820e51-d90c-4ea5-a94c-02e3b3ecfdfd" time="1378695528464" ignored="false" />
     <file path="/PublicAction.class.php" changelist="83820e51-d90c-4ea5-a94c-02e3b3ecfdfd" time="1378443301724" ignored="false" />
     <file path="/config.php" changelist="83820e51-d90c-4ea5-a94c-02e3b3ecfdfd" time="1378351449264" ignored="false" />
-    <file path="$PROJECT_DIR$/myt/Runtime/~runtime.php" changelist="83820e51-d90c-4ea5-a94c-02e3b3ecfdfd" time="1379917265752" ignored="false" />
-    <file path="/all.js" changelist="83820e51-d90c-4ea5-a94c-02e3b3ecfdfd" time="1379909758144" ignored="false" />
+    <file path="$PROJECT_DIR$/myt/Runtime/~runtime.php" changelist="83820e51-d90c-4ea5-a94c-02e3b3ecfdfd" time="1380083979905" ignored="false" />
+    <file path="/all.js" changelist="83820e51-d90c-4ea5-a94c-02e3b3ecfdfd" time="1380099116251" ignored="false" />
     <file path="/default.css" changelist="83820e51-d90c-4ea5-a94c-02e3b3ecfdfd" time="1378464977152" ignored="false" />
     <file path="/show_task_content.html" changelist="83820e51-d90c-4ea5-a94c-02e3b3ecfdfd" time="1379916316726" ignored="false" />
+    <file path="/task_search.html" changelist="83820e51-d90c-4ea5-a94c-02e3b3ecfdfd" time="1380097342186" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,8 +47,22 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/myt/Tpl/Index/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="98" column="25" selection-start="6382" selection-end="6382" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="48" column="94" selection-start="2800" selection-end="2817" vertical-scroll-proportion="-10.178572">
+              <folding>
+                <element signature="n#style#0;n#span#0;n#div#0;n#nav#0;n#div#0;n#BODY#0;n#HTML#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#1;n#div#0;n#nav#0;n#div#0;n#BODY#0;n#HTML#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#2;n#div#0;n#nav#0;n#div#0;n#BODY#0;n#HTML#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#3;n#div#0;n#nav#0;n#div#0;n#BODY#0;n#HTML#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#4;n#div#0;n#nav#0;n#div#0;n#BODY#0;n#HTML#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#5;n#div#0;n#nav#0;n#div#0;n#BODY#0;n#HTML#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#6;n#div#0;n#nav#0;n#div#0;n#BODY#0;n#HTML#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#7;n#div#0;n#nav#0;n#div#0;n#BODY#0;n#HTML#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#8;n#div#0;n#nav#0;n#div#0;n#BODY#0;n#HTML#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#9;n#div#0;n#nav#0;n#div#0;n#BODY#0;n#HTML#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#10;n#div#0;n#nav#0;n#div#0;n#BODY#0;n#HTML#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#11;n#div#0;n#nav#0;n#div#0;n#BODY#0;n#HTML#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#12;n#div#0;n#nav#0;n#div#0;n#BODY#0;n#HTML#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -55,29 +70,20 @@
       <file leaf-file-name="all.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/js/all.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="327" column="88" selection-start="12431" selection-end="12492" vertical-scroll-proportion="0.0">
+            <state line="476" column="7" selection-start="19368" selection-end="19368" vertical-scroll-proportion="-8.36">
               <folding>
-                <marker date="1379909777671" expanded="false" signature="6256:6389" placeholder="..." />
-                <marker date="1379909777671" expanded="false" signature="12555:12692" placeholder="..." />
-                <marker date="1379909777671" expanded="false" signature="12927:13004" placeholder="..." />
-                <marker date="1379909777671" expanded="false" signature="13112:13189" placeholder="..." />
-                <marker date="1379909777671" expanded="true" signature="13297:13374" placeholder="..." />
-                <marker date="1379909777671" expanded="false" signature="13480:13557" placeholder="..." />
-                <marker date="1379909777671" expanded="false" signature="13664:13741" placeholder="..." />
-                <marker date="1379909777671" expanded="true" signature="13838:13915" placeholder="..." />
-                <marker date="1379909777671" expanded="false" signature="13997:14074" placeholder="..." />
-                <marker date="1379909777671" expanded="false" signature="14155:14232" placeholder="..." />
-                <marker date="1379909777671" expanded="false" signature="17198:17224" placeholder="..." />
+                <marker date="1380105529774" expanded="true" signature="6256:6389" placeholder="..." />
+                <marker date="1380105529774" expanded="true" signature="12555:12692" placeholder="..." />
+                <marker date="1380105529774" expanded="true" signature="12927:13004" placeholder="..." />
+                <marker date="1380105529774" expanded="true" signature="13112:13189" placeholder="..." />
+                <marker date="1380105529774" expanded="true" signature="13297:13374" placeholder="..." />
+                <marker date="1380105529774" expanded="true" signature="13480:13557" placeholder="..." />
+                <marker date="1380105529774" expanded="true" signature="13664:13741" placeholder="..." />
+                <marker date="1380105529774" expanded="true" signature="13838:13915" placeholder="..." />
+                <marker date="1380105529774" expanded="true" signature="13997:14074" placeholder="..." />
+                <marker date="1380105529774" expanded="true" signature="14155:14232" placeholder="..." />
+                <marker date="1380105529774" expanded="true" signature="17198:17224" placeholder="..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IndexAction.class.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/myt/Lib/Action/IndexAction.class.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="8" selection-start="202" selection-end="232" vertical-scroll-proportion="0.0">
-              <folding />
             </state>
           </provider>
         </entry>
@@ -85,10 +91,12 @@
       <file leaf-file-name="TaskAction.class.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/myt/Lib/Action/TaskAction.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="163" column="31" selection-start="5838" selection-end="5852" vertical-scroll-proportion="0.0">
+            <state line="22" column="50" selection-start="775" selection-end="775" vertical-scroll-proportion="145.89285">
               <folding>
-                <marker date="1379907313315" expanded="false" signature="1121:1159" placeholder="..." />
-                <marker date="1379907313315" expanded="false" signature="7390:7428" placeholder="..." />
+                <marker date="1380079072515" expanded="true" signature="1139:1177" placeholder="..." />
+                <marker date="1380079072515" expanded="true" signature="2246:2284" placeholder="..." />
+                <marker date="1380079072515" expanded="true" signature="2520:2558" placeholder="..." />
+                <marker date="1380079072515" expanded="true" signature="7408:7446" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -97,7 +105,7 @@
       <file leaf-file-name="edit_task.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/myt/Tpl/Task/edit_task.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="35" selection-start="460" selection-end="475" vertical-scroll-proportion="0.0">
+            <state line="4" column="0" selection-start="110" selection-end="260" vertical-scroll-proportion="0.11411411">
               <folding />
             </state>
           </provider>
@@ -106,7 +114,7 @@
       <file leaf-file-name="create_task.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/myt/Tpl/Task/create_task.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="113" column="49" selection-start="5181" selection-end="5181" vertical-scroll-proportion="0.0">
+            <state line="35" column="66" selection-start="1716" selection-end="1774" vertical-scroll-proportion="-3.392857">
               <folding />
             </state>
           </provider>
@@ -121,28 +129,29 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LibAction.class.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="LibAction.class.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/myt/Lib/Action/LibAction.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="366" column="25" selection-start="17106" selection-end="17106" vertical-scroll-proportion="0.37087086">
+            <state line="421" column="46" selection-start="20113" selection-end="20113" vertical-scroll-proportion="-8.509434">
               <folding>
-                <marker date="1379917488861" expanded="false" signature="14772:14825" placeholder="..." />
-                <marker date="1379917488861" expanded="false" signature="15118:15159" placeholder="..." />
-                <marker date="1379917488861" expanded="false" signature="15234:15276" placeholder="..." />
-                <marker date="1379917488861" expanded="false" signature="15351:15393" placeholder="..." />
-                <marker date="1379917488861" expanded="false" signature="15468:15510" placeholder="..." />
-                <marker date="1379917488861" expanded="false" signature="15585:15627" placeholder="..." />
-                <marker date="1379917488861" expanded="false" signature="15702:15744" placeholder="..." />
-                <marker date="1379917488861" expanded="false" signature="15810:15852" placeholder="..." />
+                <marker date="1380105613190" expanded="false" signature="14792:14845" placeholder="..." />
+                <marker date="1380105613190" expanded="false" signature="15029:15070" placeholder="..." />
+                <marker date="1380105613190" expanded="true" signature="15145:15187" placeholder="..." />
+                <marker date="1380105613190" expanded="true" signature="15262:15304" placeholder="..." />
+                <marker date="1380105613190" expanded="false" signature="15379:15421" placeholder="..." />
+                <marker date="1380105613190" expanded="false" signature="15496:15538" placeholder="..." />
+                <marker date="1380105613190" expanded="false" signature="15613:15655" placeholder="..." />
+                <marker date="1380105613190" expanded="false" signature="15721:15763" placeholder="..." />
+                <marker date="1380105613190" expanded="true" signature="19405:20287" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PublicAction.class.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/myt/Lib/Action/PublicAction.class.php">
+      <file leaf-file-name="task_search.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/myt/Tpl/Lib/task_search.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="44" selection-start="82" selection-end="106" vertical-scroll-proportion="0.0">
+            <state line="6" column="0" selection-start="213" selection-end="213" vertical-scroll-proportion="0.17117117">
               <folding />
             </state>
           </provider>
@@ -151,7 +160,7 @@
       <file leaf-file-name="show_task_content.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/myt/Tpl/Lib/show_task_content.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="58" selection-start="1959" selection-end="1959" vertical-scroll-proportion="0.0">
+            <state line="7" column="100" selection-start="785" selection-end="785" vertical-scroll-proportion="-4.75">
               <folding />
             </state>
           </provider>
@@ -167,8 +176,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/myt/Runtime/Data/_fields/myhome.lib.php" />
-        <option value="$PROJECT_DIR$/myt/Runtime/Cache/0a4d3d80848affbb2155d4809f8511c0.php" />
         <option value="$PROJECT_DIR$/myt/Runtime/~runtime.php" />
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/myt/Conf/config.php" />
@@ -176,13 +183,15 @@
         <option value="$PROJECT_DIR$/public/kindeditor-4.1.7/themes/default/default.css" />
         <option value="$PROJECT_DIR$/myt/Lib/Action/IndexAction.class.php" />
         <option value="$PROJECT_DIR$/test.php" />
-        <option value="$PROJECT_DIR$/myt/Tpl/Task/create_task.html" />
-        <option value="$PROJECT_DIR$/myt/Lib/Action/TaskAction.class.php" />
-        <option value="$PROJECT_DIR$/myt/Tpl/Task/edit_task.html" />
-        <option value="$PROJECT_DIR$/public/js/all.js" />
-        <option value="$PROJECT_DIR$/myt/Tpl/Index/index.html" />
         <option value="$PROJECT_DIR$/myt/Tpl/Lib/show_task_content.html" />
+        <option value="$PROJECT_DIR$/myt/Tpl/Task/edit_task.html" />
+        <option value="$PROJECT_DIR$/myt/Tpl/Task/create_task.html" />
+        <option value="$PROJECT_DIR$/myt/Tpl/Index/index.html" />
+        <option value="$PROJECT_DIR$/myt/Lib/Action/TaskAction.class.php" />
+        <option value="$PROJECT_DIR$/ThinkPHP/Lib/Core/Model.class.php" />
+        <option value="$PROJECT_DIR$/public/js/all.js" />
         <option value="$PROJECT_DIR$/myt/Lib/Action/LibAction.class.php" />
+        <option value="$PROJECT_DIR$/myt/Tpl/Lib/task_search.html" />
       </list>
     </option>
   </component>
@@ -193,8 +202,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1448" />
-    <option name="y" value="-8" />
+    <option name="x" value="-1456" />
+    <option name="y" value="192" />
     <option name="width" value="1370" />
     <option name="height" value="916" />
   </component>
@@ -252,7 +261,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
+              <option name="myItemId" value="ThinkPHP" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -266,65 +275,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="myhome.cn" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="myhome.cn" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="myt" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="myhome.cn" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="myhome.cn" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="myt" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Tpl" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Task" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="myhome.cn" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="myhome.cn" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="myt" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Tpl" />
+              <option name="myItemId" value="ThinkPHP" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -342,11 +293,51 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="myt" />
+              <option name="myItemId" value="ThinkPHP" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Tpl" />
+              <option name="myItemId" value="Lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myhome.cn" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myhome.cn" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ThinkPHP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Behavior" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myhome.cn" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myhome.cn" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myt" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -358,14 +349,14 @@
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="recentsLimit" value="5" />
     <property name="options.lastSelected" value="project.propDebugger" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../bzb.igg.com" />
+    <property name="recentsLimit" value="5" />
     <property name="restartRequiresConfirmation" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="FullScreen" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -415,14 +406,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1448" y="-8" width="1370" height="916" extended-state="6" />
+    <frame x="-1456" y="192" width="1370" height="916" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.59126985" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3119266" sideWeight="0.8280423" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23776758" sideWeight="0.40873015" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -431,7 +423,6 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17195767" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -511,16 +502,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/myt/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="30" selection-start="117" selection-end="117" vertical-scroll-proportion="0.30645162" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="2" selection-start="33" selection-end="33" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/_superglobals.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="107" column="0" selection-start="3336" selection-end="3336" vertical-scroll-proportion="0.39904988" />
@@ -550,7 +531,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/myt/Lib/Action/PublicAction.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="44" selection-start="82" selection-end="106" vertical-scroll-proportion="0.0">
+        <state line="4" column="24" selection-start="82" selection-end="106" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -564,74 +545,105 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/myt/Tpl/Task/create_task.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="113" column="49" selection-start="5181" selection-end="5181" vertical-scroll-proportion="0.0">
+        <state line="35" column="66" selection-start="1716" selection-end="1774" vertical-scroll-proportion="-3.392857">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myt/Tpl/Task/edit_task.html">
+    <entry file="file://$PROJECT_DIR$/myt/Lib/Action/TaskAction.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="35" selection-start="460" selection-end="475" vertical-scroll-proportion="0.0">
+        <state line="22" column="50" selection-start="775" selection-end="775" vertical-scroll-proportion="145.89285">
+          <folding>
+            <marker date="1380079072515" expanded="true" signature="1139:1177" placeholder="..." />
+            <marker date="1380079072515" expanded="true" signature="2246:2284" placeholder="..." />
+            <marker date="1380079072515" expanded="true" signature="2520:2558" placeholder="..." />
+            <marker date="1380079072515" expanded="true" signature="7408:7446" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myt/Tpl/Lib/show_task_content.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="100" selection-start="785" selection-end="785" vertical-scroll-proportion="-4.75">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/myt/Tpl/Index/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="98" column="25" selection-start="6382" selection-end="6382" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myt/Tpl/Lib/show_task_content.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="58" selection-start="1959" selection-end="1959" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/all.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="327" column="88" selection-start="12431" selection-end="12492" vertical-scroll-proportion="0.0">
+        <state line="48" column="94" selection-start="2800" selection-end="2817" vertical-scroll-proportion="-10.178572">
           <folding>
-            <marker date="1379909777671" expanded="false" signature="6256:6389" placeholder="..." />
-            <marker date="1379909777671" expanded="false" signature="12555:12692" placeholder="..." />
-            <marker date="1379909777671" expanded="false" signature="12927:13004" placeholder="..." />
-            <marker date="1379909777671" expanded="false" signature="13112:13189" placeholder="..." />
-            <marker date="1379909777671" expanded="true" signature="13297:13374" placeholder="..." />
-            <marker date="1379909777671" expanded="false" signature="13480:13557" placeholder="..." />
-            <marker date="1379909777671" expanded="false" signature="13664:13741" placeholder="..." />
-            <marker date="1379909777671" expanded="true" signature="13838:13915" placeholder="..." />
-            <marker date="1379909777671" expanded="false" signature="13997:14074" placeholder="..." />
-            <marker date="1379909777671" expanded="false" signature="14155:14232" placeholder="..." />
-            <marker date="1379909777671" expanded="false" signature="17198:17224" placeholder="..." />
+            <element signature="n#style#0;n#span#0;n#div#0;n#nav#0;n#div#0;n#BODY#0;n#HTML#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#1;n#div#0;n#nav#0;n#div#0;n#BODY#0;n#HTML#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#2;n#div#0;n#nav#0;n#div#0;n#BODY#0;n#HTML#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#3;n#div#0;n#nav#0;n#div#0;n#BODY#0;n#HTML#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#4;n#div#0;n#nav#0;n#div#0;n#BODY#0;n#HTML#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#5;n#div#0;n#nav#0;n#div#0;n#BODY#0;n#HTML#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#6;n#div#0;n#nav#0;n#div#0;n#BODY#0;n#HTML#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#7;n#div#0;n#nav#0;n#div#0;n#BODY#0;n#HTML#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#8;n#div#0;n#nav#0;n#div#0;n#BODY#0;n#HTML#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#9;n#div#0;n#nav#0;n#div#0;n#BODY#0;n#HTML#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#10;n#div#0;n#nav#0;n#div#0;n#BODY#0;n#HTML#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#11;n#div#0;n#nav#0;n#div#0;n#BODY#0;n#HTML#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#12;n#div#0;n#nav#0;n#div#0;n#BODY#0;n#HTML#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myt/Lib/Action/TaskAction.class.php">
+    <entry file="file://$PROJECT_DIR$/ThinkPHP/Lib/Core/Model.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="163" column="31" selection-start="5838" selection-end="5852" vertical-scroll-proportion="0.0">
-          <folding>
-            <marker date="1379907313315" expanded="false" signature="1121:1159" placeholder="..." />
-            <marker date="1379907313315" expanded="false" signature="7390:7428" placeholder="..." />
-          </folding>
+        <state line="1484" column="21" selection-start="47232" selection-end="47232" vertical-scroll-proportion="0.24492979">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/myt/Lib/Action/LibAction.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="366" column="25" selection-start="17106" selection-end="17106" vertical-scroll-proportion="0.37087086">
+        <state line="421" column="46" selection-start="20113" selection-end="20113" vertical-scroll-proportion="-8.509434">
           <folding>
-            <marker date="1379917488861" expanded="false" signature="14772:14825" placeholder="..." />
-            <marker date="1379917488861" expanded="false" signature="15118:15159" placeholder="..." />
-            <marker date="1379917488861" expanded="false" signature="15234:15276" placeholder="..." />
-            <marker date="1379917488861" expanded="false" signature="15351:15393" placeholder="..." />
-            <marker date="1379917488861" expanded="false" signature="15468:15510" placeholder="..." />
-            <marker date="1379917488861" expanded="false" signature="15585:15627" placeholder="..." />
-            <marker date="1379917488861" expanded="false" signature="15702:15744" placeholder="..." />
-            <marker date="1379917488861" expanded="false" signature="15810:15852" placeholder="..." />
+            <marker date="1380105613190" expanded="false" signature="14792:14845" placeholder="..." />
+            <marker date="1380105613190" expanded="false" signature="15029:15070" placeholder="..." />
+            <marker date="1380105613190" expanded="true" signature="15145:15187" placeholder="..." />
+            <marker date="1380105613190" expanded="true" signature="15262:15304" placeholder="..." />
+            <marker date="1380105613190" expanded="false" signature="15379:15421" placeholder="..." />
+            <marker date="1380105613190" expanded="false" signature="15496:15538" placeholder="..." />
+            <marker date="1380105613190" expanded="false" signature="15613:15655" placeholder="..." />
+            <marker date="1380105613190" expanded="false" signature="15721:15763" placeholder="..." />
+            <marker date="1380105613190" expanded="true" signature="19405:20287" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/all.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="476" column="7" selection-start="19368" selection-end="19368" vertical-scroll-proportion="-8.36">
+          <folding>
+            <marker date="1380105529774" expanded="true" signature="6256:6389" placeholder="..." />
+            <marker date="1380105529774" expanded="true" signature="12555:12692" placeholder="..." />
+            <marker date="1380105529774" expanded="true" signature="12927:13004" placeholder="..." />
+            <marker date="1380105529774" expanded="true" signature="13112:13189" placeholder="..." />
+            <marker date="1380105529774" expanded="true" signature="13297:13374" placeholder="..." />
+            <marker date="1380105529774" expanded="true" signature="13480:13557" placeholder="..." />
+            <marker date="1380105529774" expanded="true" signature="13664:13741" placeholder="..." />
+            <marker date="1380105529774" expanded="true" signature="13838:13915" placeholder="..." />
+            <marker date="1380105529774" expanded="true" signature="13997:14074" placeholder="..." />
+            <marker date="1380105529774" expanded="true" signature="14155:14232" placeholder="..." />
+            <marker date="1380105529774" expanded="true" signature="17198:17224" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myt/Tpl/Task/edit_task.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="0" selection-start="110" selection-end="260" vertical-scroll-proportion="0.11411411">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myt/Tpl/Lib/task_search.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="0" selection-start="213" selection-end="213" vertical-scroll-proportion="0.17117117">
+          <folding />
         </state>
       </provider>
     </entry>

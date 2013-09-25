@@ -1481,7 +1481,7 @@ class Model {
      * @return Model
      */
     public function limit($offset,$length=null){
-        $this->options['limit'] =   is_null($length)?$offset:$offset.','.$length;
+       $this->options['limit'] =   is_null($length)?$offset:$offset.','.$length;
         return $this;
     }
 

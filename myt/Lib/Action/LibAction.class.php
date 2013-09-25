@@ -125,7 +125,7 @@ class LibAction extends Action {
                 }
 
                 // 当天任务 按重要与否 标注星星.
-                $list_array = array_merge($list_array,array( $i =>array( "tid"=>$task_list[$i]['T_id'],"box"=>"<div  class=\"task_box_date\" title=".$title." style=\"background-color:".$bg_color.";\">".date("H:i",$task_list[$i]['T_date'])." ".$public_action->show_level_tag($task_list[$i]['T_level'])."</div><div class=\"day_box_conten\">".$task_list[$i]['T_title']."<br>".$this->show_task_status( $task_list[$i]['T_id'] )."</div>")));
+                $list_array = array_merge($list_array,array( $i =>array( "tid"=>$task_list[$i]['T_id'],"box"=>"<div  class=\"task_box_date\" title=".$title." style=\"background-color:".$bg_color.";\">".date("H:i",$task_list[$i]['T_date'])." ".$public_action->show_level_tag($task_list[$i]['T_level'])."</div><div class=\"day_box_conten\">".$task_list[$i]['T_title']."<br>".$this->show_task_status( $task_list[$i]['T_status'] )."</div>")));
             }
         return $list_array;
     }
@@ -169,7 +169,7 @@ class LibAction extends Action {
             }
 
             // 当天任务 按重要与否 标注星星.
-            $list_array = array_merge($list_array,array( $i =>array( "tid"=>$task_list[$i]['T_id'],"box"=>"<div class=\"task_box_date\" title=".$title." style=\"background-color:".$bg_color.";\">".date("m-d",$task_list[$i]['T_date'])." ".date("H:i",$task_list[$i]['T_date'])." ".$public_action->show_level_tag($task_list[$i]['T_level'])."</div><div class=\"day_box_conten\">".$task_list[$i]['T_title']."<br>".$this->show_task_status( $task_list[$i]['T_id'] )."</div>")));
+            $list_array = array_merge($list_array,array( $i =>array( "tid"=>$task_list[$i]['T_id'],"box"=>"<div class=\"task_box_date\" title=".$title." style=\"background-color:".$bg_color.";\">".date("m-d",$task_list[$i]['T_date'])." ".date("H:i",$task_list[$i]['T_date'])." ".$public_action->show_level_tag($task_list[$i]['T_level'])."</div><div class=\"day_box_conten\">".$task_list[$i]['T_title']."<br>".$this->show_task_status( $task_list[$i]['T_status'] )."</div>")));
         }
 
         return $list_array;
@@ -219,7 +219,7 @@ class LibAction extends Action {
                 }
 
                 // 当天任务 按重要与否 标注星星.
-                $list_array = array_merge($list_array,array( $i =>array( "tid"=>$task_list[$i]['T_id'],"box"=>"<div  class=\"task_box_date\" title=".$title." style=\"background-color:".$bg_color.";\">".date("m-d",$task_list[$i]['T_date'])." ".date("H:i",$task_list[$i]['T_date'])." ".$public_action->show_level_tag($task_list[$i]['T_level'])."</div><div class=\"day_box_conten\">".$task_list[$i]['T_title']."<br>".$this->show_task_status( $task_list[$i]['T_id'] )."</div>")));
+                $list_array = array_merge($list_array,array( $i =>array( "tid"=>$task_list[$i]['T_id'],"box"=>"<div  class=\"task_box_date\" title=".$title." style=\"background-color:".$bg_color.";\">".date("m-d",$task_list[$i]['T_date'])." ".date("H:i",$task_list[$i]['T_date'])." ".$public_action->show_level_tag($task_list[$i]['T_level'])."</div><div class=\"day_box_conten\">".$task_list[$i]['T_title']."<br>".$this->show_task_status( $task_list[$i]['T_status'] )."</div>")));
             }
         }
         return $list_array;
@@ -260,7 +260,7 @@ class LibAction extends Action {
                     $bg_color = "#FF0000";
                     $title = "非常重要";
             }
-            echo "<div class=\"task_level_line\"  tid=\"".$task_list[$i]['T_id']."\" style=\"color: #FFFFFF; background-color:".$bg_color.";padding: 0px 10px 0px 10px ;\"><span>".$this->show_task_status( $task_list[$i]['T_id'] )." <span style=\"background-color: #000000;\">".date("H:i",$task_list[$i]['T_date'])."</span> ".$task_list[$i]['T_title']."</span></div>" ;
+            echo "<div class=\"task_level_line\"  tid=\"".$task_list[$i]['T_id']."\" style=\"color: #FFFFFF; background-color:".$bg_color.";padding: 0px 10px 0px 10px ;\"><span>".$this->show_task_status( $task_list[$i]['T_status'] )." <span style=\"background-color: #000000;\">".date("H:i",$task_list[$i]['T_date'])."</span> ".$task_list[$i]['T_title']."</span></div>" ;
         }
     }
 
@@ -300,18 +300,15 @@ class LibAction extends Action {
                         $bg_color = "#FF0000";
                         $title = "非常重要";
                 }
-                echo "<div class=\"task_day_line\" onClick=\"TaskEdit(".$task_list[$i]['T_id'].");\" style=\"color: #FFFFFF; background-color:".$bg_color.";padding: 0px 10px 0px 10px ;\"><span>".($i+1).". ".$this->show_task_status( $task_list[$i]['T_id'] )." <span style=\"background-color: #000000;\">".date("H:i",$task_list[$i]['T_date'])."</span> ".$task_list[$i]['T_title']."</span></div>" ;
+                echo "<div class=\"task_day_line\" onClick=\"TaskEdit(".$task_list[$i]['T_id'].");\" style=\"color: #FFFFFF; background-color:".$bg_color.";padding: 0px 10px 0px 10px ;\"><span>".($i+1).". ".$this->show_task_status( $task_list[$i]['T_status'] )." <span style=\"background-color: #000000;\">".date("H:i",$task_list[$i]['T_date'])."</span> ".$task_list[$i]['T_title']."</span></div>" ;
             }
         }else {
             echo "<div class=\"task_day_line\" style=\"background-color:#FFFFCC;padding: 0px 10px 0px 10px ;\"> -_~|  今天没有任务</div>" ;
         }
     }
 
-	public function show_task_status( $tid ){
-        $task_lib = D('lib');
-
-        $re = $task_lib->where("T_id = " .$tid)->getField('T_status');
-		// echo $re."TEST tid: ".$tid."<br>";
+	public function show_task_status( $status_id ){
+        $re = $status_id ;
 		switch( $re ){
 			case ( $re == 7) :
 				$str = "<span style=\"background-color: #696969; color: #FFFFFF\" >放弃</span>";
@@ -344,7 +341,7 @@ class LibAction extends Action {
 
         $task_list = $task_lib->find($tid);
 
-        $task_status = strip_tags($this->show_task_status( $tid ));
+        $task_status = strip_tags($this->show_task_status( $task_list['T_status'] ));
         $process_arr =  json_decode($task_list['T_process'], true);
 
         $use_time = round($process_arr['run_total_time'] / 60 );
@@ -389,4 +386,53 @@ class LibAction extends Action {
 
 		print_r( json_encode($process_arr) );
 	}
+
+    public function task_search( $search_data ){
+        $task_lib = D('lib');
+        $public_action = new PublicAction();
+        $page = $_REQUEST['page'];
+        $page_limit_num = 20;
+
+        $trim_search_data = trim($search_data);
+        $search_where = " T_title like '%".$trim_search_data."%' OR T_content like '%".$trim_search_data."%' ";
+        $search_limit = ( $page > 0 )  ?  ( $page_limit_num * $page ).",".$page_limit_num : "0,".$page_limit_num ;
+        $search_date_count = ( $page_limit_num * $page );
+
+        $search_count = $task_lib->where( $search_where )->count();
+        $res_data = $task_lib->where( $search_where )->limit( $search_limit )->select();
+
+
+        if( ! $res_data ){
+            $this->assign('no_search_data',"没有搜索到相关任务!");
+        }
+
+        $search_date_line = "";
+
+        for( $i = 0; $i < count($res_data); $i++){
+            $search_date_count++;
+            $process_arr =  json_decode($res_data[$i]['T_process'], true);
+            $done_time = ($process_arr['done_time'] == 0 ) ? "未完成" : date("Y-m-d H:i", $process_arr['done_time']) ;
+
+            $search_date_line .= "<div tid=\"".$res_data[$i]['T_id']."\" class=\"task_search_data_line\">";
+            $search_date_line .= "<span class=\"task_search_data_num_block\">".$search_date_count.".</span>";
+            $search_date_line .= "<span class=\"task_search_data_level_block\">".$public_action->show_level_tag($res_data[$i]['T_level'])."</span>";
+            $search_date_line .= "<span class=\"task_search_data_status_block\">".$this->show_task_status( $res_data[$i]['T_status'])."</span>";
+            $search_date_line .= "<span class=\"task_search_data_title_block\">".$res_data[$i]['T_title']."</span>";
+            $search_date_line .= "<span class=\"task_search_data_runtim_block\">".round($process_arr['run_total_time'] / 60)."分</span>";
+            $search_date_line .= "<span class=\"task_search_data_done_time_block\">".$done_time."</span>";
+            $search_date_line .= "</div>";
+        }
+        $page_num = round( $search_count / $page_limit_num);
+
+        if( isset($page) ) {
+            echo $search_date_line ;
+        } else {
+            $this->assign('title',$search_data);
+            $this->assign('page_num',$page_num);
+            $this->assign('total_num',$search_count);
+            $this->assign('search_date_line',$search_date_line);
+            $this->display();
+        }
+    }
+
 }

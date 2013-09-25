@@ -27,14 +27,17 @@ End -->
 	--> 
 <style type="text/css">
 	body{background-color:#003300;font-size: 12px;font-family: DroidSansFallback;text-align:center; -moz-user-select:none;-webkit-user-select:none;user-select:none; }
+    input,select{background-color: #FFFFCC; }
 	span{cursor:pointer;}
     .div_body{margin: auto;}
     header,nav,article{padding: 0px;}
 	header{background-color:#000000;}
 		#status_bar{position: relative;text-align:center;color:#FFFFFF;font-size: 20px;}
+        .status_bar_time{position: relative;float:right;background-color:#6666FF;margin: 5px 5px 0px 5px; width: 160px; height: 52px;overflow: hidden;}
 		#tools_bar{position: relative;color:#FFFFFF;margin: 0px;padding: 0px;}
 		.tools_bar_menu{position: relative;float:left;background-color:#6699FF;margin: 0px 5px 0px 5px;}
-		.tools_bar_time{position: relative;float:right;background-color:#6666FF;margin: 5px 5px 0px 5px; width: 160px; height: 52px;overflow: hidden;}
+        .tools_bar_search{position: relative;float:right;}
+
 	nav{}
         #today_task_outer{ overflow: hidden; background-color:#6699FF;margin: 0px 5px 0px 5px;overflow:hidden;}
         #today_task_inner{position:relative; list-style-type:none; margin: 0px; padding: 0px;  padding-bottom:0px;float:left; overflow: hidden;}
@@ -87,12 +90,15 @@ End -->
 <div class="div_body">
 <header>
 	<div id="status_bar"><B>{$title}</B><font size="1" >&nbsp;[Beta]</font>
-		<div class="tools_bar_time"><script charset="Shift_JIS" src="http://chabudai.sakura.ne.jp/blogparts/honehoneclock/honehone_clock_tr.js"></script> </div>
+		<div class="status_bar_time"><script charset="Shift_JIS" src="http://chabudai.sakura.ne.jp/blogparts/honehoneclock/honehone_clock_tr.js"></script> </div>
 	</div>
 	<div id="tools_bar">
 		<div class="tools_bar_menu"><span>工具栏</span></div>
         <div class="tools_bar_menu"><span>管理周期任务</span></div>
-		 
+        <span id="tools_bar_search_button" class="tools_bar_search"><img  src="/public/img/task_search_24.png" /></span>
+        <div class="tools_bar_search"><input type="text" name="task_search" size="20"></div>
+        <!--   暂时不设这一项,默认搜索全部内容
+        <select class="tools_bar_search" name="search_content"><option value="title">标题</option><option value="title_content">标题+内容</option></select> -->
 	</div>
 
     <div id="today_task_outer">
@@ -158,8 +164,8 @@ End -->
 
 	<div id="calendar">
         <volist name="cal_date" id="d">
-            <div date="{$d.day}" class="day_box">{$d.box}</div>
-        </volist>
+        <div date="{$d.day}" class="day_box">{$d.box}</div>
+    </volist>
 	</div>
     <div class="task_level_div">
     </div>

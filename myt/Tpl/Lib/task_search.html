@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>搜索: {$title}</title>
+    <script type="text/javascript" src="/public/js/jquery-2.0.2.min.js"></script>
+    <script type="text/javascript" src="/public/js/all.js"></script>
+
+    <style type="text/css">
+        body{background-color: #003300; margin: 5px 10px 5px 10px;font-family: 微软雅黑;font-size: 14px;width:800px;height: 600px;}
+        input,select{background-color: #FFFFCC; }
+        span{cursor:pointer;}
+        header,nav,article{padding: 0px;}
+        .task_search_center{position: relative;background-color:#336600;}
+        .task_search_bar{text-align:center; height:50px;position: relative;background-color: #000000;color:#FFFFFF; margin: 10px 0px 10px 0px;}
+        .task_search_title{font-size: 16px;font-weight:900;}
+        .task_search_data{background-color:#336600;padding: 5px;margin: 0px;overflow: auto;}
+        .task_search_data_title{position: relative;background-color:#99CCFF;font-weight:900;color:#FFFFFF;vertical-align:middle;padding: 2px;margin: 0px 5px 1px 5px;}
+        .task_search_data_line{position: relative;background-color:#FFFFCC;vertical-align:middle;padding: 0px;margin: 0px 5px 1px 5px;}
+        .task_search_data_num_block{width:5%;display: block;float:left;}
+        .task_search_data_level_block{width:9%;display: inline-block;display:-moz-inline-box; }
+        .task_search_data_status_block{width:5%;display: inline-block;display:-moz-inline-box;}
+        .task_search_data_title_block{width:45%;display: inline-block;display:-moz-inline-box;}
+        .task_search_data_runtim_block{width:10%;display: inline-block;display:-moz-inline-box;}
+        .task_search_data_done_time_block{width:25%;display: inline-block;display:-moz-inline-box;}
+        .task_search_data_page{position: relative;background-color:#FFFFCC;vertical-align:middle;padding: 0px;margin: 0px 5px 1px 5px;float:right;}
+    </style>
+</head>
+<body>
+    <div class="task_search_center">
+        <div class="task_search_bar">
+            <div class="task_search_title">"{$title}" 搜索到 [{$total_num}] 个任务 </div>
+        </div>
+        <div class="task_search_data">
+            <div class="task_search_data_title">
+                <span class="task_search_data_num_block">序号</span>
+                <span class="task_search_data_level_block">级别</span>
+                <span class="task_search_data_status_block">状态</span>
+                <span class="task_search_data_title_block">标题</span>
+                <span class="task_search_data_runtim_block">己运行</span>
+                <span class="task_search_data_date_block">完成时间</span>
+            </div>
+            <div class="task_search_data_content">{$search_date_line}</div>
+            <div  class="task_search_data_line">{$no_search_data}</div>
+            <div  class="task_search_data_page"><span id="ago_page" page="0">上一页</span> <<  <label id="total_page" page="{$page_num}"> 共[{$page_num}]页,第</label><label id="cur_page">1</label>页 >> <span id="after_page" page="1">下一页</span></div>
+        </div>
+    </div>
+</body>
+</html>

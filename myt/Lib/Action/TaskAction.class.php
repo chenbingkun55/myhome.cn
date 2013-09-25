@@ -16,7 +16,7 @@ class TaskAction extends Action {
         $task_lib = D('lib');
 		$lib_action = new LibAction();
         $task_list = $task_lib->find($tid);
-		$task_status = strip_tags($lib_action->show_task_status( $tid ));
+		$task_status = strip_tags($lib_action->show_task_status( $task_list['T_status'] ));
 
         $this->assign('task_id',$tid);
         $this->assign('task_list',$task_list);
