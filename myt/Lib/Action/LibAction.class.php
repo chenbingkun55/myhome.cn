@@ -422,7 +422,7 @@ class LibAction extends Action {
             $search_date_line .= "<span class=\"task_search_data_done_time_block\">".$done_time."</span>";
             $search_date_line .= "</div>";
         }
-        $page_num = round( $search_count / $page_limit_num);
+        $page_num = ceil ( $search_count / $page_limit_num );
 
         if( isset($page) ) {
             echo $search_date_line ;
