@@ -56,7 +56,7 @@
 		<div class="task_tools_title"  level="{$task_list['T_level']}">任务 {$task_id}: {$task_list['T_title']}</div>
         <div class="task_win_close" onClick="window.close()"><span>关闭</span></div>
         <div class="task_remove" tid="{$task_id}" style="margin: 5px;float: right;background-color: #CC0000;"><span>删除</span></div>
-		<div class="task_set_templet" ><span>设为周期任务</span></div>
+		<div class="task_set_templet" ><span><if condition="$task_list['T_templet'] eq 1">取消周期任务<else />设为周期任务</if></span></div>
 		<div class="task_win_submit" ><span>更新任务</span></div>
 
 		<div class="task_process_box">

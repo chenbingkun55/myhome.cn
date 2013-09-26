@@ -1,4 +1,6 @@
 <?PHP
+include("Conf/define.php");  //引入常量定义
+
 class LibAction extends Action {
     // 用来显示出一张日历,传入参为年,月,日 例如: ( 2013,08,01 )
     public function show_task_cal( $d ){
@@ -300,7 +302,7 @@ class LibAction extends Action {
                         $bg_color = "#FF0000";
                         $title = "非常重要";
                 }
-                echo "<div class=\"task_day_line\" onClick=\"TaskEdit(".$task_list[$i]['T_id'].");\" style=\"color: #FFFFFF; background-color:".$bg_color.";padding: 0px 10px 0px 10px ;\"><span>".($i+1).". ".$this->show_task_status( $task_list[$i]['T_status'] )." <span style=\"background-color: #000000;\">".date("H:i",$task_list[$i]['T_date'])."</span> ".$task_list[$i]['T_title']."</span></div>" ;
+                echo "<div class=\"task_day_line\" tid=\"".$task_list[$i]['T_id']."\" style=\"color: #FFFFFF; background-color:".$bg_color.";padding: 0px 10px 0px 10px ;\"><span>".($i+1).". ".$this->show_task_status( $task_list[$i]['T_status'] )." <span style=\"background-color: #000000;\">".date("H:i",$task_list[$i]['T_date'])."</span> ".$task_list[$i]['T_title']."</span></div>" ;
             }
         }else {
             echo "<div class=\"task_day_line\" style=\"background-color:#FFFFCC;padding: 0px 10px 0px 10px ;\"> -_~|  今天没有任务</div>" ;
@@ -368,11 +370,62 @@ class LibAction extends Action {
         $task_lib = D('lib');
 
         $task_list = $task_lib->where("T_templet = 1")->select();
-		
-		for($i=0;$i< count($task_list);$i++){
-			echo "<div class=\"task_templet_line\"  onClick=\"CreateTemplet( ".$task_list[$i]['T_id']." );\"  style=\"text-align:left;width: 300px; height: 20px ;padding: 2px;\"><span>No ".($i+1).".  ".$task_list[$i]['T_title']."</span></div>" ;
-		}
+		if( $task_list ){
+            for($i=0;$i< count($task_list);$i++){
+                echo "<div class=\"task_templet_line\"  tid=\"".$task_list[$i]['T_id']."\"  style=\"text-align:left;width: 300px; height: 20px ;padding: 2px;\"><span>No ".($i+1).".  ".$task_list[$i]['T_title']."</span></div>" ;
+            }
+        } else {
+            echo "<div class=\"task_templet_line\" style=\"text-align:left;width: 300px; height: 20px ;padding: 2px;\"><span>还没有设置周期任务</span></div>";
+        }
+
 	}
+
+    public function task_templet( ){
+        $task_lib = D('lib');
+        $public_action = new PublicAction();
+        $page = $_REQUEST['page'];
+        $page_limit_num = PAGE_LINE_NUMBER;
+
+        $search_where = " T_templet = 1 ";
+        $search_limit = ( $page > 0 )  ?  ( $page_limit_num * $page ).",".$page_limit_num : "0,".$page_limit_num ;
+        $search_date_count = ( $page_limit_num * $page );
+
+        $search_count = $task_lib->where( $search_where )->count();
+        $res_data = $task_lib->where( $search_where )->limit( $search_limit )->select();
+
+
+        if( ! $res_data ){
+            $this->assign('no_search_data',"没有搜索到相关周期任务!");
+        }
+
+        $search_date_line = "";
+
+        for( $i = 0; $i < count($res_data); $i++){
+            $search_date_count++;
+            $process_arr =  json_decode($res_data[$i]['T_process'], true);
+            $done_time = ($process_arr['done_time'] == 0 ) ? "未完成" : date("Y-m-d H:i", $process_arr['done_time']) ;
+
+            $search_date_line .= "<div tid=\"".$res_data[$i]['T_id']."\" class=\"task_search_data_line\">";
+            $search_date_line .= "<span class=\"task_search_data_num_block\">".$search_date_count.".</span>";
+            $search_date_line .= "<span class=\"task_search_data_level_block\">".$public_action->show_level_tag($res_data[$i]['T_level'])."</span>";
+            $search_date_line .= "<span class=\"task_search_data_status_block\">".$this->show_task_status( $res_data[$i]['T_status'])."</span>";
+            $search_date_line .= "<span class=\"task_search_data_title_block\">".$res_data[$i]['T_title']."</span>";
+            $search_date_line .= "<span class=\"task_search_data_runtim_block\">".round($process_arr['run_total_time'] / 60)."分</span>";
+            $search_date_line .= "<span class=\"task_search_data_done_time_block\">".$done_time."</span>";
+            $search_date_line .= "</div>";
+        }
+        $page_num = ceil ( $search_count / $page_limit_num );
+
+        if( isset($page) ) {
+            echo $search_date_line ;
+        } else {
+            $this->assign('title',"周期任务管理");
+            $this->assign('page_num',$page_num);
+            $this->assign('total_num',$search_count);
+            $this->assign('search_date_line',$search_date_line);
+            $this->display();
+        }
+    }
 
 	public function show_task_process( $tid ){
         $task_lib = D('lib');
@@ -391,7 +444,7 @@ class LibAction extends Action {
         $task_lib = D('lib');
         $public_action = new PublicAction();
         $page = $_REQUEST['page'];
-        $page_limit_num = 20;
+        $page_limit_num = PAGE_LINE_NUMBER;
 
         $trim_search_data = trim($search_data);
         $search_where = " T_title like '%".$trim_search_data."%' OR T_content like '%".$trim_search_data."%' ";

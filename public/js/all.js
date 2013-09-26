@@ -289,7 +289,7 @@ $(document).ready(function(){
 
 		$.get("/myt/index.php/Task/update_task_templet/tid/"+get_tid+"/",function(data){
 			alert(data);
-			self.opener.location.reload();
+			self.location.reload();
 		});
 	}); 
 		
@@ -372,6 +372,14 @@ $(document).ready(function(){
 			$.get("/myt/index.php/Lib/show_task_templet",function(data,status){
 				$(".task_templet_list").html(data);
 				// alert("Data: " + data + "\nStatus: " + status);
+
+
+                $('.task_templet_line').click(function (){
+                    var url = window.location.href;
+                    var tid = $(this).attr('tid');
+
+                    window.location.replace(url+"tid/"+tid+"/");
+                });
 			});
 			// Js 在同一窗口中打开网址。
 			// window.open("/myt/index.php/Task/edit_task/tid/300007/");
@@ -421,14 +429,20 @@ $(document).ready(function(){
 			$.get("/myt/index.php/Lib/"+active+"/", function(data,status){
 				var task_day_title = "<div class=\"task_day_line\" style=\"position: relative;width: "+task_day_width+"px;height: 20px;background-color: #000000;color: #FFFFFF; padding: 0px 10px 0px 10px ;font-weight: bold;\">"+task_title+"</div>"+data;
 				$(".task_day_div").html( task_day_title );
+                //alert($(".task_level_line").height());
+                $(".task_day_div").css("top",pointTop);
+                $(".task_day_div").css("left",pointLeft);
+
+                //alert(pointLeft+"-"+pointTop);
+                $(".task_day_div").toggle();
+
+                $(".task_day_line").click(function(){
+                    var tid = $(this).attr("tid");
+                    // alert( tid );
+                    TaskWindow = window.open("/myt/index.php/Task/edit_task/tid/"+tid+"/",tid,"width=820,height=620,menubar=no,toolbar=no,location=no,scrollbars=no,status=no,modal=yes");
+                    TaskWindow.focus();
+                });
 			});
-
-        //alert($(".task_level_line").height());
-        $(".task_day_div").css("top",pointTop);
-        $(".task_day_div").css("left",pointLeft);
-
-        //alert(pointLeft+"-"+pointTop);
-        $(".task_day_div").toggle();
 	});
 
 
@@ -476,6 +490,11 @@ $(document).ready(function(){
         TaskWindow.focus();
     });
 
+    $("#task_templet_manager").click(function(){
+        TaskWindow = window.open("/myt/index.php/Lib/task_templet/","task_templet_manager","width=820,height=620,menubar=no,toolbar=no,location=no,scrollbars=no,status=no,modal=yes");
+        TaskWindow.focus();
+    });
+
     $("#ago_page,#after_page").click(function(){
         var total_page = $("#total_page").attr('page');
         var ago_page = $("#ago_page").attr('page');
@@ -503,6 +522,13 @@ $(document).ready(function(){
                 $.get(url+'/page/'+page_num, function(data,status){
                     $(".task_search_data_content").html(data);
                     //alert(page_num);
+
+                    $('.task_search_data_line').click(function (){
+                        var tid = $(this).attr('tid');
+                        //alert( $(this).attr('tid'));
+                        TaskWindow = window.open("/myt/index.php/Task/edit_task/tid/"+tid+"/",tid,"width=820,height=620,menubar=no,toolbar=no,location=no,scrollbars=no,status=no,modal=yes");
+                        TaskWindow.focus();
+                    });
                 });
         } else {
             alert('往前没有页可以翻!');
@@ -517,17 +543,4 @@ function ShowLevel( level ){
         level = level - 1;
     }
 	return "<font color=\"#FFFFFF\">"+level_tag+"</font>";
-}
-
-function CreateTemplet( tid ){
-		var url = window.location.href;
-		var paras = url.split("/");  // 分拆数组。
-		paras.reverse(); // 反转数组，使 tid 排列第一个。
-		// alert(paras['1']);
-		var get_date =  paras['1'];
-		window.location.replace(window.location.href+"tid/"+tid+"/");
-		// TempletWindow = window.open(window.location.href+"tid/"+tid+"/",tid,"width=820,height=620,menubar=no,toolbar=no,location=no,scrollbars=no,status=no,modal=yes");
-		// TempletWindow.focus();
-		// self.opener.window.close();
-		self.opener.location.reload();
 }

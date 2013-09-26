@@ -1,4 +1,6 @@
 <?PHP
+include("Conf/define.php");  //引入常量定义
+
 class TaskAction extends Action {
     public function create_task( $date){
 		$tid = isset($_REQUEST['tid']) ? $_REQUEST['tid'] : "" ;
@@ -115,13 +117,17 @@ class TaskAction extends Action {
 
 	public function update_task_templet(){
 		$task_lib = D('lib');
-		
+
+        $is_yes = $task_lib->where('T_id='.$_REQUEST['tid'])->getField('T_templet');
+        $is_yes = ( $is_yes ) ? 0 : 1 ;
 		// echo "tid: ".$_REQUEST['tid'].",status: ".$_REQUEST['status'];
-		$res = $task_lib->where('T_id='.$_REQUEST['tid'])->setField('T_templet', 1);
-		if( $res  ){
-			echo "设为模板成功";
+		$res = $task_lib->where('T_id='.$_REQUEST['tid'])->setField('T_templet', $is_yes);
+		if( $res && $is_yes == 1 ){
+			echo "设为周期任务成功";
+        } else if ( $res && $is_yes == 0 ){
+            echo "取消周期任务成功";
 		} else {
-			echo "己经是模板或设为模板失败";	
+			echo "设为周期任务失败";
 		}
 	}
 

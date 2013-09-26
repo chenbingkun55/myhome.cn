@@ -1,5 +1,6 @@
 <?PHP
 require_once 'JSON.php';
+include("Conf/define.php");  //引入常量定义
 
 class AttachedAction extends Action {
     public function upload(  ){
