@@ -8,7 +8,7 @@ class AttachedAction extends Action {
 		$php_url = dirname($_SERVER['PHP_SELF']) . '/';
 
 		//文件保存目录路径
-		$save_path = "G:/www/myhome.cn/myt/attached/";
+		$save_path = $_SERVER['DOCUMENT_ROOT']."/myt/attached/";
 		//文件保存目录URL
 		$save_url = '/myt/attached/';
 		//定义允许上传的文件扩展名
@@ -134,7 +134,7 @@ class AttachedAction extends Action {
 		$php_url = dirname($_SERVER['PHP_SELF']) . '/';
 
 		//根目录路径，可以指定绝对路径，比如 /var/www/attached/
-		$root_path = "G:/www/myhome.cn/myt/attached/";
+		$root_path = $_SERVER['DOCUMENT_ROOT']."/myt/attached/";
 		//根目录URL，可以指定绝对路径，比如 http://www.yoursite.com/attached/
 		$root_url = $php_url . '/myt/attached/';
 		//图片扩展名
