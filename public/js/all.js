@@ -31,7 +31,7 @@ $(document).ready(function(){
         $(".div_body").css("height","600px");
     }
 
-	$("#status_bar").css("height","30px");
+	$("#status_bar").css("height","35px");
 	$("#tools_bar").css("height","30px");
 	$("#cal_tools").css("height","40px");
 
@@ -361,7 +361,7 @@ $(document).ready(function(){
 		});
 		*/
 		// 使用 replace 方法，使用 F5 刷新时，日期才不会跳转。
-		window.location.replace("/myt/index.php?date="+$(this).attr("date")+"/");
+		window.location.replace("/myt/index.php?date="+$(this).attr("date"));
 	});
 
 	$(".task_templet").click(function(){
@@ -543,6 +543,17 @@ $(document).ready(function(){
         } else {
             alert('往前没有页可以翻!');
         }
+    });
+
+    $(".day_box_min_count").click(function(){
+        var val = $(this).attr('val');
+        var date = $(this).attr('date');
+        var url = window.location.href;
+        //alert( $(this).attr('tid'));
+        //alert( date );
+        //alert(url+"Lib/list_task_level/level/"+val+"/");
+        TaskWindow = window.open("/myt/index.php/Lib/task_level/level/"+val+"/date/"+date,val,"width=820,height=620,menubar=no,toolbar=no,location=no,scrollbars=no,status=no,modal=yes");
+        TaskWindow.focus();
     });
 });
 

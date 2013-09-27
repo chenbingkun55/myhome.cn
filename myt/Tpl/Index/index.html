@@ -34,6 +34,7 @@ End -->
 	header{background-color:#000000;}
 		#status_bar{position: relative;text-align:center;color:#FFFFFF;font-size: 20px;}
         .status_bar_time{position: relative;float:right;background-color:#6666FF;margin: 5px 5px 0px 5px; width: 160px; height: 52px;overflow: hidden;}
+        .task_month_task_count{position: relative;float:right;margin: 0px 5px 0px 5px;}
 		#tools_bar{position: relative;color:#FFFFFF;margin: 0px;padding: 0px;}
 		.tools_bar_menu{position: relative;float:left;background-color:#6699FF;margin: 0px 5px 0px 5px;}
         .tools_bar_search{position: relative;float:right;}
@@ -59,6 +60,7 @@ End -->
 		.day_box_conten{background-color:#FFFFCC;}
         .day_box_date{font-family: "Franklin Gothic Demi";}
         .day_box_min{position: relative;float:left;margin: 7px 2px 5px 2px;overflow:hidden;font-size: 16px;line-height:11px;width: 18px;height: 18px;z-index: 1000;padding: 2px;font-weight:900;color: #FFFFFF;cursor:pointer;}
+        .day_box_min_count{position: relative;float:left;margin: 7px 2px 5px 2px;overflow:hidden;font-size: 16px;line-height:11px;width: 18px;height: 18px;z-index: 1000;padding: 2px;font-weight:900;color: #FFFFFF;cursor:pointer;}
         .task_level_line{position: relative;font-size: 14px;width: 240px;height: 20px;overflow:hidden;white-space:nowrap;}
         .task_day_line{margin: 0px; }
 	article{}
@@ -89,8 +91,11 @@ End -->
 <BODY>
 <div class="div_body">
 <header>
-	<div id="status_bar"><B>{$title}</B><font size="1" >&nbsp;[Beta]</font>
+	<div id="status_bar">
+        <label><B>{$title}</B><font size="1" >&nbsp;[Beta]</font></label>
 		<div class="status_bar_time"><script charset="Shift_JIS" src="http://chabudai.sakura.ne.jp/blogparts/honehoneclock/honehone_clock_tr.js"></script> </div>
+
+        <div class="task_month_task_count">{$show_month_task_count}</div>
 	</div>
 	<div id="tools_bar">
         <div id="task_templet_manager" class="tools_bar_menu"><span>管理周期任务</span></div>

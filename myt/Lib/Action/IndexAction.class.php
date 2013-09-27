@@ -36,9 +36,11 @@ class IndexAction extends Action {
         $task_list_delay = $lib_action->show_task_delay( );
         $task_list_attention = $lib_action->show_task_attention( );
         $cal_date_task = $lib_action->show_task(date("Y-m-d"));
+        $show_month_task_count = $lib_action->show_month_task_count();
 
 
         $this->assign('cal_date',$cal_date);
+        $this->assign('show_month_task_count',$show_month_task_count);
         $this->assign('cal_date_task',$cal_date_task);
         $this->assign('last_month',$last_month);
         $this->assign('next_month',$next_month);
