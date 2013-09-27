@@ -468,12 +468,22 @@ $(document).ready(function(){
         }
     });
 
-    /*  实时列出与输入搜索条件相符的任务
-    $('.tools_bar_search').keydown(function(){
-        alert('search');
+    /*  实时列出与输入搜索条件相符的任务 */
+    $('.tools_bar_search').keydown(function(e){
+        e = e.keyCode;
+        if( e == 13 || e == 32){
+            //alert(e);
+            search_data = $('input[name="task_search"]').val();
+            if( !search_data && typeof(search_data) != "undefined" ){
+                alert('搜索内容不能为空!');
+            } else {
+                TaskWindow = window.open("/myt/index.php/Lib/task_search/search_data/"+search_data,search_data,"width=820,height=620,menubar=no,toolbar=no,location=no,scrollbars=no,status=no,modal=yes");
+            }
+        }
     });
 
-    */
+
+
     $('#tools_bar_search_button').click(function(){
         search_data = $('input[name="task_search"]').val();
         if( !search_data && typeof(search_data) != "undefined" ){
