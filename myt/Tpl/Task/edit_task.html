@@ -103,7 +103,21 @@
         </if>
     </select><BR/>
         日期: <input type="date" name="T_d" value="{$task_list['T_date']|date="Y-m-d",###}"/>
-        时间: <input type="time" name="T_t" value="{$task_list['T_date']|date="H:i",###}"><br/>
+        时间: <input type="time" name="T_t" value="{$task_list['T_date']|date="H:i",###}">
+        预计用时:
+        <select name="T_exp_time">
+            <option value="0">0分</option>
+            <option value="300" <if condition="$T_exp_time eq 300">selected="selected"</if>>5分</option>
+            <option value="600" <if condition="$T_exp_time eq 600">selected="selected"</if>>10分</option>
+            <option value="900" <if condition="$T_exp_time eq 900">selected="selected"</if>>15分</option>
+            <option value="1200" <if condition="$T_exp_time eq 1200">selected="selected"</if>>20分</option>
+            <option value="1800" <if condition="$T_exp_time eq 1800">selected="selected"</if>>30分</option>
+            <option value="2700" <if condition="$T_exp_time eq 2700">selected="selected"</if>>45分</option>
+            <option value="3600" <if condition="$T_exp_time eq 3600">selected="selected"</if>>60分</option>
+            <option value="5400" <if condition="$T_exp_time eq 5400">selected="selected"</if>>90分</option>
+            <option value="7200" <if condition="$T_exp_time eq 7200">selected="selected"</if>>120分</option>
+            <option value="14400" <if condition="$T_exp_time eq 14400">selected="selected"</if>>240分</option>
+        </select><br/>
         <textarea id="editor_id" name="T_content" style="width:790px;height:400px;">{$task_list['T_content']}</textarea><BR/>
 		<input type="hidden" name="T_id" value="{$task_id}"/>
 	</FORM>

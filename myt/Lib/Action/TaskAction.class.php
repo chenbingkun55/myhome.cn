@@ -22,6 +22,8 @@ class TaskAction extends Action {
 
         $this->assign('task_id',$tid);
         $this->assign('task_list',$task_list);
+        $this->assign('T_exp_time',$task_list['T_exp_time']);
+        $this->assign('T_exp_time_2',round($task_list['T_exp_time'] / 60 ));
 		$this->assign('task_status',$task_status);
         $this->display();
     }
@@ -41,6 +43,10 @@ class TaskAction extends Action {
 
     public function update_task( ){
             $task_lib = D('lib');
+            $task_list = $task_lib->find($_REQUEST['tid'] );
+
+            $process_arr =  json_decode($task_list['T_process'], true);
+            $process_arr['exp_total_time'] = $_REQUEST['T_exp_time'];
 
             if( $task_lib->create()){
                 /* //input type=datetime-local 返回的时间格式: 2013-09-12T06:06
@@ -49,6 +55,9 @@ class TaskAction extends Action {
                 list( $year,$month,$day )= split("-",$_REQUEST['T_d']);
                 list( $hour,$minute )= split(":",$_REQUEST['T_t']);
                 $task_lib->T_date = mktime( $hour, $minute, 0, $month ,$day ,$year);
+                $task_lib->T_process = json_encode($process_arr);
+
+
 
                 //echo $_REQUEST['T_time'], $task_lib->T_time."TEST<BR>";
 

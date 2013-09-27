@@ -337,7 +337,7 @@ $(document).ready(function(){
             progress_status  +="<div style=\"position: relative;height: 20px;padding: 0px 10px 0px 10px ;text-align:left; \">开始时间："+process_arr['start_time']+"</div>";
 			progress_status  +="<div style=\"position: relative;height: 20px;padding: 0px 10px 0px 10px ;text-align:left; \">完成时间："+process_arr['done_time']+"</div>";
 			progress_status  +="<div style=\"position: relative;height: 20px;padding: 0px 10px 0px 10px ;text-align:left; \">放弃时间："+process_arr['forgo_time']+"</div>";
-			$(".task_process_progress_time").html( progress_status ).clearQueue().fadeIn(1000);
+			$(".task_process_progress_time").html( progress_status ).clearQueue().fadeIn(500);
 			$(".task_process_progress_status").css("width",Math.floor(to_ini * 100)+"%");
 			//alert('运行：20分钟');
 		});
@@ -349,7 +349,7 @@ $(document).ready(function(){
     });
 
 	$(".task_process_progress_box,.task_process_progress_time").bind("mouseleave",function(){
-        $(".task_process_progress_time").clearQueue().fadeOut(1000);
+        $(".task_process_progress_time").clearQueue().fadeOut(500);
     });
 
 	$(".cal_tools_month").click(function(){
