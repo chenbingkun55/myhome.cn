@@ -15,6 +15,8 @@ $(document).ready(function(){
 	// 用来保存 全局提示;
 	var msg = '';
 
+	$(' input[name="task_search"]').focus( );
+
     if ( $(document).width() < 800  ){
         $(".div_body").css({"width":"800px","height":$(document).height() - 20});
 		$(".day_box_min").css({"width":"12px","height":"12px"});
