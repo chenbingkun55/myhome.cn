@@ -234,6 +234,19 @@ $(document).ready(function(){
 		}
     });
 
+    $('.task_win_close').click(function(){
+        var msg = "任务己修改,确定不更新个任务吗？";
+        if( is_change ){
+            if (confirm(msg)==true){
+                window.close();
+            }else{
+                return false;
+            }
+        } else {
+            window.close();
+        }
+    });
+
     /* 这个函数 不知道怎么地死活不能生效.
     $(".task_level_line").live("click",function(){
         var reVlaue = $(this).attr("tid");
@@ -247,7 +260,6 @@ $(document).ready(function(){
 		// 解决: 添加 editor.sync(); 这一行.
 		editor.sync();
 		$("form").submit();
-		self.opener.location.reload();
 	}); 
 
 	$(".task_tools_title").prepend( ShowLevel( $(".task_tools_title").attr("level"))+" ");
@@ -314,7 +326,8 @@ $(document).ready(function(){
 
 	$(".task_process_progress_box").ready( process_relay());
 
-	$(".task_process_progress_box").bind("mouseenter",function(){
+	// $(".task_process_progress_box,.task_process_box").bind("mouseenter",function(){
+    $(".task_process_progress_box,.task_process_box").click(function(){
 		$(".task_process_progress_time").css("opacity","1").stop();
 		var url = window.location.href;
 		var paras = url.split("/");  // 分拆数组。
@@ -343,12 +356,15 @@ $(document).ready(function(){
 		});
 	});
 
+    /*
     $(".task_process_progress_time").bind("mouseenter",function(){
         $(".task_process_progress_time").css("opacity","1");
         $(".task_process_progress_time").stop();
     });
+    */
 
-	$(".task_process_progress_box,.task_process_progress_time").bind("mouseleave",function(){
+	// $(".task_process_progress_box,.task_process_progress_time,.task_process_box").bind("mouseleave",function(){
+    $(".task_process_progress_box,.task_process_progress_time,.task_process_box,.task_process_progress_time").click(function(){
         $(".task_process_progress_time").clearQueue().fadeOut(500);
     });
 
@@ -463,8 +479,8 @@ $(document).ready(function(){
             $(".predict_end_time_div").show();
         } else {
             $(".predict_end_time_div").hide();
-            $('.predict_end_time_div input[name="T_d_end"]').val("");
-            $('.predict_end_time_div input[name="T_t_end"]').val("");
+            $('.predict_end_time_div input[name="T_expd_end"]').val("");
+            $('.predict_end_time_div input[name="T_expt_end"]').val("");
         }
     });
 
@@ -554,6 +570,11 @@ $(document).ready(function(){
         //alert(url+"Lib/list_task_level/level/"+val+"/");
         TaskWindow = window.open("/myt/index.php/Lib/task_level/level/"+val+"/date/"+date,val,"width=820,height=620,menubar=no,toolbar=no,location=no,scrollbars=no,status=no,modal=yes");
         TaskWindow.focus();
+    });
+
+    $('input[name="T_title"],select[name="T_level"],input[name="T_d_start"],input[name="T_t_start"],select[name="T_exp_time"],input[name="T_expd_end"],input[name="T_expt_end"]').change(function(){
+        is_change = true;
+        // alert(is_change);
     });
 });
 

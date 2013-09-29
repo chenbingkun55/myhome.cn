@@ -7,6 +7,7 @@
     <script charset="utf-8" src="/public/kindeditor-4.1.7/kindeditor.js"></script>
     <script charset="utf-8" src="/public/kindeditor-4.1.7/lang/zh_CN.js"></script>
     <script>
+        var is_change = false;
 		var options = {
 				uploadJson : '/myt/index.php/Attached/upload/date/{$date}',
 				fileManagerJson : '/myt/index.php/Attached/manager/',
@@ -20,12 +21,17 @@
 								'italic', 'underline', 'strikethrough', 'lineheight', 'removeformat', '|', 'image', 'multiimage',
 								'flash', 'media', 'insertfile', 'table', 'hr', 'emoticons', 'map', 'pagebreak',
 								'anchor', 'link', 'unlink', 'FinishTab','|', 'about'
-					]
+					],
+            afterChange : function() {
+                // alert(is_change);
+                is_change = true;
+            }
 
 		};
 
         KindEditor.ready(function(K) {
-			window.editor = K.create('#editor_id',options );	
+			window.editor = K.create('#editor_id',options );
+            is_change = false;
        });
     </script>
     <style type="text/css">
@@ -51,7 +57,7 @@
     <div class="task_tools_bar">
 		<div class="task_tools_title">创建新任务 : {$date}</div>
         <div class="task_tools_box">
-            <span class="task_win_close" onClick="window.close()">关闭</span>
+            <span class="task_win_close">关闭</span>
 			<span class="task_win_close" id = "date" >时间</span>
             <span class="task_templet">周期任务▼</span>
             <span class="task_win_submit" >创建任务</span>
@@ -105,8 +111,8 @@
         </select>
         <div class="predict_start_time_div">
             预计开始
-            日期: <input type="date" name="T_d_start" value="{$date}"/>
-            时间: <input type="time" name="T_t_start" value="{$time}">
+            日期: <input type="date" name="T_d_start" value="{$date|date="Y-m-d",###}"/>
+            时间: <input type="time" name="T_t_start" value="{$date|date="H:i",###}">
             预计用时: <select name="T_exp_time">
                 <option value="0" selected="selected">0</option>
                 <option value="300">5分</option>
@@ -123,8 +129,8 @@
         </div>
         <div class="predict_end_time_div">
             预计结束
-            日期: <input type="date" name="T_expd_end" value="{$date}"/>
-            时间: <input type="time" name="T_expt_end" value="">
+            日期: <input type="date" name="T_expd_end" value="{$date|date="Y-m-d",###}"/>
+            时间: <input type="time" name="T_expt_end" value="{$date +60 |date="H:i",###}">
         </div>
         <textarea id="editor_id" name="T_content" style="width:790px;height:400px;">{$templet_arr['T_content']}</textarea>
 

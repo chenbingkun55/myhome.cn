@@ -9,8 +9,7 @@ class TaskAction extends Action {
 		$templet_arr = $task_lib->find($tid);
 		
 		$this->assign('templet_arr',$templet_arr);
-        $this->assign('date',$date);
-        $this->assign('time',$time = ( $date == date("Y-m-d")) ? date("H:i") : "09:00");
+        $this->assign('date',time());
         $this->display();
     }
 
@@ -46,15 +45,31 @@ class TaskAction extends Action {
             $task_list = $task_lib->find($_REQUEST['tid'] );
 
             $process_arr =  json_decode($task_list['T_process'], true);
-            $process_arr['exp_total_time'] = $_REQUEST['T_exp_time'];
 
             if( $task_lib->create()){
                 /* //input type=datetime-local 返回的时间格式: 2013-09-12T06:06
                 list($task_date,$task_time) = split("T",$task_lib->T_date);
                 */
-                list( $year,$month,$day )= split("-",$_REQUEST['T_d']);
-                list( $hour,$minute )= split(":",$_REQUEST['T_t']);
+                list( $year,$month,$day )= split("-",$_REQUEST['T_d_start']);
+                list( $hour,$minute )= split(":",$_REQUEST['T_t_start']);
+
+                list( $year_exp,$month_exp,$day_exp )= split("-",$_REQUEST['T_expd_end']);
+                list( $hour_exp,$minute_exp )= split(":",$_REQUEST['T_expt_end']);
+
                 $task_lib->T_date = mktime( $hour, $minute, 0, $month ,$day ,$year);
+                $task_lib->T_date_end = mktime( $hour_exp, $minute_exp, 0, $month_exp ,$day_exp ,$year_exp);
+
+                if ( $_REQUEST['T_exp_time'] != $task_list['T_exp_time'] ) {
+                    $T_exp_time = $_REQUEST['T_exp_time'];
+                } else {
+                    $T_exp_time = ( $task_lib->T_date_end - $task_lib->T_date );
+                }
+
+                $task_lib->T_exp_time = $T_exp_time ;
+                $process_arr['exp_total_time'] = $T_exp_time;
+                $process_arr['exp_start_time'] = $task_lib->T_date;
+                $process_arr['exp_end_time'] = $task_lib->T_date_end;
+
                 $task_lib->T_process = json_encode($process_arr);
 
 
@@ -67,7 +82,6 @@ class TaskAction extends Action {
                     $res = $task_lib->save();
                 if($res){
                     echo "成功";
-                    echo "<script>self.opener.location.reload();</script>";
 					header("Location:/myt/index.php/Task/edit_task/tid/".$_REQUEST['T_id']."/");
                 }else{
 					//echo "<span class=\"task_win_close\" style=\"float: right;background-color: #CC0000\">关闭</span><br><br>";
@@ -157,7 +171,7 @@ class TaskAction extends Action {
             $task_lib->T_date_end = mktime( $hour_exp, $minute_exp, 0, $month_exp ,$day_exp ,$year_exp);
 
             if ( $_REQUEST['T_exp_time'] == 0 ){
-                if ( ! isset($_REQUEST['T_expd_start']) && ! isset($_REQUEST['T_expt_start'])){
+                if ( ! isset($_REQUEST['T_expd_start']) && ! isset($_REQUEST['T_expd_end'])){
                     $T_exp_time = ( $task_lib->T_date_end - $task_lib->T_date );
                 } else {
                     $T_exp_time = 60;

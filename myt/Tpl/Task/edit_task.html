@@ -8,6 +8,7 @@
     <script charset="utf-8" src="/public/kindeditor-4.1.7/lang/zh_CN.js"></script>
     <script>
         setTimeout("process_relay()",6000);//每6秒钟刷新一次
+        var is_change = false;
 		var options = {
 				uploadJson : '/myt/index.php/Attached/upload/date/{$task_list['T_date']|date="Y-m-d",###}',
 				fileManagerJson : '/myt/index.php/Attached/manager/',
@@ -21,12 +22,17 @@
 								'italic', 'underline', 'strikethrough', 'lineheight', 'removeformat', '|', 'image', 'multiimage',
 								'flash', 'media', 'insertfile', 'table', 'hr', 'emoticons', 'map', 'pagebreak',
 								'anchor', 'link', 'unlink', 'FinishTab','|', 'about'
-					]
+					],
+            afterChange : function() {
+                // alert(is_change);
+                is_change = true;
+            }
 
-		};
+        };
 
         KindEditor.ready(function(K) {
-			window.editor = K.create('#editor_id',options );	
+			window.editor = K.create('#editor_id',options );
+            is_change = false;
        });
     </script>
 
@@ -54,7 +60,7 @@
 
     <div class="task_tools_bar">
 		<div class="task_tools_title"  level="{$task_list['T_level']}">任务 {$task_id}: {$task_list['T_title']}</div>
-        <div class="task_win_close" onClick="window.close()"><span>关闭</span></div>
+        <div class="task_win_close"><span>关闭</span></div>
         <div class="task_remove" tid="{$task_id}" style="margin: 5px;float: right;background-color: #CC0000;"><span>删除</span></div>
 		<div class="task_set_templet" ><span><if condition="$task_list['T_templet'] eq 1">取消周期任务<else />设为周期任务</if></span></div>
 		<div class="task_win_submit" ><span>更新任务</span></div>
@@ -102,22 +108,30 @@
             <option value="5">非常重要</option>
         </if>
     </select><BR/>
-        日期: <input type="date" name="T_d" value="{$task_list['T_date']|date="Y-m-d",###}"/>
-        时间: <input type="time" name="T_t" value="{$task_list['T_date']|date="H:i",###}">
+        预计开始
+        日期: <input type="date" name="T_d_start" value="{$task_list['T_date']|date="Y-m-d",###}"/>
+        时间: <input type="time" name="T_t_start" value="{$task_list['T_date']|date="H:i",###}">
         预计用时:
         <select name="T_exp_time">
             <option value="0">0分</option>
-            <option value="300" <if condition="$T_exp_time eq 300">selected="selected"</if>>5分</option>
-            <option value="600" <if condition="$T_exp_time eq 600">selected="selected"</if>>10分</option>
-            <option value="900" <if condition="$T_exp_time eq 900">selected="selected"</if>>15分</option>
-            <option value="1200" <if condition="$T_exp_time eq 1200">selected="selected"</if>>20分</option>
-            <option value="1800" <if condition="$T_exp_time eq 1800">selected="selected"</if>>30分</option>
-            <option value="2700" <if condition="$T_exp_time eq 2700">selected="selected"</if>>45分</option>
-            <option value="3600" <if condition="$T_exp_time eq 3600">selected="selected"</if>>60分</option>
-            <option value="5400" <if condition="$T_exp_time eq 5400">selected="selected"</if>>90分</option>
-            <option value="7200" <if condition="$T_exp_time eq 7200">selected="selected"</if>>120分</option>
-            <option value="14400" <if condition="$T_exp_time eq 14400">selected="selected"</if>>240分</option>
-        </select><br/>
+            <option value="300">5分</option>
+            <option value="600">10分</option>
+            <option value="900">15分</option>
+            <option value="1200">20分</option>
+            <option value="1800">30分</option>
+            <option value="2700">45分</option>
+            <option value="3600">60分</option>
+            <option value="5400">90分</option>
+            <option value="7200">120分</option>
+            <option value="14400">240分</option>
+            <option value="{$T_exp_time}" selected="selected">{$T_exp_time / 60 |round }分</option>
+        </select>
+        <div class="predict_end_time_div">
+            预计结束
+            日期: <input type="date" name="T_expd_end" value="{$task_list['T_date'] + $T_exp_time|date="Y-m-d",###}"/>
+            时间: <input type="time" name="T_expt_end" value="{$task_list['T_date'] + $T_exp_time|date="H:i",###}">
+        </div>
+        <br/>
         <textarea id="editor_id" name="T_content" style="width:790px;height:400px;">{$task_list['T_content']}</textarea><BR/>
 		<input type="hidden" name="T_id" value="{$task_id}"/>
 	</FORM>
