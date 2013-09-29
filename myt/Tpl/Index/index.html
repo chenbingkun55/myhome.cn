@@ -19,7 +19,7 @@ End -->
 <script charset="utf-8" src="/public/kindeditor-4.1.7/lang/zh_CN.js"></script>
 <script>
 	// 设定 每一分钟刷新一次主页。
-	setTimeout("document.location.reload()",150000);//每60秒钟刷新一次 
+	// setTimeout("document.location.reload()",150000);//每60秒钟刷新一次 
 </script>
 	<!-- 
 		禁止 Body 里的文本被选中.
@@ -93,8 +93,16 @@ End -->
 <header>
 	<div id="status_bar">
         <label><B>{$title}</B><font size="1" >&nbsp;[Beta]</font></label>
-		<div class="status_bar_time"><script charset="Shift_JIS" src="http://chabudai.sakura.ne.jp/blogparts/honehoneclock/honehone_clock_tr.js"></script> </div>
-
+		<div class="status_bar_time">
+			<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://www.macromedia.com/go/getflashplayer" width="170" height="50" id="myhome.cn clock" align="middle">
+			<param name="allowScriptAccess" value="always" />
+			<param name="movie" value="/public/media/clock.swf" />
+			<param name="quality" value="high" />
+			<param name="bgcolor" value="#ffffff" />
+			<param name="wmode" value="transparent" />
+			<embed wmode="transparent" src="/public/media/clock.swf" quality="high" bgcolor="#ffffff" width="170" height="50" name="myhome.cn clock" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
+			</object>
+		</div>
         <div class="task_month_task_count">{$show_month_task_count}</div>
 	</div>
 	<div id="tools_bar">
@@ -177,6 +185,7 @@ End -->
 	<div class="task_day_div">
 	</div>
 </article>
+	<span style="color: #FFFFFF;" val="chenbingkun55@163.com">任务调度器&nbsp;E-mail: chenbingkun55@163.com</span>
 </div>
 </BODY>
 </HTML>

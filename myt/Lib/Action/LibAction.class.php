@@ -365,10 +365,10 @@ class LibAction extends Action {
         $re = $status_id ;
 		switch( $re ){
 			case ( $re == 7) :
-				$str = "<span style=\"background-color: #696969; color: #FFFFFF\" >放弃</span>";
+				$str = "<span style=\"background-color: #696969; color: #FFFFFF;\" >放弃</span>";
 				break;
 			case ( $re == 6) :
-				$str = "<span style=\"background-color: #330000; color: #FFFFFF:\" >完成</span>";
+				$str = "<span style=\"background-color: #330000; color: #FFFFFF;\" >完成</span>";
 				break;
 			case ( $re == 5) :
 				$str = "<span style=\"background-color: #CC3300; color: #FFFFFF;\" >停止</span>";
