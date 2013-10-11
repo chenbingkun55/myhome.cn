@@ -12,7 +12,7 @@ class LibAction extends Action {
         $month_end = mktime(23,59,59,$month,$cal_M_day,$year);
 
         $search_where = "T_date between '". $month_start."' and '".$month_end."'";
-        $run_task_where = "T_date between '". $month_start."' and '".$month_end."' and T_status != 7 and T_status != 6";
+        $run_task_where = "T_status != 7 and T_status != 6";
 
         $search_count = $task_lib->where( $search_where )->count();
         $run_task_count = $task_lib->where( $run_task_where )->count();
@@ -599,21 +599,14 @@ class LibAction extends Action {
     }
 
 
-    public function show_run_task( $date ){
+    public function show_run_task( ){
         $task_lib = D('lib');
         $public_action = new PublicAction();
         $page = $_REQUEST['page'];
         $page_limit_num = PAGE_LINE_NUMBER;
 
-        $date = ( isset($_REQUEST['date']) ) ? $_REQUEST['date'] : date("Y-m-d");
-        list($year, $month, $day ) = split("-",$date);
-        $cal_M_day = date("t",mktime(0, 0, 0, $month , 1 , $year));
 
-        $month_start = mktime(0,0,0,$month,1,$year);
-        $month_end = mktime(23,59,59,$month,$cal_M_day,$year);
-
-
-        $search_where = "T_date between '". $month_start."' and '".$month_end."' and T_status != 6 and T_status != 7";
+        $search_where = "T_status != 6 and T_status != 7";
         $search_limit = ( $page > 0 )  ?  ( $page_limit_num * $page ).",".$page_limit_num : "0,".$page_limit_num ;
         $search_date_count = ( $page_limit_num * $page );
 
