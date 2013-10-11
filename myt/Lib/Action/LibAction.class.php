@@ -43,14 +43,14 @@ class LibAction extends Action {
                 }
                 $task_list_g .= "<div class=\"day_box_min_count\" date=\"".$date."\" val=".$task_list[$i]['T_level']." title=\"".$title."\" style=\"background-color:".$bg_color.";\">".$task_list[$i]['num']."</div>";
             }
-            $task_list_g .= "<div style=\"position: relative;float:left;font-size: 11px;text-align:left;\">MT:".$search_count."<br><span class=\"run_task_count\" date=\"".$date."\">RW:".$run_task_count."<span></div>";
+            $task_list_g .= "<div style=\"position: relative;float:left;font-size: 11px;text-align:left;\">MT:".$search_count."<br><span class=\"run_task_count\" date=\"".$date."\" title=\"全部未完成任务\">RW:".$run_task_count."<span></div>";
         } else {
             $task_list_g .= "<div class=\"day_box_min_count\" date=\"".$date."\" val=\"1\" title=\"一般\" style=\"background-color:#00CC00;\">0</div>";
             $task_list_g .= "<div class=\"day_box_min_count\" date=\"".$date."\" val=\"2\" title=\"重要\" style=\"background-color:#9966CC;\">0</div>";
             $task_list_g .= "<div class=\"day_box_min_count\" date=\"".$date."\" val=\"3\" title=\"重要紧急\" style=\"background-color:#FF9900;\">0</div>";
             $task_list_g .= "<div class=\"day_box_min_count\" date=\"".$date."\" val=\"4\" title=\"重要不紧急\" style=\"background-color:#FF3300;\">0</div>";
             $task_list_g .= "<div class=\"day_box_min_count\" date=\"".$date."\" val=\"5\" title=\"非常重要\" style=\"background-color:#FF0000;\">0</div>";
-            $task_list_g .= "<div style=\"position: relative;float:left;font-size: 11px;text-align:left;\" date=\"".$date."\">MT:0<br>RW:0</div>";
+            $task_list_g .= "<div style=\"position: relative;float:left;font-size: 11px;text-align:left;\" date=\"".$date."\">MT:".$search_count."<br><span class=\"run_task_count\" date=\"".$date."\" title=\"全部未完成任务\">RW:".$run_task_count."<span></div>";
         }
 
         return $task_list_g;
