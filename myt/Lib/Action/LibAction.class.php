@@ -622,7 +622,7 @@ class LibAction extends Action {
         for( $i = 0; $i < count($res_data); $i++){
             $search_date_count++;
             $process_arr =  json_decode($res_data[$i]['T_process'], true);
-            $done_time = ($process_arr['done_time'] == 0 ) ? "未完成" : date("Y-m-d H:i", $process_arr['done_time']) ;
+            $start_time = ($process_arr['start_time'] == 0 ) ? "未开始" : date("Y-m-d H:i", $process_arr['start_time']) ;
 
             $level_date_line .= "<div tid=\"".$res_data[$i]['T_id']."\" class=\"task_search_data_line\">";
             $level_date_line .= "<span class=\"task_search_data_num_block\">".$search_date_count.".</span>";
@@ -630,7 +630,7 @@ class LibAction extends Action {
             $level_date_line .= "<span class=\"task_search_data_status_block\">".$this->show_task_status( $res_data[$i]['T_status'])."</span>";
             $level_date_line .= "<span class=\"task_search_data_title_block\">".$res_data[$i]['T_title']."</span>";
             $level_date_line .= "<span class=\"task_search_data_runtim_block\">".round($process_arr['run_total_time'] / 60)."分</span>";
-            $level_date_line .= "<span class=\"task_search_data_done_time_block\">".$done_time."</span>";
+            $level_date_line .= "<span class=\"task_search_data_done_time_block\">".$start_time."</span>";
             $level_date_line .= "</div>";
         }
         $page_num = ceil ( $search_count / $page_limit_num );
