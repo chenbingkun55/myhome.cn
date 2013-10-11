@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>创建任务: {$date}</title>
+    <title>创建任务: {$date2}</title>
     <script type="text/javascript" src="/public/js/jquery-2.0.2.min.js"></script>
     <script type="text/javascript" src="/public/js/all.js"></script>
     <script charset="utf-8" src="/public/kindeditor-4.1.7/kindeditor.js"></script>
@@ -55,7 +55,7 @@
 <body>
 <div class="task_center" >
     <div class="task_tools_bar">
-		<div class="task_tools_title">创建新任务 : {$date}</div>
+		<div class="task_tools_title">创建新任务 : {$date2}</div>
         <div class="task_tools_box">
             <span class="task_win_close">关闭</span>
 			<span class="task_win_close" id = "date" >时间</span>
@@ -113,8 +113,8 @@
             预计开始
             日期: <input type="date" name="T_d_start" value="{$date|date="Y-m-d",###}"/>
             时间: <input type="time" name="T_t_start" value="{$date|date="H:i",###}">
-            预计用时: <select name="T_exp_time">
-                <option value="0" selected="selected">0</option>
+            预计用时:<select name="T_exp_time">
+                <option value="0">0分</option>
                 <option value="300">5分</option>
                 <option value="600">10分</option>
                 <option value="900">15分</option>
@@ -125,6 +125,7 @@
                 <option value="5400">90分</option>
                 <option value="7200">120分</option>
                 <option value="14400">240分</option>
+                <option value="{$templet_arr['T_exp_time']}" selected="selected">{$templet_arr['T_exp_time'] / 60 |round }分</option>
             </select>
         </div>
         <div class="predict_end_time_div">
