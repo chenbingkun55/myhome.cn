@@ -43,14 +43,14 @@ class LibAction extends Action {
                 }
                 $task_list_g .= "<div class=\"day_box_min_count\" date=\"".$date."\" val=".$task_list[$i]['T_level']." title=\"".$title."\" style=\"background-color:".$bg_color.";\">".$task_list[$i]['num']."</div>";
             }
-            $task_list_g .= "<div style=\"position: relative;float:left;font-size: 11px;text-align:left;\">MT:".$search_count."<br><span class=\"run_task_count\" date=\"".$date."\" title=\"全部未完成任务\">RW:".$run_task_count."<span></div>";
+            $task_list_g .= "<div style=\"position: relative;float:left;font-size: 11px;text-align:left;\"><label title=\"本月任务统计\">MT:".$search_count."</label><br><span class=\"run_task_count\" date=\"".$date."\" title=\"全部未完成任务\">RW:".$run_task_count."<span></div>";
         } else {
             $task_list_g .= "<div class=\"day_box_min_count\" date=\"".$date."\" val=\"1\" title=\"一般\" style=\"background-color:#00CC00;\">0</div>";
             $task_list_g .= "<div class=\"day_box_min_count\" date=\"".$date."\" val=\"2\" title=\"重要\" style=\"background-color:#9966CC;\">0</div>";
             $task_list_g .= "<div class=\"day_box_min_count\" date=\"".$date."\" val=\"3\" title=\"重要紧急\" style=\"background-color:#FF9900;\">0</div>";
             $task_list_g .= "<div class=\"day_box_min_count\" date=\"".$date."\" val=\"4\" title=\"重要不紧急\" style=\"background-color:#FF3300;\">0</div>";
             $task_list_g .= "<div class=\"day_box_min_count\" date=\"".$date."\" val=\"5\" title=\"非常重要\" style=\"background-color:#FF0000;\">0</div>";
-            $task_list_g .= "<div style=\"position: relative;float:left;font-size: 11px;text-align:left;\" date=\"".$date."\">MT:".$search_count."<br><span class=\"run_task_count\" date=\"".$date."\" title=\"全部未完成任务\">RW:".$run_task_count."<span></div>";
+            $task_list_g .= "<div style=\"position: relative;float:left;font-size: 11px;text-align:left;\" date=\"".$date."\"><label title=\"本月任务统计\">MT:".$search_count."</label><br><span class=\"run_task_count\" date=\"".$date."\" title=\"全部未完成任务\">RW:".$run_task_count."<span></div>";
         }
 
         return $task_list_g;
@@ -59,9 +59,14 @@ class LibAction extends Action {
     // 用来显示出一张日历,传入参为年,月,日 例如: ( 2013,08,01 )
     public function show_task_cal( $d ){
         list($year, $month, $day ) = split("-",$d);
-        $month_L = ( $month-1) < 10 ? '0'.( $month-1) : ( $month-1);
-        $month_R = ( $month+1) < 10 ? '0'.( $month+1) : ( $month+1);
-		$view_year = $year == date("Y") ?  "" : $year."年" ;
+        $month_L = ( $month-1) < 10 ? ( ($month-1) > 0 ?  '0'.( $month-1) : 12 ) : ( $month-1);
+        $month_R = ( $month+1) < 10 ? '0'.( $month+1) : ( ($month+1) < 13 ? ( $month+1): '01');
+        $year_R = ($month+1) < 13 ? $year: $year+1;
+        $year_L = ($month-1) > 0 ? $year: $year-1;
+
+		$view_year = ($year == date("Y")) ?  "" : $year."年" ;
+        $view_year_L = ($year_L == $year) ?  "" : $year_L."年" ;
+        $view_year_R = ($year_R == $year) ?  "" : $year_R."年" ;
        // echo $year, $month, $day,$month_L,$month_R ."TEST<BR>";
 
 
@@ -75,8 +80,8 @@ class LibAction extends Action {
 
         for($i=$cal_start - 2 ;$i>= 0;$i-- ){
             $day_i = ( $cal_L_day - $i) < 10 ? '0'.( $cal_L_day - $i) : ( $cal_L_day - $i);
-            $show_bg_color = ( $year."-".$month_L."-".($day_i) ) == date("Y-m-d") ? "style=\"background-color: #000000;\"" : "" ;
-            $cal_data = array_merge($cal_data,array( $cal_index =>array( "day"=>$year."-".$month_L."-".($day_i),"box"=>"<div class=\"day_box_date\" style=\"background-color:#996666;\">".$view_year.$month_L."月".$day_i."日</div><div  class=\"day_box_conten\" ".$show_bg_color." >".$this->show_task($year."-".$month_L."-".($day_i))."</div>")));
+            $show_bg_color = ( $year_L."-".$month_L."-".($day_i) ) == date("Y-m-d") ? "style=\"background-color: #000000;\"" : "" ;
+            $cal_data = array_merge($cal_data,array( $cal_index =>array( "day"=>$year_L."-".$month_L."-".($day_i),"box"=>"<div class=\"day_box_date\" style=\"background-color:#996666;\">".$view_year_L.$month_L."月".$day_i."日</div><div  class=\"day_box_conten\" ".$show_bg_color." >".$this->show_task($year_L."-".$month_L."-".($day_i))."</div>")));
             $cal_index++;
             $cal_max_mnu--;
         }
@@ -91,8 +96,8 @@ class LibAction extends Action {
 
         for($i=1;$i<= $cal_max_mnu;$i++){
             $day_i = $i < 10 ? '0'.$i : $i;
-            $show_bg_color = ( $year."-".$month_R."-".($day_i) ) == date("Y-m-d") ? "style=\"background-color: #000000;\"" : "" ;
-            $cal_data = array_merge($cal_data,array( $cal_index =>array( "day"=>$year."-".$month_R."-".($day_i),"box"=>"<div class=\"day_box_date\" style=\"background-color:#99CCFF;\">".$view_year.$month_R."月".$day_i."日</div><div  class=\"day_box_conten\" ".$show_bg_color." >".$this->show_task($year."-".$month_R."-".($day_i))."</div>")));
+            $show_bg_color = ( $year_R."-".$month_R."-".($day_i) ) == date("Y-m-d") ? "style=\"background-color: #000000;\"" : "" ;
+            $cal_data = array_merge($cal_data,array( $cal_index =>array( "day"=>$year_R."-".$month_R."-".($day_i),"box"=>"<div class=\"day_box_date\" style=\"background-color:#99CCFF;\">".$view_year_R.$month_R."月".$day_i."日</div><div  class=\"day_box_conten\" ".$show_bg_color." >".$this->show_task($year_R."-".$month_R."-".($day_i))."</div>")));
             $cal_index++;
         }
 

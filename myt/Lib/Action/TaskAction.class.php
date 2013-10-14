@@ -10,7 +10,7 @@ class TaskAction extends Action {
 		
 		$this->assign('templet_arr',$templet_arr);
         $this->assign('date',time());
-        $this->assign('date2',date("Y-d-m",time()));
+        $this->assign('date2',$date );
         $this->display();
     }
 

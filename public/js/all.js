@@ -262,6 +262,8 @@ $(document).ready(function(){
 		// 解决: 添加 editor.sync(); 这一行.
 		editor.sync();
 		$("form").submit();
+
+        setTimeout(self.opener.location.reload(),5000);
 	}); 
 
 	$(".task_tools_title").prepend( ShowLevel( $(".task_tools_title").attr("level"))+" ");
@@ -576,7 +578,6 @@ $(document).ready(function(){
 
     $(".run_task_count").click(function(){
         var date = $(this).attr('date');
-
         //alert( date );
         TaskWindow = window.open("/myt/index.php/Lib/show_run_task/date/"+date,date,"width=820,height=620,menubar=no,toolbar=no,location=no,scrollbars=no,status=no,modal=yes");
         TaskWindow.focus();

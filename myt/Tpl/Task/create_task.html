@@ -111,7 +111,7 @@
         </select>
         <div class="predict_start_time_div">
             预计开始
-            日期: <input type="date" name="T_d_start" value="{$date|date="Y-m-d",###}"/>
+            日期: <input type="date" name="T_d_start" value="{$date2}"/>
             时间: <input type="time" name="T_t_start" value="{$date|date="H:i",###}">
             预计用时:<select name="T_exp_time">
                 <option value="0">0分</option>
@@ -130,7 +130,7 @@
         </div>
         <div class="predict_end_time_div">
             预计结束
-            日期: <input type="date" name="T_expd_end" value="{$date|date="Y-m-d",###}"/>
+            日期: <input type="date" name="T_expd_end" value="{$date2}"/>
             时间: <input type="time" name="T_expt_end" value="{$date +60 |date="H:i",###}">
         </div>
         <textarea id="editor_id" name="T_content" style="width:790px;height:400px;">{$templet_arr['T_content']}</textarea>
