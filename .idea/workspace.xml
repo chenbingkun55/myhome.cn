@@ -6,7 +6,7 @@
     <ignored path=".idea/workspace.xml" />
     <file path="/index.html" changelist="83820e51-d90c-4ea5-a94c-02e3b3ecfdfd" time="1380273602586" ignored="false" />
     <file path="/IndexAction.class.php" changelist="83820e51-d90c-4ea5-a94c-02e3b3ecfdfd" time="1380266389967" ignored="false" />
-    <file path="/LibAction.class.php" changelist="83820e51-d90c-4ea5-a94c-02e3b3ecfdfd" time="1381713346203" ignored="false" />
+    <file path="/LibAction.class.php" changelist="83820e51-d90c-4ea5-a94c-02e3b3ecfdfd" time="1381806301518" ignored="false" />
     <file path="/TaskAction.class.php" changelist="83820e51-d90c-4ea5-a94c-02e3b3ecfdfd" time="1381484810461" ignored="false" />
     <file path="/edit_task.html" changelist="83820e51-d90c-4ea5-a94c-02e3b3ecfdfd" time="1381478356281" ignored="false" />
     <file path="/create_task.html" changelist="83820e51-d90c-4ea5-a94c-02e3b3ecfdfd" time="1381475947189" ignored="false" />
@@ -53,7 +53,7 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/myt/Tpl/Index/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="7" selection-start="873" selection-end="879" vertical-scroll-proportion="0.0">
+            <state line="116" column="29" selection-start="7986" selection-end="8002" vertical-scroll-proportion="-12.214286">
               <folding />
             </state>
           </provider>
@@ -71,7 +71,7 @@
       <file leaf-file-name="TaskAction.class.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/myt/Lib/Action/TaskAction.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="35" selection-start="360" selection-end="365" vertical-scroll-proportion="-8.142858">
+            <state line="12" column="35" selection-start="360" selection-end="365" vertical-scroll-proportion="0.0">
               <folding>
                 <marker date="1381711283308" expanded="false" signature="1268:1306" placeholder="..." />
                 <marker date="1381711283308" expanded="true" signature="3315:3353" placeholder="..." />
@@ -82,22 +82,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="all.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="all.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/js/all.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="250" column="0" selection-start="9821" selection-end="9821" vertical-scroll-proportion="0.0">
+            <state line="113" column="53" selection-start="4945" selection-end="4960" vertical-scroll-proportion="0.51076925">
               <folding>
-                <marker date="1381485112301" expanded="false" signature="6300:6433" placeholder="..." />
-                <marker date="1381485112301" expanded="false" signature="13025:13162" placeholder="..." />
-                <marker date="1381485112301" expanded="false" signature="13397:13474" placeholder="..." />
-                <marker date="1381485112301" expanded="false" signature="13582:13659" placeholder="..." />
-                <marker date="1381485112301" expanded="false" signature="13767:13844" placeholder="..." />
-                <marker date="1381485112301" expanded="false" signature="13950:14027" placeholder="..." />
-                <marker date="1381485112301" expanded="false" signature="14134:14211" placeholder="..." />
-                <marker date="1381485112301" expanded="false" signature="14308:14385" placeholder="..." />
-                <marker date="1381485112301" expanded="false" signature="14467:14544" placeholder="..." />
-                <marker date="1381485112301" expanded="false" signature="14625:14702" placeholder="..." />
-                <marker date="1381485112301" expanded="false" signature="18075:18101" placeholder="..." />
+                <marker date="1381806505444" expanded="false" signature="6299:6432" placeholder="..." />
+                <marker date="1381806505444" expanded="false" signature="13024:13161" placeholder="..." />
+                <marker date="1381806505444" expanded="false" signature="13396:13473" placeholder="..." />
+                <marker date="1381806505444" expanded="false" signature="13581:13658" placeholder="..." />
+                <marker date="1381806505444" expanded="false" signature="13766:13843" placeholder="..." />
+                <marker date="1381806505444" expanded="false" signature="13949:14026" placeholder="..." />
+                <marker date="1381806505444" expanded="false" signature="14133:14210" placeholder="..." />
+                <marker date="1381806505444" expanded="false" signature="14307:14384" placeholder="..." />
+                <marker date="1381806505444" expanded="false" signature="14466:14543" placeholder="..." />
+                <marker date="1381806505444" expanded="false" signature="14624:14701" placeholder="..." />
+                <marker date="1381806505444" expanded="false" signature="18074:18100" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -106,43 +106,43 @@
       <file leaf-file-name="create_task.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/myt/Tpl/Task/create_task.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="91" column="35" selection-start="4325" selection-end="4325" vertical-scroll-proportion="-5.25">
+            <state line="91" column="35" selection-start="4325" selection-end="4325" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LibAction.class.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="LibAction.class.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/myt/Lib/Action/LibAction.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="77" column="21" selection-start="4451" selection-end="4451" vertical-scroll-proportion="0.19812793">
+            <state line="273" column="46" selection-start="14085" selection-end="14085" vertical-scroll-proportion="-1.1509434">
               <folding>
-                <marker date="1381713453103" expanded="true" signature="2117:2179" placeholder="..." />
-                <marker date="1381713453103" expanded="true" signature="2472:2497" placeholder="..." />
-                <marker date="1381713453103" expanded="true" signature="2622:2647" placeholder="..." />
-                <marker date="1381713453103" expanded="true" signature="2774:2799" placeholder="..." />
-                <marker date="1381713453103" expanded="true" signature="2927:2952" placeholder="..." />
-                <marker date="1381713453103" expanded="true" signature="3079:3104" placeholder="..." />
-                <marker date="1381713453103" expanded="true" signature="3159:3221" placeholder="..." />
-                <marker date="1381713453103" expanded="true" signature="4908:4933" placeholder="..." />
-                <marker date="1381713453103" expanded="true" signature="5544:5569" placeholder="..." />
-                <marker date="1381713453103" expanded="true" signature="6176:6201" placeholder="..." />
-                <marker date="1381713453103" expanded="true" signature="10089:10106" placeholder="..." />
-                <marker date="1381713453103" expanded="true" signature="12122:12139" placeholder="..." />
-                <marker date="1381713453103" expanded="true" signature="14461:14478" placeholder="..." />
-                <marker date="1381713453103" expanded="true" signature="16445:16471" placeholder="..." />
-                <marker date="1381713453103" expanded="true" signature="18285:18311" placeholder="..." />
-                <marker date="1381713453103" expanded="true" signature="18493:18546" placeholder="..." />
-                <marker date="1381713453103" expanded="true" signature="18730:18771" placeholder="..." />
-                <marker date="1381713453103" expanded="true" signature="18730:18772" placeholder="..." />
-                <marker date="1381713453103" expanded="true" signature="18847:18889" placeholder="..." />
-                <marker date="1381713453103" expanded="true" signature="18964:19006" placeholder="..." />
-                <marker date="1381713453103" expanded="true" signature="19081:19123" placeholder="..." />
-                <marker date="1381713453103" expanded="true" signature="19198:19240" placeholder="..." />
-                <marker date="1381713453103" expanded="true" signature="19315:19357" placeholder="..." />
-                <marker date="1381713453103" expanded="true" signature="19423:19465" placeholder="..." />
-                <marker date="1381713453103" expanded="true" signature="21269:21326" placeholder="..." />
-                <marker date="1381713453103" expanded="true" signature="25635:26518" placeholder="..." />
+                <marker date="1381806505472" expanded="true" signature="2117:2179" placeholder="..." />
+                <marker date="1381806505472" expanded="true" signature="2472:2497" placeholder="..." />
+                <marker date="1381806505472" expanded="true" signature="2622:2647" placeholder="..." />
+                <marker date="1381806505472" expanded="true" signature="2774:2799" placeholder="..." />
+                <marker date="1381806505472" expanded="true" signature="2927:2952" placeholder="..." />
+                <marker date="1381806505472" expanded="true" signature="3079:3104" placeholder="..." />
+                <marker date="1381806505472" expanded="true" signature="3159:3221" placeholder="..." />
+                <marker date="1381806505472" expanded="true" signature="4908:4933" placeholder="..." />
+                <marker date="1381806505472" expanded="true" signature="5544:5569" placeholder="..." />
+                <marker date="1381806505472" expanded="true" signature="6176:6201" placeholder="..." />
+                <marker date="1381806505472" expanded="true" signature="10089:10106" placeholder="..." />
+                <marker date="1381806505472" expanded="true" signature="12142:12159" placeholder="..." />
+                <marker date="1381806505472" expanded="true" signature="14501:14518" placeholder="..." />
+                <marker date="1381806505472" expanded="true" signature="16505:16531" placeholder="..." />
+                <marker date="1381806505472" expanded="true" signature="18345:18371" placeholder="..." />
+                <marker date="1381806505472" expanded="false" signature="18553:18606" placeholder="..." />
+                <marker date="1381806505472" expanded="true" signature="18790:18831" placeholder="..." />
+                <marker date="1381806505472" expanded="false" signature="18790:18832" placeholder="..." />
+                <marker date="1381806505472" expanded="false" signature="18907:18949" placeholder="..." />
+                <marker date="1381806505472" expanded="false" signature="19024:19066" placeholder="..." />
+                <marker date="1381806505472" expanded="false" signature="19141:19183" placeholder="..." />
+                <marker date="1381806505472" expanded="false" signature="19258:19300" placeholder="..." />
+                <marker date="1381806505472" expanded="false" signature="19375:19417" placeholder="..." />
+                <marker date="1381806505472" expanded="false" signature="19483:19525" placeholder="..." />
+                <marker date="1381806505472" expanded="false" signature="21329:21386" placeholder="..." />
+                <marker date="1381806505472" expanded="true" signature="25695:26578" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -169,7 +169,7 @@
       <file leaf-file-name="IndexAction.class.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/myt/Lib/Action/IndexAction.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="46" selection-start="1308" selection-end="1321" vertical-scroll-proportion="-10.178572">
+            <state line="33" column="46" selection-start="1308" selection-end="1321" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -206,10 +206,10 @@
         <option value="$PROJECT_DIR$/myt/Tpl/Index/index.html" />
         <option value="$PROJECT_DIR$/myt/Tpl/Lib/show_run_task.html" />
         <option value="$PROJECT_DIR$/myt/Tpl/Task/edit_task.html" />
-        <option value="$PROJECT_DIR$/public/js/all.js" />
         <option value="$PROJECT_DIR$/myt/Lib/Action/TaskAction.class.php" />
         <option value="$PROJECT_DIR$/myt/Tpl/Task/create_task.html" />
         <option value="$PROJECT_DIR$/myt/Lib/Action/LibAction.class.php" />
+        <option value="$PROJECT_DIR$/public/js/all.js" />
       </list>
     </option>
   </component>
@@ -220,10 +220,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1448" />
-    <option name="y" value="-8" />
+    <option name="x" value="-1443" />
+    <option name="y" value="256" />
     <option name="width" value="1370" />
-    <option name="height" value="916" />
+    <option name="height" value="572" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -251,6 +251,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -314,45 +315,22 @@
               <option name="myItemId" value="Tpl" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Task" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="myhome.cn" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="myhome.cn" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="myt" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Tpl" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="recentsLimit" value="5" />
     <property name="options.lastSelected" value="project.propDebugger" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="recentsLimit" value="5" />
     <property name="restartRequiresConfirmation" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="FullScreen" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -403,14 +381,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1448" y="-8" width="1370" height="916" extended-state="6" />
-    <editor active="false" />
+    <frame x="-1443" y="256" width="1370" height="572" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2828746" sideWeight="0.73280424" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2874618" sideWeight="0.73280424" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -557,35 +535,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myt/Tpl/Index/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="7" selection-start="873" selection-end="879" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/all.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="250" column="0" selection-start="9821" selection-end="9821" vertical-scroll-proportion="0.0">
-          <folding>
-            <marker date="1381485112301" expanded="false" signature="6300:6433" placeholder="..." />
-            <marker date="1381485112301" expanded="false" signature="13025:13162" placeholder="..." />
-            <marker date="1381485112301" expanded="false" signature="13397:13474" placeholder="..." />
-            <marker date="1381485112301" expanded="false" signature="13582:13659" placeholder="..." />
-            <marker date="1381485112301" expanded="false" signature="13767:13844" placeholder="..." />
-            <marker date="1381485112301" expanded="false" signature="13950:14027" placeholder="..." />
-            <marker date="1381485112301" expanded="false" signature="14134:14211" placeholder="..." />
-            <marker date="1381485112301" expanded="false" signature="14308:14385" placeholder="..." />
-            <marker date="1381485112301" expanded="false" signature="14467:14544" placeholder="..." />
-            <marker date="1381485112301" expanded="false" signature="14625:14702" placeholder="..." />
-            <marker date="1381485112301" expanded="false" signature="18075:18101" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/myt/Lib/Action/TaskAction.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="35" selection-start="360" selection-end="365" vertical-scroll-proportion="-8.142858">
+        <state line="12" column="35" selection-start="360" selection-end="365" vertical-scroll-proportion="0.0">
           <folding>
             <marker date="1381711283308" expanded="false" signature="1268:1306" placeholder="..." />
             <marker date="1381711283308" expanded="true" signature="3315:3353" placeholder="..." />
@@ -597,48 +549,74 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/myt/Tpl/Task/create_task.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="91" column="35" selection-start="4325" selection-end="4325" vertical-scroll-proportion="-5.25">
+        <state line="91" column="35" selection-start="4325" selection-end="4325" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/myt/Lib/Action/IndexAction.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="46" selection-start="1308" selection-end="1321" vertical-scroll-proportion="-10.178572">
+        <state line="33" column="46" selection-start="1308" selection-end="1321" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myt/Tpl/Index/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="116" column="29" selection-start="7986" selection-end="8002" vertical-scroll-proportion="-12.214286">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/myt/Lib/Action/LibAction.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="77" column="21" selection-start="4451" selection-end="4451" vertical-scroll-proportion="0.19812793">
+        <state line="273" column="46" selection-start="14085" selection-end="14085" vertical-scroll-proportion="-1.1509434">
           <folding>
-            <marker date="1381713453103" expanded="true" signature="2117:2179" placeholder="..." />
-            <marker date="1381713453103" expanded="true" signature="2472:2497" placeholder="..." />
-            <marker date="1381713453103" expanded="true" signature="2622:2647" placeholder="..." />
-            <marker date="1381713453103" expanded="true" signature="2774:2799" placeholder="..." />
-            <marker date="1381713453103" expanded="true" signature="2927:2952" placeholder="..." />
-            <marker date="1381713453103" expanded="true" signature="3079:3104" placeholder="..." />
-            <marker date="1381713453103" expanded="true" signature="3159:3221" placeholder="..." />
-            <marker date="1381713453103" expanded="true" signature="4908:4933" placeholder="..." />
-            <marker date="1381713453103" expanded="true" signature="5544:5569" placeholder="..." />
-            <marker date="1381713453103" expanded="true" signature="6176:6201" placeholder="..." />
-            <marker date="1381713453103" expanded="true" signature="10089:10106" placeholder="..." />
-            <marker date="1381713453103" expanded="true" signature="12122:12139" placeholder="..." />
-            <marker date="1381713453103" expanded="true" signature="14461:14478" placeholder="..." />
-            <marker date="1381713453103" expanded="true" signature="16445:16471" placeholder="..." />
-            <marker date="1381713453103" expanded="true" signature="18285:18311" placeholder="..." />
-            <marker date="1381713453103" expanded="true" signature="18493:18546" placeholder="..." />
-            <marker date="1381713453103" expanded="true" signature="18730:18771" placeholder="..." />
-            <marker date="1381713453103" expanded="true" signature="18730:18772" placeholder="..." />
-            <marker date="1381713453103" expanded="true" signature="18847:18889" placeholder="..." />
-            <marker date="1381713453103" expanded="true" signature="18964:19006" placeholder="..." />
-            <marker date="1381713453103" expanded="true" signature="19081:19123" placeholder="..." />
-            <marker date="1381713453103" expanded="true" signature="19198:19240" placeholder="..." />
-            <marker date="1381713453103" expanded="true" signature="19315:19357" placeholder="..." />
-            <marker date="1381713453103" expanded="true" signature="19423:19465" placeholder="..." />
-            <marker date="1381713453103" expanded="true" signature="21269:21326" placeholder="..." />
-            <marker date="1381713453103" expanded="true" signature="25635:26518" placeholder="..." />
+            <marker date="1381806505472" expanded="true" signature="2117:2179" placeholder="..." />
+            <marker date="1381806505472" expanded="true" signature="2472:2497" placeholder="..." />
+            <marker date="1381806505472" expanded="true" signature="2622:2647" placeholder="..." />
+            <marker date="1381806505472" expanded="true" signature="2774:2799" placeholder="..." />
+            <marker date="1381806505472" expanded="true" signature="2927:2952" placeholder="..." />
+            <marker date="1381806505472" expanded="true" signature="3079:3104" placeholder="..." />
+            <marker date="1381806505472" expanded="true" signature="3159:3221" placeholder="..." />
+            <marker date="1381806505472" expanded="true" signature="4908:4933" placeholder="..." />
+            <marker date="1381806505472" expanded="true" signature="5544:5569" placeholder="..." />
+            <marker date="1381806505472" expanded="true" signature="6176:6201" placeholder="..." />
+            <marker date="1381806505472" expanded="true" signature="10089:10106" placeholder="..." />
+            <marker date="1381806505472" expanded="true" signature="12142:12159" placeholder="..." />
+            <marker date="1381806505472" expanded="true" signature="14501:14518" placeholder="..." />
+            <marker date="1381806505472" expanded="true" signature="16505:16531" placeholder="..." />
+            <marker date="1381806505472" expanded="true" signature="18345:18371" placeholder="..." />
+            <marker date="1381806505472" expanded="false" signature="18553:18606" placeholder="..." />
+            <marker date="1381806505472" expanded="true" signature="18790:18831" placeholder="..." />
+            <marker date="1381806505472" expanded="false" signature="18790:18832" placeholder="..." />
+            <marker date="1381806505472" expanded="false" signature="18907:18949" placeholder="..." />
+            <marker date="1381806505472" expanded="false" signature="19024:19066" placeholder="..." />
+            <marker date="1381806505472" expanded="false" signature="19141:19183" placeholder="..." />
+            <marker date="1381806505472" expanded="false" signature="19258:19300" placeholder="..." />
+            <marker date="1381806505472" expanded="false" signature="19375:19417" placeholder="..." />
+            <marker date="1381806505472" expanded="false" signature="19483:19525" placeholder="..." />
+            <marker date="1381806505472" expanded="false" signature="21329:21386" placeholder="..." />
+            <marker date="1381806505472" expanded="true" signature="25695:26578" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/all.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="113" column="53" selection-start="4945" selection-end="4960" vertical-scroll-proportion="0.51076925">
+          <folding>
+            <marker date="1381806505444" expanded="false" signature="6299:6432" placeholder="..." />
+            <marker date="1381806505444" expanded="false" signature="13024:13161" placeholder="..." />
+            <marker date="1381806505444" expanded="false" signature="13396:13473" placeholder="..." />
+            <marker date="1381806505444" expanded="false" signature="13581:13658" placeholder="..." />
+            <marker date="1381806505444" expanded="false" signature="13766:13843" placeholder="..." />
+            <marker date="1381806505444" expanded="false" signature="13949:14026" placeholder="..." />
+            <marker date="1381806505444" expanded="false" signature="14133:14210" placeholder="..." />
+            <marker date="1381806505444" expanded="false" signature="14307:14384" placeholder="..." />
+            <marker date="1381806505444" expanded="false" signature="14466:14543" placeholder="..." />
+            <marker date="1381806505444" expanded="false" signature="14624:14701" placeholder="..." />
+            <marker date="1381806505444" expanded="false" signature="18074:18100" placeholder="..." />
           </folding>
         </state>
       </provider>

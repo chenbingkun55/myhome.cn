@@ -111,7 +111,7 @@ $(document).ready(function(){
     // 当 $(".today_task_total").text()  值大于 8 时，说明 day_box 超过 窗口宽度，需要运行自动滚动功能。
     // alert($(".delay_task_total").text());
     if( ( $(".delay_task_total").text() * day_box_width  ) > $(".dv_body").width() ){
-        move_delay_task = setInterval(auto_delay_task,40000);
+        move_delay_task = setInterval(auto_delay_task,3000);
         $(".delay_task_total").css({"left": ($("#delay_task_outer").offset().left),"top": ($("#delay_task_outer").offset().top + 30)});
     } else {
         $("#delay_task").css("left","0px");
