@@ -66,8 +66,8 @@ $(document).ready(function(){
             });
     };
 
-    // 当 $(".today_task_total").text()  值大于 8 时，说明 day_box 超过 窗口宽度，需要运行自动滚动功能。
-    if( ( $(".today_task_total").text() * day_box_width ) > $(".div_body").width() ){
+    // 当 $(".today_task_total").text()  值大于 7 时，说明 day_box 超过 窗口宽度，需要运行自动滚动功能。
+    if(  $(".today_task_total").text() > 7 ){
         move_today_task = setInterval(auto_today_task,5000);
         $(".today_task_total").css({"left": ($("#today_task_outer").offset().left),"top": ($("#today_task_outer").offset().top + 30)});
     } else {
@@ -87,8 +87,8 @@ $(document).ready(function(){
             });
     };
 
-    // 当 $(".today_task_total").text()  值大于 8 时，说明 day_box 超过 窗口宽度，需要运行自动滚动功能。
-    if( ( $(".grade_task_total").text()  * day_box_width )  > $(".div_body").width() ){
+    // 当 $(".today_task_total").text()  值大于 7 时，说明 day_box 超过 窗口宽度，需要运行自动滚动功能。
+    if(  $(".grade_task_total").text()  > 7 ){
         move_grade_task = setInterval(auto_grade_task,18000);
         $(".grade_task_total").css({"left": ($("#grade_task_outer").offset().left),"top": ($("#grade_task_outer").offset().top + 30)});
     } else {
@@ -108,9 +108,9 @@ $(document).ready(function(){
             });
     };
 
-    // 当 $(".today_task_total").text()  值大于 8 时，说明 day_box 超过 窗口宽度，需要运行自动滚动功能。
+    // 当 $(".today_task_total").text()  值大于 7 时，说明 day_box 超过 窗口宽度，需要运行自动滚动功能。
     // alert($(".delay_task_total").text());
-    if( ( $(".delay_task_total").text() * day_box_width  ) > $(".dv_body").width() ){
+    if(  $(".delay_task_total").text()  > 7 ){
         move_delay_task = setInterval(auto_delay_task,3000);
         $(".delay_task_total").css({"left": ($("#delay_task_outer").offset().left),"top": ($("#delay_task_outer").offset().top + 30)});
     } else {
