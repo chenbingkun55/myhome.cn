@@ -43,7 +43,7 @@ class LibAction extends Action {
                 }
                 $task_list_g .= "<div class=\"day_box_min_count\" date=\"".$date."\" val=".$task_list[$i]['T_level']." title=\"".$title."\" style=\"background-color:".$bg_color.";\">".$task_list[$i]['num']."</div>";
             }
-            $task_list_g .= "<div style=\"position: relative;float:left;font-size: 11px;text-align:left;\"><label title=\"本月任务统计\">MT:".$search_count."</label><br><span class=\"run_task_count\" date=\"".$date."\" title=\"全部未完成任务\">RW:".$run_task_count."<span></div>";
+            $task_list_g .= "<div style=\"position: relative;float:left;font-size: 11px;text-align:left;\"><span class=\"month_count\"  date=\"".$date."\" title=\"本月任务统计\">MT:".$search_count."</span><br><span class=\"run_task_count\" date=\"".$date."\" title=\"全部未完成任务\">RW:".$run_task_count."<span></div>";
         } else {
             $task_list_g .= "<div class=\"day_box_min_count\" date=\"".$date."\" val=\"1\" title=\"一般\" style=\"background-color:#00CC00;\">0</div>";
             $task_list_g .= "<div class=\"day_box_min_count\" date=\"".$date."\" val=\"2\" title=\"重要\" style=\"background-color:#9966CC;\">0</div>";
@@ -606,6 +606,62 @@ class LibAction extends Action {
         }
     }
 
+    public function show_month_task( ){
+        $task_lib = D('lib');
+        $public_action = new PublicAction();
+        $page = $_REQUEST['page'];
+        $page_limit_num = PAGE_LINE_NUMBER;
+
+        $date = ( isset($_REQUEST['date']) ) ? $_REQUEST['date'] : date("Y-m-d");
+        list($year, $month, $day ) = split("-",$date);
+        $cal_M_day = date("t",mktime(0, 0, 0, $month , 1 , $year));
+
+        $month_start = mktime(0,0,0,$month,1,$year);
+        $month_end = mktime(23,59,59,$month,$cal_M_day,$year);
+
+
+        $search_where = "T_date between '". $month_start."' and '".$month_end."'";
+        $search_limit = ( $page > 0 )  ?  ( $page_limit_num * $page ).",".$page_limit_num : "0,".$page_limit_num ;
+        $search_date_count = ( $page_limit_num * $page );
+
+        $search_limit = ( $page > 0 )  ?  ( $page_limit_num * $page ).",".$page_limit_num : "0,".$page_limit_num ;
+        $search_date_count = ( $page_limit_num * $page );
+
+        $search_count = $task_lib->where( $search_where )->count();
+        $res_data = $task_lib->where( $search_where )->limit( $search_limit )->select();
+
+        if( ! $res_data ){
+            $this->assign('no_search_data',"本月没有任务!");
+        }
+
+        $level_date_line = "";
+
+        for( $i = 0; $i < count($res_data); $i++){
+            $search_date_count++;
+            $process_arr =  json_decode($res_data[$i]['T_process'], true);
+            $start_time = ($process_arr['done_time'] == 0 ) ? "未完成" : date("Y-m-d H:i", $process_arr['done_time']) ;
+
+            $level_date_line .= "<div tid=\"".$res_data[$i]['T_id']."\" class=\"task_search_data_line\">";
+            $level_date_line .= "<span class=\"task_search_data_num_block\">".$search_date_count.".</span>";
+            $level_date_line .= "<span class=\"task_search_data_level_block\">".$public_action->show_level_tag($res_data[$i]['T_level'])."</span>";
+            $level_date_line .= "<span class=\"task_search_data_status_block\">".$this->show_task_status( $res_data[$i]['T_status'])."</span>";
+            $level_date_line .= "<span class=\"task_search_data_title_block\">".$res_data[$i]['T_title']."</span>";
+            $level_date_line .= "<span class=\"task_search_data_runtim_block\">".round($process_arr['run_total_time'] / 60)."分</span>";
+            $level_date_line .= "<span class=\"task_search_data_done_time_block\">".$start_time."</span>";
+            $level_date_line .= "</div>";
+        }
+        $page_num = ceil ( $search_count / $page_limit_num );
+
+        if( isset($page) ) {
+            echo $level_date_line ;
+        } else {
+            $this->assign('title',"本月任务列表");
+            $this->assign('page_num',$page_num);
+            $this->assign('total_num',$search_count);
+            $this->assign('search_date_line',$level_date_line);
+            $this->display();
+        }
+    }
 
     public function show_run_task( ){
         $task_lib = D('lib');
@@ -622,7 +678,7 @@ class LibAction extends Action {
         $res_data = $task_lib->where( $search_where )->limit( $search_limit )->select();
 
         if( ! $res_data ){
-            $this->assign('no_search_data',"没有搜索到未完成的任务!");
+            $this->assign('no_search_data',"没有在运行的任务!");
         }
 
         $level_date_line = "";

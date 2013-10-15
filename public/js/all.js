@@ -583,6 +583,20 @@ $(document).ready(function(){
         TaskWindow.focus();
     });
 
+    $(".run_task_count").click(function(){
+        var date = $(this).attr('date');
+        //alert( date );
+        TaskWindow = window.open("/myt/index.php/Lib/show_run_task/date/"+date,date,"width=820,height=620,menubar=no,toolbar=no,location=no,scrollbars=no,status=no,modal=yes");
+        TaskWindow.focus();
+    });
+
+
+    $(".month_count").click(function(){
+        var date = $(this).attr('date');
+        //alert( date );
+        TaskWindow = window.open("/myt/index.php/Lib/show_month_task/date/"+date,date,"width=820,height=620,menubar=no,toolbar=no,location=no,scrollbars=no,status=no,modal=yes");
+        TaskWindow.focus();
+    });
 
     $('input[name="T_title"],select[name="T_level"],input[name="T_d_start"],input[name="T_t_start"],select[name="T_exp_time"],input[name="T_expd_end"],input[name="T_expt_end"]').change(function(){
         is_change = true;
