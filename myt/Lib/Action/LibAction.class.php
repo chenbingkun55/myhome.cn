@@ -16,42 +16,78 @@ class LibAction extends Action {
 
         $search_count = $task_lib->where( $search_where )->count();
         $run_task_count = $task_lib->where( $run_task_where )->count();
-        $task_list = $task_lib->field('T_level,count(*) as num')->where( $search_where )->group('T_level')->select();
+        $task_list = $task_lib->field('T_level,count(*) as num')->where( $search_where )->group('T_level desc')->order('T_level')->select();
+
+        /*之前用的 方法,发现新方法更好些.
+                if($task_list){
+                    for($i=0;$i< count($task_list);$i++){
+                        switch( $task_list[$i]['T_level'] ){
+                            case $task_list[$i]['T_level'] < 2 :
+                                $bg_color = "#00CC00";
+                                $title = "一般";
+                                break;
+                            case $task_list[$i]['T_level'] < 3 :
+                                $bg_color = "#9966CC";
+                                $title = "重要";
+                                break;
+                            case $task_list[$i]['T_level'] < 4 :
+                                $bg_color = "#FF9900";
+                                $title = "重要紧急";
+                                break;
+                            case $task_list[$i]['T_level'] < 5 :
+                                $bg_color = "#FF3300";
+                                $title = "重要不紧急";
+                                break;
+                            default :
+                                $bg_color = "#FF0000";
+                                $title = "非常重要";
+                        }
+                        $task_list_g .= "<div class=\"day_box_min_count\" date=\"".$date."\" val=".$task_list[$i]['T_level']." title=\"".$title."\" style=\"background-color:".$bg_color.";\">".$task_list[$i]['num']."</div>";
+                    }
+
+                } else {
+                    $task_list_g .= "<div class=\"day_box_min_count\" date=\"".$date."\" val=\"1\" title=\"一般\" style=\"background-color:#00CC00;\">0</div>";
+                    $task_list_g .= "<div class=\"day_box_min_count\" date=\"".$date."\" val=\"2\" title=\"重要\" style=\"background-color:#9966CC;\">0</div>";
+                    $task_list_g .= "<div class=\"day_box_min_count\" date=\"".$date."\" val=\"3\" title=\"重要紧急\" style=\"background-color:#FF9900;\">0</div>";
+                    $task_list_g .= "<div class=\"day_box_min_count\" date=\"".$date."\" val=\"4\" title=\"重要不紧急\" style=\"background-color:#FF3300;\">0</div>";
+                    $task_list_g .= "<div class=\"day_box_min_count\" date=\"".$date."\" val=\"5\" title=\"非常重要\" style=\"background-color:#FF0000;\">0</div>";
+                    $task_list_g .= "<div style=\"position: relative;float:left;font-size: 11px;text-align:left;\" date=\"".$date."\"><span class=\"month_count\"  date=\"".$date."\" title=\"本月任务统计\">MT:".$search_count."</span><br><span class=\"run_task_count\" date=\"".$date."\" title=\"全部未完成任务\">RW:".$run_task_count."<span></div>";
+                }
+        */
+
+        $level_1 = 0 ;
+        $level_2 = 0 ;
+        $level_3 = 0 ;
+        $level_4 = 0 ;
+        $level_5 = 0 ;
 
         if($task_list){
             for($i=0;$i< count($task_list);$i++){
                 switch( $task_list[$i]['T_level'] ){
                     case $task_list[$i]['T_level'] < 2 :
-                        $bg_color = "#00CC00";
-                        $title = "一般";
+                        $level_1 = $task_list[$i]['num'] ;
                         break;
                     case $task_list[$i]['T_level'] < 3 :
-                        $bg_color = "#9966CC";
-                        $title = "重要";
+                        $level_2 = $task_list[$i]['num'] ;
                         break;
                     case $task_list[$i]['T_level'] < 4 :
-                        $bg_color = "#FF9900";
-                        $title = "重要紧急";
+                        $level_3 = $task_list[$i]['num'] ;
                         break;
                     case $task_list[$i]['T_level'] < 5 :
-                        $bg_color = "#FF3300";
-                        $title = "重要不紧急";
+                        $level_4 = $task_list[$i]['num'] ;
                         break;
                     default :
-                        $bg_color = "#FF0000";
-                        $title = "非常重要";
+                        $level_5 = $task_list[$i]['num'] ;
                 }
-                $task_list_g .= "<div class=\"day_box_min_count\" date=\"".$date."\" val=".$task_list[$i]['T_level']." title=\"".$title."\" style=\"background-color:".$bg_color.";\">".$task_list[$i]['num']."</div>";
             }
-            $task_list_g .= "<div style=\"position: relative;float:left;font-size: 11px;text-align:left;\"><span class=\"month_count\"  date=\"".$date."\" title=\"本月任务统计\">MT:".$search_count."</span><br><span class=\"run_task_count\" date=\"".$date."\" title=\"全部未完成任务\">RW:".$run_task_count."<span></div>";
-        } else {
-            $task_list_g .= "<div class=\"day_box_min_count\" date=\"".$date."\" val=\"1\" title=\"一般\" style=\"background-color:#00CC00;\">0</div>";
-            $task_list_g .= "<div class=\"day_box_min_count\" date=\"".$date."\" val=\"2\" title=\"重要\" style=\"background-color:#9966CC;\">0</div>";
-            $task_list_g .= "<div class=\"day_box_min_count\" date=\"".$date."\" val=\"3\" title=\"重要紧急\" style=\"background-color:#FF9900;\">0</div>";
-            $task_list_g .= "<div class=\"day_box_min_count\" date=\"".$date."\" val=\"4\" title=\"重要不紧急\" style=\"background-color:#FF3300;\">0</div>";
-            $task_list_g .= "<div class=\"day_box_min_count\" date=\"".$date."\" val=\"5\" title=\"非常重要\" style=\"background-color:#FF0000;\">0</div>";
-            $task_list_g .= "<div style=\"position: relative;float:left;font-size: 11px;text-align:left;\" date=\"".$date."\"><span class=\"month_count\"  date=\"".$date."\" title=\"本月任务统计\">MT:".$search_count."</span><br><span class=\"run_task_count\" date=\"".$date."\" title=\"全部未完成任务\">RW:".$run_task_count."<span></div>";
         }
+
+        $task_list_g .= "<div class=\"day_box_min_count\" date=\"".$date."\" val=\"1\" title=\"一般\" style=\"background-color:#00CC00;\">".$level_1."</div>";
+        $task_list_g .= "<div class=\"day_box_min_count\" date=\"".$date."\" val=\"2\" title=\"重要\" style=\"background-color:#9966CC;\">".$level_2."</div>";
+        $task_list_g .= "<div class=\"day_box_min_count\" date=\"".$date."\" val=\"3\" title=\"重要紧急\" style=\"background-color:#FF9900;\">".$level_3."</div>";
+        $task_list_g .= "<div class=\"day_box_min_count\" date=\"".$date."\" val=\"4\" title=\"重要不紧急\" style=\"background-color:#FF3300;\">".$level_4."</div>";
+        $task_list_g .= "<div class=\"day_box_min_count\" date=\"".$date."\" val=\"5\" title=\"非常重要\" style=\"background-color:#FF0000;\">".$level_5."</div>";
+        $task_list_g .= "<div style=\"position: relative;float:left;font-size: 11px;text-align:left;\" date=\"".$date."\"><span class=\"month_count\"  date=\"".$date."\" title=\"本月任务统计\">MT:".$search_count."</span><br><span class=\"run_task_count\" date=\"".$date."\" title=\"全部未完成任务\">RW:".$run_task_count."<span></div>";
 
         return $task_list_g;
     }
