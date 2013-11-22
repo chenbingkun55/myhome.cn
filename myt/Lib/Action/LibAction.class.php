@@ -82,11 +82,11 @@ class LibAction extends Action {
             }
         }
 
-        $task_list_g .= "<div class=\"day_box_min_count\" date=\"".$date."\" val=\"1\" title=\"一般\" style=\"background-color:#00CC00;\">".$level_1."</div>";
-        $task_list_g .= "<div class=\"day_box_min_count\" date=\"".$date."\" val=\"2\" title=\"重要\" style=\"background-color:#9966CC;\">".$level_2."</div>";
-        $task_list_g .= "<div class=\"day_box_min_count\" date=\"".$date."\" val=\"3\" title=\"重要紧急\" style=\"background-color:#FF9900;\">".$level_3."</div>";
-        $task_list_g .= "<div class=\"day_box_min_count\" date=\"".$date."\" val=\"4\" title=\"重要不紧急\" style=\"background-color:#FF3300;\">".$level_4."</div>";
-        $task_list_g .= "<div class=\"day_box_min_count\" date=\"".$date."\" val=\"5\" title=\"非常重要\" style=\"background-color:#FF0000;\">".$level_5."</div>";
+        $task_list_g .= "<div class=\"day_box_min_count\" date=\"".$date."\" val=\"1\" title=\"一般:★\" style=\"background-color:#00CC00;\">".$level_1."</div>";
+        $task_list_g .= "<div class=\"day_box_min_count\" date=\"".$date."\" val=\"2\" title=\"重要:★★\" style=\"background-color:#9966CC;\">".$level_2."</div>";
+        $task_list_g .= "<div class=\"day_box_min_count\" date=\"".$date."\" val=\"3\" title=\"重要紧急:★★★\" style=\"background-color:#FF9900;\">".$level_3."</div>";
+        $task_list_g .= "<div class=\"day_box_min_count\" date=\"".$date."\" val=\"4\" title=\"重要不紧急:★★★★\" style=\"background-color:#FF3300;\">".$level_4."</div>";
+        $task_list_g .= "<div class=\"day_box_min_count\" date=\"".$date."\" val=\"5\" title=\"非常重要:★★★★★\" style=\"background-color:#FF0000;\">".$level_5."</div>";
         $task_list_g .= "<div style=\"position: relative;float:left;font-size: 11px;text-align:left;\" date=\"".$date."\"><span class=\"month_count\"  date=\"".$date."\" title=\"本月任务统计\">MT:".$search_count."</span><br><span class=\"run_task_count\" date=\"".$date."\" title=\"全部未完成任务\">RW:".$run_task_count."<span></div>";
 
         return $task_list_g;

@@ -25,7 +25,7 @@ $(document).ready(function(){
 		witdh_diff = 6 ;
     } else {
         $(".div_body").css({"width":"1000","height":$(document).height() - 20});
-        $(".cal_tools_month").css({"margin":"0px 10px 0px 10px"});
+        $(".cal_tools_month").css({"margin":"0px 8px 0px 8px"});
         $(".cal_tools_week_day").css({"margin":" 0px 51px 0px 51px"});
     }
 
@@ -218,8 +218,22 @@ $(document).ready(function(){
             var val = $(this).parent().attr("tid");
             var active = 'edit_task/tid/'+val+'/';
         }
-        TaskWindow = window.open("/myt/index.php/Task/"+active,val+Math.random(),"width=820,height=620,menubar=no,toolbar=no,location=no,scrollbars=no,status=no,modal=yes");
-        TaskWindow.focus();
+
+        /*
+        TaskWinList = $.cookie('task_win_list') ;
+        if( typeof(TaskWinList) == "undefined" ){
+            TaskWinList = "" ;
+        }
+        alert(TaskWinList);
+        */
+
+        if( $.cookie(val) == 1 ){
+            alert('这个任务己打开!');
+        } else {
+            EditTaskWindow = window.open("/myt/index.php/Task/"+active,val,"width=820,height=620,menubar=no,toolbar=no,location=no,scrollbars=no,status=no,modal=yes");
+            EditTaskWindow.focus();
+            $.cookie(val,1,{expires: 1000 * 60 * 60 * 8, path: '/'});
+        }
     });
 
 
@@ -240,11 +254,13 @@ $(document).ready(function(){
         var msg = "任务己修改,确定不更新个任务吗？";
         if( is_change ){
             if (confirm(msg)==true){
+                $.cookie(window.name,'',{expires: -1, path: '/'});
                 window.close();
             }else{
                 return false;
             }
         } else {
+            $.cookie(window.name,'',{expires:-1, path: '/'});
             window.close();
         }
     });
@@ -459,6 +475,7 @@ $(document).ready(function(){
                 $(".task_day_line").click(function(){
                     var tid = $(this).attr("tid");
                     // alert( tid );
+
                     TaskWindow = window.open("/myt/index.php/Task/edit_task/tid/"+tid+"/",tid,"width=820,height=620,menubar=no,toolbar=no,location=no,scrollbars=no,status=no,modal=yes");
                     TaskWindow.focus();
                 });
@@ -498,6 +515,7 @@ $(document).ready(function(){
                 alert('搜索内容不能为空!');
             } else {
                 TaskWindow = window.open("/myt/index.php/Lib/task_search/search_data/"+search_data,search_data,"width=820,height=620,menubar=no,toolbar=no,location=no,scrollbars=no,status=no,modal=yes");
+                TaskWindow.focus();
             }
         }
     });
@@ -510,6 +528,7 @@ $(document).ready(function(){
             alert('搜索内容不能为空!');
         } else {
             TaskWindow = window.open("/myt/index.php/Lib/task_search/search_data/"+search_data,search_data,"width=820,height=620,menubar=no,toolbar=no,location=no,scrollbars=no,status=no,modal=yes");
+            TaskWindow.focus();
         }
     });
 
