@@ -154,10 +154,16 @@ $(document).ready(function(){
 			$(".task_level_div").html( task_leve_title );
 
             $(".task_level_line").click(function(){
-                var tid = $(this).attr("tid");
+                var val = $(this).attr("tid");
                 // alert( tid );
-                TaskWindow = window.open("/myt/index.php/Task/edit_task/tid/"+tid+"/",tid,"width=820,height=620,menubar=no,toolbar=no,location=no,scrollbars=no,status=no,modal=yes");
-                TaskWindow.focus();
+
+                if( $.cookie(val) == 1 ){
+                    alert('这个任务己打开!');
+                } else {
+                    TaskWindow = window.open("/myt/index.php/Task/edit_task/tid/"+val+"/",val,"width=820,height=620,menubar=no,toolbar=no,location=no,scrollbars=no,status=no,modal=yes");
+                    TaskWindow.focus();
+                    $.cookie(val,1,{expires: 1000 * 60 * 60 * 8, path: '/'});
+                }
             });
         });
 
