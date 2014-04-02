@@ -1,0 +1,28 @@
+[ 2014-03-31T13:20:04+08:00 ] 127.0.0.1 /myt/index.php/Lib/show_task_process/tid/myt/
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000120s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000194s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /home/www/myhome.cn/ThinkPHP/Lib/Driver/Db/DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `task_lib` [ RunTime:0.060907s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead /home/www/myhome.cn/ThinkPHP/Lib/Core/Db.class.php 第 568 行.
+SQL: SELECT `T_process` FROM `task_lib` WHERE ( T_id = myt ) LIMIT 1   [ RunTime:0.014997s ]
+ERR: Unknown column 'myt' in 'where clause'
+ [ SQL语句 ] : SELECT `T_process` FROM `task_lib` WHERE ( T_id = myt ) LIMIT 1  
+NOTIC: [8] Undefined index: start_time /home/www/myhome.cn/myt/Lib/Action/LibAction.class.php 第 534 行.
+NOTIC: [8] Undefined index: done_time /home/www/myhome.cn/myt/Lib/Action/LibAction.class.php 第 535 行.
+NOTIC: [8] Undefined index: forgo_time /home/www/myhome.cn/myt/Lib/Action/LibAction.class.php 第 536 行.
+
+[ 2014-03-31T13:20:04+08:00 ] 127.0.0.1 /myt/index.php/Task/auto_update_task_process/tid/myt/
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000059s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000494s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /home/www/myhome.cn/ThinkPHP/Lib/Driver/Db/DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `task_lib` [ RunTime:0.000407s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead /home/www/myhome.cn/ThinkPHP/Lib/Core/Db.class.php 第 568 行.
+SQL: SELECT * FROM `task_lib` WHERE ( `T_id` = 0 ) LIMIT 1   [ RunTime:0.040723s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead /home/www/myhome.cn/ThinkPHP/Lib/Core/Db.class.php 第 568 行.
+SQL: SELECT * FROM `task_lib` WHERE ( `T_id` = 0 ) LIMIT 1   [ RunTime:0.000130s ]
+SQL: UPDATE `task_lib` SET `T_process`='[]' WHERE ( T_id=myt ) [ RunTime:0.000132s ]
+ERR: Unknown column 'myt' in 'where clause'
+ [ SQL语句 ] : UPDATE `task_lib` SET `T_process`='[]' WHERE ( T_id=myt )
+

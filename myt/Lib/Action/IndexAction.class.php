@@ -48,6 +48,9 @@ class IndexAction extends Action {
         $this->assign("task_list_cur",$task_list_cur);
         $this->assign("task_list_delay",$task_list_delay);
         $this->assign("task_list_attention",$task_list_attention);
+        $this->weather = getWeather();
+        var_dump($this->weather);
+
 		$this->display();
     }
 }

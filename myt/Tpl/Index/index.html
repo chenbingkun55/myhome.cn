@@ -34,6 +34,7 @@ End -->
     header,nav,article{padding: 0px;}
 	header{background-color:#000000;}
 		#status_bar{position: relative;text-align:center;color:#FFFFFF;font-size: 20px;}
+        .status_bar_weather{position: relative;float:right;background-color:#6666FF;margin: 5px 1px 0px 5px; width: 100px; height: 50px;overflow: hidden;}
         .status_bar_time{position: relative;float:right;background-color:#6666FF;margin: 5px 5px 0px 5px; width: 160px; height: 52px;overflow: hidden;}
         .task_month_task_count{position: relative;float:right;margin: 0px 15px 0px 5px;}
 		#tools_bar{position: relative;color:#FFFFFF;margin: 0px;padding: 0px;}
@@ -105,6 +106,11 @@ End -->
 			<embed wmode="transparent" src="/public/media/clock.swf" quality="high" bgcolor="#ffffff" width="170" height="50" name="myhome.cn clock" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
 			</object>
 		</div>
+        <div class="status_bar_weather" title="{$weather['3']}{$weather['4']}{$weather['5']}">
+            {$weather['0']}
+            {$weather['1']}
+            {$weather['2']}
+        </div>
         <div class="task_month_task_count">{$show_month_task_count}</div>
 	</div>
 	<div id="tools_bar">
