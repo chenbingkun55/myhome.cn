@@ -16,12 +16,11 @@ function getWeather( $cityname = null ){
         $weather = curl_exec($curl);
         $array = json_decode(json_encode((array) simplexml_load_string($weather)),1);
         $w_array[] = $array['string']['1'];
-        $w_array[] =  "<img src=\"" .$w_path.$array['string']['9'] . "\" >";
+        $w_array[] =  "<img src=\"" .$w_path.$array['string']['9'] . "\" title=\"".$array['string']['10']."\" >";
         $w_array[] =  $array['string']['5'];
         $w_array[] =  $array['string']['6'];
-        $w_array[] =  $array['string']['10'];
         $w_array[] =  $array['string']['11'];
-        S('w_array',$w_array,60*60*2);
+        S('w_array',$w_array,60*60);
     }
     return $w_array;
 }

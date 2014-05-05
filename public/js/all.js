@@ -585,6 +585,11 @@ $(document).ready(function(){
         TaskWindow.focus();
     });
 
+    $("#task_files_manager").click(function(){
+        TaskWindow = window.open("/myt/attached/","task_files_manager","width=820,height=620,menubar=no,toolbar=no,location=no,scrollbars=yes,status=no,modal=yes");
+        TaskWindow.focus();
+    });
+
     $("#ago_page,#after_page").click(function(){
         var total_page = $("#total_page").attr('page');
         var ago_page = $("#ago_page").attr('page');
