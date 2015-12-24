@@ -1,7 +1,7 @@
 /key/*.ppk
-/doc
-/cache
+cache/
 /key
+/\.*
 /.idea
 Runtime/
 attached/
