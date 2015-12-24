@@ -555,7 +555,7 @@ $(document).ready(function(){
             if( !search_data && typeof(search_data) != "undefined" ){
                 alert('搜索内容不能为空!');
             } else {
-                TaskWindow = window.open("/myt/index.php/Lib/task_search/search_data/"+search_data,search_data,"width=820,height=620,menubar=no,toolbar=no,location=no,scrollbars=no,status=no,modal=yes");
+                TaskWindow = window.open("/myt/index.php/Lib/task_search/search_data/"+search_data+".html",search_data,"width=820,height=620,menubar=no,toolbar=no,location=no,scrollbars=no,status=no,modal=yes");
                 TaskWindow.focus();
             }
         }
@@ -568,7 +568,7 @@ $(document).ready(function(){
         if( !search_data && typeof(search_data) != "undefined" ){
             alert('搜索内容不能为空!');
         } else {
-            TaskWindow = window.open("/myt/index.php/Lib/task_search/search_data/"+search_data,search_data,"width=820,height=620,menubar=no,toolbar=no,location=no,scrollbars=no,status=no,modal=yes");
+            TaskWindow = window.open("/myt/index.php/Lib/task_search/search_data/"+search_data+".html",search_data,"width=820,height=620,menubar=no,toolbar=no,location=no,scrollbars=no,status=no,modal=yes");
             TaskWindow.focus();
         }
     });

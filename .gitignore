@@ -1,8 +1,9 @@
 /key/*.ppk
-
 /doc
-/Old_MyWorks.cn
-
+/cache
 /key
-
 /.idea
+Runtime/
+attached/
+Temp/
+Thumbs.db

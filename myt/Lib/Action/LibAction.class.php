@@ -545,7 +545,7 @@ class LibAction extends Action {
         $page_limit_num = PAGE_LINE_NUMBER;
 
         $trim_search_data = trim($search_data);
-        $search_where = " T_title like '%".$trim_search_data."%' OR T_content like '%".$trim_search_data."%' ";
+        $search_where = " T_title like '%".addslashes($trim_search_data)."%' OR T_content like '%".addslashes($trim_search_data)."%' ";
         $search_limit = ( $page > 0 )  ?  ( $page_limit_num * $page ).",".$page_limit_num : "0,".$page_limit_num ;
         $search_date_count = ( $page_limit_num * $page );
 

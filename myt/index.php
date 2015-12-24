@@ -4,7 +4,7 @@
 define('THINK_PATH', '../ThinkPHP/');
 
 //  不生成 Runtime/~Runtime 文件
-define('APP_DEBUG',true);
+define('APP_DEBUG',false);
 
 //定义项目名称和路径
 
