@@ -1,1 +1,0 @@
-<?php	return array ( 0 => 'R_id', 1 => 'P_id', 2 => 'RT_id', 3 => 'U_id', 4 => 'R_name', 5 => 'R_note', '_autoinc' => true, '_pk' => 'R_id', '_type' => array ( 'R_id' => 'int(4) unsigned', 'P_id' => 'int(4) unsigned', 'RT_id' => 'int(4)', 'U_id' => 'int(4)', 'R_name' => 'char(20)', 'R_note' => 'char(100)', ), );?>

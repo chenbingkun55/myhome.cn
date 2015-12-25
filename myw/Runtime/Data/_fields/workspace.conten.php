@@ -1,1 +1,0 @@
-<?php	return array ( 0 => 'C_id', 1 => 'P_id', 2 => 'R_id', 3 => 'U_id', 4 => 'C_text', 5 => 'C_date', '_autoinc' => true, '_pk' => 'C_id', '_type' => array ( 'C_id' => 'int(8) unsigned', 'P_id' => 'int(4)', 'R_id' => 'int(4)', 'U_id' => 'int(4)', 'C_text' => 'text', 'C_date' => 'char(12)', ), );?>

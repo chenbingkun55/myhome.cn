@@ -1,0 +1,6 @@
+Html开发
+http://myhome.cn/myt/
+http://document.thinkphp.cn/manual_3_2.html#debug_mode
+http://codeguide.bootcss.com/#html-syntax
+http://www.bootcss.com/
+http://dev.myhome.cn/index.php/Home/Index/index.html#home
