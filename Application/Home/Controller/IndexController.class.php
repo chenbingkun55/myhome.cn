@@ -10,7 +10,6 @@ class IndexController extends Controller {
         $where = "t_status < 6";
         $this->unfinished_task = $task_lib->where($where)->field($field)->order("t_level desc")->select();
         $this->unfinished_task_level_group = $task_lib->where($where)->field($field_level)->group("t_level")->order("t_level")->select();
-        print_r($this->unfinished_task_level_group);
 
 		$this->display();
     }
