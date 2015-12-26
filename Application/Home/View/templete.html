@@ -1,16 +1,33 @@
-<!DOCTYPE HTML>
-<HTML>
-<HEAD>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <!-- 没有数据被缓存  -->
-    <meta http-equiv="pragma" content="no-cache" />
-    <meta http-equiv="cache-control" content="no-cache" />
-    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/common.css" />
-    <script type="text/javascript" src="__PUBLIC__/js/common.js"></script>
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <TITLE> {$title} </TITLE>
-</HEAD>
-<div>
-    TEST
-</div>
-</BODY>
-</HTML>
+
+    <!-- Bootstrap -->
+    <link href="__PUBLIC__/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Task Css -->
+    <link href="__PUBLIC__/css/common.css" rel="stylesheet">
+    <link href="__PUBLIC__/css/task.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="__PUBLIC__/html5shiv/html5shiv.min.js"></script>
+      <script src="__PUBLIC__/respond.js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <include file="nav" />
+    <include file="content" />
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="__PUBLIC__/jquery/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="__PUBLIC__/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="__PUBLIC__/bootstrap/dist/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>

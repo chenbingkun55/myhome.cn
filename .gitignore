@@ -7,4 +7,5 @@ Runtime/
 attached/
 Temp/
 dist/
+node_modules/
 Thumbs.db

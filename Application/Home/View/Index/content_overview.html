@@ -1,0 +1,19 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+    <foreach name="unfinished_task_level_group" item="level">
+        <button type="button" class="btn btn-default navbar-btn">{$level.t_level|show_level_text}<span class="badge">{$level.total}</span></button>
+    </foreach>
+  </div>
+</div>
+
+<foreach name="unfinished_task" item="task">
+    <div class="col-md-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                {$task.t_level|show_level_tag}<BR>
+                {$task.t_title|mb_substr=0,C('TASK_TITLE_LEN'),'utf-8'}
+            </div>
+          <div class="panel-body">{$task.t_content|strip_tags=###,'<BR>'|mb_substr=0,C('TASK_CONTENT_LEN'),'utf-8'}</div>
+        </div>
+    </div>
+</foreach>

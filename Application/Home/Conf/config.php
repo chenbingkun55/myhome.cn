@@ -27,7 +27,9 @@ return array(
 
 	'SHOW_PAGE_TRACE' =>true, // 显示页面Trace信息
     'WEATHER_LOCATION' => "福州",
-    'DEFAULT_SITE_NAME' => ''
+    'DEFAULT_SITE_NAME' => '',
+    'TASK_TITLE_LEN' => '50',
+    'TASK_CONTENT_LEN' => '300',
 
 	//'TMPL_L_DELIM' => '<{',
 	//'TMPL_R_DELIM' => '}>',
