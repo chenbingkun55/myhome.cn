@@ -6,4 +6,5 @@ cache/
 Runtime/
 attached/
 Temp/
+dist/
 Thumbs.db
