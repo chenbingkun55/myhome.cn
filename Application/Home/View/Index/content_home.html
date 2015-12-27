@@ -1,5 +1,15 @@
-<for start="1" end="10">
-<div class="col-md-6">
-    图表{$i}
+<div class="panel panel-default">
+  <div class="panel-body">
+    <foreach name="unfinished_task_level_group" item="level">
+        <button type="button" class="btn btn-default navbar-btn">{$level.t_level|show_level_text}<span class="badge">{$level.total}</span></button>
+    </foreach>
+  </div>
 </div>
-</for>
+
+<div class="col-md-6">
+    <div id="container"></div>
+</div>
+
+<div class="col-md-6">
+    <div id="container2"></div>
+</div>
