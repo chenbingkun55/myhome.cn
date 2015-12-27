@@ -33,3 +33,35 @@ function show_level_text( $level ){
 
    return $title;
 }
+
+function show_status_text( $status ){
+    $text = "<span style=\"background-color: ";
+    switch( $status ){
+        case STATUS_NOTSTART:
+            $text .= "#7FFFD4;\">未开始";
+            break;
+        case STATUS_RUNING:
+            $text .= "#66CC00;\">运行";
+            break;
+        case STATUS_PAUSE:
+            $text .= "#CC33FF;\">暂停";
+            break;
+        case STATUS_WAITING:
+            $text .= "#CCFF00;\">等待";
+            break;
+        case STATUS_STOP:
+            $text .= "#CC3300;\">停止";
+            break;
+        case STATUS_FINIED:
+            $text .= "#330000;\">完成";
+            break;
+        case STATUS_DISCARD:
+            $text .= "#696969;\">放弃";
+            break;
+        default :
+            $text = "NONE";
+    }
+    $text .= "</span>";
+
+   return $text;
+}

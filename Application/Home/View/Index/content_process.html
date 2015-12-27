@@ -1,0 +1,117 @@
+<div class="row">
+    <div id="slide_runing_pause" class="carousel slide" data-interval="false">
+       <!-- 轮播（Carousel）指标 -->
+       <ol class="carousel-indicators">
+          <li data-target="#slide_runing_pause" data-slide-to="0" class="active"></li>
+          <li data-target="#slide_runing_pause" data-slide-to="1"></li>
+          <li data-target="#slide_runing_pause" data-slide-to="2"></li>
+       </ol>
+       <!-- 轮播（Carousel）项目 -->
+       <div class="carousel-inner">
+            <?PHP $bool=false; $i=1;?>
+            <foreach name="unfinished_task" key="k" item="task">
+                <if condition="( $task['t_status'] eq STATUS_RUNING ) or ( $task['t_status'] eq STATUS_PAUSE )">
+                <if condition="$bool eq false">
+                  <if condition="$i eq 1">
+                      <div class="item active">
+                  <else />
+                      <div class="item">
+                  </if>
+                </if>
+                    <?PHP $bool=true;?>
+                    <div class="col-md-4">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                {$task.t_title|mb_substr=0,TASK_TITLE_LEN,'utf-8'}<BR>
+                                [{$task.t_status|show_status_text}] {$task.t_level|show_level_tag}
+                            </div>
+                            <!--<div class="panel-body">{$task.t_content|strip_tags=###,'<br>'|mb_substr=0,TASK_CONTENT_LEN,'utf-8'}</div>-->
+                            <div class="panel-body"></div>
+                        </div>
+                    </div>
+                <if condition="($i % 3) eq 0">
+                  <?PHP $bool=false; ?>
+                  </div>
+                </if>
+                <?PHP $i++; ?>
+                </if>
+            </foreach>
+           </div>
+           <!-- 轮播（Carousel）导航 -->
+           <a class="carousel-control left" href="#slide_runing_pause"
+              data-slide="prev">&lsaquo;</a>
+           <a class="carousel-control right" href="#slide_runing_pause"
+              data-slide="next">&rsaquo;</a>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div id="slide_waiting" class="carousel slide" data-interval="false">
+       <!-- 轮播（Carousel）指标 -->
+       <ol class="carousel-indicators">
+          <li data-target="#slide_waiting" data-slide-to="0" class="active"></li>
+          <li data-target="#slide_waiting" data-slide-to="1"></li>
+          <li data-target="#slide_waiting" data-slide-to="2"></li>
+       </ol>
+       <!-- 轮播（Carousel）项目 -->
+       <div class="carousel-inner">
+            <?PHP $bool=false; $i=1;?>
+            <foreach name="unfinished_task" key="k" item="task">
+                <if condition="$task['t_status'] eq STATUS_WAITING">
+                <if condition="$bool eq false">
+                  <if condition="$i eq 1">
+                      <div class="item active">
+                  <else />
+                      <div class="item">
+                  </if>
+                </if>
+                    <?PHP $bool=true;?>
+                    <div class="col-md-4">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                {$task.t_title|mb_substr=0,TASK_TITLE_LEN,'utf-8'}<BR>
+                                [{$task.t_status|show_status_text}] {$task.t_level|show_level_tag}
+                            </div>
+                            <div class="panel-body"></div>
+                        </div>
+                    </div>
+                <if condition="($i % 3) eq 0">
+                  <?PHP $bool=false; ?>
+                  </div>
+                </if>
+                <?PHP $i++; ?>
+                </if>
+            </foreach>
+       </div>
+       <!-- 轮播（Carousel）导航 -->
+       <a class="carousel-control left" href="#slide_waiting"
+          data-slide="prev">&lsaquo;</a>
+       <a class="carousel-control right" href="#slide_waiting"
+          data-slide="next">&rsaquo;</a>
+       </div>
+  </div>
+</div>
+
+<div class="row">
+    <div class="panel panel-default">
+          <div class="panel-body">
+          任务调度-未开始
+          </div>
+    </div>
+</div>
+
+<div class="row">
+    <foreach name="unfinished_task" item="task">
+        <if condition="( $task['t_status'] neq STATUS_PAUSE ) and ( $task['t_status'] neq STATUS_RUNING ) and ( $task['t_status'] neq STATUS_WAITING )">
+            <div class="col-xs-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        {$task.t_title|mb_substr=0,TASK_TITLE_LEN,'utf-8'}<BR>
+                        [{$task.t_status|show_status_text}] {$task.t_level|show_level_tag}
+                    </div>
+                </div>
+            </div>
+        </if>
+    </foreach>
+</div>

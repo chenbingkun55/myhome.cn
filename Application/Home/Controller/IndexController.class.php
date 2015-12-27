@@ -5,7 +5,7 @@ class IndexController extends Controller {
     public function index(){
         $this->title = (C("DEBUG_MODE") == 1 ) ? "[Dev]任务调度器" : "任务调度器";
         $task_lib = D('lib');
-        $field = "t_id,t_title,t_level,t_content";
+        $field = "t_id,t_title,t_level,t_status,t_content";
         $field_level = "t_level,count(*) AS total";
         $where = "t_status < 6";
         $this->unfinished_task = $task_lib->where($where)->field($field)->order("t_level desc")->select();

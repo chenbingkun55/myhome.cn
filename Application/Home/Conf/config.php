@@ -1,4 +1,6 @@
 <?php
+include("define.php");  //引入常量定义
+
 return array(
 	// 添加数据库配置信息
     'DB_TYPE'   => 'mysqli', // 数据库类型
@@ -28,8 +30,6 @@ return array(
 	'SHOW_PAGE_TRACE' =>true, // 显示页面Trace信息
     'WEATHER_LOCATION' => "福州",
     'DEFAULT_SITE_NAME' => '',
-    'TASK_TITLE_LEN' => '50',
-    'TASK_CONTENT_LEN' => '300',
 
 	//'TMPL_L_DELIM' => '<{',
 	//'TMPL_R_DELIM' => '}>',
