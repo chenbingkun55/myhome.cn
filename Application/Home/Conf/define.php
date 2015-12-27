@@ -2,6 +2,9 @@
     define("PAGE_LINE_NUMBER",20);
     define('TASK_TITLE_LEN','20');
     define('TASK_CONTENT_LEN','300');
+    define('TASK_PAUSE_SLIDE_NUMBER','3');
+    define('TASK_WAITING_SLIDE_NUMBER','3');
+    define('TASK_NOTSTART_SLIDE_NUMBER','9');
 
     // 任务状态 1-未开始,2-运行,3-暂停,4-等待,5-停止,6-完成,7-放弃',
     define("STATUS_NONE",0);
