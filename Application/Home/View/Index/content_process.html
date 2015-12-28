@@ -95,7 +95,7 @@
 <div class="row">
     <div class="panel panel-default">
       <div class="panel-body">
-        <button id="task_add" type="button" class="btn btn-default navbar-btn">添加</button>
+        <button type="button" class="btn btn-default navbar-btn task_add_button">添加</button>
         <foreach name="unfinished_task_status_group" item="status">
             <button type="button" class="btn btn-default navbar-btn">{$status.t_status|show_status_text}<span class="badge">{$status.total}</span></button>
         </foreach>
@@ -147,5 +147,13 @@
        <a class="carousel-control right" href="#slide_notstart_stop"
           data-slide="next">&rsaquo;</a>
        </div>
+  </div>
+</div>
+
+<div class="modal fade bs-example-modal-lg task_runing_modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content task_runing_modal_content">
+      ...
+    </div>
   </div>
 </div>

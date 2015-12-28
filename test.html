@@ -1,25 +1,218 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <!-- 没有数据被缓存  -->
-    <meta http-equiv="pragma" content="no-cache" />
-    <meta http-equiv="cache-control" content="no-cache" />
-    <TITLE> TEST </TITLE>
-    <script type="text/javascript" src="/public/js/jquery-2.0.2.min.js"></script>
-    <!-- 使用 cufon 自定义网站字体 在线转换工具: http://cufon.shoqolate.com/generate/
-    <script type="text/javascript" src="/public/js/cufon-yui.js"></script>
-    <script type="text/javascript" src="/public/js/Bascula_400.font.js"></script>
-    <script type="text/javascript">
-        Cufon.replace('.day_box_date2');
-    </script>
-    End -->
-    <script type="text/javascript" src="/public/js/all.js"></script>
+<div class="task_center">
 
-    <script type="text/javascript" src="/public/js/my.Capture.js"></script>
-</head>
-<body>
-    <span style="cursor:pointer;" onClick="UI.ready();" >测试</span>
+    <div class="task_tools_bar">
+        <div class="task_tools_title"  level="2">任务 100000220: 看ThinkPHP视频程</div>
+        <div class="task_win_close"><span>关闭</span></div>
+        <div class="task_remove" tid="100000220" style="margin: 5px;float: right;background-color: #CC0000;"><span>删除</span></div>
+        <div class="task_set_templet" ><span>设为周期任务</span></div>
+        <div class="task_win_submit" ><span>更新任务</span></div>
 
-</body>
-</html>
+        <div class="task_process_box">
+            <span class="task_process_step" style="background-color: #7FFFD4;" sta="1"><span class="task_process_point" >▶</span>准备</span>
+            <span class="task_process_step" style="background-color: #66CC00;" sta="2"><span class="task_process_point" >▶</span>运行</span>
+            <span class="task_process_step" style="background-color: #CC33FF;" sta="3"><span class="task_process_point" >▶</span>暂停</span>
+            <span class="task_process_step" style="background-color: #CCFF00;" sta="4"><span class="task_process_point" style="display: inline;">▶</span>等待</span>
+            <span class="task_process_step" style="background-color: #CC3300;" sta="5"><span class="task_process_point" >▶</span>停止</span>
+            <span class="task_process_step" style="background-color: #330000;" sta="6"><span class="task_process_point" >▶</span>完成</span>
+            <span class="task_process_step" style="background-color: #696969;" sta="7"><span class="task_process_point" >▶</span>放弃</span>
+        </div>
+        <div class="task_process_progress_box">
+            <div class="task_process_progress_status"></div>
+            <div class="task_process_progress_time"></div>
+        </div>
+    </div>
+    <FORM method="post" action="/myt/index.php/Task/update_task/tid/100000220/">
+        任务标题：<INPUT type="text" name="T_title" size="50" value="看ThinkPHP视频程"><br/>
+        任务级别：<select name="T_level">
+                <option value="1">一般</option>        <option value="2" selected="selected">重要</option>
+                                <option value="3">重要紧急</option>                    <option value="4">重要不紧急</option>                    <option value="5">非常重要</option>    </select><BR/>
+        预计开始
+        日期: <input type="date" name="T_d_start" value="2013-12-11"/>
+        时间: <input type="time" name="T_t_start" value="22:16">
+        预计用时:
+        <select name="T_exp_time">
+            <option value="0">0分</option>
+            <option value="300">5分</option>
+            <option value="600">10分</option>
+            <option value="900">15分</option>
+            <option value="1200">20分</option>
+            <option value="1800">30分</option>
+            <option value="2700">45分</option>
+            <option value="3600">60分</option>
+            <option value="5400">90分</option>
+            <option value="7200">120分</option>
+            <option value="14400">240分</option>
+            <option value="14400" selected="selected">240分</option>
+        </select>
+        <div class="predict_end_time_div">
+            预计结束
+            日期: <input type="date" name="T_expd_end" value="2013-12-12"/>
+            时间: <input type="time" name="T_expt_end" value="02:16">
+        </div>
+        <br/>
+        <textarea id="editor_id" name="T_content" style="width:790px;height:400px;"><p align="center">
+    <strong><span style="font-size:16px;">看ThinkPHP视频程</span></strong>
+</p>
+<p>
+    <br />
+</p>
+<p>
+    <img src="http://myhome.cn/public/kindeditor-4.1.7/plugins/emoticons/images/30.gif" alt="" border="0" />
+</p>
+<p>
+    <br />
+</p>
+<p>
+    <br />
+</p>
+<p>
+    <br />
+</p>
+<p>
+    <span style="font-size:16px;"><strong>修改 PUBLIC 模板替换默认路径 /Public 到 /Index/Tpl/Public</strong></span>
+</p>
+<blockquote>
+    <p>
+        <img src="/myt/attached/image/2013-12-11/20131211-224346.png" alt="" />
+    </p>
+</blockquote>
+<p>
+    <br />
+</p>
+<p>
+    <br />
+</p>
+<p>
+    <span style="font-size:16px;"><strong>U() 函数方法在模版里使用.</strong></span>
+</p>
+<blockquote>
+    <p>
+        <img src="/myt/attached/image/2013-12-11/20131211-232533.png" alt="" />
+    </p>
+</blockquote>
+<p>
+    <br />
+</p>
+<p>
+    <span style="font-size:16px;"><strong>表单接收.</strong></span>
+</p>
+<blockquote>
+    <p>
+        <img src="/myt/attached/image/2013-12-11/20131211-234740.png" alt="" />
+    </p>
+</blockquote>
+<p>
+    <br />
+</p>
+<p>
+    <strong>自动运行方法 _initialize()</strong>
+</p>
+<blockquote>
+    <p>
+        <strong><img src="/myt/attached/image/2013-12-11/20140511-191912.png" alt="" /> </strong>
+    </p>
+</blockquote>
+<p>
+    <br />
+</p>
+<p>
+    <br />
+</p>
+<p>
+    <strong>无限级分类(递归方法)</strong>
+</p>
+<blockquote>
+    <p>
+        数据表创建:
+    </p>
+    <blockquote>
+        <p>
+            <img src="/myt/attached/image/2013-12-11/20140210-234755.png" alt="" />
+        </p>
+        <p>
+            <br />
+        </p>
+    </blockquote>
+    <p>
+        调用类方法
+    </p>
+    <blockquote>
+        <p>
+            <img src="/myt/attached/image/2013-12-11/20140210-234618.png" alt="" />
+        </p>
+        <p>
+            <br />
+        </p>
+        <p>
+            <br />
+        </p>
+    </blockquote>
+    <p>
+        创建类方法
+    </p>
+    <blockquote>
+        <p>
+            <img src="/myt/attached/image/2013-12-11/20140210-234323.png" alt="" />
+        </p>
+        <p>
+            <img src="/myt/attached/image/2013-12-11/20140210-234449.png" alt="" />
+        </p>
+        <p>
+            <img src="/myt/attached/image/2013-12-11/20140210-234516.png" alt="" />
+        </p>
+    </blockquote>
+</blockquote>
+<p>
+    <br />
+</p>
+<blockquote>
+    <p>
+        URL 路由规则:
+    </p>
+    <blockquote>
+        <p>
+            <img src="/myt/attached/image/2013-12-11/20140302-232831.png" alt="" />
+        </p>
+    </blockquote>
+    <blockquote>
+        <p>
+            <img src="/myt/attached/image/2013-12-11/20140302-232656.png" alt="" />
+        </p>
+    </blockquote>
+</blockquote>
+<blockquote>
+    <blockquote>
+        <p>
+            Apache&nbsp; 去掉 URL 上的 index.php
+        </p>
+        <blockquote>
+            <p>
+                <img src="/myt/attached/image/2013-12-11/20140302-234359.png" alt="" />
+            </p>
+        </blockquote>
+    </blockquote>
+</blockquote>
+<p>
+    <br />
+</p>
+<p>
+    <br />
+</p>
+<blockquote>
+    <p>
+        <strong>缓存 S 函数:</strong>
+    </p>
+</blockquote>
+<blockquote>
+    <blockquote>
+        <p>
+            <img src="/myt/attached/image/2013-12-11/20140303-224216.png" alt="" height="357" width="600" />
+        </p>
+    </blockquote>
+</blockquote>
+<p>
+    <br />
+</p></textarea><BR/>
+        <input type="hidden" name="T_id" value="100000220"/>
+    </FORM>
+</div>
