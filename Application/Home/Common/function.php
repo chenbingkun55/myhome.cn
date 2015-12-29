@@ -34,6 +34,28 @@ function show_level_text( $level ){
    return $title;
 }
 
+function show_level_color( $level ){
+    $text = "";
+    switch( $level ){
+        case $level < 2 :
+            $text = "default";
+            break;
+        case $level < 3 :
+            $text = "success";
+            break;
+        case $level < 4 :
+            $text = "info";
+            break;
+        case $level < 5 :
+            $text = "warning";
+            break;
+        default :
+            $text = "danger";
+    }
+
+   return $text;
+}
+
 function show_status_text( $status ){
     $text = "<span style=\"background-color: ";
     switch( $status ){

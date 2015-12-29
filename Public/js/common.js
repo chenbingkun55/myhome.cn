@@ -13,9 +13,10 @@ $(function(){
         // 动态加载 KindEditor,解决不显示编辑器问题.
         $.getScript('Public/kindeditor/kindeditor.js', function() {
             KindEditor.basePath = 'Public/kindeditor/';
-            KindEditor.create('textarea[name="content"]',kindeditor_options);
+            editor = KindEditor.create('textarea[name="content"]',kindeditor_options);
         });
     });
+
 
     // 运行任务关闭，保存并更新为暂停
     $('.task_runing_modal').on('hidden.bs.modal', function (e) {
