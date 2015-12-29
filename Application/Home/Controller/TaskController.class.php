@@ -17,7 +17,7 @@ class TaskController extends Controller {
         if(strlen($tid) == 0) echo "null";
 
         $task_lib = D('lib');
-        $field = "t_id,t_title,t_level,t_status,t_content";
+        $field = "t_id,t_date,t_title,t_level,t_status,t_content";
         $where = "t_id = " . $tid;
         $this->task = $task_lib->field($field)->find($tid);
 
