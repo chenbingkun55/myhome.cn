@@ -20,7 +20,7 @@
                 </if>
                     <?PHP $bool=true;?>
                     <div class="col-md-4 task_pause_panel" tid="{$task.t_id}">
-                        <div class="panel panel-default">
+                        <div class="panel panel-default" style="height: {:TASK_BLOCK_HEIGHT}px;overflow: hidden;">
                             <div class="panel-heading">
                                 {$task.t_title|mb_substr=0,TASK_TITLE_LEN,'utf-8'}<BR>
                                 [{$task.t_status|show_status_text}] {$task.t_level|show_level_tag}
@@ -68,7 +68,7 @@
                 </if>
                     <?PHP $bool=true;?>
                     <div class="col-md-4 task_waiting_panel" tid="{$task.t_id}">
-                        <div class="panel panel-default">
+                        <div class="panel panel-default" style="height: {:TASK_BLOCK_HEIGHT}px;overflow: hidden;">
                             <div class="panel-heading">
                                 {$task.t_title|mb_substr=0,TASK_TITLE_LEN,'utf-8'}<BR>
                                 [{$task.t_status|show_status_text}] {$task.t_level|show_level_tag}
@@ -125,7 +125,7 @@
                 </if>
                     <?PHP $bool=true;?>
                     <div class="col-md-4 task_notstart_panel" tid="{$task.t_id}">
-                        <div class="panel panel-default">
+                        <div class="panel panel-default" style="height: {:TASK_BLOCK_HEIGHT}px;overflow: hidden;">
                             <div class="panel-heading">
                                 {$task.t_title|mb_substr=0,TASK_TITLE_LEN,'utf-8'}<BR>
                                 [{$task.t_status|show_status_text}] {$task.t_level|show_level_tag}

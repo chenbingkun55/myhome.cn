@@ -2,6 +2,7 @@
     define("PAGE_LINE_NUMBER",20);
     define('TASK_TITLE_LEN','20');
     define('TASK_CONTENT_LEN','300');
+    define('TASK_BLOCK_HEIGHT','200');
     define('TASK_PAUSE_SLIDE_NUMBER','3');
     define('TASK_WAITING_SLIDE_NUMBER','3');
     define('TASK_NOTSTART_SLIDE_NUMBER','9');
