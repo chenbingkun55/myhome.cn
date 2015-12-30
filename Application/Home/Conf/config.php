@@ -11,6 +11,12 @@ return array(
     'DB_PORT'   => 3306, // 端口
     'DB_PREFIX' => 'task_', // 数据库表前缀
 
+    'LANG_SWITCH_ON'   => true, // 开启语言包功能
+    //'LANG_AUTO_DETECT' => true, // 自动侦测语言 开启多语言功能后有效
+    'VAR_LANGUAGE'     => 'lang', // 默认语言切换变量<Paste>
+    'DEFAULT_LANG'     => 'zh-cn', // 默认语言
+    'LANG_LIST'        => 'zh-cn', // 允许切换的语言列表 用逗号分隔
+
 	'DEFAULT_CHARSET'=> 'utf-8',  // 设置编码.
 	'DEFAULT_TIMEZONE'=>'Asia/ShangHai', // 设置默认时区为上海
 	'APP_DEBUG'=>true, // false-关闭调试模式,会自动开启部署模式.

@@ -1,12 +1,16 @@
-<div class="panel panel-{$task.t_level|show_level_color}">
+<div class="panel panel-{$task.t_level|show_level_color} runing_task_id" tid="{$task.t_id}">
     <div class="panel-heading">
-        <h2>{$task.t_title|mb_substr=0,TASK_PROCESS_TITLE_LEN,'utf-8'}</h2>
-        <h3 style="display: inline;">{$task.t_level|show_level_tag} <small>创建时间: {$task.t_date|date="Y年m月d日",###}</small></h3>
-        <button type="button" class="btn btn-info btn-unedit" style="float: right;">取消</button>
-        <button type="button" class="btn btn-danger btn-edit" style="float: right;">编辑</button>
+        <button type="button" class="close task_runing_close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h2>{$task.t_title|mb_substr=0,TASK_TITLE_LEN,'utf-8'}</h2>
+        <h3 style="display: inline;">{$task.t_level|show_level_tag} [{$task.t_status|show_status_text}]<small>创建时间: {$task.t_date|date="Y年m月d日",###}</small></h3>
+        <button type="button" class="btn btn-success btn_task_save" style="float: right;">保存</button>
     </div>
     <div class="panel-body">
-      <textarea name="content" style="width:100%;height:420px;">{$task['t_content']}</textarea><BR/>
+        <div class="container-fluid">
+          <textarea name="content" style="width:100%;">{$task['t_content']}</textarea><BR/>
+        </div>
     </div>
 </div>
 
@@ -32,16 +36,29 @@
             // alert(is_change);
             is_change = true;
         }
-
     };
 
-    // 开启 Kindeditor 编辑模式。
-    $('.btn-edit').click(function(){
-        editor.readonly(false);
-    });
+    $(document).ready(function(){
+        $('textarea[name="content"]').css('height',(0.75*document.body.clientHeight));
 
-    // 取消 Kindeditor 编辑模式。
-    $('.btn-unedit').click(function(){
-        editor.readonly(true);
+        // 开启 Kindeditor 编辑模式。
+        $('.panel-body').click(function(){
+            editor.readonly(false);
+        });
+
+        $('.btn_task_save').click(function(){
+            $.task_save($('.runing_task_id').attr('tid'));
+        });
+
+        $('.task_runing_close').click(function(){
+            <if condition="(TASK_CACHE eq 'yes') or (TASK_CACHE eq 'YES')">
+                // 关闭按钮时保存缓存功能.
+                $.task_close_save($('.runing_task_id').attr('tid'));
+            </if>
+
+            // 移除动态加载的 KindEditor
+            KindEditor.remove('textarea[name="content"]');
+            $('.task_runing_modal').modal('hide');
+        });
     });
 </script>

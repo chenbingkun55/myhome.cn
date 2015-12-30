@@ -1,4 +1,7 @@
 <?php
+    // 点击关闭按钮时,自动保存到缓存表.[yes | no]
+    define("TASK_CACHE","no");
+
     define("PAGE_LINE_NUMBER",20);
     define('TASK_TITLE_LEN','20');
     define('TASK_PROCESS_TITLE_LEN','50');
