@@ -3,8 +3,8 @@
         <button type="button" class="close task_runing_close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-        <h2>{$task.t_title|mb_substr=0,TASK_TITLE_LEN,'utf-8'}</h2>
-        <h3 style="display: inline;">{$task.t_level|show_level_tag} [{$task.t_status|show_status_text}]<small>创建时间: {$task.t_date|date="Y年m月d日",###}</small></h3>
+        <h3>{$task.t_title|mb_substr=0,TASK_TITLE_LEN,'utf-8'}</h3>
+        <h4 style="display: inline;">{$task.t_level|show_level_tag} [{$task.t_status|show_status_text}]<small>创建时间: {$task.t_date|date="Y年m月d日",###}</small></h5>
         <button type="button" class="btn btn-success btn_task_save" style="float: right;">保存</button>
     </div>
     <div class="panel-body">
@@ -16,12 +16,16 @@
 
 <script>
     var editor;
-    var is_change = false;
+    var in_edit = false;
     var kindeditor_options = {
             uploadJson : '/myt/index.php/Attached/upload/date/{$task['t_date']|date="Y-m-d",###}',
             fileManagerJson : '/myt/index.php/Attached/manager/',
             allowFileManager : false,
             readonlyMode : true,
+            //autoHeightMode : true,
+            //afterCreate : function() {
+            //    this.loadPlugin('autoheight');
+            //},
             items : [
                             'source', '|', 'undo', 'redo', '|', 'preview', 'print', 'template', 'code', 'cut', 'copy', 'paste',
                             'plainpaste', 'wordpaste', '|', 'justifyleft', 'justifycenter', 'justifyright',
@@ -33,8 +37,8 @@
                             'anchor', 'link', 'unlink', 'FinishTab','|', 'about'
                 ],
         afterChange : function() {
-            // alert(is_change);
-            is_change = true;
+            // alert(in_edit);
+            //in_edit = true;
         }
     };
 
@@ -44,6 +48,10 @@
         // 开启 Kindeditor 编辑模式。
         $('.panel-body').click(function(){
             editor.readonly(false);
+            in_edit = true;
+        });
+
+        $('.panel-heading').click(function(){
         });
 
         $('.btn_task_save').click(function(){
@@ -53,7 +61,9 @@
         $('.task_runing_close').click(function(){
             <if condition="(TASK_CACHE eq 'yes') or (TASK_CACHE eq 'YES')">
                 // 关闭按钮时保存缓存功能.
-                $.task_close_save($('.runing_task_id').attr('tid'));
+                if(in_edit) {
+                    $.task_close_save($('.runing_task_id').attr('tid'));
+                }
             </if>
 
             // 移除动态加载的 KindEditor

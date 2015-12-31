@@ -71,7 +71,7 @@
                         <div class="panel panel-{$task.t_level|show_level_color}" style="height: {:TASK_BLOCK_HEIGHT}px;overflow: hidden;">
                             <div class="panel-heading">
                                 <h4>{$task.t_title|mb_substr=0,TASK_TITLE_LEN,'utf-8'}</h4>
-                                <h5 style="display: inline;">[{$task.t_status|show_status_text}] {$task.t_level|show_level_tag} <small>创建时间: {$task.t_date|date="Y年m月d日",###}</small></h5>
+                                <h5 style="display: inline;">{$task.t_level|show_level_tag} [{$task.t_status|show_status_text}]<small>创建时间: {$task.t_date|date="Y年m月d日",###}</small></h5>
                             </div>
                             <div class="panel-body"></div>
                         </div>
