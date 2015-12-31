@@ -39,12 +39,12 @@ class IndexController extends Controller {
             if($is_firest){
                 $is_firest = false;
                 $text_temp .= "{
-                    name: '".show_level_text($ld[$i]['t_level'])."',
+                    name: '".show_level_text($ld[$i]['t_level'])."(".$ld[$i]['total'].")',
                     y:  ".$ld[$i]['total'].",
                     sliced: true,
                     selected: true},";
             } else {
-                $text_temp .= "['".show_level_text($ld[$i]['t_level'])."', ".$ld[$i]['total']."],";
+                $text_temp .= "['".show_level_text($ld[$i]['t_level'])."(".$ld[$i]['total'].")', ".$ld[$i]['total']."],";
             }
         }
 
