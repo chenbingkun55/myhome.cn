@@ -56,40 +56,76 @@ function show_level_color( $level ){
    return $text;
 }
 
-function show_status_text( $status ){
-    $text = "<span style=\"background-color: ";
+function show_status_color( $status ){
+    $color = "";
     switch( $status ){
         case STATUS_NOTSTART:
-            $text .= "#7FFFD4;\">未开始";
+            $color = "default";
             break;
         case STATUS_RUNING:
-            $text .= "#66CC00;\">运行";
+            $color = "primary";
             break;
         case STATUS_PAUSE:
-            $text .= "#CC33FF;\">暂停";
+            $color = "info";
             break;
         case STATUS_WAITING:
-            $text .= "#CCFF00;\">等待";
+            $color = "info";
             break;
         case STATUS_STOP:
-            $text .= "#CC3300;\">停止";
+            $color = "warning";
             break;
         case STATUS_FINIED:
-            $text .= "#330000;\">完成";
+            $color = "success";
             break;
         case STATUS_DISCARD:
-            $text .= "#696969;\">放弃";
+            $color = "danger";
+            break;
+        default :
+            $color = "NONE";
+    }
+
+   return $color;
+}
+
+function show_status_text( $status ){
+    $text = "";
+    switch( $status ){
+        case STATUS_NOTSTART:
+            $text = "未开始";
+            break;
+        case STATUS_RUNING:
+            $text = "运行";
+            break;
+        case STATUS_PAUSE:
+            $text = "暂停";
+            break;
+        case STATUS_WAITING:
+            $text = "等待";
+            break;
+        case STATUS_STOP:
+            $text = "停止";
+            break;
+        case STATUS_FINIED:
+            $text = "完成";
+            break;
+        case STATUS_DISCARD:
+            $text = "放弃";
             break;
         default :
             $text = "NONE";
     }
-    $text .= "</span>";
 
    return $text;
 }
 
+function show_status_list(){
+    for($status = 1; $status < 7; $status++){
+        echo "<li><a href=\"#\" onClick=\"$.to_status(".$status.")\"><span class=\"label label-".show_status_color($status)." change_to_status\" type=\"button\">".show_status_text($status)."</span></a></li>";
+    }
+}
+
 function from_data(){
-    if ( ! IS_POST || ! IS_GET ){
+    if ( ! IS_POST && ! IS_GET ){
         die("<div class=\"alert alert-danger\" role=\"alert\">".L('QUERY_MODE_DENY')."</div>");
     }
 

@@ -40,6 +40,14 @@ $(document).ready(function(){
         });
     }});
 
+    $.extend({change_to_status:function(tid,status){
+        $.ajax({
+          type: 'POST',
+          url: '/index.php/Home/Task/change_to_status',
+          data: { status: status, tid: tid },
+        });
+    }});
+
     // 添加任务
     $('.task_add_button').click(function(){
         $.task_add();
@@ -47,8 +55,10 @@ $(document).ready(function(){
 
     // 开始执行任务，打开运行任务弹窗
     $('.task_pause_panel,.task_waiting_panel,.task_notstart_panel').click(function(){
-        var url = "/index.php/Home/Task/show?tid=" + $(this).attr('tid');
+        var tid = $(this).attr('tid');
+        var url = "/index.php/Home/Task/show?tid=" + tid;
 
+        $.change_to_status(tid,2);
         $('.task_runing_modal_content').load(url);
         $('.task_runing_modal').modal({
             backdrop: false,   // 点击背景不关闭 modal.

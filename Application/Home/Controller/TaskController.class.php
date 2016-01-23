@@ -3,9 +3,7 @@ namespace Home\Controller;
 use Think\Controller;
 class TaskController extends Controller {
     public function index(){
-        $task_lib = D('lib');
-
-        echo show_status_text($task_lib->find('100000000')->getField('t_status'));
+        show_status_list();
         //$this->title = (C("DEBUG_MODE") == 1 ) ? "[Dev]任务调度器" : "任务调度器";
         //$task_lib = D('lib');
         //$field = "t_id,t_title,t_level,t_status,t_content";
@@ -73,11 +71,11 @@ class TaskController extends Controller {
             die("<div class=\"alert alert-danger\" role=\"alert\">".L('TASK_ID_NOT_NULL')."</div>");
         }
 
-        if($task_lib->find($data["t_id"])){
+       $re = $task_lib->where("t_id = ".$data["t_id"])->count();
+       if( $re != 1){
             die("<div class=\"alert alert-danger\" role=\"alert\">".L('TASK_ID_NOT_FOUND')."</div>");
         }
 
-        $task_lib->save($data);
-        return show_status_text($task_lib->find($data["t_id"])->getField('t_status'));
+        $task_lib->where("t_id = ".$data["t_id"])->setField($data);
     }
 }
