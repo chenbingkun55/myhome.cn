@@ -3,6 +3,9 @@ namespace Home\Controller;
 use Think\Controller;
 class TaskController extends Controller {
     public function index(){
+        $task_lib = D('lib');
+
+        echo show_status_text($task_lib->find('100000000')->getField('t_status'));
         //$this->title = (C("DEBUG_MODE") == 1 ) ? "[Dev]任务调度器" : "任务调度器";
         //$task_lib = D('lib');
         //$field = "t_id,t_title,t_level,t_status,t_content";
@@ -13,8 +16,10 @@ class TaskController extends Controller {
     }
 
     public function show(){
-        $tid = I(tid);
-        if(strlen($tid) == 0) {
+        $task_lib = D('lib');
+        $data = from_data();
+
+        if(strlen($data["t_id"]) == 0) {
             die("<div class=\"alert alert-danger\" role=\"alert\">".L('TASK_ID_NOT_NULL')."</div>");
         }
 
@@ -22,10 +27,9 @@ class TaskController extends Controller {
             die("<div class=\"alert alert-danger\" role=\"alert\">".L('QUERY_MODE_DENY')."</div>");
         }
 
-        $task_lib = D('lib');
         $field = "t_id,t_date,t_title,t_level,t_status,t_content";
-        $where = "t_id = " . $tid;
-        $this->task = $task_lib->field($field)->find($tid);
+        $where = "t_id = " . $data["t_id"];
+        $this->task = $task_lib->field($field)->find($data["t_id"]);
 
         if( ! is_array($this->task)) {
             die("<div class=\"alert alert-danger\" role=\"alert\">".L('TASK_ID_NOT_FOUND')."</div>");
@@ -34,29 +38,27 @@ class TaskController extends Controller {
         $this->display();
     }
 
-    public function save(){
-        $tid = I('tid');
-        $is_close = I('is_close');
-        $content = I('content');
+    public function add(){
+       $task_lib = D("lib");
+       $data = from_data();
+       $data["c_date"] = time();
 
-        if(strlen($tid) == 0) {
+       $task_lib->add($data);
+    }
+
+    public function save(){
+        $data = from_data();
+
+        if(strlen($data["t_id"]) == 0) {
             die("<div role=\"alert\" class=\"alert alert-danger alert-dismissible fade in\"> <button aria-label=\"Close\" data-dismiss=\"alert\" class=\"close\" type=\"button\"><span aria-hidden=\"true\">×</span></button>".L('TASK_ID_NOT_NULL')."</div>");
         }
-        if(strlen($content) == 0) {
+        if(strlen($data["t_content"]) == 0) {
             die("<div role=\"alert\" class=\"alert alert-danger alert-dismissible fade in\"> <button aria-label=\"Close\" data-dismiss=\"alert\" class=\"close\" type=\"button\"><span aria-hidden=\"true\">×</span></button>".L('TASK_CONTENT_NOT_NULL')."</div>");
         }
 
+        $task_lib = (strcmp($data["is_close"],"yes") == 0) ?  M('cache_lib') : M('lib');
 
-        if ( ! IS_POST ){
-            die("<div role=\"alert\" class=\"alert alert-danger alert-dismissible fade in\"> <button aria-label=\"Close\" data-dismiss=\"alert\" class=\"close\" type=\"button\"><span aria-hidden=\"true\">×</span></button>".L('QUERY_MODE_DENY')."</div>");
-        }
-
-        $task_lib = (strcmp($is_close,"yes") == 0) ?  M('cache_lib') : M('lib');
-        $task_lib->T_content = $content;
-        $task_lib->T_id = $tid;
-        $task_lib->T_last_date = time();
-
-        if((strcmp($is_close,"yes") == 0) ? $task_lib->add() : $task_lib->save()){
+        if((strcmp($data["is_close"],"yes") == 0) ? $task_lib->add($data) : $task_lib->save($data)){
             echo "<div role=\"alert\" class=\"alert alert-success alert-dismissible fade in\"> <button aria-label=\"Close\" data-dismiss=\"alert\" class=\"close\" type=\"button\"><span aria-hidden=\"true\">×</span></button>".L('TASK_SAVE_SUCCESS')."</div>";
         } else {
             echo "<div role=\"alert\" class=\"alert alert-danger alert-dismissible fade in\"> <button aria-label=\"Close\" data-dismiss=\"alert\" class=\"close\" type=\"button\"><span aria-hidden=\"true\">×</span></button>".L('TASK_SAVE_FIALD')."</div>";
@@ -64,19 +66,18 @@ class TaskController extends Controller {
     }
 
     public function change_to_status(){
-        $to_status = I('status');
-        if(strlen($tid) == 0) {
+        $task_lib = D('lib');
+        $data = from_data();
+
+        if(strlen($data["t_id"]) == 0) {
             die("<div class=\"alert alert-danger\" role=\"alert\">".L('TASK_ID_NOT_NULL')."</div>");
         }
 
-        if ( ! IS_GET){
-            die("<div class=\"alert alert-danger\" role=\"alert\">".L('QUERY_MODE_DENY')."</div>");
+        if($task_lib->find($data["t_id"])){
+            die("<div class=\"alert alert-danger\" role=\"alert\">".L('TASK_ID_NOT_FOUND')."</div>");
         }
 
-        $task_lib = D('lib');
-        $field = "t_id,t_date,t_title,t_level,t_status,t_content";
-        $where = "t_id = " . $tid;
-        $this->task = $task_lib->field($field)->find($tid);
-
+        $task_lib->save($data);
+        return show_status_text($task_lib->find($data["t_id"])->getField('t_status'));
     }
 }

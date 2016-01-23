@@ -8,6 +8,17 @@ $(document).ready(function(){
            alert(notify_text);
     }});
 
+    $.extend({task_add:function(){
+        //var send_data = editor.html();
+
+        $.ajax({
+          type: 'POST',
+          url: '/index.php/Home/Task/add',
+          data: { name: 'BBBB', tid: '123' },
+          success: function(re_data){ alert(re_data); }
+        });
+    }});
+
     $.extend({task_save:function(tid){
         var send_data = editor.html();
 
@@ -31,7 +42,7 @@ $(document).ready(function(){
 
     // 添加任务
     $('.task_add_button').click(function(){
-        alert('add');
+        $.task_add();
     });
 
     // 开始执行任务，打开运行任务弹窗

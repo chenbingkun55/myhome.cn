@@ -21,6 +21,8 @@ return array(
 	'DEFAULT_TIMEZONE'=>'Asia/ShangHai', // 设置默认时区为上海
 	'APP_DEBUG'=>true, // false-关闭调试模式,会自动开启部署模式.
     'DEBUG_MODE'=>true,
+    'DB_FIELD_CACHE' => false,
+    'HTML_CACHE_ON' => false,
     'WEB_LOG_RECORD'=>true,
     'SHOW_ERROR_MSG'=>true,
 /* SHOW_PAGE_TRACE 己包含.

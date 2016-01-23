@@ -88,3 +88,33 @@ function show_status_text( $status ){
    return $text;
 }
 
+function from_data(){
+    if ( ! IS_POST || ! IS_GET ){
+        die("<div class=\"alert alert-danger\" role=\"alert\">".L('QUERY_MODE_DENY')."</div>");
+    }
+
+    // From 表单字段 与数据库表字段映射。
+    $column_array = array(
+        "tid" => "t_id",
+        "tdate" => "t_date",
+        "exp_time" => "t_exp_time",
+        "title" => "t_title",
+        "content" => "t_content",
+        "level" => "t_level",
+        "status" => "t_status",
+        "process" => "t_process",
+        "templet" => "t_templet",
+        "is_close" => "is_close",
+    );
+
+    $data = array();
+    foreach($column_array as $key => $col_name) {
+        if(strlen(I($key)) != 0) {
+            $data[$col_name] = I($key);
+        }
+    }
+
+    $data["t_last_date"] = time();
+
+    return $data;
+}
