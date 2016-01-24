@@ -63,6 +63,24 @@ class TaskController extends Controller {
         }
     }
 
+    public function status_list(){
+        $task_lib = D('lib');
+        $data = from_data();
+        $field = "t_id,t_date,t_title,t_level,t_status";
+
+        if(strlen($data["t_status"]) == 0) {
+            die("<div class=\"alert alert-danger\" role=\"alert\">".L('TASK_STATUS_NOT_NULL')."</div>");
+        }
+
+        $this->status_list = $task_lib->where("t_status = ".$data["t_status"])->field($field)->select();
+
+        if( ! is_array($this->status_list)) {
+            die("<div class=\"alert alert-danger\" role=\"alert\">".L('STATUS_LIST_NULL')."</div>");
+        }
+
+        $this->display();
+    }
+
     public function change_to_status(){
         $task_lib = D('lib');
         $data = from_data();

@@ -1,0 +1,49 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <button type="button" class="close status_list_close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h3>Task Status List</h3>
+    </div>
+    <div class="panel-body" style="text-align: left">
+        <table class="table table-hover">
+            <tr>
+                <th>序号</th>
+                <th>时间</th>
+                <th>级别</th>
+                <th>状态</th>
+                <th>标题</th>
+            </tr>
+            <tbody>
+            <foreach name="status_list" key="k" item="task">
+            <tr class="status_list_item" tid="{$task.t_id}">
+                    <td>{$k + 1}</td>
+                    <td>{$task.t_date|date="Y年m月d日",###}</td>
+                    <td><h4 style="display: inline;">{$task.t_level|show_level_tag}</h4></td>
+                    <td><span class="label label-{$task.t_status|show_status_color}" type="button">{$task.t_status|show_status_text}</span> </td>
+                    <td>{$task.t_title}</td>
+                </tr>
+            </foreach>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    $('.status_list_close').click(function(){
+        $('.status_list_modal').modal('hide');
+    });
+
+    $('.status_list_item').click(function(){
+        var tid = $(this).attr('tid');
+        var url = "/index.php/Home/Task/show?tid=" + tid;
+
+        $('.status_list_modal').modal('hide');
+        $.change_to_status(tid,2);
+        $('.task_runing_modal_content').load(url);
+        $('.task_runing_modal').modal({
+            backdrop: false,   // 点击背景不关闭 modal.
+            show: true
+        });
+    });
+</script>

@@ -48,6 +48,18 @@ $(document).ready(function(){
         });
     }});
 
+    // 获取status 列表
+    $('.get_status_list').click(function(){
+        var status = $(this).attr('status');
+        var url = "/index.php/Home/Task/status_list?status=" + status;
+
+        $('.status_list_modal_content').load(url);
+        $('.status_list_modal').modal({
+            backdrop: false,   // 点击背景不关闭 modal.
+            show: true
+        });
+    });
+
     // 添加任务
     $('.task_add_button').click(function(){
         $.task_add();

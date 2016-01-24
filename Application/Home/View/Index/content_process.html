@@ -23,7 +23,9 @@
                         <div class="panel panel-{$task.t_level|show_level_color}" style="height: {:TASK_BLOCK_HEIGHT}px;overflow: hidden;">
                             <div class="panel-heading">
                                 <h4>{$task.t_title|mb_substr=0,TASK_TITLE_LEN,'utf-8'}</h4>
-                                <h5 style="display: inline;">{$task.t_level|show_level_tag} [{$task.t_status|show_status_text}]<small>创建时间: {$task.t_date|date="Y年m月d日",###}</small></h5>
+                                <h5 style="display: inline;">{$task.t_level|show_level_tag}
+                                <span class="label label-{$task.t_status|show_status_color}" type="button">{$task.t_status|show_status_text}</span>
+                                <small>创建时间: {$task.t_date|date="Y年m月d日",###}</small></h5>
                             </div>
                             <!--<div class="panel-body">{$task.t_content|strip_tags=###,'<br>'|mb_substr=0,TASK_CONTENT_LEN,'utf-8'}</div>-->
                             <div class="panel-body"></div>
@@ -71,7 +73,9 @@
                         <div class="panel panel-{$task.t_level|show_level_color}" style="height: {:TASK_BLOCK_HEIGHT}px;overflow: hidden;">
                             <div class="panel-heading">
                                 <h4>{$task.t_title|mb_substr=0,TASK_TITLE_LEN,'utf-8'}</h4>
-                                <h5 style="display: inline;">{$task.t_level|show_level_tag} [{$task.t_status|show_status_text}]<small>创建时间: {$task.t_date|date="Y年m月d日",###}</small></h5>
+                                <h5 style="display: inline;">{$task.t_level|show_level_tag}
+                                <span class="label label-{$task.t_status|show_status_color}" type="button">{$task.t_status|show_status_text}</span>
+                                <small>创建时间: {$task.t_date|date="Y年m月d日",###}</small></h5>
                             </div>
                             <div class="panel-body"></div>
                         </div>
@@ -97,7 +101,9 @@
       <div class="panel-body">
         <button type="button" class="btn btn-default navbar-btn task_add_button">添加</button>
         <foreach name="unfinished_task_status_group" item="status">
-            <button type="button" class="btn btn-default navbar-btn">{$status.t_status|show_status_text}<span class="badge">{$status.total}</span></button>
+            <button type="button" class="btn btn-{$status.t_status|show_status_color} get_status_list" status="{$status.t_status}">
+                {$status.t_status|show_status_text}&nbsp;<span class="badge">{$status.total}</span>
+            </button>
         </foreach>
       </div>
     </div>
@@ -128,7 +134,9 @@
                         <div class="panel panel-{$task.t_level|show_level_color}" style="height: {:TASK_BLOCK_HEIGHT}px;overflow: hidden;">
                             <div class="panel-heading">
                                 <h4>{$task.t_title|mb_substr=0,TASK_TITLE_LEN,'utf-8'}</h4>
-                                <h5 style="display: inline;">{$task.t_level|show_level_tag} [{$task.t_status|show_status_text}]<small>创建时间: {$task.t_date|date="Y年m月d日",###}</small></h5>
+                                <h5 style="display: inline;">{$task.t_level|show_level_tag}
+                                <span class="label label-{$task.t_status|show_status_color}" type="button">{$task.t_status|show_status_text}</span>
+                                    <small>创建时间: {$task.t_date|date="Y年m月d日",###}</small></h5>
                             </div>
                             <div class="panel-body"></div>
                         </div>
@@ -153,6 +161,14 @@
 <div class="modal fade bs-example-modal-lg task_runing_modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
   <div class="modal-dialog modal-lg">
     <div class="modal-content task_runing_modal_content">
+      ...
+    </div>
+  </div>
+</div>
+
+<div class="modal fade bs-example-modal-lg status_list_modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content status_list_modal_content">
       ...
     </div>
   </div>

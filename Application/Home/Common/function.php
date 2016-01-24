@@ -120,7 +120,8 @@ function show_status_text( $status ){
 
 function show_status_list(){
     for($status = 1; $status < 7; $status++){
-        echo "<li><a href=\"#\" onClick=\"$.to_status(".$status.")\"><span class=\"label label-".show_status_color($status)." change_to_status\" type=\"button\">".show_status_text($status)."</span></a></li>";
+        if($status == STATUS_RUNING) continue;
+        echo "<li><a href=\"#\" onClick=\"$.to_status(".$status.")\"><h4><span class=\"col-md-12 label label-".show_status_color($status)." change_to_status\" type=\"button\">".show_status_text($status)."</span></h4></a></li>";
     }
 }
 

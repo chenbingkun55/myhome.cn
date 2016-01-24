@@ -4,7 +4,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
         <h3>{$task.t_title|mb_substr=0,TASK_TITLE_LEN,'utf-8'}</h3>
-        <h4 style="display: inline;">{$task.t_level|show_level_tag} [
+        <h4 style="display: inline;">{$task.t_level|show_level_tag} &nbsp;
             <!-- Single button -->
             <div class="btn-group">
                 <span class="label label-{$task.t_status|show_status_color} dropdown-toggle runing_task_status" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" type="button" status="{$task.t_status}">{$task.t_status|show_status_text}</span>
@@ -12,7 +12,7 @@
                   {:show_status_list()}
               </ul>
             </div>
-            <!--<button type="button" class="btn runing_task_status" status="{$task.t_status}">{$task.t_status|show_status_text}</button>-->]<small>创建时间: {$task.t_date|date="Y年m月d日",###}</small></h5>
+            &nbsp;<small>创建时间: {$task.t_date|date="Y年m月d日",###}</small></h5>
         <button type="button" class="btn btn-success btn_task_save" style="float: right;">保存</button>
     </div>
     <div class="panel-body">
@@ -73,6 +73,7 @@
             // 移除动态加载的 KindEditor
             KindEditor.remove('textarea[name="content"]');
             $('.task_runing_modal').modal('hide');
+            window.location.reload();
         }});
 
         $('.runing_task_close').click(function(){
@@ -89,6 +90,7 @@
             // 移除动态加载的 KindEditor
             KindEditor.remove('textarea[name="content"]');
             $('.task_runing_modal').modal('hide');
+            window.location.reload();
         });
     });
 </script>
