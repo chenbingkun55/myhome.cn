@@ -34,7 +34,7 @@
         $('.status_list_modal').modal('hide');
     });
 
-    $('.status_list_item').click(function(){
+    $('.status_list_item').dblclick(function(){
         var tid = $(this).attr('tid');
         var url = "/index.php/Home/Task/show?tid=" + tid;
 
