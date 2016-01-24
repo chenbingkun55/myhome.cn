@@ -37,12 +37,22 @@ class TaskController extends Controller {
     }
 
     public function add(){
+       //$task_lib = D("lib");
+       //$data = from_data();
+       //$data["c_date"] = time();
+
+       //$task_lib->add($data);
+        $this->display();
+    }
+
+    public function add_handle(){
        $task_lib = D("lib");
        $data = from_data();
        $data["c_date"] = time();
 
        $task_lib->add($data);
     }
+
     public function delete(){
        $task_lib = D("lib");
         $data = from_data();

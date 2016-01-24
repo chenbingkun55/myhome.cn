@@ -1,0 +1,68 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <button type="button" class="close add_task_close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h3>标题:<input type="text" name="title" value=""></h3>
+        <h3>开始时间:<input type="date" name="tdate" value=""></h3>
+        <!--<h4 style="display: inline;">{$task.t_level|show_level_tag} &nbsp;-->
+        <button type="button" class="btn btn-success btn_task_create" style="float: right;">创建</button>
+    </div>
+    <div class="panel-body">
+        <div class="container-fluid">
+          <textarea name="content" style="width:100%;"></textarea><BR/>
+        </div>
+    </div>
+</div>
+
+<script>
+    var editor;
+    var in_edit = false;
+    var kindeditor_options = {
+            uploadJson : '/myt/index.php/Attached/upload/date/new',
+            fileManagerJson : '/myt/index.php/Attached/manager/',
+            allowFileManager : false,
+            readonlyMode : false,
+            //autoHeightMode : true,
+            //afterCreate : function() {
+            //    this.loadPlugin('autoheight');
+            //},
+            items : [
+                            'source', '|', 'undo', 'redo', '|', 'preview', 'print', 'template', 'code', 'cut', 'copy', 'paste',
+                            'plainpaste', 'wordpaste', '|', 'justifyleft', 'justifycenter', 'justifyright',
+                            'justifyfull', 'insertorderedlist', 'insertunorderedlist', 'indent', 'outdent', 'subscript',
+                            'superscript', 'clearhtml', 'quickformat', 'selectall', '|', 'fullscreen', '/',
+                            'formatblock', 'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold',
+                            'italic', 'underline', 'strikethrough', 'lineheight', 'removeformat', '|', 'image', 'multiimage',
+                            'flash', 'media', 'insertfile', 'table', 'hr', 'emoticons', 'map', 'pagebreak',
+                            'anchor', 'link', 'unlink', 'FinishTab','|', 'about'
+                ],
+        afterChange : function() {
+            // alert(in_edit);
+            //in_edit = true;
+        }
+    };
+
+    $(document).ready(function(){
+        $('textarea[name="content"]').css('height',(0.75*document.body.clientHeight));
+
+        $('.btn_task_create').click(function(){
+            var send_data = editor.html();
+            var title = $('input[name="title"]').val();
+            var tdate= $('input[name="tdate"]').val();
+
+            $.ajax({
+              type: 'POST',
+              url: '/index.php/Home/Task/add_handle',
+              data: { title: title, tdate: tdate, content: send_data },
+              success: function(){ $('.add_task_close').trigger("click"); }
+            });
+        });
+
+        $('.add_task_close').click(function(){
+            // 移除动态加载的 KindEditor
+            KindEditor.remove('textarea[name="content"]');
+            $('.task_add_modal').modal('hide');
+        });
+    });
+</script>

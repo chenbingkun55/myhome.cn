@@ -9,15 +9,15 @@ $(document).ready(function(){
     }});
 
     $.extend({task_add:function(){
-        //var send_data = editor.html();
+        var url = "/index.php/Home/Task/add";
 
-        $.ajax({
-          type: 'POST',
-          url: '/index.php/Home/Task/add',
-          data: { name: 'BBBB', tid: '123' },
-          success: function(re_data){ alert(re_data); }
+        $('.task_add_modal_content').load(url);
+        $('.task_add_modal').modal({
+            backdrop: false,   // 点击背景不关闭 modal.
+            show: true
         });
     }});
+
 
     $.extend({task_save:function(tid){
         var send_data = editor.html();
@@ -99,7 +99,7 @@ $(document).ready(function(){
         });
     });
 
-    $('.task_runing_modal').on('shown.bs.modal', function (e) {
+    $('.task_runing_modal,.task_add_modal').on('shown.bs.modal', function (e) {
         // 动态加载 KindEditor,解决不显示编辑器问题.
         $.getScript('Public/kindeditor/kindeditor.js', function() {
             KindEditor.basePath = 'Public/kindeditor/';
