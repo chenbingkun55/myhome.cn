@@ -73,6 +73,26 @@ class TaskController extends Controller {
         }
     }
 
+    public function level_list(){
+        $task_lib = D('lib');
+        $data = from_data();
+        $field = "t_id,t_date,t_title,t_level,t_status";
+        $where = "t_level = ".$data["t_level"] ." AND t_status < 6";
+
+        if(strlen($data["t_level"]) == 0) {
+            die("<div class=\"alert alert-danger\" role=\"alert\">".L('TASK_LEVEL_NOT_NULL')."</div>");
+        }
+
+        $this->level_list = $task_lib->where($where)->field($field)->select();
+
+        if( ! is_array($this->level_list)) {
+            die("<div class=\"alert alert-danger\" role=\"alert\">".L('LEVEL_LIST_NULL')."</div>");
+        }
+
+        $this->display();
+    }
+
+
     public function status_list(){
         $task_lib = D('lib');
         $data = from_data();

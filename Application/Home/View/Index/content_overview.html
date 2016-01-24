@@ -1,11 +1,4 @@
 <div class="row">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <foreach name="unfinished_task_level_group" item="level">
-            <button type="button" class="btn btn-default navbar-btn">{$level.t_level|show_level_text}<span class="badge">{$level.total}</span></button>
-        </foreach>
-      </div>
-    </div>
 
     <foreach name="unfinished_task" key="k" item="task">
         <div class="col-md-4">

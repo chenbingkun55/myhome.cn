@@ -1,4 +1,23 @@
 <div class="row">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <button type="button" class="btn btn-default navbar-btn task_add_button">添加</button>
+        <span class="label label-default" style="font-size: 16px;">状态分组:</span>
+        <foreach name="unfinished_task_status_group" item="status">
+            <button type="button" class="btn btn-{$status.t_status|show_status_color} get_status_list" status="{$status.t_status}">
+                {$status.t_status|show_status_text}&nbsp;<span class="badge">{$status.total}</span>
+            </button>
+        </foreach>
+        <span class="label label-default" style="font-size: 16px;">级别分组:</span>
+        <foreach name="unfinished_task_level_group" item="level">
+            <button type="button" class="btn btn-{$level.t_level|show_level_color} get_level_list" level="{$level.t_level}">
+                {$level.t_level|show_level_text}&nbsp;<span class="badge">{$level.total}</span>
+            </button>
+        </foreach>
+      </div>
+</div>
+
+<div class="row">
     <div id="slide_runing_pause" class="carousel slide" data-interval="false">
        <!-- 轮播（Carousel）指标 -->
        <!--<ol class="carousel-indicators">-->
@@ -95,19 +114,9 @@
           data-slide="next">&rsaquo;</a>
        </div>
   </div>
-
-<div class="row">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <button type="button" class="btn btn-default navbar-btn task_add_button">添加</button>
-        <foreach name="unfinished_task_status_group" item="status">
-            <button type="button" class="btn btn-{$status.t_status|show_status_color} get_status_list" status="{$status.t_status}">
-                {$status.t_status|show_status_text}&nbsp;<span class="badge">{$status.total}</span>
-            </button>
-        </foreach>
-      </div>
-    </div>
 </div>
+
+<hr style="height:5px;border:none;border-top:5px ridge green;" />
 
 <div class="row">
     <div id="slide_notstart_stop" class="carousel slide" data-interval="false">
@@ -169,6 +178,14 @@
 <div class="modal fade bs-example-modal-lg status_list_modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
   <div class="modal-dialog modal-lg">
     <div class="modal-content status_list_modal_content">
+      ...
+    </div>
+  </div>
+</div>
+
+<div class="modal fade bs-example-modal-lg level_list_modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content level_list_modal_content">
       ...
     </div>
   </div>

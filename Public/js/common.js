@@ -57,6 +57,18 @@ $(document).ready(function(){
         });
     }});
 
+    // 获取Level 列表
+    $('.get_level_list').click(function(){
+        var level = $(this).attr('level');
+        var url = "/index.php/Home/Task/level_list?level=" + level;
+
+        $('.level_list_modal_content').load(url);
+        $('.level_list_modal').modal({
+            backdrop: false,   // 点击背景不关闭 modal.
+            show: true
+        });
+    });
+
     // 获取status 列表
     $('.get_status_list').click(function(){
         var status = $(this).attr('status');
