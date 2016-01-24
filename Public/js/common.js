@@ -30,6 +30,15 @@ $(document).ready(function(){
         });
     }});
 
+    $.extend({task_delete:function(tid){
+        $.ajax({
+          type: 'POST',
+          url: '/index.php/Home/Task/delete',
+          data: { tid: tid },
+          success: function(){ $('.runing_task_close').trigger("click"); }
+        });
+    }});
+
     $.extend({task_close_save:function(tid){
         var send_data = editor.html();
 

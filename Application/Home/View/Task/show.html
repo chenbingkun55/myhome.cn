@@ -13,6 +13,9 @@
               </ul>
             </div>
             &nbsp;<small>创建时间: {$task.t_date|date="Y年m月d日",###}</small></h5>
+        <button type="button" class="btn btn-warningr btn_task_delete" style="float: right;">删除</button>
+        &nbsp;
+        &nbsp;
         <button type="button" class="btn btn-success btn_task_save" style="float: right;">保存</button>
     </div>
     <div class="panel-body">
@@ -64,6 +67,12 @@
 
         $('.btn_task_save').click(function(){
             $.task_save($('.runing_task_id').attr('tid'));
+        });
+
+        $('.btn_task_delete').click(function(){
+            if(confirm("确定要删除任务？")){
+                $.task_delete($('.runing_task_id').attr('tid'));
+            }
         });
 
         $.extend({to_status:function(status){
