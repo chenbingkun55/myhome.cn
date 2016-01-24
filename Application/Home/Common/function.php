@@ -69,10 +69,10 @@ function show_status_color( $status ){
             $color = "info";
             break;
         case STATUS_WAITING:
-            $color = "info";
+            $color = "warning";
             break;
         case STATUS_STOP:
-            $color = "warning";
+            $color = "danger";
             break;
         case STATUS_FINIED:
             $color = "success";

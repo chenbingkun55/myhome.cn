@@ -11,7 +11,7 @@
         <span class="label label-default" style="font-size: 16px;">级别分组:</span>
         <foreach name="unfinished_task_level_group" item="level">
             <button type="button" class="btn btn-{$level.t_level|show_level_color} get_level_list" level="{$level.t_level}">
-                {$level.t_level|show_level_text}&nbsp;<span class="badge">{$level.total}</span>
+                {$level.t_level|show_level_tag}&nbsp;<span class="badge">{$level.total}</span>
             </button>
         </foreach>
       </div>

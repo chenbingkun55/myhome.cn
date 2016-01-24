@@ -64,7 +64,7 @@ $(document).ready(function(){
 
         $('.level_list_modal_content').load(url);
         $('.level_list_modal').modal({
-            backdrop: false,   // 点击背景不关闭 modal.
+            //backdrop: false,   // 点击背景不关闭 modal.
             show: true
         });
     });
@@ -76,7 +76,7 @@ $(document).ready(function(){
 
         $('.status_list_modal_content').load(url);
         $('.status_list_modal').modal({
-            backdrop: false,   // 点击背景不关闭 modal.
+            //backdrop: false,   // 点击背景不关闭 modal.
             show: true
         });
     });
