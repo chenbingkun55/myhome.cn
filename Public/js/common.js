@@ -105,6 +105,11 @@ $(document).ready(function(){
             KindEditor.basePath = 'Public/kindeditor/';
             editor = KindEditor.create('textarea[name="content"]',kindeditor_options);
         });
+
+        $.getScript('Public/bootstrap-datetimepicker/bootstrap-datetimepicker.js',function() {
+            $(".start_datetime").datetimepicker();
+            $(".end_datetime").datetimepicker();
+        });
     });
 
 
