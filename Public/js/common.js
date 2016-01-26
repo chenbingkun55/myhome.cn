@@ -49,6 +49,18 @@ $(document).ready(function(){
         });
     }});
 
+    $.extend({up_level:function(tid){
+        $.ajax({
+          type: 'POST',
+          url: '/index.php/Home/Task/up_level',
+          data: { tid: tid },
+          success: function(re_level){
+                $('.runing_task_level').html(re_level);
+          },
+        });
+
+    }});
+
     $.extend({change_to_status:function(tid,status){
         $.ajax({
           type: 'POST',

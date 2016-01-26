@@ -48,6 +48,7 @@ class TaskController extends Controller {
     public function add_handle(){
        $task_lib = D("lib");
        $data = from_data();
+       $data["t_date"] = $data["exp_startdate"];
        $data["c_date"] = time();
 
        $task_lib->add($data);
@@ -121,6 +122,43 @@ class TaskController extends Controller {
         $this->display();
     }
 
+    public function get_level(){
+        $task_lib = D('lib');
+        $data = from_data();
+
+        if(strlen($data["t_id"]) == 0) {
+            die("<div class=\"alert alert-danger\" role=\"alert\">".L('TASK_ID_NOT_NULL')."</div>");
+        }
+
+       $re_level = $task_lib->where("t_id = ".$data["t_id"])->getField('t_level');
+       echo show_level_tag($re_level);
+    }
+
+
+    public function up_level(){
+        $task_lib = D('lib');
+        $data = from_data();
+
+        if(strlen($data["t_id"]) == 0) {
+            die("<div class=\"alert alert-danger\" role=\"alert\">".L('TASK_ID_NOT_NULL')."</div>");
+        }
+
+       $re = $task_lib->where("t_id = ".$data["t_id"])->count();
+       if( $re != 1){
+            die("<div class=\"alert alert-danger\" role=\"alert\">".L('TASK_ID_NOT_FOUND')."</div>");
+        }
+
+       $cur_level = $task_lib->where("t_id = ".$data["t_id"])->getField('t_level');
+
+       $to_level = ++$cur_level;
+       if($to_level < 0 ||$to_level > 5 ){
+           $to_level = 1;
+       }
+
+        $task_lib->where("t_id = ".$data["t_id"])->setField('t_level',$to_level);
+       echo show_level_tag($to_level);
+    }
+
     public function change_to_status(){
         $task_lib = D('lib');
         $data = from_data();
@@ -134,6 +172,6 @@ class TaskController extends Controller {
             die("<div class=\"alert alert-danger\" role=\"alert\">".L('TASK_ID_NOT_FOUND')."</div>");
         }
 
-        $task_lib->where("t_id = ".$data["t_id"])->setField($data);
+        $task_lib->where("t_id = ".$data["t_id"])->setField('t_status',$data["t_status"]);
     }
 }

@@ -4,7 +4,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
         <h3>{$task.t_title|mb_substr=0,TASK_TITLE_LEN,'utf-8'}</h3>
-        <h4 style="display: inline;">{$task.t_level|show_level_tag} &nbsp;
+        <h4 style="display: inline;"><span class="label runing_task_level">{$task.t_level|show_level_tag}</span> &nbsp;
             <!-- Single button -->
             <div class="btn-group">
                 <span class="label label-{$task.t_status|show_status_color} dropdown-toggle runing_task_status" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" type="button" status="{$task.t_status}">{$task.t_status|show_status_text}</span>
@@ -12,7 +12,7 @@
                   {:show_status_list()}
               </ul>
             </div>
-            &nbsp;<small>创建时间: {$task.t_date|date="Y年m月d日",###}</small></h5>
+            &nbsp;<small>预计开始时间: {$task.t_date|date="Y年m月d日",###}</small></h5>
         <button type="button" class="btn btn-warningr btn_task_delete" style="float: right;">删除</button>
         &nbsp;
         &nbsp;
@@ -84,6 +84,14 @@
             $('.task_runing_modal').modal('hide');
             window.location.reload();
         }});
+
+        $('.runing_task_level').click(function(){
+            var tid = $('.runing_task_id').attr('tid');
+
+            // 修改任务等级
+            $.up_level(tid);
+        });
+
 
         $('.runing_task_close').click(function(){
             var tid = $('.runing_task_id').attr('tid');

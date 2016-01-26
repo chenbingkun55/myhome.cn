@@ -11,13 +11,13 @@
           <div class="form-group">
             <label for="inputPassword" class="col-sm-2 control-label">标题:</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" placeholder="任名称">
+              <input type="text" class="form-control" placeholder="任名称" name="title">
             </div>
           </div>
           <div class="form-group">
             <label for="select" class="col-sm-2 control-label">任务级别：</label>
             <div class="col-sm-10">
-                <select name="tlevel" class="form-control col-md-1">
+                <select name="level" class="form-control col-md-1">
                     <if condition="$templet_arr['t_level'] eq 1">
                         <option value="1" selected="selected">★</option>
                     <else/>
@@ -49,13 +49,13 @@
           <div class="form-group">
             <label for="inputText" class="col-sm-2 control-label">预计开始时间:</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control start_datetime" name="tdate">
+              <input type="text" class="form-control start_datetime" name="exp_startdate">
             </div>
           </div>
           <div class="form-group">
             <label for="inputText" class="col-sm-2 control-label">预计结束时间:</label>
             <div class="col-sm-10">
-              <input type="datetime" class="form-control end_datetime" name="tdate">
+              <input type="datetime" class="form-control end_datetime" name="exp_enddate">
             </div>
           </div>
         </div>
@@ -104,13 +104,18 @@
         $('.btn_task_create').click(function(){
             var send_data = editor.html();
             var title = $('input[name="title"]').val();
-            var tdate= $('input[name="tdate"]').val();
+            var exp_startdate = $('input[name="exp_startdate"]').val();
+            var exp_enddate = $('input[name="exp_enddate"]').val();
+            var level = $('select[name="level"]').val();
 
             $.ajax({
               type: 'POST',
               url: '/index.php/Home/Task/add_handle',
-              data: { title: title, tdate: tdate, content: send_data },
-              success: function(){ $('.add_task_close').trigger("click"); }
+              data: { title: title, level: level, exp_startdate: exp_startdate, exp_enddate: exp_enddate, content: send_data },
+              success: function(){
+                  $('.add_task_close').trigger("click");
+                  window.location.reload();
+              }
             });
         });
 

@@ -134,12 +134,12 @@ function from_data(){
     $column_array = array(
         "tid" => "t_id",
         "tdate" => "t_date",
-        "exp_time" => "t_exp_time",
+        "exp_startdate" => "exp_startdate",
+        "exp_enddate" => "exp_enddate",
         "title" => "t_title",
         "content" => "t_content",
         "level" => "t_level",
         "status" => "t_status",
-        "process" => "t_process",
         "templet" => "t_templet",
         "is_close" => "is_close",
     );
