@@ -49,6 +49,15 @@ $(document).ready(function(){
         });
     }});
 
+    $.extend({up_title:function(tid,new_title){
+        $.ajax({
+          type: 'POST',
+          url: '/index.php/Home/Task/up_title',
+          data: { tid: tid, title: new_title },
+        });
+
+    }});
+
     $.extend({up_level:function(tid){
         $.ajax({
           type: 'POST',

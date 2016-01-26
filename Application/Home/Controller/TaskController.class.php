@@ -134,6 +134,26 @@ class TaskController extends Controller {
        echo show_level_tag($re_level);
     }
 
+    public function up_title(){
+        $task_lib = D('lib');
+        $data = from_data();
+
+        if(strlen($data["t_id"]) == 0) {
+            die("<div class=\"alert alert-danger\" role=\"alert\">".L('TASK_ID_NOT_NULL')."</div>");
+        }
+
+        if(strlen($data["t_title"]) == 0) {
+            die("<div class=\"alert alert-danger\" role=\"alert\">".L('TASK_TITLE_NOT_NULL')."</div>");
+        }
+
+       $re = $task_lib->where("t_id = ".$data["t_id"])->count();
+       if( $re != 1){
+            die("<div class=\"alert alert-danger\" role=\"alert\">".L('TASK_ID_NOT_FOUND')."</div>");
+        }
+
+        $task_lib->where("t_id = ".$data["t_id"])->setField('t_title',$data["t_title"]);
+    }
+
 
     public function up_level(){
         $task_lib = D('lib');

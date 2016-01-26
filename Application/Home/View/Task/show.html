@@ -3,7 +3,7 @@
         <button type="button" class="close runing_task_close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-        <h3>{$task.t_title|mb_substr=0,TASK_TITLE_LEN,'utf-8'}</h3>
+        <h3><span class="panel runing_task_title" style="cursor: text;">{$task.t_title|mb_substr=0,TASK_TITLE_LEN,'utf-8'}</span></h3>
         <h4 style="display: inline;"><span class="label runing_task_level">{$task.t_level|show_level_tag}</span> &nbsp;
             <!-- Single button -->
             <div class="btn-group">
@@ -91,6 +91,23 @@
             // 修改任务等级
             $.up_level(tid);
         });
+
+        $('.runing_task_title').dblclick(function(){
+            var title = $('.runing_task_title').text();
+
+            $('.runing_task_title').html('<input type="text" class="form-control col-md-1" name="title">');
+            $('input[name="title"]').val("").focus().val(title);
+
+            $('input[name="title"]').blur(function(){
+                var tid = $('.runing_task_id').attr('tid');
+                var new_title = $('input[name="title"]').val();
+
+                $('.runing_task_title').html('<span class="panel runing_task_title" style="cursor: text;">' + new_title + '</span>');
+                // 修改任务标题
+                $.up_title(tid,new_title);
+            });
+        });
+
 
 
         $('.runing_task_close').click(function(){
