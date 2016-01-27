@@ -5,7 +5,7 @@ class IndexController extends Controller {
     public function index(){
         $this->title = (C("DEBUG_MODE") == 1 ) ? "[Dev]任务调度器" : "任务调度器";
         $task_lib = D('lib');
-        $field = "t_id,t_date,t_title,t_level,t_status,t_content";
+        $field = "t_id,t_date,t_title,t_level,t_exp_time,t_process,t_status";
         $field_level = "t_level,count(*) AS total";
         $field_status = "t_status,count(*) AS total";
         $where = "t_status < 6";
@@ -13,6 +13,13 @@ class IndexController extends Controller {
         $this->unfinished_task_level_group = $task_lib->where($where)->field($field_level)->group("t_level")->order("t_level")->select();
         $this->unfinished_task_status_group = $task_lib->where($where)->field($field_status)->group("t_status")->order("t_status")->select();
         $this->month_level_data = $this->month_level_chart_data();
+
+        $temp_arr = array();
+        foreach($this->unfinished_task as  $v){
+           $process_arr =  json_decode($v['t_process'], true);
+            $temp_arr[$v['t_id']] = get_progress_num($v['t_exp_time'],$process_arr['run_total_time']);
+        }
+        $this->precent_arr = $temp_arr;
 
 		$this->display();
     }

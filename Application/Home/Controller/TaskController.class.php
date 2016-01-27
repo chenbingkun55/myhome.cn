@@ -25,7 +25,7 @@ class TaskController extends Controller {
             die("<div class=\"alert alert-danger\" role=\"alert\">".L('QUERY_MODE_DENY')."</div>");
         }
 
-        $field = "t_id,t_date,t_process,t_title,t_level,t_status,t_content";
+        $field = "t_id,t_date,t_process,t_exp_time,t_title,t_level,t_status,t_content";
         $where = "t_id = " . $data["t_id"];
         $this->task = $task_lib->field($field)->find($data["t_id"]);
 
@@ -33,6 +33,8 @@ class TaskController extends Controller {
             die("<div class=\"alert alert-danger\" role=\"alert\">".L('TASK_ID_NOT_FOUND')."</div>");
         }
 
+        $process_arr =  json_decode($this->task['t_process'], true);
+        $this->done_precent = get_progress_num($this->task['t_exp_time'],$process_arr['run_total_time']);
         $this->display();
     }
 
@@ -69,32 +71,12 @@ class TaskController extends Controller {
        $task_lib = D("lib");
        $data = from_data();
        $data["t_date"] = strtotime($data["exp_startdate"]);
-       $exp_enddate = strtotime($data["exp_enddate"]);
-       $exp_total_time = $exp_enddate - $data["t_date"];
+       $exp_end_time = strtotime($data["exp_enddate"]);
+       $exp_total_time = $exp_end_time - $data["t_date"];
        $data["t_exp_time"] = $exp_total_time;
        $data["c_date"] = time();
 
-        $process_arr = array(
-            "exp_total_time" => $exp_total_time,      // 预计 总时间.
-            "exp_start_time" => $data["t_date"],                          // 预计 开始时间.
-            "exp_end_time" =>  $exp_enddate,                              // 预计 结束时间.
-            "run_total_time" => 0,          // 运行总时间.
-            "run_start_time" => 0,          // 运行开始时间
-            "run_end_time" => 0,            // 运行结束时间
-            "pause_total_time" => 0,       // 暂停总时间
-            "pause_start_time" => 0,       // 暂停开始时间
-            "pause_end_time" => 0,         // 暂停结速时间
-            "wait_total_time" => 0,        // 等待总时间
-            "wait_start_time" => 0,        // 等待开始时间
-            "wait_end_time" => 0,          // 等待结速时间
-            "stop_total_time" => 0,        // 停止总时间
-            "stop_start_time" => 0,        // 停止开始时间
-            "stop_end_time" => 0,          // 停止结速时间
-            "start_time" => 0,              // 开始时间
-            "done_time" => 0,              // 完成时间
-            "forgo_time" => 0,            // 放弃时间
-        );
-        $data["t_process"] = json_encode( $process_arr ) ;
+        $data["t_process"] = json_encode(process_init($exp_total_time,$data['t_date'],$exp_end_time)) ;
 
         $task_lib->add($data);
     }
@@ -241,6 +223,31 @@ class TaskController extends Controller {
 
         $task_lib->where("t_id = ".$data["t_id"])->setField('t_status',$data["t_status"]);
         $this->update_task_process($data["t_id"],$cur_status,$data["t_status"]);
+    }
+
+    public function auto_update_runing_process( $tid ){
+        $task_lib = D('lib');
+        $data = from_data();
+
+        if(strlen($data["t_id"]) == 0) {
+            die("<div class=\"alert alert-danger\" role=\"alert\">".L('TASK_ID_NOT_NULL')."</div>");
+        }
+
+       $exp_time = $task_lib->where("t_id = ".$data["t_id"])->getField('t_exp_time');
+       $temp_json = $task_lib->where("t_id = ".$data["t_id"])->getField('t_process');
+       if(strlen($temp_json) == 0 ){
+           $process_json = process_init(600,time(),time());
+       } else {
+           $process_arr =  json_decode($temp_json, true);
+           $process_arr['run_end_time'] = time();
+           $process_arr['run_total_time'] += ($process_arr['run_start_time'] == 0 )?  0 : ( $process_arr['run_end_time'] - $process_arr['run_start_time'] );
+           $process_arr['run_start_time'] = time();
+       }
+
+	   $task_lib->where('t_id='.$data['t_id'])->setField('t_process', json_encode( $process_arr));
+       $done_precent = get_progress_num($exp_time,$process_arr['run_total_time']);
+
+       echo "{\"done_precent\": ".$done_precent.",\"run_total_time\": ".$process_arr['run_total_time']." }";
     }
 
     public function update_task_process( $tid ,$before_status,$status ){
@@ -434,7 +441,7 @@ class TaskController extends Controller {
                 // 状态运行严格按上面的定义执行，如果没有定义过的，运行状态将不可用。
                 $process_arr = array();
         }
-		
+
 		if( is_array( $process_arr ) ){
 			$res = $task_lib->where('t_id='.$tid)->setField('t_process', json_encode( $process_arr));
 

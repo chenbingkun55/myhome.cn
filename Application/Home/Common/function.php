@@ -125,12 +125,16 @@ function show_status_list(){
     }
 }
 
+function get_progress_num($exp_time,$run_time){
+    return number_format(($run_time/$exp_time)*100,2);
+}
+
 function show_process($process_json){
     $process_arr =  json_decode($process_json, true);
 
     echo "<div class=\"panel panel-default\" style=\"text-align: left;\">";
     echo "<div class=\"panel-body\">";
-    echo "运行时间:".$process_arr["run_total_time"]."<BR>";
+    echo "运行时间: <span class=\"runing_task_run_total_time\">".$process_arr["run_total_time"]."</span><BR>";
     echo "暂停时间:".$process_arr["pause_total_time"]."<BR>";
     echo "等待时间:".$process_arr["wait_total_time"]."<BR>";
     echo "停止时间:".$process_arr["stop_total_time"]."<BR>";
@@ -138,6 +142,29 @@ function show_process($process_json){
     echo "放弃:".$process_arr["forgo_time"]."<BR>";
     echo "</div>";
     echo "</div>";
+}
+
+function process_init($exp_total_time, $exp_start_time,$exp_end_time){
+    $process_arr = array(
+        "exp_total_time" => $exp_total_time,      // 预计 总时间.
+        "exp_start_time" => $exp_start_time,                          // 预计 开始时间.
+        "exp_end_time" =>  $exp_end_time,                              // 预计 结束时间.
+        "run_total_time" => 0,          // 运行总时间.
+        "run_start_time" => 0,          // 运行开始时间
+        "run_end_time" => 0,            // 运行结束时间
+        "pause_total_time" => 0,       // 暂停总时间
+        "pause_start_time" => 0,       // 暂停开始时间
+        "pause_end_time" => 0,         // 暂停结速时间
+        "wait_total_time" => 0,        // 等待总时间
+        "wait_start_time" => 0,        // 等待开始时间
+        "wait_end_time" => 0,          // 等待结速时间
+        "stop_total_time" => 0,        // 停止总时间
+        "stop_start_time" => 0,        // 停止开始时间
+        "stop_end_time" => 0,          // 停止结速时间
+        "start_time" => 0,              // 开始时间
+        "done_time" => 0,              // 完成时间
+        "forgo_time" => 0,            // 放弃时间
+    );
 }
 
 function from_data(){

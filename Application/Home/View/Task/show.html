@@ -15,6 +15,11 @@
             &nbsp;<small>预计开始时间: {$task.t_date|date="Y年m月d日 h:i",###}</small>
             </h5>
         <div>时间: {$task.t_process|show_process}</div>
+        <div class="progress">
+            <div class="progress-bar progress-bar-success runing_task_progress" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: {$done_precent}%">
+                {$done_precent}%
+          </div>
+        </div>
         <button type="button" class="btn btn-warningr btn_task_delete" style="float: right;">删除</button>
         &nbsp;
         &nbsp;
@@ -110,6 +115,16 @@
             });
         });
 
+        var auto_update = setInterval(function(){
+                var tid = $('.runing_task_id').attr('tid');
+                var url = "{:U('Task/auto_update_runing_process')}";
+                $('.runing_task_progress').load(url,{ tid: tid },function(re_data){
+                    var reObj = $.parseJSON(re_data);
+                    $('.runing_task_progress').css('width',reObj.done_precent+'%');
+                    $('.runing_task_progress').text(reObj.done_precent+'%');
+                    $('.runing_task_run_total_time').text(reObj.run_total_time);
+                });
+            }, 60000);
 
 
         $('.runing_task_close').click(function(){
