@@ -8,8 +8,8 @@ $(document).ready(function(){
            alert(notify_text);
     }});
 
-    $.extend({task_add:function(){
-        var url = "/index.php/Home/Task/add";
+    $.extend({task_add:function(tid){
+        var url = "/index.php/Home/Task/add?tid=" + tid;
 
         $('.task_add_modal_content').load(url);
         $('.task_add_modal').modal({
@@ -18,6 +18,11 @@ $(document).ready(function(){
         });
     }});
 
+    $.extend({load_templet_menu:function(){
+        var url = "/index.php/Home/Task/templet_list";
+
+        $('#templet_menu').load(url);
+    }});
 
     $.extend({task_save:function(tid){
         var send_data = editor.html();
@@ -102,6 +107,9 @@ $(document).ready(function(){
         });
     });
 
+    // 加载模板列表.
+    $.load_templet_menu();
+
     // 添加任务
     $('.task_add_button').click(function(){
         $.task_add();
@@ -127,8 +135,8 @@ $(document).ready(function(){
             editor = KindEditor.create('textarea[name="content"]',kindeditor_options);
         });
 
-        $.getScript('Public/bootstrap-datetimepicker/bootstrap-datetimepicker.js',function() {
-            $(".start_datetime").datetimepicker();
+        $.getScript('Public/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js',function() {
+            $(".start_datetime").datetimepicker('update',new Date());
             $(".end_datetime").datetimepicker();
         });
     });

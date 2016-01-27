@@ -1,7 +1,11 @@
 <div class="row">
     <div class="panel panel-default">
       <div class="panel-body">
-        <button type="button" class="btn btn-default navbar-btn task_add_button">添加</button>
+        <div role="presentation" class="dropdown" style="display: inline;">
+          <button id="btn_add_task" type="button" class="btn btn-default navbar-btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">添加任务&nbsp;<span class="caret"></span></button>
+        <ul id="templet_menu" class="dropdown-menu" aria-labelledby="btn_add_task">
+        </ul>
+      </div>
         <span class="label label-default" style="font-size: 16px;">状态分组:</span>
         <foreach name="unfinished_task_status_group" item="status">
             <button type="button" class="btn btn-{$status.t_status|show_status_color} get_status_list" status="{$status.t_status}">

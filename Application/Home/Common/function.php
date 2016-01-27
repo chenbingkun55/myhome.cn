@@ -119,10 +119,25 @@ function show_status_text( $status ){
 }
 
 function show_status_list(){
-    for($status = 1; $status < 7; $status++){
+    for($status = 1; $status < 8; $status++){
         if($status == STATUS_RUNING) continue;
         echo "<li><a href=\"#\" onClick=\"$.to_status(".$status.")\"><h4><span class=\"col-md-12 label label-".show_status_color($status)." change_to_status\" type=\"button\">".show_status_text($status)."</span></h4></a></li>";
     }
+}
+
+function show_process($process_json){
+    $process_arr =  json_decode($process_json, true);
+
+    echo "<div class=\"panel panel-default\" style=\"text-align: left;\">";
+    echo "<div class=\"panel-body\">";
+    echo "运行时间:".$process_arr["run_total_time"]."<BR>";
+    echo "暂停时间:".$process_arr["pause_total_time"]."<BR>";
+    echo "等待时间:".$process_arr["wait_total_time"]."<BR>";
+    echo "停止时间:".$process_arr["stop_total_time"]."<BR>";
+    echo "完成:".$process_arr["done_time"]."<BR>";
+    echo "放弃:".$process_arr["forgo_time"]."<BR>";
+    echo "</div>";
+    echo "</div>";
 }
 
 function from_data(){

@@ -12,7 +12,9 @@
                   {:show_status_list()}
               </ul>
             </div>
-            &nbsp;<small>预计开始时间: {$task.t_date|date="Y年m月d日",###}</small></h5>
+            &nbsp;<small>预计开始时间: {$task.t_date|date="Y年m月d日 h:i",###}</small>
+            </h5>
+        <div>时间: {$task.t_process|show_process}</div>
         <button type="button" class="btn btn-warningr btn_task_delete" style="float: right;">删除</button>
         &nbsp;
         &nbsp;
