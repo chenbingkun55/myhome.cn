@@ -133,14 +133,12 @@ function show_process($process_json){
     $process_arr =  json_decode($process_json, true);
 
     echo "<div class=\"panel panel-default\" style=\"text-align: left;\">";
-    echo "<div class=\"panel-body\">";
     echo "运行时间: <span class=\"runing_task_run_total_time\">".$process_arr["run_total_time"]."</span><BR>";
     echo "暂停时间:".$process_arr["pause_total_time"]."<BR>";
     echo "等待时间:".$process_arr["wait_total_time"]."<BR>";
     echo "停止时间:".$process_arr["stop_total_time"]."<BR>";
     echo "完成:".$process_arr["done_time"]."<BR>";
     echo "放弃:".$process_arr["forgo_time"]."<BR>";
-    echo "</div>";
     echo "</div>";
 }
 
