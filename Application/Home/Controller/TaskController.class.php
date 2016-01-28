@@ -244,21 +244,30 @@ class TaskController extends Controller {
             die("<div class=\"alert alert-danger\" role=\"alert\">".L('TASK_ID_NOT_NULL')."</div>");
         }
 
-       $exp_time = $task_lib->where("t_id = ".$data["t_id"])->getField('t_exp_time');
-       $temp_json = $task_lib->where("t_id = ".$data["t_id"])->getField('t_process');
-       if(strlen($temp_json) == 0 ){
-           $process_json = process_init(600,time(),time());
+       $process_json = $task_lib->where("t_id = ".$data["t_id"])->getField('t_process');
+       if(strlen($process_json) == 0 ){
+           $process_arr = process_init(600,time(),time());
        } else {
-           $process_arr =  json_decode($temp_json, true);
+           $process_arr =  json_decode($process_json, true);
            $process_arr['run_end_time'] = time();
            $process_arr['run_total_time'] += ($process_arr['run_start_time'] > $process_arr['run_end_time'] ) ?  0 : ( $process_arr['run_end_time'] - $process_arr['run_start_time'] );
            $process_arr['run_start_time'] = time();
        }
 
 	   $task_lib->where('t_id='.$data['t_id'])->setField('t_process', json_encode( $process_arr));
-       $done_precent = get_progress_num($exp_time,$process_arr['run_total_time']);
+       show_process($process_json);
+    }
 
-       echo "{\"done_precent\": \"".$done_precent."\",\"run_total_time\": \"".show_time($process_arr['run_total_time'])."\" }";
+    public function auto_update_runing_progress( $tid ){
+        $task_lib = D('lib');
+        $data = from_data();
+
+        if(strlen($data["t_id"]) == 0) {
+            die("<div class=\"alert alert-danger\" role=\"alert\">".L('TASK_ID_NOT_NULL')."</div>");
+        }
+
+       $process_json = $task_lib->where("t_id = ".$data["t_id"])->getField('t_process');
+       show_progress($process_json,true);
     }
 
     public function update_task_process( $tid ,$before_status,$status ){

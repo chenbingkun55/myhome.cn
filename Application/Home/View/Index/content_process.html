@@ -48,14 +48,12 @@
                                 <h4>{$task.t_title|mb_substr=0,TASK_TITLE_LEN,'utf-8'}</h4>
                                 <h5 style="display: inline;">{$task.t_level|show_level_tag}
                                 <span class="label label-{$task.t_status|show_status_color}" type="button">{$task.t_status|show_status_text}</span>
-                                <small>创建时间: {$task.t_date|date="Y年m月d日 h:i:s",###}</small></h5>
+                                <small>创建时间: {$task.t_date|date="Y年m月d日 h:i:s",###}</small>
+                                </h5>
+                                {$task.t_process|show_progress}
                             </div>
-                            <div class="progress">
-                                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: {$precent_arr[$task['t_id']]}%">
-                                    {$precent_arr[$task['t_id']]}%
-                                </div>
+                            <div class="panel-body">
                             </div>
-                            <div class="panel-body"></div>
                         </div>
                     </div>
                 <if condition="($i % TASK_PAUSE_SLIDE_NUMBER ) eq 0">

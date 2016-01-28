@@ -126,7 +126,35 @@ function show_status_list(){
 }
 
 function get_progress_num($exp_time,$run_time){
-    return number_format(($run_time/$exp_time)*100,2);
+    $precent = number_format(($run_time/$exp_time)*100,2);
+    return ($precent > 100) ? 100 : $precent;
+}
+
+function show_run_time($process_json){
+    $process_arr =  json_decode($process_json, true);
+    echo  show_time($process_arr['run_total_time']);
+}
+
+function show_progress($process_json){
+    $process_arr =  json_decode($process_json, true);
+
+    $done_precent = get_progress_num($process_arr['exp_total_time'],$process_arr['run_total_time']);
+    echo "<div class=\"panel\">
+          <div class=\"progress-bar progress-bar-success\" role=\"progressbar\" aria-valuenow=\"40\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width: ".$done_precent."%\">
+                <span style=\"white-space:nowrap;\">Complete: ".$done_precent."%</span>
+        </div>
+        </div>";
+
+    if($process_arr['run_total_time'] > $process_arr['exp_total_time']) {
+        $warning_time = $process_arr['run_total_time'] - $process_arr['exp_total_time'];
+        $warning_precent = get_progress_num($process_arr['exp_total_time'],$warning_time);
+
+        echo "<div class=\"panel\">
+              <div class=\"progress-bar progress-bar-warning\" role=\"progressbar\" aria-valuenow=\"40\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width: ".$warning_precent."%\">
+                    <span style=\"white-space:nowrap;\">OverTime: ".$warning_precent."%</span>
+            </div>
+            </div>";
+    }
 }
 
 function show_process($process_json){
@@ -164,6 +192,8 @@ function process_init($exp_total_time, $exp_start_time,$exp_end_time){
         "done_time" => "",              // 完成时间
         "forgo_time" => "",            // 放弃时间
     );
+
+    return $process_arr;
 }
 
 function show_time($time){
