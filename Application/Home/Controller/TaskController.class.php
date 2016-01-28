@@ -310,6 +310,9 @@ class TaskController extends Controller {
                 // 状态: 运行
                 $process_arr['run_start_time'] = $process_arr['start_time'] = time();
                 break;
+            case "21":
+                $process_arr = process_init($task_list['t_exp_time'],$task_list['t_date'],$task_list['t_date'] + $task_list['t_exp_time']);
+                break;
             case "23":
                 // 状态: 暂停
                 $process_arr['run_end_time'] = time();
@@ -422,9 +425,6 @@ class TaskController extends Controller {
                 $process_arr['stop_total_time'] += ( $process_arr['stop_end_time'] - $process_arr['stop_start_time'] ) ;
                 $process_arr['forgo_time'] = time();
                 break;
-            case "21":
-                $process_arr = process_init($task_list['t_exp_time'],$task_list['t_date'],$task_list['t_date'] + $task_list['t_exp_time']);
-                break;
             case "61":
 				$process_arr['exp_total_time'] = $task_list['t_exp_time'];
                 $process_arr['exp_start_time'] = $task_list['t_date'];
@@ -445,6 +445,9 @@ class TaskController extends Controller {
                 $process_arr['stop_start_time'] = "";
                 $process_arr['stop_end_time'] = "";
                 break;
+            case "62":
+                $process_arr['done_time'] = "";
+                break;
             case "71":
 				$process_arr['exp_total_time'] = $task_list['t_exp_time'];
                 $process_arr['exp_start_time'] = $task_list['t_date'];
@@ -464,6 +467,9 @@ class TaskController extends Controller {
                 $process_arr['stop_total_time'] = 0;
                 $process_arr['stop_start_time'] = "";
                 $process_arr['stop_end_time'] = "";
+                break;
+            case "72":
+                $process_arr['forgo_time'] = "";
                 break;
             default :
                 // 状态运行严格按上面的定义执行，如果没有定义过的，运行状态将不可用。
