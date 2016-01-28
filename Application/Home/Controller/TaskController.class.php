@@ -38,6 +38,17 @@ class TaskController extends Controller {
         $this->display();
     }
 
+    public function search_list(){
+        $task_lib = D('lib');
+        $data = from_data();
+
+        $trim_search_data = trim($data['search']);
+        $where = "t_title like '%".addslashes($trim_search_data)."%' OR t_content like '%".addslashes($trim_search_data)."%' ";
+
+        $this->search_list = $task_lib->where($where)->select();
+        $this->display();
+    }
+
     public function templet_list(){
         $task_lib = D('lib');
         $index_num = 1;
@@ -240,14 +251,14 @@ class TaskController extends Controller {
        } else {
            $process_arr =  json_decode($temp_json, true);
            $process_arr['run_end_time'] = time();
-           $process_arr['run_total_time'] += ($process_arr['run_start_time'] == 0 )?  0 : ( $process_arr['run_end_time'] - $process_arr['run_start_time'] );
+           $process_arr['run_total_time'] += ($process_arr['run_start_time'] > $process_arr['run_end_time'] ) ?  0 : ( $process_arr['run_end_time'] - $process_arr['run_start_time'] );
            $process_arr['run_start_time'] = time();
        }
 
 	   $task_lib->where('t_id='.$data['t_id'])->setField('t_process', json_encode( $process_arr));
        $done_precent = get_progress_num($exp_time,$process_arr['run_total_time']);
 
-       echo "{\"done_precent\": ".$done_precent.",\"run_total_time\": ".$process_arr['run_total_time']." }";
+       echo "{\"done_precent\": \"".$done_precent."\",\"run_total_time\": \"".show_time($process_arr['run_total_time'])."\" }";
     }
 
     public function update_task_process( $tid ,$before_status,$status ){
@@ -258,28 +269,33 @@ class TaskController extends Controller {
 
         switch( $before_status.$status ){
 			case "01" :
-			case "06" :
-			case "07" :
+                $process_arr['start_time'] = time();
                 break;
 			case "02":
-				$process_arr['run_end_time'] = time();
-                $process_arr['run_total_time'] += 0;
 				$process_arr['run_start_time'] = time();
+				$process_arr['run_end_time'] = time();
+                $process_arr['run_total_time'] = 0;
                 break;
 			case "03":
-				$process_arr['pause_end_time'] = time();
-                $process_arr['pause_total_time'] += 0;
 				$process_arr['pause_start_time'] = time();
+				$process_arr['pause_end_time'] = time();
+                $process_arr['pause_total_time'] = 0;
                 break;
 			case "04":
-				$process_arr['wait_end_time'] = time();
-                $process_arr['wait_total_time'] += 0;
 				$process_arr['wait_start_time'] = time();
+				$process_arr['wait_end_time'] = time();
+                $process_arr['wait_total_time'] = 0;
                 break;
 			case "05":
-				$process_arr['stop_end_time'] = time();
-                $process_arr['stop_total_time'] += 0;
 				$process_arr['stop_start_time'] = time();
+				$process_arr['stop_end_time'] = time();
+                $process_arr['stop_total_time'] = 0;
+                break;
+			case "06" :
+                $process_arr['done_time'] = time();
+                break;
+			case "07" :
+                $process_arr['forgo_time'] = time();
                 break;
 			case "12":
                 // 状态: 运行
@@ -399,21 +415,21 @@ class TaskController extends Controller {
                 break;
             case "61":
 				$process_arr['exp_total_time'] = $task_list['t_exp_time'];
-                $process_arr['dexp_start_time'] = $task_list['t_date'];
+                $process_arr['exp_start_time'] = $task_list['t_date'];
                 $process_arr['exp_end_time'] = ( $task_list['t_date'] + $task_list['t_exp_time'] ) ;
                 $process_arr['done_time'] = "";
 				$process_arr['start_time'] = "";
 				$process_arr['forgo_time'] = "";
-                $process_arr['run_total_time'] = "";
+                $process_arr['run_total_time'] = 0;
                 $process_arr['run_start_time'] = "";
                 $process_arr['run_end_time'] = "";
-                $process_arr['pause_total_time'] = "";
+                $process_arr['pause_total_time'] = 0;
                 $process_arr['pause_start_time'] = "";
                 $process_arr['pause_end_time'] = "";
-                $process_arr['wait_total_time'] = "";
+                $process_arr['wait_total_time'] = 0;
                 $process_arr['wait_start_time'] = "";
                 $process_arr['wait_end_time'] = "";
-                $process_arr['stop_total_time'] = "";
+                $process_arr['stop_total_time'] = 0;
                 $process_arr['stop_start_time'] = "";
                 $process_arr['stop_end_time'] = "";
                 break;
@@ -424,32 +440,26 @@ class TaskController extends Controller {
                 $process_arr['forgo_time'] = "";
 				$process_arr['start_time'] = "";
 				$process_arr['done_time'] = "";
-                $process_arr['run_total_time'] = "";
+                $process_arr['run_total_time'] = 0;
                 $process_arr['run_start_time'] = "";
                 $process_arr['run_end_time'] = "";
-                $process_arr['pause_total_time'] = "";
+                $process_arr['pause_total_time'] = 0;
                 $process_arr['pause_start_time'] = "";
                 $process_arr['pause_end_time'] = "";
-                $process_arr['wait_total_time'] = "";
+                $process_arr['wait_total_time'] = 0;
                 $process_arr['wait_start_time'] = "";
                 $process_arr['wait_end_time'] = "";
-                $process_arr['stop_total_time'] = "";
+                $process_arr['stop_total_time'] = 0;
                 $process_arr['stop_start_time'] = "";
                 $process_arr['stop_end_time'] = "";
                 break;
             default :
                 // 状态运行严格按上面的定义执行，如果没有定义过的，运行状态将不可用。
-                $process_arr = array();
+                $process_arr = null;
         }
 
 		if( is_array( $process_arr ) ){
 			$res = $task_lib->where('t_id='.$tid)->setField('t_process', json_encode( $process_arr));
-
-			if ( ! $res ){
-				echo "失败";
-			}
-		} else {
-			echo "失败";
 		}
     }
 }

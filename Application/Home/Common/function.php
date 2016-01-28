@@ -132,13 +132,14 @@ function get_progress_num($exp_time,$run_time){
 function show_process($process_json){
     $process_arr =  json_decode($process_json, true);
 
-    echo "<div class=\"panel panel-default\" style=\"text-align: left;\">";
-    echo "运行时间: <span class=\"runing_task_run_total_time\">".$process_arr["run_total_time"]."</span><BR>";
-    echo "暂停时间:".$process_arr["pause_total_time"]."<BR>";
-    echo "等待时间:".$process_arr["wait_total_time"]."<BR>";
-    echo "停止时间:".$process_arr["stop_total_time"]."<BR>";
-    echo "完成:".$process_arr["done_time"]."<BR>";
-    echo "放弃:".$process_arr["forgo_time"]."<BR>";
+    echo "<div class=\"panel\" style=\"text-align: left;\">";
+    echo ($process_arr["start_time"] == 0) ? "<small>开始时间: N/A</small><BR>" : "开始时间: ".date("Y年m月d日 h:i",$process_arr["start_time"])."<BR>";
+    echo ($process_arr["run_total_time"] == 0) ? "运行时间: <span class=\"runing_task_run_total_time\">N/A</span><BR>" : "运行时间:  <span class=\"runing_task_run_total_time\">".show_time($process_arr["run_total_time"])."</span><BR>";
+    echo ($process_arr["pause_total_time"] == 0) ? "暂停时间: N/A<BR>" : "暂停时间: ".show_time($process_arr["pause_total_time"])."<BR>";
+    echo ($process_arr["wait_total_time"] == 0) ? "等待时间: N/A<BR>" : "等待时间: ".show_time($process_arr["wait_total_time"])."<BR>";
+    echo ($process_arr["stop_total_time"] == 0) ? "停止时间: N/A<BR>" : "停止时间: ".show_time($process_arr["stop_total_time"])."<BR>";
+    echo ($process_arr["done_time"] == 0) ? "完成时间: N/A<BR>" : "完成时间:".date("Y年m月d日 h:i",$process_arr["done_time"])."<BR>";
+    echo ($process_arr["forgo_time"] == 0) ? "放弃时间: N/A<BR>" : "放弃时间: ". date("Y年m月d日 h:i",$process_arr["forgo_time"])."<BR>";
     echo "</div>";
 }
 
@@ -148,21 +149,25 @@ function process_init($exp_total_time, $exp_start_time,$exp_end_time){
         "exp_start_time" => $exp_start_time,                          // 预计 开始时间.
         "exp_end_time" =>  $exp_end_time,                              // 预计 结束时间.
         "run_total_time" => 0,          // 运行总时间.
-        "run_start_time" => 0,          // 运行开始时间
-        "run_end_time" => 0,            // 运行结束时间
+        "run_start_time" => "",          // 运行开始时间
+        "run_end_time" => "",            // 运行结束时间
         "pause_total_time" => 0,       // 暂停总时间
-        "pause_start_time" => 0,       // 暂停开始时间
-        "pause_end_time" => 0,         // 暂停结速时间
+        "pause_start_time" => "",       // 暂停开始时间
+        "pause_end_time" => "",         // 暂停结速时间
         "wait_total_time" => 0,        // 等待总时间
-        "wait_start_time" => 0,        // 等待开始时间
-        "wait_end_time" => 0,          // 等待结速时间
+        "wait_start_time" => "",        // 等待开始时间
+        "wait_end_time" => "",          // 等待结速时间
         "stop_total_time" => 0,        // 停止总时间
-        "stop_start_time" => 0,        // 停止开始时间
-        "stop_end_time" => 0,          // 停止结速时间
-        "start_time" => 0,              // 开始时间
-        "done_time" => 0,              // 完成时间
-        "forgo_time" => 0,            // 放弃时间
+        "stop_start_time" => "",        // 停止开始时间
+        "stop_end_time" => "",          // 停止结速时间
+        "start_time" => "",              // 开始时间
+        "done_time" => "",              // 完成时间
+        "forgo_time" => "",            // 放弃时间
     );
+}
+
+function show_time($time){
+    return gmstrftime("%H:%M:%S",$time);
 }
 
 function from_data(){
@@ -182,6 +187,7 @@ function from_data(){
         "status" => "t_status",
         "templet" => "t_templet",
         "is_close" => "is_close",
+        "search" => "search",
     );
 
     $data = array();

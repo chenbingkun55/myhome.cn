@@ -24,6 +24,12 @@ $(document).ready(function(){
         $('#templet_menu').load(url);
     }});
 
+    $.extend({search_task:function(){
+        var url = "/index.php/Home/Task/search_list";
+
+        $('#').load(url);
+    }});
+
     $.extend({task_save:function(tid){
         var send_data = editor.html();
 
@@ -113,6 +119,20 @@ $(document).ready(function(){
     // 添加任务
     $('.task_add_button').click(function(){
         $.task_add();
+    });
+
+    // 搜索任务，打开弹窗
+    $('.search_task').keydown(function(e){
+        if(e.keyCode==13){
+            var search_str = $(this).val();
+            var url = "/index.php/Home/Task/search_list";
+
+            $('.search_list_modal_content').load(url,{search: search_str});
+            $('.search_list_modal').modal({
+                //backdrop: false,   // 点击背景不关闭 modal.
+                show: true
+            });
+        }
     });
 
     // 开始执行任务，打开运行任务弹窗

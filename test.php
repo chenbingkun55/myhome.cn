@@ -1,4 +1,3 @@
-AAAA
-
 <?PHP
-echo $_GET['tid'];
+echo strtotime('now');
+echo date("Y-m-01",strtotime('+1 month'));

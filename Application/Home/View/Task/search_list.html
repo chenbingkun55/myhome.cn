@@ -1,9 +1,9 @@
 <div class="panel panel-default">
     <div class="panel-heading">
-        <button type="button" class="close level_list_close" data-dismiss="alert" aria-label="Close">
+        <button type="button" class="close search_list_close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-        <h3>Task Level  List</h3>
+        <h3>Search Task List</h3>
     </div>
     <div class="panel-body" style="text-align: left">
         <table class="table table-hover">
@@ -15,8 +15,8 @@
                 <th>标题</th>
             </tr>
             <tbody>
-            <foreach name="level_list" key="k" item="task">
-            <tr class="level_list_item" tid="{$task.t_id}">
+            <foreach name="search_list" key="k" item="task">
+            <tr class="search_list_item" tid="{$task.t_id}">
                     <td>{$k + 1}</td>
                     <td>{$task.t_date|date="Y年m月d日 h:i:s",###}</td>
                     <td><h4 style="display: inline;">{$task.t_level|show_level_tag}</h4></td>
@@ -30,15 +30,15 @@
 </div>
 
 <script>
-    $('.level_list_close').click(function(){
-        $('.level_list_modal').modal('hide');
+    $('.search_list_close').click(function(){
+        $('.search_list_modal').modal('hide');
     });
 
-    $('.level_list_item').dblclick(function(){
+    $('.search_list_item').dblclick(function(){
         var tid = $(this).attr('tid');
         var url = "/index.php/Home/Task/show?tid=" + tid;
 
-        $('.level_list_modal').modal('hide');
+        $('.search_list_modal').modal('hide');
         $.change_to_status(tid,2);
         $('.task_runing_modal_content').load(url);
         $('.task_runing_modal').modal({

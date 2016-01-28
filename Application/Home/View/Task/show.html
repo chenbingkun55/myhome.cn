@@ -3,7 +3,7 @@
         <button type="button" class="close runing_task_close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-        <h3><span class="panel runing_task_title" style="cursor: text;">{$task.t_title|mb_substr=0,TASK_TITLE_LEN,'utf-8'}</span></h3>
+        <h3><span class="runing_task_title" style="cursor: text;">{$task.t_title|mb_substr=0,TASK_TITLE_LEN,'utf-8'}</span></h3>
         <h4 style="display: inline;"><span class="label runing_task_level">{$task.t_level|show_level_tag}</span> &nbsp;
             <!-- Single button -->
             <div class="btn-group">
@@ -12,9 +12,11 @@
                   {:show_status_list()}
               </ul>
             </div>
-            &nbsp;<small>预计开始时间: {$task.t_date|date="Y年m月d日 h:i",###}</small>
+            <small><a class="btn btn-default btn_show_process" href="#" role="button">查看处理时间</a></small>
+            &nbsp;<small>预计开始时间: {$task.t_date|date="Y年m月d日 h:i:s",###}</small>
+            &nbsp;<small>预计用时: {$task.t_exp_time|show_time}</small>
             </h5>
-        <div>时间: {$task.t_process|show_process}</div>
+        <div class="runing_task_process" style="display: none;">{$task.t_process|show_process}</div>
         <div class="progress">
             <div class="progress-bar progress-bar-success runing_task_progress" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: {$done_precent}%">
                 {$done_precent}%
@@ -125,6 +127,10 @@
                     $('.runing_task_run_total_time').text(reObj.run_total_time);
                 });
             }, 60000);
+
+        $('.btn_show_process').click(function(){
+            $('.runing_task_process').slideToggle();
+        });
 
 
         $('.runing_task_close').click(function(){

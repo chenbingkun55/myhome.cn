@@ -1,26 +1,38 @@
 <div class="row">
     <div class="col-md-6">
-        <div id="month_level_chart"></div>
+        <div id="unfinished_status_chart"></div>
     </div>
     <div class="col-md-6">
-        <div id="container"></div>
+        <div id="year_premonth_chart_column"></div>
     </div>
-
+</div>
+<div class="row">
     <div class="col-md-6">
-        <div id="container2"></div>
+        <div id="all_status_chart"></div>
+    </div>
+    <div class="col-md-6">
+        <div id="current_month_status_chart"></div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div id="all_level_chart"></div>
+    </div>
+    <div class="col-md-6">
+        <div id="current_month_level_chart"></div>
     </div>
 </div>
 
 <script>
 $(function(){
-    $('#month_level_chart').highcharts({
+    $('#all_level_chart').highcharts({
         chart: {
             plotBackgroundColor: null,
             plotBorderWidth: null,
             plotShadow: false
         },
         title: {
-            text: 'Browser market shares at a specific website, 2014'
+            text: '所有任务-等级分类占比'
         },
         tooltip: {
             pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -39,7 +51,176 @@ $(function(){
             }
         },
         series: [{
-            {$month_level_data}
+            {$all_level_data}
+        }]
+    });
+
+    $('#current_month_level_chart').highcharts({
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false
+        },
+        title: {
+            text: '当月任务-等级分类占比'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                    style: {
+                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                    }
+                }
+            }
+        },
+        series: [{
+            {$current_month_level_data}
+        }]
+    });
+
+    $('#all_status_chart').highcharts({
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false
+        },
+        title: {
+            text: '所有任务-状态分类占比'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                    style: {
+                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                    }
+                }
+            }
+        },
+        series: [{
+            {$all_status_data}
+        }]
+    });
+
+    $('#current_month_status_chart').highcharts({
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false
+        },
+        title: {
+            text: '当月任务-状态分类占比'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                    style: {
+                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                    }
+                }
+            }
+        },
+        series: [{
+            {$current_month_status_data}
+        }]
+    });
+
+    $('#unfinished_status_chart').highcharts({
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false
+        },
+        title: {
+            text: '未完成任务-状态分类占比'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                    style: {
+                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                    }
+                }
+            }
+        },
+        series: [{
+            {$unfinished_status_data}
+        }]
+    });
+
+    $('#year_premonth_chart_column').highcharts({
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: '统计12个月份任务数统计图'
+        },
+        subtitle: {
+            text: ''
+        },
+        xAxis: {
+            type: 'category',
+            labels: {
+                rotation: -45,
+                style: {
+                    fontSize: '13px',
+                    fontFamily: 'Verdana, sans-serif'
+                }
+            }
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: '当月任务 (数量)'
+            }
+        },
+        legend: {
+            enabled: false
+        },
+        tooltip: {
+            pointFormat: '当月任务 (数量) <b>{point.y}</b>'
+        },
+        series: [{
+            {$year_premonth_data}
+            dataLabels: {
+                enabled: true,
+                rotation: -90,
+                color: '#FFFFFF',
+                align: 'right',
+                format: '{point.y}', // one decimal
+                y: 10, // 10 pixels down from the top
+                style: {
+                    fontSize: '13px',
+                    fontFamily: 'Verdana, sans-serif'
+                }
+            }
         }]
     });
 });
