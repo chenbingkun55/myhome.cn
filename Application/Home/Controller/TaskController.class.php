@@ -422,6 +422,9 @@ class TaskController extends Controller {
                 $process_arr['stop_total_time'] += ( $process_arr['stop_end_time'] - $process_arr['stop_start_time'] ) ;
                 $process_arr['forgo_time'] = time();
                 break;
+            case "21":
+                $process_arr = process_init($task_list['t_exp_time'],$task_list['t_date'],$task_list['t_date'] + $task_list['t_exp_time']);
+                break;
             case "61":
 				$process_arr['exp_total_time'] = $task_list['t_exp_time'];
                 $process_arr['exp_start_time'] = $task_list['t_date'];
