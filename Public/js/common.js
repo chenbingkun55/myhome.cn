@@ -149,6 +149,9 @@ $(document).ready(function(){
     });
 
     $('.task_runing_modal,.task_add_modal').on('shown.bs.modal', function (e) {
+        // Trouble: KindEditor 动态加载后,链接框不能输入.
+        $(document).off('focusin.modal');
+
         // 动态加载 KindEditor,解决不显示编辑器问题.
         $.getScript('Public/kindeditor/kindeditor.js', function() {
             KindEditor.basePath = 'Public/kindeditor/';
@@ -160,20 +163,4 @@ $(document).ready(function(){
             $(".end_datetime").datetimepicker();
         });
     });
-
-
-    //// 运行任务关闭，保存并更新为暂停
-    //$('.task_runing_modal').on('hidden.bs.modal', function (e) {
-        //// 移除动态加载的 KindEditor
-        //KindEditor.remove('textarea[name="content"]');
-        //alert()
-        ////alert('save..');
-
-		////// 原因: KindEditor编辑器无法获得提交的数据.
-		////// 解决: 添加 editor.sync(); 这一行.
-		////editor.sync();
-        ////alert("Test");
-
-		//////$("form").submit();
-    //});
 });

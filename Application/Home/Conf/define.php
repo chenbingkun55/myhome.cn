@@ -20,5 +20,6 @@
     define("STATUS_STOP",5);
     define("STATUS_FINIED",6);
     define("STATUS_DISCARD",7);
+    define("STATUS_RESTART",8);
 
     // 任务级别 1-绿色,2-蓝色,3-黄色,4-橙色,5-红色

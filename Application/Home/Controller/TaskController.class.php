@@ -221,6 +221,10 @@ class TaskController extends Controller {
         $task_lib = D('lib');
         $data = from_data();
 
+        if($data["t_status"] == STATUS_RESTART){
+            $data["t_status"] = STATUS_NOTSTART;
+        }
+
         if(strlen($data["t_id"]) == 0) {
             die("<div class=\"alert alert-danger\" role=\"alert\">".L('TASK_ID_NOT_NULL')."</div>");
         }
@@ -425,6 +429,7 @@ class TaskController extends Controller {
                 $process_arr['stop_total_time'] += ( $process_arr['stop_end_time'] - $process_arr['stop_start_time'] ) ;
                 $process_arr['forgo_time'] = time();
                 break;
+            case "68":
             case "61":
 				$process_arr['exp_total_time'] = $task_list['t_exp_time'];
                 $process_arr['exp_start_time'] = $task_list['t_date'];
@@ -448,6 +453,7 @@ class TaskController extends Controller {
             case "62":
                 $process_arr['done_time'] = "";
                 break;
+            case "78":
             case "71":
 				$process_arr['exp_total_time'] = $task_list['t_exp_time'];
                 $process_arr['exp_start_time'] = $task_list['t_date'];

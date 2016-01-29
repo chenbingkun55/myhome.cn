@@ -39,7 +39,6 @@
         var url = "/index.php/Home/Task/show?tid=" + tid;
 
         $('.search_list_modal').modal('hide');
-        $.change_to_status(tid,2);
         $('.task_runing_modal_content').load(url);
         $('.task_runing_modal').modal({
             backdrop: false,   // 点击背景不关闭 modal.

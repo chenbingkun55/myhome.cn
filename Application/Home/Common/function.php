@@ -80,6 +80,9 @@ function show_status_color( $status ){
         case STATUS_DISCARD:
             $color = "danger";
             break;
+        case STATUS_RESTART:
+            $color = "default";
+            break;
         default :
             $color = "NONE";
     }
@@ -111,6 +114,9 @@ function show_status_text( $status ){
         case STATUS_DISCARD:
             $text = "放弃";
             break;
+        case STATUS_RESTART:
+            $text = "重新开始";
+            break;
         default :
             $text = "NONE";
     }
@@ -118,10 +124,14 @@ function show_status_text( $status ){
    return $text;
 }
 
+function show_status_start(){
+    echo "<li><a href=\"#\" onClick=\"$.to_status(".STATUS_RESTART.")\"><h4><span class=\"col-md-12 label label-".show_status_color(STATUS_RESTART)." change_to_status\" type=\"button\" style=\"cursor: pointer;\">".show_status_text(STATUS_RESTART)."</span></h4></a></li>";
+}
+
 function show_status_list(){
     for($status = 1; $status < 8; $status++){
         if($status == STATUS_RUNING) continue;
-        echo "<li><a href=\"#\" onClick=\"$.to_status(".$status.")\"><h4><span class=\"col-md-12 label label-".show_status_color($status)." change_to_status\" type=\"button\">".show_status_text($status)."</span></h4></a></li>";
+        echo "<li><a href=\"#\" onClick=\"$.to_status(".$status.")\"><h4><span class=\"col-md-12 label label-".show_status_color($status)." change_to_status\" type=\"button\" style=\"cursor: pointer;\">".show_status_text($status)."</span></h4></a></li>";
     }
 }
 

@@ -1,15 +1,19 @@
 <div class="panel panel-{$task.t_level|show_level_color} runing_task_id" tid="{$task.t_id}">
-    <div class="panel-heading">
+    <div class="panel-heading" style="cursor: pointer;text-align: center;">
         <button type="button" class="close runing_task_close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-        <h3><span class="runing_task_title" style="cursor: text;">{$task.t_title|mb_substr=0,TASK_TITLE_LEN,'utf-8'}</span></h3>
-        <h4 style="display: inline;"><span class="label runing_task_level">{$task.t_level|show_level_tag}</span> &nbsp;
+        <h3><span class="runing_task_title">{$task.t_title|mb_substr=0,TASK_TITLE_LEN,'utf-8'}</span></h3>
+        <h4 style="display: inline;"><span class="label runing_task_level" style="cursor: pointer;">{$task.t_level|show_level_tag}</span> &nbsp;
             <!-- Single button -->
             <div class="btn-group">
-                <span class="label label-{$task.t_status|show_status_color} dropdown-toggle runing_task_status" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" type="button" status="{$task.t_status}">{$task.t_status|show_status_text}</span>
+                <span class="label label-{$task.t_status|show_status_color} dropdown-toggle runing_task_status" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" type="button" status="{$task.t_status}" style="cursor: pointer;">{$task.t_status|show_status_text}</span>
               <ul class="dropdown-menu">
-                  {:show_status_list()}
+                  <if condition="$task['t_status'] gt 5">
+                      {:show_status_start()}
+                  <else/>
+                      {:show_status_list()}
+                  </if>
               </ul>
             </div>
             <small><a class="btn btn-default btn_show_process" href="#" role="button">查看处理时间</a></small>
@@ -107,7 +111,7 @@
                 var tid = $('.runing_task_id').attr('tid');
                 var new_title = $('input[name="title"]').val();
 
-                $('.runing_task_title').html('<span class="panel runing_task_title" style="cursor: text;">' + new_title + '</span>');
+                $('.runing_task_title').html('<span class="panel runing_task_title" style="cursor: pointer;">' + new_title + '</span>');
                 // 修改任务标题
                 $.up_title(tid,new_title);
             });
