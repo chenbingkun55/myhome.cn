@@ -17,7 +17,7 @@
             </tr>
             <tbody>
             <foreach name="month_list" key="k" item="task">
-            <tr class="month_list_item" tid="{$task.t_id}">
+            <tr class="month_list_item" tid="{$task.t_id}" status="{$task.t_status}">
                     <td>{$k + 1}</td>
                     <td class="col-md-2">{$task.t_date|date="Y年m月d日 h:i:s",###}</td>
                     <td class="col-md-2">
@@ -54,6 +54,13 @@
 
     $('.month_list_item').dblclick(function(){
         var tid = $(this).attr('tid');
+        var status = $(this).attr('status');
+
+        // 当状态不是己完成,放弃,重新开始 时需要切换为运行.
+        if(status < 6){
+            // 修改为运行状态
+            $.change_to_status(tid,2);
+        }
         var url = "/index.php/Home/Task/show?tid=" + tid;
 
         $('.task_runing_modal_content').load(url);
