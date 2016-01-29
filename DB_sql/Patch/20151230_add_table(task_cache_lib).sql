@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 5.6.27, for Linux (x86_64)
 --
--- Host: localhost    Database: dev_myhomedb
+-- Host: localhost    Database: myhomedb
 -- ------------------------------------------------------
 -- Server version	5.6.27
 
@@ -23,17 +23,17 @@ DROP TABLE IF EXISTS `task_cache_lib`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `task_cache_lib` (
-  `T_id` int(4) unsigned DEFAULT NULL,
-  `T_date` char(12) DEFAULT NULL,
-  `T_exp_time` char(12) DEFAULT NULL COMMENT '预计用时,以秒为单位',
-  `T_title` char(100) DEFAULT NULL,
-  `T_content` text,
-  `T_level` tinyint(1) unsigned DEFAULT NULL COMMENT '1-绿色,2-蓝色,3-黄色,4-橙色,5-红色',
-  `T_status` tinyint(1) unsigned DEFAULT '1' COMMENT '(不使用0，因为0判断有问题)1-未开始,2-运行,3-暂停,4-等待,5-停止,6-完成,7-放弃',
-  `T_process` text,
-  `T_templet` tinyint(1) unsigned DEFAULT '0' COMMENT '任务模板(0=不是,1=是)',
-  `C_date` char(12) DEFAULT NULL,
-  `T_last_date` char(12) DEFAULT NULL COMMENT '最后更新时间'
+  `t_id` int(4) unsigned DEFAULT NULL,
+  `t_date` char(12) DEFAULT NULL,
+  `t_exp_time` char(12) DEFAULT NULL COMMENT '预计用时,以秒为单位',
+  `t_title` char(100) DEFAULT NULL,
+  `t_content` text,
+  `t_level` tinyint(1) unsigned DEFAULT NULL COMMENT '1-绿色,2-蓝色,3-黄色,4-橙色,5-红色',
+  `t_status` tinyint(1) unsigned DEFAULT '1' COMMENT '(不使用0，因为0判断有问题)1-未开始,2-运行,3-暂停,4-等待,5-停止,6-完成,7-放弃',
+  `t_process` text,
+  `t_templet` tinyint(1) unsigned DEFAULT '0' COMMENT '任务模板(0=不是,1=是)',
+  `c_date` char(12) DEFAULT NULL,
+  `t_last_date` char(12) DEFAULT NULL COMMENT '最后更新时间'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -55,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-12-30 15:52:33
+-- Dump completed on 2016-01-29 13:12:15
