@@ -43,6 +43,6 @@ return array(
 	//'TMPL_R_DELIM' => '}>',
     'URL_ROUTER_ON' => true,
     'URL_ROUTE_RULES' => array(
-        'show/:id\d'      => array('Index/index_show?tid=:1'),
+        'show/:id\d'      => array('Home/Task/show?tid=:1'),
     ),
 );

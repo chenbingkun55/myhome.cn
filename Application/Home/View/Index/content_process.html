@@ -45,6 +45,7 @@
                     <div class="col-md-4 task_pause_panel" tid="{$task.t_id}">
                         <div class="panel panel-{$task.t_level|show_level_color}" style="height: {:TASK_BLOCK_HEIGHT}px;overflow: hidden;">
                             <div class="panel-heading">
+                                <button type="button" class="btn btn-success btn_task_view" style="float: right;z-index: 10;" onClick="window.open ('/index.php/Home/show/{$task['t_id']}');event.stopPropagation();">查看</button>
                                 <h4>{$task.t_title|mb_substr=0,TASK_TITLE_LEN,'utf-8'}</h4>
                                 <h5 style="display: inline;">{$task.t_level|show_level_tag}
                                 <span class="label label-{$task.t_status|show_status_color}" type="button">{$task.t_status|show_status_text}</span>
@@ -97,6 +98,7 @@
                     <div class="col-md-4 task_waiting_panel" tid="{$task.t_id}">
                         <div class="panel panel-{$task.t_level|show_level_color}" style="height: {:TASK_BLOCK_HEIGHT}px;overflow: hidden;">
                             <div class="panel-heading">
+                                <button type="button" class="btn btn-success btn_task_view" style="float: right;z-index: 10;" onClick="window.open ('/index.php/Home/show/{$task['t_id']}');event.stopPropagation();">查看</button>
                                 <h4>{$task.t_title|mb_substr=0,TASK_TITLE_LEN,'utf-8'}</h4>
                                 <h5 style="display: inline;">{$task.t_level|show_level_tag}
                                 <span class="label label-{$task.t_status|show_status_color}" type="button">{$task.t_status|show_status_text}</span>
@@ -152,6 +154,7 @@
                     <div class="col-md-4 task_notstart_panel" tid="{$task.t_id}">
                         <div class="panel panel-{$task.t_level|show_level_color}" style="height: {:TASK_BLOCK_HEIGHT}px;overflow: hidden;">
                             <div class="panel-heading">
+                                <button type="button" class="btn btn-success btn_task_view" style="float: right;z-index: 10;" onClick="window.open ('/index.php/Home/show/{$task['t_id']}');event.stopPropagation();">查看</button>
                                 <h4>{$task.t_title|mb_substr=0,TASK_TITLE_LEN,'utf-8'}</h4>
                                 <h5 style="display: inline;">{$task.t_level|show_level_tag}
                                 <span class="label label-{$task.t_status|show_status_color}" type="button">{$task.t_status|show_status_text}</span>

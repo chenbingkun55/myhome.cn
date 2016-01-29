@@ -24,6 +24,7 @@
         <div class="runing_task_progress">{$task.t_process|show_progress}</div>
         <button type="button" class="btn btn-warningr btn_task_delete" style="float: right;">删除</button>
         &nbsp;
+        <button type="button" class="btn btn-success btn_task_view" style="float: right;" onClick="window.open ('/index.php/Home/show/{$task['t_id']}')">查看</button>
         &nbsp;
         <button type="button" class="btn btn-success btn_task_save" style="float: right;">保存</button>
     </div>
