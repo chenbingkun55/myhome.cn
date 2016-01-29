@@ -132,8 +132,14 @@
 
         $('.runing_task_close').click(function(){
             var tid = $('.runing_task_id').attr('tid');
-            // 修改为暂停状态
-            $.change_to_status(tid,3);
+            var status = $('.runing_task_status').attr('status');
+
+            // 当状态不是己完成,放弃,重新开始 时需要切换为暂停.
+            if(status < 6){
+                // 修改为暂停状态
+                $.change_to_status(tid,3);
+            }
+
             <if condition="(TASK_CACHE eq 'yes') or (TASK_CACHE eq 'YES')">
                 // 关闭按钮时保存缓存功能.
                 if(in_edit) {
