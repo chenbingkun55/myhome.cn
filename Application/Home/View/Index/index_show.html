@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <TITLE> {$task.t_title} </TITLE>
+
+    <!-- Bootstrap -->
+    <link href="__PUBLIC__/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+    <!-- Task Css -->
+    <link href="__PUBLIC__/css/common.css" rel="stylesheet">
+    <link href="__PUBLIC__/css/task.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="__PUBLIC__/html5shiv/html5shiv.min.js"></script>
+      <script src="__PUBLIC__/respond.js/respond.min.js"></script>
+    <![endif]-->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="__PUBLIC__/jquery/jquery.min.js"></script>
+    <!-- Highcharts -->
+    <script src="__PUBLIC__/highcharts/js/highcharts.js"></script>
+  </head>
+  <body>
+    <div class="panel panel-{$task.t_level|show_level_color} index_show_task_id" tid="{$task.t_id}">
+        <div class="panel-heading" style="text-align: center;">
+            <button type="button" class="close index_show_close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h3><span class="index_show_task_title">{$task.t_title|mb_substr=0,TASK_TITLE_LEN,'utf-8'}</span></h3>
+            <h4 style="display: inline;"><small>TaskID: {$task.t_id}</small><span class="label index_show_task_level">{$task.t_level|show_level_tag}</span> &nbsp;
+                <!-- Single button -->
+                <div class="btn-group">
+                    <span class="label label-{$task.t_status|show_status_color} index_show_task_status" type="button" status="{$task.t_status}">{$task.t_status|show_status_text}</span>
+                </div>
+                <small><a class="btn btn-default btn_show_process" href="#" role="button">查看处理时间</a></small>
+                &nbsp;<small>预计开始时间: {$task.t_date|date="Y年m月d日 h:i:s",###}</small>
+                &nbsp;<small>预计用时: {$task.t_exp_time|show_time}</small>
+                </h5>
+            <div class="index_show_task_process" style="display: none;">{$task.t_process|show_process}</div>
+            <div class="index_show_task_progress">{$task.t_process|show_progress}</div>
+        </div>
+        <div class="panel-body">
+            <div class="container-fluid">
+              <textarea name="content" style="width:100%;">{$task['t_content']}</textarea><BR/>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            $('textarea[name="content"]').css('height',(0.75 * $(window).height()));
+
+            var editor;
+			KindEditor.ready(function(K) {
+				editor = K.create('textarea[name="content"]', {
+					resizeType : 1,
+					allowPreviewEmoticons : false,
+					allowImageUpload : false,
+                    readonlyMode : true,
+					items : [
+						'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
+						'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+						'insertunorderedlist', '|', 'emoticons', 'image', 'link']
+				});
+			});
+
+            $('.btn_show_process').click(function(){
+                $('.index_show_task_process').slideToggle();
+            });
+
+            $('.index_show_close').click(function(){
+                window.opener=null;
+                window.open('','_self');
+                window.close();
+            });
+        });
+    </script>
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="__PUBLIC__/bootstrap/js/transition.js"></script>
+    <script src="__PUBLIC__/bootstrap/js/collapse.js"></script>
+    <script src="__PUBLIC__/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <!--<script src="__PUBLIC__/bootstrap/dist/js/ie10-viewport-bug-workaround.js"></script>-->
+    <!-- Kindeditor Edit -->
+    <script src="__PUBLIC__/kindeditor/kindeditor.js"></script>
+    <script src="__PUBLIC__/kindeditor/lang/zh_CN.js"></script>
+    <!-- Public JS -->
+    <script src="__PUBLIC__/js/common.js"></script>
+  </body>
+</html>

@@ -188,10 +188,16 @@ class IndexController extends Controller {
         return $task_lib->where($where)->field($field)->select();
     }
 
-    public function overview(){
-        $this->title = (C("DEBUG_MODE") == 1 ) ? "[Dev]任务概要" : "任务概要";
+    public function index_show(){
         $task_lib = D('lib');
-        $task_list = $task_lib->field($field)->select();
+        $data = from_data();
+
+        if(strlen($data["t_id"]) == 0) {
+            die("<div class=\"alert alert-danger\" role=\"alert\">".L('TASK_ID_NOT_NULL')."</div>");
+        }
+
+        $field = "t_id,t_date,t_process,t_exp_time,t_title,t_level,t_status,t_content";
+        $this->task = $task_lib->field($field)->find($data['t_id']);
 
 		$this->display();
     }
