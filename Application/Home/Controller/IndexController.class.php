@@ -11,7 +11,7 @@ class IndexController extends Controller {
         $where = "t_status < 6";
         $where_month = "t_date > ".strtotime(date("Y-m-01"))." AND t_date < ".strtotime(date("Y-m-t"));
 
-        $this->month_list = $task_lib->where($where_month)->field($field)->select();
+        $this->month_list = $task_lib->where($where_month)->field($field)->order("t_date desc")->select();
         $this->unfinished_task = $task_lib->where($where)->field($field)->order("t_level desc")->select();
         $this->unfinished_task_level_group = $task_lib->where($where)->field($field_level)->group("t_level")->order("t_level")->select();
         $this->unfinished_task_status_group = $task_lib->where($where)->field($field_status)->group("t_status")->order("t_status")->select();
