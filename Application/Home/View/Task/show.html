@@ -1,10 +1,10 @@
 <div class="panel panel-{$task.t_level|show_level_color} runing_task_id" tid="{$task.t_id}">
-    <div class="panel-heading" style="cursor: pointer;text-align: center;">
+    <div class="panel-heading" style="text-align: center;">
         <button type="button" class="close runing_task_close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-        <h3><span class="runing_task_title">{$task.t_title|mb_substr=0,TASK_TITLE_LEN,'utf-8'}</span></h3>
-        <h4 style="display: inline;"><span class="label runing_task_level" style="cursor: pointer;">{$task.t_level|show_level_tag}</span> &nbsp;
+        <h3 style="cursor: pointer;"><span class="runing_task_title">{$task.t_title|mb_substr=0,TASK_TITLE_LEN,'utf-8'}</span></h3>
+        <h4 style="display: inline;"><small>TaskID: {$task.t_id}</small><span class="label runing_task_level" style="cursor: pointer;">{$task.t_level|show_level_tag}</span> &nbsp;
             <!-- Single button -->
             <div class="btn-group">
                 <span class="label label-{$task.t_status|show_status_color} dropdown-toggle runing_task_status" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" type="button" status="{$task.t_status}" style="cursor: pointer;">{$task.t_status|show_status_text}</span>
@@ -134,12 +134,6 @@
             var tid = $('.runing_task_id').attr('tid');
             var status = $('.runing_task_status').attr('status');
 
-            // 当状态不是己完成,放弃,重新开始 时需要切换为暂停.
-            if(status < 6){
-                // 修改为暂停状态
-                $.change_to_status(tid,3);
-            }
-
             <if condition="(TASK_CACHE eq 'yes') or (TASK_CACHE eq 'YES')">
                 // 关闭按钮时保存缓存功能.
                 if(in_edit) {
@@ -148,9 +142,15 @@
             </if>
 
             // 移除动态加载的 KindEditor
-            KindEditor.remove('textarea[name="content"]');
+            //KindEditor.remove('textarea[name="content"]');
             $('.task_runing_modal').modal('hide');
-            window.location.reload();
+
+            // 当状态不是己完成,放弃,重新开始 时需要切换为暂停.
+            if(status < 6){
+                // 修改为暂停状态
+                $.change_to_status(tid,3);
+                window.location.reload();
+            }
         });
     });
 </script>
