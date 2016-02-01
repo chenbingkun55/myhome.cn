@@ -64,7 +64,7 @@
     };
 
     $(document).ready(function(){
-        $('textarea[name="content"]').css('height',(0.75*document.body.clientHeight));
+        $('textarea[name="content"]').css('height',(0.75* $(window).height()));
 
         // 开启 Kindeditor 编辑模式。
         $('.panel-body').click(function(){
