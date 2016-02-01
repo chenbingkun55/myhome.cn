@@ -89,6 +89,30 @@ $(document).ready(function(){
         });
     }});
 
+    // List 当个月
+    $.extend({current_month_list:function(){
+        var url = "/index.php/Home/Index/content_list";
+
+        $('#list').load(url,{get_list: "",list_date: ""});
+    }});
+
+    // List 下一个月
+    $.extend({next_month_list:function(){
+        var list_date = $('.month_list_date').attr('list_date');
+        var url = "/index.php/Home/Index/content_list";
+
+        $('#list').load(url,{get_list: "next",list_date: list_date});
+    }});
+
+    // List 上一个月
+    $.extend({last_month_list:function(){
+        var list_date = $('.month_list_date').attr('list_date');
+        var url = "/index.php/Home/Index/content_list";
+
+        $('#list').load(url,{get_list: "last",list_date: list_date});
+    }});
+
+
     // 获取Level 列表
     $('.get_level_list').click(function(){
         var level = $(this).attr('level');

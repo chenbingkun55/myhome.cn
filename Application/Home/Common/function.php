@@ -228,6 +228,8 @@ function from_data(){
         "templet" => "t_templet",
         "is_close" => "is_close",
         "search" => "search",
+        "list_date" => "list_date",
+        "get_list" => "get_list",
     );
 
     $data = array();

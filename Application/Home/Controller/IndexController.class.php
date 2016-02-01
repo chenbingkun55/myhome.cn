@@ -207,9 +207,36 @@ class IndexController extends Controller {
 
     public function content_list(){
         $task_lib = D('lib');
+        $data = from_data();
+        $list_date = $data['list_date'];
+        $get_list = $data['get_list'];
+        $start_date = "";
+        $end_date = "";
+
+        switch($get_list){
+            case "next":
+                $start_date = strtotime(date($list_date."-01")." +1 month");
+                $end_date = strtotime(date($list_date."-t")." +1 month");
+                break;
+            case "last":
+                $start_date = strtotime(date($list_date."-01")." -1 month");
+                $end_date = strtotime(date($list_date."-t")."  -1 month");
+                break;
+            default:
+                $start_date = strtotime(date("Y-m-01"));
+                $end_date = strtotime(date("Y-m-t"));
+                break;
+        }
+
+        if(strlen($get_list) == 0 || strlen($list_date) == 0) {
+            $start_date = strtotime(date("Y-m-01"));
+            $end_date = strtotime(date("Y-m-t"));
+        }
+
         $field = "t_id,t_date,t_title,t_level,t_exp_time,t_process,t_status";
-        $where_month = "t_date > ".strtotime(date("Y-m-01"))." AND t_date < ".strtotime(date("Y-m-t"));
+        $where_month = "t_date > ".$start_date." AND t_date < ".$end_date;
         $this->month_list = $task_lib->where($where_month)->field($field)->order("t_date desc")->select();
+        $this->list_date = date("Y-m",$start_date);
 
         $this->display();
     }
