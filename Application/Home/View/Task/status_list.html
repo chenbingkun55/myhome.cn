@@ -31,14 +31,14 @@
 
 <script>
     $('.status_list_close').click(function(){
-        $('.status_list_modal').modal('hide');
+        $('.commont_modal').modal('hide');
     });
 
     $('.status_list_item').dblclick(function(){
         var tid = $(this).attr('tid');
         var url = "/index.php/Home/Task/show?tid=" + tid;
 
-        $('.status_list_modal').modal('hide');
+        $('.commont_modal').modal('hide');
         $.change_to_status(tid,2);
         $('.task_runing_modal_content').load(url);
         $('.task_runing_modal').modal({

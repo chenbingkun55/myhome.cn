@@ -11,8 +11,8 @@ $(document).ready(function(){
     $.extend({task_add:function(tid){
         var url = "/index.php/Home/Task/add?tid=" + tid;
 
-        $('.task_add_modal_content').load(url);
-        $('.task_add_modal').modal({
+        $('.commont_modal_content').load(url);
+        $('.commont_modal').modal({
             backdrop: false,   // 点击背景不关闭 modal.
             show: true
         });
@@ -94,8 +94,8 @@ $(document).ready(function(){
         var level = $(this).attr('level');
         var url = "/index.php/Home/Task/level_list?level=" + level;
 
-        $('.level_list_modal_content').load(url);
-        $('.level_list_modal').modal({
+        $('.commont_modal_content').load(url);
+        $('.commont_modal').modal({
             //backdrop: false,   // 点击背景不关闭 modal.
             show: true
         });
@@ -106,8 +106,8 @@ $(document).ready(function(){
         var status = $(this).attr('status');
         var url = "/index.php/Home/Task/status_list?status=" + status;
 
-        $('.status_list_modal_content').load(url);
-        $('.status_list_modal').modal({
+        $('.commont_modal_content').load(url);
+        $('.commont_modal').modal({
             //backdrop: false,   // 点击背景不关闭 modal.
             show: true
         });
@@ -127,8 +127,8 @@ $(document).ready(function(){
             var search_str = $(this).val();
             var url = "/index.php/Home/Task/search_list";
 
-            $('.search_list_modal_content').load(url,{search: search_str});
-            $('.search_list_modal').modal({
+            $('.commont_modal_content').load(url,{search: search_str});
+            $('.commont_modal').modal({
                 //backdrop: false,   // 点击背景不关闭 modal.
                 show: true
             });
@@ -148,7 +148,7 @@ $(document).ready(function(){
         });
     });
 
-    $('.task_runing_modal,.task_add_modal').on('shown.bs.modal', function (e) {
+    $('.task_runing_modal,.commont_modal').on('shown.bs.modal', function (e) {
         // Trouble: KindEditor 动态加载后,链接框不能输入.
         $(document).off('focusin.modal');
 

@@ -31,14 +31,14 @@
 
 <script>
     $('.search_list_close').click(function(){
-        $('.search_list_modal').modal('hide');
+        $('.commont_modal').modal('hide');
     });
 
     $('.search_list_item').dblclick(function(){
         var tid = $(this).attr('tid');
         var url = "/index.php/Home/Task/show?tid=" + tid;
 
-        $('.search_list_modal').modal('hide');
+        $('.commont_modal').modal('hide');
         $('.task_runing_modal_content').load(url);
         $('.task_runing_modal').modal({
             backdrop: false,   // 点击背景不关闭 modal.
