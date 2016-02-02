@@ -41,4 +41,8 @@ return array(
 
 	//'TMPL_L_DELIM' => '<{',
 	//'TMPL_R_DELIM' => '}>',
+    'URL_ROUTER_ON' => true,
+    'URL_ROUTE_RULES' => array(
+        'show/:id\d'      => array('Home/Index/index_show?tid=:1'),
+    ),
 );

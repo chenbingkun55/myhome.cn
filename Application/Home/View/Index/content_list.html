@@ -1,9 +1,9 @@
 <div class="row">
     <div class="panel panel-default">
-      <div class="panel-heading">
-        <button class="btn btn-default next-month" type="button"><</button>
-        <span class="label label-default month_task_text" style="font-size: 16px;">当月任务列表</span>
-        <button class="btn btn-default last-month" type="button">></button>
+      <div class="panel-headin month_list_date" list_date="{$list_date}">
+        <button class="btn btn-default" type="button" onClick="$.last_month_list();"><</button>
+        <button class="btn btn-success" type="button" onclick="$.current_month_list();">{$list_date}月 任务列表</button>
+        <button class="btn btn-default" type="button" onclick="$.next_month_list();">></button>
       </div>
       <div class="panel-body">
         <table class="table table-hover">
@@ -42,11 +42,6 @@
 
 <script>
     $(document).ready(function(){
-        $('.next-month').click(function(){
-            var url = "/index.php/Home/Task/month_list";
-
-            $('#templet_menu').load(url);
-        });
 
         $('.last-month').click(function(){
         });

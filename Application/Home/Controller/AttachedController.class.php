@@ -8,9 +8,9 @@ class AttachedController extends Controller {
 		$php_url = dirname($_SERVER['PHP_SELF']) . '/';
 
 		//文件保存目录路径
-		$save_path = $_SERVER['DOCUMENT_ROOT']."/myt/attached/";
+		$save_path = $_SERVER['DOCUMENT_ROOT']."/attached/";
 		//文件保存目录URL
-		$save_url = '/myt/attached/';
+		$save_url = '/attached/';
 		//定义允许上传的文件扩展名
 		$ext_arr = array(
 			'image' => array('gif', 'jpg', 'jpeg', 'png', 'bmp'),
@@ -133,9 +133,9 @@ class AttachedController extends Controller {
 		$php_url = dirname($_SERVER['PHP_SELF']) . '/';
 
 		//根目录路径，可以指定绝对路径，比如 /var/www/attached/
-		$root_path = $_SERVER['DOCUMENT_ROOT']."/myt/attached/";
+		$root_path = $_SERVER['DOCUMENT_ROOT']."/attached/";
 		//根目录URL，可以指定绝对路径，比如 http://www.yoursite.com/attached/
-		$root_url = $php_url . '/myt/attached/';
+		$root_url = $php_url . '/attached/';
 		//图片扩展名
 		$ext_arr = array('gif', 'jpg', 'jpeg', 'png', 'bmp');
 

@@ -45,6 +45,7 @@
                     <div class="col-md-4 task_pause_panel" tid="{$task.t_id}">
                         <div class="panel panel-{$task.t_level|show_level_color}" style="height: {:TASK_BLOCK_HEIGHT}px;overflow: hidden;">
                             <div class="panel-heading">
+                                <button type="button" class="btn btn-success btn_task_view" style="float: right;z-index: 10;" onClick="window.open ('/index.php/Home/show/{$task['t_id']}');event.stopPropagation();">查看</button>
                                 <h4>{$task.t_title|mb_substr=0,TASK_TITLE_LEN,'utf-8'}</h4>
                                 <h5 style="display: inline;">{$task.t_level|show_level_tag}
                                 <span class="label label-{$task.t_status|show_status_color}" type="button">{$task.t_status|show_status_text}</span>
@@ -86,35 +87,36 @@
             <?PHP $bool=false; $i=1;?>
             <foreach name="unfinished_task" key="k" item="task">
                 <if condition="$task['t_status'] eq STATUS_WAITING">
-                <if condition="$bool eq false">
-                  <if condition="$i eq 1">
-                      <div class="item active">
-                  <else />
-                      <div class="item">
-                  </if>
-                </if>
-                    <?PHP $bool=true;?>
-                    <div class="col-md-4 task_waiting_panel" tid="{$task.t_id}">
-                        <div class="panel panel-{$task.t_level|show_level_color}" style="height: {:TASK_BLOCK_HEIGHT}px;overflow: hidden;">
-                            <div class="panel-heading">
-                                <h4>{$task.t_title|mb_substr=0,TASK_TITLE_LEN,'utf-8'}</h4>
-                                <h5 style="display: inline;">{$task.t_level|show_level_tag}
-                                <span class="label label-{$task.t_status|show_status_color}" type="button">{$task.t_status|show_status_text}</span>
-                                <small>创建时间: {$task.t_date|date="Y年m月d日 h:i:s",###}</small></h5>
-                            </div>
-                            <div class="progress">
-                                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: {$precent_arr[$task['t_id']]}%">
-                                    {$precent_arr[$task['t_id']]}%
+                    <if condition="$bool eq false">
+                      <if condition="$i eq 1">
+                          <div class="item active">
+                      <else />
+                          <div class="item">
+                      </if>
+                    </if>
+                        <?PHP $bool=true;?>
+                        <div class="col-md-4 task_waiting_panel" tid="{$task.t_id}">
+                            <div class="panel panel-{$task.t_level|show_level_color}" style="height: {:TASK_BLOCK_HEIGHT}px;overflow: hidden;">
+                                <div class="panel-heading">
+                                    <button type="button" class="btn btn-success btn_task_view" style="float: right;z-index: 10;" onClick="window.open ('/index.php/Home/show/{$task['t_id']}');event.stopPropagation();">查看</button>
+                                    <h4>{$task.t_title|mb_substr=0,TASK_TITLE_LEN,'utf-8'}</h4>
+                                    <h5 style="display: inline;">{$task.t_level|show_level_tag}
+                                    <span class="label label-{$task.t_status|show_status_color}" type="button">{$task.t_status|show_status_text}</span>
+                                    <small>创建时间: {$task.t_date|date="Y年m月d日 h:i:s",###}</small></h5>
                                 </div>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: {$precent_arr[$task['t_id']]}%">
+                                        {$precent_arr[$task['t_id']]}%
+                                    </div>
+                                </div>
+                                <div class="panel-body"></div>
                             </div>
-                            <div class="panel-body"></div>
                         </div>
-                    </div>
-                <if condition="($i % TASK_WAITING_SLIDE_NUMBER) eq 0">
-                  <?PHP $bool=false; ?>
-                  </div>
-                </if>
-                <?PHP $i++; ?>
+                    <if condition="($i % TASK_WAITING_SLIDE_NUMBER) eq 0">
+                      <?PHP $bool=false; ?>
+                      </div>
+                    </if>
+                    <?PHP $i++; ?>
                 </if>
             </foreach>
        </div>
@@ -123,7 +125,6 @@
           data-slide="prev">&lsaquo;</a>
        <a class="carousel-control right" href="#slide_waiting"
           data-slide="next">&rsaquo;</a>
-       </div>
   </div>
 </div>
 
@@ -152,6 +153,7 @@
                     <div class="col-md-4 task_notstart_panel" tid="{$task.t_id}">
                         <div class="panel panel-{$task.t_level|show_level_color}" style="height: {:TASK_BLOCK_HEIGHT}px;overflow: hidden;">
                             <div class="panel-heading">
+                                <button type="button" class="btn btn-success btn_task_view" style="float: right;z-index: 10;" onClick="window.open ('/index.php/Home/show/{$task['t_id']}');event.stopPropagation();">查看</button>
                                 <h4>{$task.t_title|mb_substr=0,TASK_TITLE_LEN,'utf-8'}</h4>
                                 <h5 style="display: inline;">{$task.t_level|show_level_tag}
                                 <span class="label label-{$task.t_status|show_status_color}" type="button">{$task.t_status|show_status_text}</span>

@@ -12,11 +12,43 @@
     <div id="navbar" class="collapse navbar-collapse">
       <ul id="myTabs" class="nav navbar-nav" role="tablist">
         <li><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">主页</a></li>
-        <li><a href="#list" role="tab" id="overview-tab" data-toggle="tab" aria-controls="list">任务列表</a></li>
-        <li class="active"><a href="#process" role="tab" id="process-tab" data-toggle="tab" aria-controls="process">处理中心</a></li>
+        <li><a href="#list" role="tab" id="list-tab" data-toggle="tab" aria-controls="list">任务列表</a></li>
+        <li class="active"><a href="#process" role="tab" id="process-tab" data-toggle="tab" aria-controls="process" >处理中心</a></li>
         <li><a href="#help" role="tab" id="help-tab" data-toggle="tab" aria-controls="help">帮助(F1)</a></li>
         <li><input type="text" class="search-query search_task" placeholder="Search"></li>
       </ul>
     </div><!--/.nav-collapse -->
   </div>
 </nav>
+
+<script type="text/javascript" charset="utf-8">
+
+    $('document').ready(function(){
+        // 加载 Home 页。
+        $('#home-tab').click(function(){
+            var url = "{:U('Index/content_home')}";
+
+            $('#home').load(url);
+        });
+
+        // 加载 List页。
+        $('#list-tab').click(function(){
+            var url = "{:U('Index/content_list')}";
+
+            $('#list').load(url);
+        });
+
+        // 加载 Process页。[Troube：load后js不执行。]
+        //$('#process-tab').click(function(){
+        //    var url = "{:U('Index/content_process')}";
+        //    $('#process').load(url);
+        //});
+
+        // 加载 Help页。
+        $('#help-tab').click(function(){
+            var url = "{:U('Index/content_help')}";
+
+            $('#help').load(url);
+        });
+    });
+</script>

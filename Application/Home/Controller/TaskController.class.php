@@ -132,7 +132,7 @@ class TaskController extends Controller {
             die("<div class=\"alert alert-danger\" role=\"alert\">".L('TASK_LEVEL_NOT_NULL')."</div>");
         }
 
-        $this->level_list = $task_lib->where($where)->field($field)->select();
+        $this->level_list = $task_lib->where($where)->field($field)->order("t_date desc")->select();
 
         if( ! is_array($this->level_list)) {
             die("<div class=\"alert alert-danger\" role=\"alert\">".L('LEVEL_LIST_NULL')."</div>");
@@ -151,7 +151,7 @@ class TaskController extends Controller {
             die("<div class=\"alert alert-danger\" role=\"alert\">".L('TASK_STATUS_NOT_NULL')."</div>");
         }
 
-        $this->status_list = $task_lib->where("t_status = ".$data["t_status"])->field($field)->select();
+        $this->status_list = $task_lib->where("t_status = ".$data["t_status"])->field($field)->order("t_date desc")->select();
 
         if( ! is_array($this->status_list)) {
             die("<div class=\"alert alert-danger\" role=\"alert\">".L('STATUS_LIST_NULL')."</div>");

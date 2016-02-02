@@ -9,18 +9,10 @@ class IndexController extends Controller {
         $field_level = "t_level,count(*) AS total";
         $field_status = "t_status,count(*) AS total";
         $where = "t_status < 6";
-        $where_month = "t_date > ".strtotime(date("Y-m-01"))." AND t_date < ".strtotime(date("Y-m-t"));
 
-        $this->month_list = $task_lib->where($where_month)->field($field)->select();
         $this->unfinished_task = $task_lib->where($where)->field($field)->order("t_level desc")->select();
         $this->unfinished_task_level_group = $task_lib->where($where)->field($field_level)->group("t_level")->order("t_level")->select();
         $this->unfinished_task_status_group = $task_lib->where($where)->field($field_status)->group("t_status")->order("t_status")->select();
-        $this->all_level_data = $this->all_level_chart_data();
-        $this->current_month_level_data = $this->current_month_level_chart_data();
-        $this->all_status_data = $this->all_status_chart_data();
-        $this->current_month_status_data = $this->current_month_status_chart_data();
-        $this->unfinished_status_data = $this->unfinished_status_chart_data();
-        $this->year_premonth_data = $this->year_premonth_chart_column_data();
 
         $temp_arr = array();
         foreach($this->unfinished_task as  $v){
@@ -155,7 +147,7 @@ class IndexController extends Controller {
         $all_total = 0;
         $is_firest = true;
 
-        
+
         for($i = 0; $i < 12 ; $i++){
             $start_date = strtotime(date("Y-m-01",strtotime('-'.$i.' month')));
             $end_date = strtotime(date("Y-m-t",strtotime('-'.$i.' month')));
@@ -188,10 +180,77 @@ class IndexController extends Controller {
         return $task_lib->where($where)->field($field)->select();
     }
 
-    public function overview(){
-        $this->title = (C("DEBUG_MODE") == 1 ) ? "[Dev]任务概要" : "任务概要";
+    public function content_help(){
+        $this->display();
+    }
+
+    public function content_process(){
+    }
+
+    public function content_home(){
         $task_lib = D('lib');
-        $task_list = $task_lib->field($field)->select();
+        $field_level = "t_level,count(*) AS total";
+        $field_status = "t_status,count(*) AS total";
+        $where = "t_status < 6";
+
+        $this->unfinished_task_level_group = $task_lib->where($where)->field($field_level)->group("t_level")->order("t_level")->select();
+        $this->unfinished_task_status_group = $task_lib->where($where)->field($field_status)->group("t_status")->order("t_status")->select();
+        $this->all_level_data = $this->all_level_chart_data();
+        $this->current_month_level_data = $this->current_month_level_chart_data();
+        $this->all_status_data = $this->all_status_chart_data();
+        $this->current_month_status_data = $this->current_month_status_chart_data();
+        $this->unfinished_status_data = $this->unfinished_status_chart_data();
+        $this->year_premonth_data = $this->year_premonth_chart_column_data();
+
+        $this->display();
+    }
+
+    public function content_list(){
+        $task_lib = D('lib');
+        $data = from_data();
+        $list_date = $data['list_date'];
+        $get_list = $data['get_list'];
+        $start_date = "";
+        $end_date = "";
+
+        switch($get_list){
+            case "next":
+                $start_date = strtotime(date($list_date."-01")." +1 month");
+                $end_date = strtotime(date($list_date."-t")." +1 month");
+                break;
+            case "last":
+                $start_date = strtotime(date($list_date."-01")." -1 month");
+                $end_date = strtotime(date($list_date."-t")."  -1 month");
+                break;
+            default:
+                $start_date = strtotime(date("Y-m-01"));
+                $end_date = strtotime(date("Y-m-t"));
+                break;
+        }
+
+        if(strlen($get_list) == 0 || strlen($list_date) == 0) {
+            $start_date = strtotime(date("Y-m-01"));
+            $end_date = strtotime(date("Y-m-t"));
+        }
+
+        $field = "t_id,t_date,t_title,t_level,t_exp_time,t_process,t_status";
+        $where_month = "t_date > ".$start_date." AND t_date < ".$end_date;
+        $this->month_list = $task_lib->where($where_month)->field($field)->order("t_date desc")->select();
+        $this->list_date = date("Y-m",$start_date);
+
+        $this->display();
+    }
+
+    public function index_show(){
+        $task_lib = D('lib');
+        $data = from_data();
+
+        if(strlen($data["t_id"]) == 0) {
+            die("<div class=\"alert alert-danger\" role=\"alert\">".L('TASK_ID_NOT_NULL')."</div>");
+        }
+
+        $field = "t_id,t_date,t_process,t_exp_time,t_title,t_level,t_status,t_content";
+        $this->task = $task_lib->field($field)->find($data['t_id']);
 
 		$this->display();
     }
