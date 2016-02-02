@@ -234,9 +234,19 @@ class IndexController extends Controller {
         }
 
         $field = "t_id,t_date,t_title,t_level,t_exp_time,t_process,t_status";
+        $where = "t_status < 6";
         $where_month = "t_date > ".$start_date." AND t_date < ".$end_date;
-        $this->month_list = $task_lib->where($where_month)->field($field)->order("t_date desc")->select();
+
         $this->list_date = date("Y-m",$start_date);
+        $this->month_list = $task_lib->where($where_month)->field($field)->order("t_date desc")->select();
+        $this->unfinished_task = $task_lib->where($where)->field($field)->order("t_level desc")->select();
+
+        $temp_arr = array();
+        foreach($this->unfinished_task as  $v){
+           $process_arr =  json_decode($v['t_process'], true);
+            $temp_arr[$v['t_id']] = get_progress_num($v['t_exp_time'],$process_arr['run_total_time']);
+        }
+        $this->precent_arr = $temp_arr;
 
         $this->display();
     }
