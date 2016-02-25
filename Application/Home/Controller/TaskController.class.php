@@ -70,11 +70,12 @@ class TaskController extends Controller {
         $data = from_data();
         $field = "t_title,t_level,t_status,t_content";
         $where = "t_templet = 1 AND t_id = ".$data["t_id"];
-        if(strlen($data["t_id"]) == 0) {
-            die("<div role=\"alert\" class=\"alert alert-danger alert-dismissible fade in\"> <button aria-label=\"Close\" data-dismiss=\"alert\" class=\"close\" type=\"button\"><span aria-hidden=\"true\">×</span></button>".L('TASK_ID_NOT_NULL')."</div>");
+
+        $this->templet_task = NULL;
+        if(strlen($data["t_id"]) != 0) {
+            $this->templet_task = $task_lib->where($where)->field($field)->find();
         }
 
-        $this->templet_task = $task_lib->where($where)->field($field)->find();
         $this->display();
     }
 

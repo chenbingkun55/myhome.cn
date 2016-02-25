@@ -39,7 +39,7 @@
     var editor;
     var in_edit = false;
     var kindeditor_options = {
-            uploadJson : '/index.php/Home/Attached/upload/date/{$task['t_date']|date="Y-m-d",###}',
+            uploadJson : '/index.php/Home/Attached/upload/date/{$task['t_id']}',
             fileManagerJson : '/index.php/Home/Attached/manager/',
             allowFileManager : false,
             readonlyMode : true,
