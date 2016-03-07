@@ -58,10 +58,10 @@ class TaskController extends Controller {
 
         $templet_list = $task_lib->where($where)->select();
 
-        echo "<li><a href=\"#\" onClick=\"$.task_add(0);\">".$index_num." - 空模板</a></li>";
+        echo "<li><div class=\"row\" style=\"white-space: nowrap; margin: 2px 0px;\"><div type=\"button\" class=\"btn btn-link\" onClick=\"$.task_add(0);\">".$index_num." - 空模板</div></div></li>";
         foreach($templet_list as $item){
             $index_num++;
-            echo "<li><a href=\"#\" onClick=\"$.task_add(".$item['t_id'].");\">".$index_num." - ".$item['t_title']."</a></li>";
+            echo "<li><div class=\"row\" style=\"white-space: nowrap;margin: 2px 0px;\"><div type=\"button\" class=\"btn btn-link col-sm-8\" style=\"text-align: left;\" onClick=\"$.task_add(".$item['t_id'].");\">".$index_num." - ".$item['t_title']."</div><div type=\"button\" class=\"btn btn-warning btn-xs\" onClick=\"$.task_show(".$item['t_id'].");\" style=\"float: right;\">".L('TASK_TEMPLET_EDIT')."</div></div></li>";
         }
     }
 

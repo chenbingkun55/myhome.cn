@@ -8,4 +8,5 @@ return array(
     'QUERY_MODE_DENY'       => '请求方式不允许.',
     'TASK_SAVE_SUCCESS'       => '内容己保存.',
     'TASK_SAVE_FIALD'       => '内容保存失败.',
+    'TASK_TEMPLET_EDIT'       => '编辑',
 );

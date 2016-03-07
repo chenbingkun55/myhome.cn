@@ -8,6 +8,16 @@ $(document).ready(function(){
            alert(notify_text);
     }});
 
+    $.extend({task_show:function(tid){
+        var url = "/index.php/Home/Task/show?tid=" + tid;
+
+        $('.task_runing_modal_content').load(url);
+        $('.task_runing_modal').modal({
+            backdrop: false,   // 点击背景不关闭 modal.
+            show: true
+        });
+    }});
+
     $.extend({task_add:function(tid){
         var url = "/index.php/Home/Task/add?tid=" + tid;
 
@@ -162,14 +172,9 @@ $(document).ready(function(){
     // 开始执行任务，打开运行任务弹窗
     $('.task_pause_panel,.task_waiting_panel,.task_notstart_panel').click(function(){
         var tid = $(this).attr('tid');
-        var url = "/index.php/Home/Task/show?tid=" + tid;
 
         $.change_to_status(tid,2);
-        $('.task_runing_modal_content').load(url);
-        $('.task_runing_modal').modal({
-            backdrop: false,   // 点击背景不关闭 modal.
-            show: true
-        });
+        $.task_show(tid);
     });
 
     $('.task_runing_modal,.commont_modal').on('shown.bs.modal', function (e) {

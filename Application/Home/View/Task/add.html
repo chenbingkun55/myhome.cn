@@ -62,7 +62,7 @@
         <div class="panel-body">
             <div class="container-fluid">
               <div class="form-group">
-                  <textarea name="content" style="width:100%;" value="{$templet_task['t_content']}"></textarea><BR/>
+                  <textarea name="content" style="width:100%;">{$templet_task['t_content']}</textarea><BR/>
               </div>
             </div>
         </div>
@@ -95,7 +95,8 @@
         afterChange : function() {
             // alert(in_edit);
             //in_edit = true;
-        }
+        },
+        //afterBlur: function() { this.sync(); }
     };
 
     $(document).ready(function(){
